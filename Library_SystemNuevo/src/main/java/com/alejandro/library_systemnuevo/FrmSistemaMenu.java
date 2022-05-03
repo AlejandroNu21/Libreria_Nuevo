@@ -368,8 +368,8 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                         .addComponent(jLabel75))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(94, 94, 94)
-                        .addComponent(lblImagenGif, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(153, Short.MAX_VALUE))
+                        .addComponent(lblImagenGif, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
