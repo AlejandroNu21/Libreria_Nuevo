@@ -260,7 +260,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 51, 255));
 
         btnAgregarLibro.setBackground(new java.awt.Color(51, 153, 255));
-        btnAgregarLibro.setText("Agregar Libro");
+        btnAgregarLibro.setText("Libro");
         btnAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarLibroActionPerformed(evt);
