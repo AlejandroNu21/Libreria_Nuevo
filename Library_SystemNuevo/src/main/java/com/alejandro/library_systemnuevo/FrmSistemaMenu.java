@@ -8,9 +8,11 @@ import Beans.Cliente;
 import Beans.DatosEscritores;
 import Beans.Editorials;
 import Beans.Escritores;
+import Beans.Lectores;
 import Entidades.DatosEscritor;
 import Entidades.Editorial;
 import Entidades.Escritor;
+import Entidades.Lector;
 import Entidades.clientes;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -178,7 +180,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         txtIdLector = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
         jLabel53 = new javax.swing.JLabel();
-        btnCancelar1 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
@@ -1145,16 +1146,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel53.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel53.setText("Nombre ");
 
-        btnCancelar1.setBackground(java.awt.Color.blue);
-        btnCancelar1.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
-        btnCancelar1.setForeground(new java.awt.Color(254, 254, 255));
-        btnCancelar1.setText("Cancelar");
-        btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelar1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1171,8 +1162,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                                 .addGap(128, 128, 128)
-                                .addComponent(btnCancelar1)
-                                .addGap(73, 73, 73)
                                 .addComponent(btnAgregar2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(23, 23, 23))
                             .addGroup(jPanel8Layout.createSequentialGroup()
@@ -1254,7 +1243,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                             .addGap(67, 67, 67)
                             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnAgregar2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(txtEdadLector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2132,40 +2120,40 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEdadClienteKeyTyped
 
     private void btnActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar1ActionPerformed
-////        try{
-////            if(isSelect==true){
-////
-////                Lectores editLect = new Lectores();
-////                int idLector= Integer.parseInt(txtIdLector.getText());
-////
-////                String CodigoLector = txtCodigoLector.getText();
-////                String Nombre_Lector = txtNombreLector.getText();
-////                String Apellido_Lector = txtApellidoLector.getText();
-////                String Edad=txtEdadLector.getText();
-////                String Direccion = txtDireccionLector.getText();
-////                String Telefono = txtTelefonoLector.getText();
-////
-////                int row = TblLector.getSelectedRow();
-////
-////                TblLector.setValueAt(CodigoLector, row, 1);
-////                TblLector.setValueAt(Nombre_Lector, row, 2);
-////                TblLector.setValueAt(Apellido_Lector, row, 3);
-////                TblLector.setValueAt(Edad, row, 4);
-////                TblLector.setValueAt(Direccion, row, 5);
-////                TblLector.setValueAt(Telefono, row, 6);
-////
-////                Lector lct = new Lector(idLector, CodigoLector, Nombre_Lector,Apellido_Lector, Edad,Direccion,Telefono);
-////                editLect.UpdateLector(lct);
-////                Limpiar();
-////                carga();
-////                isSelect = false;
-////            }else{
-////                JOptionPane.showMessageDialog(null,"Seleccione una fila","Aviso",1);
-////            }
-////        }catch(Exception ex){
-////            JOptionPane.showMessageDialog(null,"Ha ocurrido otro error","Error",JOptionPane.ERROR_MESSAGE);
-////
-////        }
+        try{
+            if(isSelect==true){
+
+                Lectores editLect = new Lectores();
+                int idLector= Integer.parseInt(txtIdLector.getText());
+
+                String CodigoLector = txtCodigoLector.getText();
+                String Nombre_Lector = txtNombreLector.getText();
+                String Apellido_Lector = txtApellidoLector.getText();
+                String Edad=txtEdadLector.getText();
+                String Direccion = txtDireccionLector.getText();
+                String Telefono = txtTelefonoLector.getText();
+
+                int row = TblLector.getSelectedRow();
+
+                TblLector.setValueAt(CodigoLector, row, 1);
+                TblLector.setValueAt(Nombre_Lector, row, 2);
+                TblLector.setValueAt(Apellido_Lector, row, 3);
+                TblLector.setValueAt(Edad, row, 4);
+                TblLector.setValueAt(Direccion, row, 5);
+                TblLector.setValueAt(Telefono, row, 6);
+
+                Lector lct = new Lector(idLector, CodigoLector, Nombre_Lector,Apellido_Lector, Edad,Direccion,Telefono);
+                editLect.UpdateLector(lct);
+                LimpiarLector();
+                cargaLector();
+                isSelect = false;
+            }else{
+                JOptionPane.showMessageDialog(null,"Seleccione una fila","Aviso",1);
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido otro error","Error",JOptionPane.ERROR_MESSAGE);
+
+        }
     }//GEN-LAST:event_btnActualizar1ActionPerformed
 
     private void TblLectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblLectorMouseClicked
@@ -2187,57 +2175,92 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TblLectorKeyReleased
 
+     public void cargaLector() {
+        LimpiarLector();
+        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[7];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Lectores es = new Lectores();
+        ArrayList<Lector> listar = es.ListaLector();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[7];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            Lector estBucle = (Lector) iterador.next();
+            fila[0] = estBucle.getIdLector();
+            fila[1] = estBucle.getCodigoLector();
+            fila[2] = estBucle.getNombre_Lector();
+            fila[3] = estBucle.getApellido_Lector();
+            fila[4] = estBucle.getEdad();
+            fila[5] = estBucle.getDireccion();
+            fila[6] = estBucle.getTelefono();
+            df.addRow(fila);
+        }
+        TblLector.setModel(df);
+    }
+    
+           public void LimpiarLector() {
+        txtIdLector.setText("");
+        txtCodigoLector.setText("");
+        txtNombreLector.setText("");
+        txtApellidoLector.setText("");
+        txtEdadLector.setText("");
+        txtDireccionLector.setText("");
+        txtTelefonoLector.setText("");
+        txtCodigoLector.requestFocus();
+    }
+    
+    
+    
     private void btnAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar2ActionPerformed
-//        if (txtCodigoLector.getText().equals("") || txtNombreLector.getText().equals("")
-//            || txtApellidoLector.getText().equals("") || txtEdadLector.getText().equals("")
-//            || txtDireccionLector.getText().equals("") || txtTelefonoLector.getText().equals(""))
-//        {
-//            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
-//            txtCodigoLector.requestFocus();
-//        } else {
-//            Lector es = new Lector();
-//            Lectores esDAO = new Lectores();
-//
-//            es.setCodigoLector(txtCodigoLector.getText());
-//            es.setNombre_Lector(txtNombreLector.getText());
-//            es.setApellido_Lector(txtApellidoLector.getText());
-//            es.setEdad(txtEdadLector.getText());
-//            es.setDireccion(txtDireccionLector.getText());
-//            es.setTelefono(txtTelefonoLector.getText());
-//
-//            esDAO.AddLector(es);
-//            Limpiar();
-//            carga();
-//        }
+        if (txtCodigoLector.getText().equals("") || txtNombreLector.getText().equals("")
+            || txtApellidoLector.getText().equals("") || txtEdadLector.getText().equals("")
+            || txtDireccionLector.getText().equals("") || txtTelefonoLector.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            txtCodigoLector.requestFocus();
+        } else {
+            Lector es = new Lector();
+            Lectores esDAO = new Lectores();
+
+            es.setCodigoLector(txtCodigoLector.getText());
+            es.setNombre_Lector(txtNombreLector.getText());
+            es.setApellido_Lector(txtApellidoLector.getText());
+            es.setEdad(txtEdadLector.getText());
+            es.setDireccion(txtDireccionLector.getText());
+            es.setTelefono(txtTelefonoLector.getText());
+
+            esDAO.AddLector(es);
+            LimpiarLector();
+            cargaLector();
+        }
     }//GEN-LAST:event_btnAgregar2ActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
-//        try{
-//            if(isSelect==true){
-//                Lectores lectorDao = new Lectores();
-//
-//                int Id = Integer.parseInt(txtIdLector.getText());
-//
-//                Lector lector = new Lector(Id);
-//                lectorDao.DeleteLector(lector);
-//                carga();
-//
-//                isSelect = false;
-//            }else{
-//                JOptionPane.showMessageDialog(null,"No ha seleccionado ningun lector","Aviso",1);
-//            }
-//
-//        }catch(Exception ex){
-//            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
-//        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
+        try{
+            if(isSelect==true){
+                Lectores lectorDao = new Lectores();
 
-    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
-//        FrmMenu regresar = new FrmMenu();
-//        regresar.setVisible(true);
-//        this.setVisible(false);
-    }//GEN-LAST:event_btnCancelar1ActionPerformed
+                int Id = Integer.parseInt(txtIdLector.getText());
+
+                Lector lector = new Lector(Id);
+                lectorDao.DeleteLector(lector);
+                cargaLector();
+
+                isSelect = false;
+            }else{
+                JOptionPane.showMessageDialog(null,"No ha seleccionado ningun lector","Aviso",1);
+            }
+
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void TblEscritorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblEscritorMouseClicked
         isSelect = true;
@@ -2620,7 +2643,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarEscritor;
     private javax.swing.JButton btnAgregarLibro;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCancelar1;
     private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnCompra;

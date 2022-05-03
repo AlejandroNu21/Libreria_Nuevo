@@ -4,8 +4,17 @@
  */
 package com.alejandro.library_systemnuevo;
 
+import Beans.Categoria_beans;
+import Beans.GeneroLiterario_beans;
+import Beans.Subgenero_beans;
+import Entidades.Categoria;
+import Entidades.generoLiterario;
+import Entidades.subGeneroLiterario;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -39,32 +48,35 @@ public class FrmOpciones extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
-        btnAgregar1 = new javax.swing.JButton();
+        btnAgregarGeneroLiterario = new javax.swing.JButton();
         txtGeneroLiterario = new javax.swing.JTextField();
         txtIdGenero = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TblGeneroLiterario = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
-        btnCancelar1 = new javax.swing.JButton();
+        btnActualizarGenero = new javax.swing.JButton();
+        btnEliminarGenero = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblCategoria = new javax.swing.JTable();
         txtIdCategoria = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        btnCancelar = new javax.swing.JButton();
-        btnAgregar = new javax.swing.JButton();
+        btnAgregarCategoria = new javax.swing.JButton();
         txtCategoria = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        btnActualizarCategoria = new javax.swing.JButton();
+        btnEliminarCategoria = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         TblSubGenero = new javax.swing.JTable();
         txtSubGeneroLiterario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        btnCancelar2 = new javax.swing.JButton();
-        btnAgregar2 = new javax.swing.JButton();
+        btnSubGenero = new javax.swing.JButton();
         txtIdSubGenero = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        btnActualizarSubGen = new javax.swing.JButton();
+        btnEliminarSubGen = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -133,13 +145,13 @@ public class FrmOpciones extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/encabezado.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 1000, 180));
 
-        btnAgregar1.setBackground(java.awt.Color.blue);
-        btnAgregar1.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
-        btnAgregar1.setForeground(new java.awt.Color(254, 254, 255));
-        btnAgregar1.setText("Agregar");
-        btnAgregar1.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarGeneroLiterario.setBackground(java.awt.Color.blue);
+        btnAgregarGeneroLiterario.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        btnAgregarGeneroLiterario.setForeground(new java.awt.Color(254, 254, 255));
+        btnAgregarGeneroLiterario.setText("Agregar");
+        btnAgregarGeneroLiterario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregar1ActionPerformed(evt);
+                btnAgregarGeneroLiterarioActionPerformed(evt);
             }
         });
 
@@ -177,15 +189,9 @@ public class FrmOpciones extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         jLabel6.setText("G. Literario");
 
-        btnCancelar1.setBackground(java.awt.Color.blue);
-        btnCancelar1.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
-        btnCancelar1.setForeground(new java.awt.Color(254, 254, 255));
-        btnCancelar1.setText("Cancelar");
-        btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelar1ActionPerformed(evt);
-            }
-        });
+        btnActualizarGenero.setText("Actualizar");
+
+        btnEliminarGenero.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -194,11 +200,6 @@ public class FrmOpciones extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(btnCancelar1)
-                        .addGap(43, 43, 43)
-                        .addComponent(btnAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -206,13 +207,24 @@ public class FrmOpciones extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtGeneroLiterario)
-                            .addComponent(txtIdGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtIdGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(btnAgregarGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btnActualizarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(btnEliminarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -222,15 +234,12 @@ public class FrmOpciones extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(74, 74, 74)
+                .addGap(56, 56, 56)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(132, 132, 132))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                    .addComponent(btnEliminarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizarGenero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAgregarGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(149, 149, 149))
         );
 
         jTabbedPane1.addTab("tab2", jPanel3);
@@ -261,23 +270,13 @@ public class FrmOpciones extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         jLabel3.setText("Id");
 
-        btnCancelar.setBackground(java.awt.Color.blue);
-        btnCancelar.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(254, 254, 255));
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarCategoria.setBackground(java.awt.Color.blue);
+        btnAgregarCategoria.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        btnAgregarCategoria.setForeground(new java.awt.Color(254, 254, 255));
+        btnAgregarCategoria.setText("Agregar");
+        btnAgregarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
-
-        btnAgregar.setBackground(java.awt.Color.blue);
-        btnAgregar.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
-        btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
-        btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnAgregarCategoriaActionPerformed(evt);
             }
         });
 
@@ -286,17 +285,16 @@ public class FrmOpciones extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         jLabel4.setText("Categoria:");
 
+        btnActualizarCategoria.setText("Actualizar");
+
+        btnEliminarCategoria.setText("Eliminar");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(btnCancelar)
-                        .addGap(51, 51, 51)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -305,7 +303,14 @@ public class FrmOpciones extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(btnAgregarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnActualizarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(48, 48, 48)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
                 .addGap(35, 35, 35))
@@ -315,9 +320,7 @@ public class FrmOpciones extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(77, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -327,11 +330,12 @@ public class FrmOpciones extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(51, 51, 51)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnAgregarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnActualizarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab1", jPanel2);
@@ -364,23 +368,13 @@ public class FrmOpciones extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         jLabel7.setText("S. G. Literario");
 
-        btnCancelar2.setBackground(java.awt.Color.blue);
-        btnCancelar2.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
-        btnCancelar2.setForeground(new java.awt.Color(254, 254, 255));
-        btnCancelar2.setText("Cancelar");
-        btnCancelar2.addActionListener(new java.awt.event.ActionListener() {
+        btnSubGenero.setBackground(java.awt.Color.blue);
+        btnSubGenero.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        btnSubGenero.setForeground(new java.awt.Color(254, 254, 255));
+        btnSubGenero.setText("Agregar");
+        btnSubGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelar2ActionPerformed(evt);
-            }
-        });
-
-        btnAgregar2.setBackground(java.awt.Color.blue);
-        btnAgregar2.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
-        btnAgregar2.setForeground(new java.awt.Color(254, 254, 255));
-        btnAgregar2.setText("Agregar");
-        btnAgregar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregar2ActionPerformed(evt);
+                btnSubGeneroActionPerformed(evt);
             }
         });
 
@@ -390,32 +384,41 @@ public class FrmOpciones extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel8.setText("Id");
 
+        btnActualizarSubGen.setText("Actualizar");
+
+        btnEliminarSubGen.setText("Eliminar");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addGap(30, 30, 30)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnCancelar2)
                         .addGap(49, 49, 49)
-                        .addComponent(btnAgregar2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtSubGeneroLiterario, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                    .addComponent(txtIdSubGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSubGeneroLiterario, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                            .addComponent(txtIdSubGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(btnSubGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(btnActualizarSubGen, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(btnEliminarSubGen, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -431,12 +434,13 @@ public class FrmOpciones extends javax.swing.JFrame {
                                 .addGap(63, 63, 63)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSubGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregar2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(79, 79, 79))
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEliminarSubGen, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnActualizarSubGen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSubGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab3", jPanel4);
@@ -459,13 +463,13 @@ public class FrmOpciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubGeneroLiterarioActionPerformed
 
     private void TblCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblCategoriaMouseClicked
-//        isSelect = true;
-//        try {
-//            txtIdCategoria.setText(TblCategoria.getValueAt(TblCategoria.getSelectedRow(), 0).toString());
-//            txtCategoria.setText(TblCategoria.getValueAt(TblCategoria.getSelectedRow(), 1).toString());
-//
-//        } catch (Exception ex) {
-//        }
+        isSelect = true;
+        try {
+            txtIdCategoria.setText(TblCategoria.getValueAt(TblCategoria.getSelectedRow(), 0).toString());
+            txtCategoria.setText(TblCategoria.getValueAt(TblCategoria.getSelectedRow(), 1).toString());
+
+        } catch (Exception ex) {
+        }
     }//GEN-LAST:event_TblCategoriaMouseClicked
 
     private void TblCategoriaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblCategoriaKeyReleased
@@ -482,47 +486,97 @@ public class FrmOpciones extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TblCategoriaKeyReleased
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-//        FrmMenu regresar = new FrmMenu();
-//        regresar.setVisible(true);
-//        this.setVisible(false);
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    public void cargaCategoria() {
+        LimpiarCategoria();
+        String titulos[] = {"Id", "Categoria"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[3];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-//        Categoria es = new Categoria();
-//        Categoria_beans esDAO = new Categoria_beans();
-//
-//        es.setCategoria(txtCategoria.getText());
-//        esDAO.AddCategoria(es);
-//        carga();
-//        Limpiar();
-//        txtCategoria.requestFocus();
-    }//GEN-LAST:event_btnAgregarActionPerformed
+        Categoria_beans es = new Categoria_beans();
+        ArrayList<Categoria> listar = es.ListaCat();
 
-    private void btnAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar1ActionPerformed
-//        if (txtGeneroLiterario.getText().equals("")) {
-//            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
-//            txtGeneroLiterario.requestFocus();
-//        } else {
-//            generoLiterario es = new generoLiterario();
-//            GeneroLiterario_beans esDAO = new GeneroLiterario_beans();
-//
-//            es.setGenero_Literario(txtGeneroLiterario.getText());
-//
-//            esDAO.AddGenero(es);
-//            Limpiar();
-//            carga();
-//        }
-    }//GEN-LAST:event_btnAgregar1ActionPerformed
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[5];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            Categoria estBucle = (Categoria) iterador.next();
+            fila[0] = estBucle.getIdCategoria();
+            fila[1] = estBucle.getCategoria();
+            df.addRow(fila);
+        }
+        TblCategoria.setModel(df);
+    }
+
+    public void LimpiarCategoria() {
+        txtCategoria.setText("");
+    }
+
+
+    private void btnAgregarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCategoriaActionPerformed
+        Categoria es = new Categoria();
+        Categoria_beans esDAO = new Categoria_beans();
+
+        es.setCategoria(txtCategoria.getText());
+        esDAO.AddCategoria(es);
+        cargaCategoria();
+        LimpiarCategoria();
+        txtCategoria.requestFocus();
+    }//GEN-LAST:event_btnAgregarCategoriaActionPerformed
+
+    public void cargaGeneroLiterario() {
+        LimpiarGeneroLiterario();
+        String titulos[] = {"Id", "Categoria"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[3];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Categoria_beans es = new Categoria_beans();
+        ArrayList<Categoria> listar = es.ListaCat();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[5];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            Categoria estBucle = (Categoria) iterador.next();
+            fila[0] = estBucle.getIdCategoria();
+            fila[1] = estBucle.getCategoria();
+            df.addRow(fila);
+        }
+        TblCategoria.setModel(df);
+    }
+
+    public void LimpiarGeneroLiterario() {
+        txtCategoria.setText("");
+    }
+
+
+    private void btnAgregarGeneroLiterarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarGeneroLiterarioActionPerformed
+        if (txtGeneroLiterario.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            txtGeneroLiterario.requestFocus();
+        } else {
+            generoLiterario es = new generoLiterario();
+            GeneroLiterario_beans esDAO = new GeneroLiterario_beans();
+
+            es.setGenero_Literario(txtGeneroLiterario.getText());
+
+            esDAO.AddGenero(es);
+            LimpiarGeneroLiterario();
+            cargaGeneroLiterario();
+        }
+    }//GEN-LAST:event_btnAgregarGeneroLiterarioActionPerformed
 
     private void TblGeneroLiterarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblGeneroLiterarioMouseClicked
-//        isSelect = true;
-//        try {
-//            txtIdGenero.setText(TblGeneroLiterario.getValueAt(TblGeneroLiterario.getSelectedRow(), 0).toString());
-//            txtGeneroLiterario.setText(TblGeneroLiterario.getValueAt(TblGeneroLiterario.getSelectedRow(), 1).toString());
-//
-//        } catch (Exception ex) {
-//        }
+        isSelect = true;
+        try {
+            txtIdGenero.setText(TblGeneroLiterario.getValueAt(TblGeneroLiterario.getSelectedRow(), 0).toString());
+            txtGeneroLiterario.setText(TblGeneroLiterario.getValueAt(TblGeneroLiterario.getSelectedRow(), 1).toString());
+
+        } catch (Exception ex) {
+        }
     }//GEN-LAST:event_TblGeneroLiterarioMouseClicked
 
     private void TblGeneroLiterarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblGeneroLiterarioKeyReleased
@@ -539,20 +593,14 @@ public class FrmOpciones extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TblGeneroLiterarioKeyReleased
 
-    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
-//        FrmMenu regresar = new FrmMenu();
-//        regresar.setVisible(true);
-//        this.setVisible(false);
-    }//GEN-LAST:event_btnCancelar1ActionPerformed
-
     private void TblSubGeneroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblSubGeneroMouseClicked
-//        isSelect = true;
-//        try {
-//            txtIdSubGenero.setText(TblSubGenero.getValueAt(TblSubGenero.getSelectedRow(), 0).toString());
-//            txtSubGeneroLiterario.setText(TblSubGenero.getValueAt(TblSubGenero.getSelectedRow(), 1).toString());
-//
-//        } catch (Exception ex) {
-//        }
+        isSelect = true;
+        try {
+            txtIdSubGenero.setText(TblSubGenero.getValueAt(TblSubGenero.getSelectedRow(), 0).toString());
+            txtSubGeneroLiterario.setText(TblSubGenero.getValueAt(TblSubGenero.getSelectedRow(), 1).toString());
+
+        } catch (Exception ex) {
+        }
     }//GEN-LAST:event_TblSubGeneroMouseClicked
 
     private void TblSubGeneroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblSubGeneroKeyReleased
@@ -569,26 +617,47 @@ public class FrmOpciones extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TblSubGeneroKeyReleased
 
-    private void btnCancelar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar2ActionPerformed
-//        FrmMenu regresar = new FrmMenu();
-//        regresar.setVisible(true);
-//        this.setVisible(false);
-    }//GEN-LAST:event_btnCancelar2ActionPerformed
+     public void cargaSubGenero() {
+        LimpiarSubGenero();
+        String titulos[] = {"Id", "Sub Genero Literario"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[3];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-    private void btnAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar2ActionPerformed
+        Subgenero_beans es = new Subgenero_beans();
+        ArrayList<subGeneroLiterario> listar = es.MostrarSubGeneroLiterario();
 
-//        if (txtSubGeneroLiterario.getText().equals("")) {
-//            JOptionPane.showMessageDialog(null, "Campo vacio");
-//        } else {
-//            subGeneroLiterario sub = new subGeneroLiterario();
-//            Subgenero_beans subDAO = new Subgenero_beans();
-//            sub.setSubgenero_Literario(txtSubGeneroLiterario.getText());
-//            subDAO.AgregarSubGeneroLiterario(sub);
-//            Limpiar();
-//            carga();
-//            txtSubGeneroLiterario.requestFocus();
-//        }
-    }//GEN-LAST:event_btnAgregar2ActionPerformed
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[5];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            subGeneroLiterario estBucle = (subGeneroLiterario) iterador.next();
+            fila[0] = estBucle.getIdSugeneroLiterario();
+            fila[1] = estBucle.getSubgenero_Literario();
+            df.addRow(fila);
+        }
+        TblSubGenero.setModel(df);
+    }
+
+    public void LimpiarSubGenero() {
+        txtSubGeneroLiterario.setText("");
+    }
+    
+    private void btnSubGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubGeneroActionPerformed
+
+        if (txtSubGeneroLiterario.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo vacio");
+        } else {
+            subGeneroLiterario sub = new subGeneroLiterario();
+            Subgenero_beans subDAO = new Subgenero_beans();
+            sub.setSubgenero_Literario(txtSubGeneroLiterario.getText());
+            subDAO.AgregarSubGeneroLiterario(sub);
+            LimpiarSubGenero();
+            cargaSubGenero();
+            txtSubGeneroLiterario.requestFocus();
+        }
+    }//GEN-LAST:event_btnSubGeneroActionPerformed
 
     private void btnSubGeneroLiterario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubGeneroLiterario1ActionPerformed
         FrmOpciones AbrirFrmOpciones = new FrmOpciones();
@@ -631,18 +700,24 @@ public class FrmOpciones extends javax.swing.JFrame {
         });
     }
 
+    public boolean isSelect = false;
+    int Id = 0;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblCategoria;
     private javax.swing.JTable TblGeneroLiterario;
     private javax.swing.JTable TblSubGenero;
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnAgregar1;
-    private javax.swing.JButton btnAgregar2;
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCancelar1;
-    private javax.swing.JButton btnCancelar2;
+    private javax.swing.JButton btnActualizarCategoria;
+    private javax.swing.JButton btnActualizarGenero;
+    private javax.swing.JButton btnActualizarSubGen;
+    private javax.swing.JButton btnAgregarCategoria;
+    private javax.swing.JButton btnAgregarGeneroLiterario;
     private javax.swing.JButton btnCategoria;
+    private javax.swing.JButton btnEliminarCategoria;
+    private javax.swing.JButton btnEliminarGenero;
+    private javax.swing.JButton btnEliminarSubGen;
     private javax.swing.JButton btnGeneroLiterario;
+    private javax.swing.JButton btnSubGenero;
     private javax.swing.JButton btnSubGeneroLiterario;
     private javax.swing.JButton btnSubGeneroLiterario1;
     private javax.swing.JLabel jLabel1;
