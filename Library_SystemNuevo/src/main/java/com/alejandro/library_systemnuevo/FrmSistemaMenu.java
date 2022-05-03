@@ -237,7 +237,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel74 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         txtCodigoCliente = new javax.swing.JTextField();
-        btnAgregar1 = new javax.swing.JButton();
+        btnAgregarCliente = new javax.swing.JButton();
         txtDireccionCliente = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         txtNombreCliente = new javax.swing.JTextField();
@@ -253,6 +253,9 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         txtApellidoCliente = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel75 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1749,13 +1752,13 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
 
         txtCodigoCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
-        btnAgregar1.setBackground(java.awt.Color.blue);
-        btnAgregar1.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
-        btnAgregar1.setForeground(new java.awt.Color(254, 254, 255));
-        btnAgregar1.setText("Agregar");
-        btnAgregar1.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarCliente.setBackground(java.awt.Color.blue);
+        btnAgregarCliente.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
+        btnAgregarCliente.setForeground(new java.awt.Color(254, 254, 255));
+        btnAgregarCliente.setText("Agregar");
+        btnAgregarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregar1ActionPerformed(evt);
+                btnAgregarClienteActionPerformed(evt);
             }
         });
 
@@ -1851,7 +1854,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addComponent(btnAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(btnCancelar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1875,7 +1878,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                             .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(95, 95, 95))
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -1908,6 +1911,38 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         );
 
         FrmVentas.addTab("tab5", jPanel6);
+
+        jLabel75.setFont(new java.awt.Font("Castellar", 1, 48)); // NOI18N
+        jLabel75.setText("BIENVENIDO");
+
+        jLabel76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Libro.gif"))); // NOI18N
+        jLabel76.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addComponent(jLabel75))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(153, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jLabel75)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        FrmVentas.addTab("tab11", jPanel12);
 
         getContentPane().add(FrmVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 970, 540));
 
@@ -2049,20 +2084,20 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_btmBorrarActionPerformed
 
-    private void btnAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar1ActionPerformed
-//        clientes es = new clientes();
-//        Cliente esDAO = new Cliente();
-//
-//        es.setCodigoCliente(txtCodigoCliente.getText());
-//        es.setNombreCliente(txtNombreCliente.getText());
-//        es.setApellidoCliente(txtApellidoCliente.getText());
-//        es.setEdad(txtEdadCliente.getText());
-//        es.setDireccion(txtDireccionCliente.getText());
-//        es.setTelefono(txtTelefonoCliente.getText());
-//        esDAO.AddCliente(es);
-//        Limpiar();
-//        txtCodigoCliente.requestFocus();
-    }//GEN-LAST:event_btnAgregar1ActionPerformed
+    private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
+        clientes es = new clientes();
+        Cliente esDAO = new Cliente();
+
+        es.setCodigoCliente(txtCodigoCliente.getText());
+        es.setNombreCliente(txtNombreCliente.getText());
+        es.setApellidoCliente(txtApellidoCliente.getText());
+        es.setEdad(txtEdadCliente.getText());
+        es.setDireccion(txtDireccionCliente.getText());
+        es.setTelefono(txtTelefonoCliente.getText());
+        esDAO.AddCliente(es);
+        Limpiar();
+        txtCodigoCliente.requestFocus();
+    }//GEN-LAST:event_btnAgregarClienteActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
 //        FrmMenu regresar = new FrmMenu();
@@ -2580,8 +2615,8 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnActualizar1;
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnAgregar1;
     private javax.swing.JButton btnAgregar2;
+    private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnAgregarEscritor;
     private javax.swing.JButton btnAgregarLibro;
     private javax.swing.JButton btnCancelar;
@@ -2680,11 +2715,14 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
