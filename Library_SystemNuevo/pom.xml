@@ -13,8 +13,6 @@
         </repository>
     </repositories>
     <dependencies>
-       
-       
         <!-- https://mvnrepository.com/artifact/org.netbeans.external/AbsoluteLayout -->
         <dependency>
             <groupId>mysql</groupId>
@@ -31,6 +29,7 @@
             <artifactId>jcalendar-1.3.3</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+        
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

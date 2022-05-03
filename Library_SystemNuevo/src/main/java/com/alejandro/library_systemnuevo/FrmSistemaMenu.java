@@ -35,6 +35,8 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     public FrmSistemaMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        
     }
 
     /**
@@ -2203,68 +2205,68 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelar1ActionPerformed
 
     private void TblEscritorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblEscritorMouseClicked
-//        isSelect = true;
-//        try {
-//            txtIdEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 0).toString());
-//            txtCodigoEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 1).toString());
-//            txtNombreEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 2).toString());
-//            txtApellidoEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 3).toString());
-//            txtPaisEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 4).toString());
-//
-//        } catch (Exception ex) {
-//        }
+        isSelect = true;
+        try {
+            txtIdEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 0).toString());
+            txtCodigoEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 1).toString());
+            txtNombreEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 2).toString());
+            txtApellidoEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 3).toString());
+            txtPaisEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 4).toString());
+
+        } catch (Exception ex) {
+        }
     }//GEN-LAST:event_TblEscritorMouseClicked
 
     private void TblEscritorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblEscritorKeyReleased
-//        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
-//
-//            isSelect = true;
-//            try {
-//                int filaSeleccionada = this.TblEscritor.getSelectedRow();
-//                Id = Integer.parseInt(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
-//                this.txtIdEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
-//                this.txtCodigoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 1).toString());
-//                this.txtNombreEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 2).toString());
-//                this.txtApellidoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 3).toString());
-//                this.txtPaisEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 4).toString());
-//            } catch (Exception e) {
-//                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
-//            }
-//
-//        }
+        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
+
+            isSelect = true;
+            try {
+                int filaSeleccionada = this.TblEscritor.getSelectedRow();
+                Id = Integer.parseInt(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
+                this.txtIdEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
+                this.txtCodigoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 1).toString());
+                this.txtNombreEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 2).toString());
+                this.txtApellidoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 3).toString());
+                this.txtPaisEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 4).toString());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        }
     }//GEN-LAST:event_TblEscritorKeyReleased
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-//        try {
-//            if (isSelect == true) {
-//
-//                Escritores editEscr = new Escritores();
-//                int idEscritor = Integer.parseInt(txtIdEscritor.getText());
-//
-//                String Codigo_Escritor = txtCodigoEscritor.getText();
-//                String Nombre_Escritor = txtNombreEscritor.getText();
-//                String Apellido_Escritor = txtApellidoEscritor.getText();
-//                String Pais_Escritor = txtPaisEscritor.getText();
-//
-//                int row = TblEscritor.getSelectedRow();
-//
-//                TblEscritor.setValueAt(Codigo_Escritor, row, 1);
-//                TblEscritor.setValueAt(Nombre_Escritor, row, 2);
-//                TblEscritor.setValueAt(Apellido_Escritor, row, 3);
-//                TblEscritor.setValueAt(Pais_Escritor, row, 4);
-//
-//                Escritor escritor = new Escritor(idEscritor, Codigo_Escritor, Nombre_Escritor, Apellido_Escritor, Pais_Escritor);
-//                editEscr.UpdateEscritor(escritor);
-//                carga();
-//                isSelect = false;
-//                Limpiar();
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
-//            }
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, "Ha ocurrido otro error", "Error", JOptionPane.ERROR_MESSAGE);
-//
-//        }
+        try {
+            if (isSelect == true) {
+
+                Escritores editEscr = new Escritores();
+                int idEscritor = Integer.parseInt(txtIdEscritor.getText());
+
+                String Codigo_Escritor = txtCodigoEscritor.getText();
+                String Nombre_Escritor = txtNombreEscritor.getText();
+                String Apellido_Escritor = txtApellidoEscritor.getText();
+                String Pais_Escritor = txtPaisEscritor.getText();
+
+                int row = TblEscritor.getSelectedRow();
+
+                TblEscritor.setValueAt(Codigo_Escritor, row, 1);
+                TblEscritor.setValueAt(Nombre_Escritor, row, 2);
+                TblEscritor.setValueAt(Apellido_Escritor, row, 3);
+                TblEscritor.setValueAt(Pais_Escritor, row, 4);
+
+                Escritor escritor = new Escritor(idEscritor, Codigo_Escritor, Nombre_Escritor, Apellido_Escritor, Pais_Escritor);
+                editEscr.UpdateEscritor(escritor);
+                cargaEscritor();
+                isSelect = false;
+                Limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido otro error", "Error", JOptionPane.ERROR_MESSAGE);
+
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -2279,27 +2281,27 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
-//        try{
-//            if(isSelect==true){
-//                Escritores escritorDao = new Escritores();
-//
-//                int Id = Integer.parseInt(txtIdEscritor.getText());
-//
-//                //int row = TblEditorial.getSelectedRow();
-//                //TblEditorial.setValueAt(Id, row, 0);
-//
-//                Escritor escritor = new Escritor(Id);
-//                escritorDao.DeleteEscritor(escritor);
-//                carga();
-//
-//                isSelect = false;
-//            }else{
-//                JOptionPane.showMessageDialog(null,"No ha seleccionado","Aviso",1);
-//            }
-//
-//        }catch(Exception ex){
-//            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
-//        }
+        try{
+            if(isSelect==true){
+                Escritores escritorDao = new Escritores();
+
+                int Id = Integer.parseInt(txtIdEscritor.getText());
+
+                //int row = TblEditorial.getSelectedRow();
+                //TblEditorial.setValueAt(Id, row, 0);
+
+                Escritor escritor = new Escritor(Id);
+                escritorDao.DeleteEscritor(escritor);
+                cargaEscritor();
+
+                isSelect = false;
+            }else{
+                JOptionPane.showMessageDialog(null,"No ha seleccionado","Aviso",1);
+            }
+
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
+        }
     }//GEN-LAST:event_btnEliminar1ActionPerformed
 
     private void jLabel65MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel65MouseClicked
@@ -2424,27 +2426,69 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel67MouseClicked
 
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-//        if (txtFechaNacimiento.getText().equals("") || txtLugarNacimiento.getText().equals("")
-//            || txtFechaDeceso.getText().equals("") || txtLugarDeceso.getText().equals("") || jTextArea2.getText().equals("")) {
-//            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
-//            txtFechaNacimiento.requestFocus();
-//        } else {
-//            DatosEscritor es = new DatosEscritor();
-//            DatosEscritores esDAO = new DatosEscritores();
-//
-//            es.setIdEscritor(Integer.parseInt(txtId.getText()));
-//            es.setFecha_Nacimiento(txtFechaNacimiento.getText());
-//            es.setLugar_Nacimiento(txtLugarNacimiento.getText());
-//            es.setFecha_Deceso(txtFechaDeceso.getText());
-//            es.setLugar_Deceso(txtLugarDeceso.getText());
-//            es.setBiografia(jTextArea2.getText());
-//
-//            esDAO.AddDatosEscritor(es);
-//            Limpiar();
-//            carga();
-    }//GEN-LAST:event_btnIngresarActionPerformed
+    public void CargaDatosEscritor(){
+        Limpiar();
+        String titulos[] = {"Id", "Id Escritor", "Fecha Nacimiento", "Lugar Nacimiento", "Fecha Deceso", "Lugar Deceso", "Biografia"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[8];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
 
+        DatosEscritores es = new DatosEscritores();
+        ArrayList<DatosEscritor> listar = es.ListaDatosEscritor();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[8];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            DatosEscritor estBucle = (DatosEscritor) iterador.next();
+            fila[0] = estBucle.getIdDatos_Escritor();
+            fila[1] = estBucle.getIdEscritor();
+            fila[2] = estBucle.getFecha_Nacimiento();
+            fila[3] = estBucle.getLugar_Nacimiento();
+            fila[4] = estBucle.getFecha_Deceso();
+            fila[5] = estBucle.getLugar_Deceso();
+            fila[6] = estBucle.getBiografia();
+            df.addRow(fila);
+        }
+        TblDatosEscritor.setModel(df);
+    }
+
+    public void LimpiarDatosEscritor(){
+        txtId.setText("");
+        txtIdEscritor.setText("");
+        txtLugarNacimiento.setText("");
+        txtFechaNacimiento.setText("");
+        txtFechaDeceso.setText("");
+        txtLugarDeceso.setText("");
+        jTextArea2.setText("");
+
+    }
+    
+    
+    
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        if (txtFechaNacimiento.getText().equals("") || txtLugarNacimiento.getText().equals("")
+            || txtFechaDeceso.getText().equals("") || txtLugarDeceso.getText().equals("") || jTextArea2.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            txtFechaNacimiento.requestFocus();
+        } else {
+            DatosEscritor es = new DatosEscritor();
+            DatosEscritores esDAO = new DatosEscritores();
+
+            es.setIdEscritor(Integer.parseInt(txtId.getText()));
+            es.setFecha_Nacimiento(txtFechaNacimiento.getText());
+            es.setLugar_Nacimiento(txtLugarNacimiento.getText());
+            es.setFecha_Deceso(txtFechaDeceso.getText());
+            es.setLugar_Deceso(txtLugarDeceso.getText());
+            es.setBiografia(jTextArea2.getText());
+
+            esDAO.AddDatosEscritor(es);
+            Limpiar();
+            CargaDatosEscritor();
+    }//GEN-LAST:event_btnIngresarActionPerformed
+ }
+    
     private void TblDatosEscritorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDatosEscritorMouseClicked
 //        isSelect = true;
 //        try {
@@ -2522,6 +2566,9 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         });
     }
 
+    public boolean isSelect = false;
+    int Id=0;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane FrmVentas;
     private javax.swing.JTable TblDatosEscritor;
