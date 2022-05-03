@@ -240,7 +240,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         txtCodigoCliente = new javax.swing.JTextField();
         btnAgregarCliente = new javax.swing.JButton();
         txtDireccionCliente = new javax.swing.JTextField();
-        btnCancelar = new javax.swing.JButton();
         txtNombreCliente = new javax.swing.JTextField();
         lblAvatar = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -1752,16 +1751,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
 
         txtDireccionCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
-        btnCancelar.setBackground(java.awt.Color.blue);
-        btnCancelar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(254, 254, 255));
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
-
         txtNombreCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
         lblAvatar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1843,8 +1832,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(btnAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnCancelar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
@@ -1865,9 +1852,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                                 .addComponent(btnCargar))
                             .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(95, 95, 95))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1964,6 +1949,42 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    public void cargaEditorial() {
+        LimpiarEditorial();
+        String titulos[] = {"Id", "Codigo", "Nombre", "Direccion", "Telefono"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[5];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Editorials es = new Editorials();
+        ArrayList<Editorial> listar = es.ListaEditorial();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[5];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            Editorial estBucle = (Editorial) iterador.next();
+            fila[0] = estBucle.getIdEditorial();
+            fila[1] = estBucle.getCodigoEditorial();
+            fila[2] = estBucle.getNombre_Editorial();
+            fila[3] = estBucle.getDireccion_Editorial();
+            fila[4] = estBucle.getTelefono_Editorial();
+            df.addRow(fila);
+        }
+        TblEditorial.setModel(df);
+    }
+
+    public void LimpiarEditorial() {
+        txtIdEditorial.setText("");
+        txtCodigoEditorial.setText("");
+        txtNombreEditorial.setText("");
+        txtDireccionEditorial.setText("");
+        txtTelefonoEditorial.setText("");
+        txtCodigoEditorial.requestFocus();
+    }
+    
+    
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
         if (txtCodigoEditorial.getText().equals("") || txtNombreEditorial.getText().equals("")
@@ -1980,24 +2001,24 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
             es.setTelefono_Editorial(txtTelefonoEditorial.getText());
 
             esDAO.AddEditorial(es);
-//            Limpiar();
-//            carga();
+            LimpiarEditorial();
+            cargaEditorial();
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void TblEditorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblEditorialMouseClicked
-//        isSelect = true;
-//        try {
-//
-//            Id = Integer.parseInt(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 0).toString());
-//            txtIdEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 0).toString());
-//            txtCodigoEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 1).toString());
-//            txtNombreEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 2).toString());
-//            txtDireccionEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 3).toString());
-//            txtTelefonoEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 4).toString());
-//
-//        } catch (Exception ex) {
-//        }
+        isSelect = true;
+        try {
+
+            Id = Integer.parseInt(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 0).toString());
+            txtIdEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 0).toString());
+            txtCodigoEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 1).toString());
+            txtNombreEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 2).toString());
+            txtDireccionEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 3).toString());
+            txtTelefonoEditorial.setText(TblEditorial.getValueAt(TblEditorial.getSelectedRow(), 4).toString());
+
+        } catch (Exception ex) {
+        }
     }//GEN-LAST:event_TblEditorialMouseClicked
 
     private void TblEditorialKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblEditorialKeyReleased
@@ -2018,58 +2039,58 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_TblEditorialKeyReleased
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-//        try {
-//            if (isSelect == true) {
-//
-//                Editorials editBeans = new Editorials();
-//                int idEditorial = Id;
-//                String CodigoEditorial = txtCodigoEditorial.getText();
-//                String Nombre_Editorial = txtNombreEditorial.getText();
-//                String Direccion_Editorial = txtDireccionEditorial.getText();
-//                String Telefono_Editorial = txtTelefonoEditorial.getText();
-//
-//                int row = TblEditorial.getSelectedRow();
-//
-//                TblEditorial.setValueAt(CodigoEditorial, row, 1);
-//                TblEditorial.setValueAt(Nombre_Editorial, row, 2);
-//                TblEditorial.setValueAt(Direccion_Editorial, row, 3);
-//                TblEditorial.setValueAt(Telefono_Editorial, row, 4);
-//
-//                Editorial edi = new Editorial(idEditorial, CodigoEditorial, Nombre_Editorial, Direccion_Editorial, Telefono_Editorial);
-//                editBeans.UpdateEditorial(edi);
-//                carga();
-//                isSelect = false;
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
-//            }
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, "Ha ocurrido otro error", "Error", JOptionPane.ERROR_MESSAGE);
-//
-//        }
+        try {
+            if (isSelect == true) {
+
+                Editorials editBeans = new Editorials();
+                int idEditorial = Id;
+                String CodigoEditorial = txtCodigoEditorial.getText();
+                String Nombre_Editorial = txtNombreEditorial.getText();
+                String Direccion_Editorial = txtDireccionEditorial.getText();
+                String Telefono_Editorial = txtTelefonoEditorial.getText();
+
+                int row = TblEditorial.getSelectedRow();
+
+                TblEditorial.setValueAt(CodigoEditorial, row, 1);
+                TblEditorial.setValueAt(Nombre_Editorial, row, 2);
+                TblEditorial.setValueAt(Direccion_Editorial, row, 3);
+                TblEditorial.setValueAt(Telefono_Editorial, row, 4);
+
+                Editorial edi = new Editorial(idEditorial, CodigoEditorial, Nombre_Editorial, Direccion_Editorial, Telefono_Editorial);
+                editBeans.UpdateEditorial(edi);
+                cargaEditorial();
+                isSelect = false;
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido otro error", "Error", JOptionPane.ERROR_MESSAGE);
+
+        }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btmBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmBorrarActionPerformed
-//        try{
-//            if(isSelect==true){
-//                Editorials ediDao = new Editorials();
-//
-//                int Id = Integer.parseInt(txtIdEditorial.getText());
-//
-//                int row = TblEditorial.getSelectedRow();
-//                TblEditorial.setValueAt(Id, row, 0);
-//
-//                Editorial editor = new Editorial(Id);
-//                ediDao.DeleteEditorial(editor);
-//                carga();
-//
-//                isSelect = false;
-//            }else{
-//                JOptionPane.showMessageDialog(null,"No ha seleccionado","Aviso",1);
-//            }
-//
-//        }catch(Exception ex){
-//            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
-//        }
+        try{
+            if(isSelect==true){
+                Editorials ediDao = new Editorials();
+
+                int Id = Integer.parseInt(txtIdEditorial.getText());
+
+                int row = TblEditorial.getSelectedRow();
+                TblEditorial.setValueAt(Id, row, 0);
+
+                Editorial editor = new Editorial(Id);
+                ediDao.DeleteEditorial(editor);
+                cargaEditorial();
+
+                isSelect = false;
+            }else{
+                JOptionPane.showMessageDialog(null,"No ha seleccionado","Aviso",1);
+            }
+
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
+        }
     }//GEN-LAST:event_btmBorrarActionPerformed
 
     private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
@@ -2086,12 +2107,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         Limpiar();
         txtCodigoCliente.requestFocus();
     }//GEN-LAST:event_btnAgregarClienteActionPerformed
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-//        FrmMenu regresar = new FrmMenu();
-//        regresar.setVisible(true);
-//        this.setVisible(false);
-    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
         String Ruta = "";
@@ -2157,18 +2172,18 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnActualizar1ActionPerformed
 
     private void TblLectorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblLectorMouseClicked
-//        isSelect = true;
-//        try {
-//            txtIdLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 0).toString());
-//            txtCodigoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 1).toString());
-//            txtNombreLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 2).toString());
-//            txtApellidoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 3).toString());
-//            txtEdadLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 4).toString());
-//            txtDireccionLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 5).toString());
-//            txtTelefonoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 6).toString());
-//
-//        } catch (Exception ex) {
-//        }
+        isSelect = true;
+        try {
+            txtIdLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 0).toString());
+            txtCodigoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 1).toString());
+            txtNombreLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 2).toString());
+            txtApellidoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 3).toString());
+            txtEdadLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 4).toString());
+            txtDireccionLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 5).toString());
+            txtTelefonoLector.setText(TblLector.getValueAt(TblLector.getSelectedRow(), 6).toString());
+
+        } catch (Exception ex) {
+        }
     }//GEN-LAST:event_TblLectorMouseClicked
 
     private void TblLectorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblLectorKeyReleased
@@ -2478,8 +2493,8 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
             Ruta = jFileChooser.getSelectedFile().getPath();
 
             Image mImagen = new ImageIcon(Ruta).getImage();
-            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
-            lblImagen.setIcon(mIcono);
+            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen1.getWidth(), lblImagen1.getHeight(), Image.SCALE_SMOOTH));
+            lblImagen1.setIcon(mIcono);
 
         }
     }//GEN-LAST:event_jLabel67MouseClicked
@@ -2642,7 +2657,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnAgregarEscritor;
     private javax.swing.JButton btnAgregarLibro;
-    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnCompra;
