@@ -38,6 +38,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnIngresarLogin = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,6 +60,8 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setText("Inicio de Sesion");
 
+        btnIngresarLogin.setBackground(new java.awt.Color(0, 102, 102));
+        btnIngresarLogin.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         btnIngresarLogin.setText("Ingresar");
         btnIngresarLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,19 +109,28 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addContainerGap(214, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
+        jLabel5.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        jLabel5.setText("LA CASA DEL LIBRO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel5)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel5)
+                .addContainerGap(590, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 650));
@@ -193,6 +205,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField txtPassword;

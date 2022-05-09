@@ -242,7 +242,7 @@ public class FrmOpciones extends javax.swing.JFrame {
                 .addGap(149, 149, 149))
         );
 
-        jTabbedPane1.addTab("tab2", jPanel3);
+        jTabbedPane1.addTab("Genero Literario", jPanel3);
 
         TblCategoria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -338,7 +338,7 @@ public class FrmOpciones extends javax.swing.JFrame {
                 .addContainerGap(77, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab1", jPanel2);
+        jTabbedPane1.addTab("Categoria", jPanel2);
 
         TblSubGenero.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -443,7 +443,7 @@ public class FrmOpciones extends javax.swing.JFrame {
                 .addContainerGap(115, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab3", jPanel4);
+        jTabbedPane1.addTab("SubGenero Literario", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 1000, 460));
 
@@ -660,8 +660,8 @@ public class FrmOpciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubGeneroActionPerformed
 
     private void btnSubGeneroLiterario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubGeneroLiterario1ActionPerformed
-        FrmOpciones AbrirFrmOpciones = new FrmOpciones();
-        AbrirFrmOpciones.setVisible(true);
+        FrmSistemaMenu AbrirFrm = new FrmSistemaMenu();
+        AbrirFrm.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnSubGeneroLiterario1ActionPerformed
 
