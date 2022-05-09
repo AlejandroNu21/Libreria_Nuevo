@@ -35,7 +35,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="33" red="0" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -73,7 +73,7 @@
         <Component class="javax.swing.JButton" name="btnCategoria">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="33" type="rgb"/>
+              <Color blue="66" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Categoria"/>
           </Properties>
@@ -84,7 +84,7 @@
         <Component class="javax.swing.JButton" name="btnGeneroLiterario">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="33" type="rgb"/>
+              <Color blue="66" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Genero Literario"/>
           </Properties>
@@ -95,7 +95,7 @@
         <Component class="javax.swing.JButton" name="btnSubGeneroLiterario">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="33" type="rgb"/>
+              <Color blue="66" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sub Genero Literario"/>
           </Properties>
@@ -106,7 +106,7 @@
         <Component class="javax.swing.JButton" name="btnSubGeneroLiterario1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="ff" type="rgb"/>
+              <Color blue="66" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Regresar"/>
           </Properties>
@@ -211,7 +211,7 @@
             <Component class="javax.swing.JButton" name="btnAgregarGeneroLiterario">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="0" id="blue" palette="1" red="0" type="palette"/>
+                  <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto Bk" size="14" style="1"/>
@@ -403,7 +403,7 @@
             <Component class="javax.swing.JButton" name="btnAgregarCategoria">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="0" id="blue" palette="1" red="0" type="palette"/>
+                  <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto Bk" size="14" style="1"/>
@@ -568,7 +568,7 @@
             <Component class="javax.swing.JButton" name="btnSubGenero">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="0" id="blue" palette="1" red="0" type="palette"/>
+                  <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto Bk" size="14" style="1"/>

@@ -19,7 +19,6 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -39,10 +38,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     public FrmSistemaMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
-        ImageIcon imagen1=new ImageIcon(getClass().getResource("/Imagenes/Libro.gif"));
-        Icon fondo1=new ImageIcon(imagen1.getImage().getScaledInstance(lblImagenGif.getWidth(), lblImagenGif.getHeight(), Image.SCALE_DEFAULT));
-        lblImagenGif.setIcon(fondo1);
-        this.repaint();
+       
     }
 
     /**
@@ -67,8 +63,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         btnEscritor1 = new javax.swing.JButton();
         FrmVentas = new javax.swing.JTabbedPane();
         jPanel12 = new javax.swing.JPanel();
-        jLabel75 = new javax.swing.JLabel();
-        lblImagenGif = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblImagen = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -274,9 +268,9 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnAgregarLibro.setBackground(new java.awt.Color(51, 153, 255));
+        btnAgregarLibro.setBackground(new java.awt.Color(0, 51, 102));
         btnAgregarLibro.setText("Libro");
         btnAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,16 +278,22 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
             }
         });
 
+        btnCompra.setBackground(new java.awt.Color(0, 51, 102));
         btnCompra.setText("Compra");
 
+        btnEditoriales.setBackground(new java.awt.Color(0, 51, 102));
         btnEditoriales.setText("Editoriales");
 
+        btnClientes.setBackground(new java.awt.Color(0, 51, 102));
         btnClientes.setText("Clientes");
 
+        btnVentas.setBackground(new java.awt.Color(0, 51, 102));
         btnVentas.setText("Ventas");
 
+        btnPrestamo.setBackground(new java.awt.Color(0, 51, 102));
         btnPrestamo.setText("Prestamo");
 
+        btnEscritor.setBackground(new java.awt.Color(0, 51, 102));
         btnEscritor.setText("Opciones");
         btnEscritor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,8 +303,10 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        btnLector.setBackground(new java.awt.Color(0, 51, 102));
         btnLector.setText("Lector");
 
+        btnEscritor1.setBackground(new java.awt.Color(0, 51, 102));
         btnEscritor1.setText("Escritor");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -353,34 +355,17 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 720));
 
-        jLabel75.setFont(new java.awt.Font("Castellar", 1, 48)); // NOI18N
-        jLabel75.setText("BIENVENIDO");
-
-        lblImagenGif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Libro.gif"))); // NOI18N
-        lblImagenGif.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel12.setBackground(new java.awt.Color(0, 153, 204));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
-                        .addComponent(jLabel75))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(lblImagenGif, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(183, Short.MAX_VALUE))
+            .addGap(0, 970, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jLabel75)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblImagenGif, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addGap(0, 510, Short.MAX_VALUE)
         );
 
         FrmVentas.addTab("INICIO", jPanel12);
@@ -485,36 +470,29 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCodigoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCodigoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(158, 158, 158)
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jButton2)))
                         .addGap(280, 280, 280)
                         .addComponent(btnSeleccionarAvatarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
                         .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSubGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(49, 49, 49)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCargaLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(45, 45, 45))
+                            .addComponent(txtGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSubGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCargaLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -2002,7 +1980,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                         .addComponent(btnAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel67)
                         .addGap(18, 18, 18)
                         .addComponent(btnSeleccionarAvatarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2972,7 +2949,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -3007,7 +2983,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblImagen1;
-    private javax.swing.JLabel lblImagenGif;
     private javax.swing.JTextField txtApellidoCliente;
     private javax.swing.JTextField txtApellidoEscritor;
     private javax.swing.JTextField txtApellidoLector;

@@ -83,9 +83,9 @@ public class FrmOpciones extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnCategoria.setBackground(new java.awt.Color(51, 153, 255));
+        btnCategoria.setBackground(new java.awt.Color(0, 51, 102));
         btnCategoria.setText("Categoria");
         btnCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +93,7 @@ public class FrmOpciones extends javax.swing.JFrame {
             }
         });
 
-        btnGeneroLiterario.setBackground(new java.awt.Color(51, 153, 255));
+        btnGeneroLiterario.setBackground(new java.awt.Color(0, 51, 102));
         btnGeneroLiterario.setText("Genero Literario");
         btnGeneroLiterario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +101,7 @@ public class FrmOpciones extends javax.swing.JFrame {
             }
         });
 
-        btnSubGeneroLiterario.setBackground(new java.awt.Color(51, 153, 255));
+        btnSubGeneroLiterario.setBackground(new java.awt.Color(0, 51, 102));
         btnSubGeneroLiterario.setText("Sub Genero Literario");
         btnSubGeneroLiterario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +109,7 @@ public class FrmOpciones extends javax.swing.JFrame {
             }
         });
 
-        btnSubGeneroLiterario1.setBackground(new java.awt.Color(255, 102, 102));
+        btnSubGeneroLiterario1.setBackground(new java.awt.Color(0, 51, 102));
         btnSubGeneroLiterario1.setText("Regresar");
         btnSubGeneroLiterario1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +145,7 @@ public class FrmOpciones extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/encabezado.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 1000, 180));
 
-        btnAgregarGeneroLiterario.setBackground(java.awt.Color.blue);
+        btnAgregarGeneroLiterario.setBackground(new java.awt.Color(153, 153, 153));
         btnAgregarGeneroLiterario.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         btnAgregarGeneroLiterario.setForeground(new java.awt.Color(254, 254, 255));
         btnAgregarGeneroLiterario.setText("Agregar");
@@ -270,7 +270,7 @@ public class FrmOpciones extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         jLabel3.setText("Id");
 
-        btnAgregarCategoria.setBackground(java.awt.Color.blue);
+        btnAgregarCategoria.setBackground(new java.awt.Color(153, 153, 153));
         btnAgregarCategoria.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         btnAgregarCategoria.setForeground(new java.awt.Color(254, 254, 255));
         btnAgregarCategoria.setText("Agregar");
@@ -368,7 +368,7 @@ public class FrmOpciones extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         jLabel7.setText("S. G. Literario");
 
-        btnSubGenero.setBackground(java.awt.Color.blue);
+        btnSubGenero.setBackground(new java.awt.Color(153, 153, 153));
         btnSubGenero.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         btnSubGenero.setForeground(new java.awt.Color(254, 254, 255));
         btnSubGenero.setText("Agregar");
