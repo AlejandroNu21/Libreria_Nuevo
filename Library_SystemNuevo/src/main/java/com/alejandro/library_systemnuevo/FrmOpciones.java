@@ -10,6 +10,8 @@ import Beans.Subgenero_beans;
 import Entidades.Categoria;
 import Entidades.generoLiterario;
 import Entidades.subGeneroLiterario;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -27,7 +29,17 @@ public class FrmOpciones extends javax.swing.JFrame {
      */
     public FrmOpciones() {
         initComponents();
+         setIconImage(getIconImage());
+        
         this.setLocationRelativeTo(null);
+    }
+    
+     @Override
+    public Image getIconImage () {
+        
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpeg"));
+        
+        return retValue;
     }
 
     /**
