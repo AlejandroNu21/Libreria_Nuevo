@@ -15,6 +15,7 @@ import Entidades.Escritor;
 import Entidades.Lector;
 import Entidades.clientes;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -75,7 +76,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -95,6 +95,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         txtClasificacion = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         btnCargaLibro = new javax.swing.JButton();
+        btnSeleccionarAvatarLibro = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -228,8 +229,8 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel65 = new javax.swing.JLabel();
         btnAgregarEscritor = new javax.swing.JButton();
         jLabel66 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
         btnCargaEscritor = new javax.swing.JButton();
+        btnSeleccionarAvatarEscritor = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel68 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
@@ -257,7 +258,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         txtNombreCliente = new javax.swing.JTextField();
         lblAvatar = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        btnCargar = new javax.swing.JButton();
+        btnSeleccionarAvatarCliente = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
@@ -267,6 +268,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         txtApellidoCliente = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -400,13 +402,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel7.setText("Id Escritor");
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-program-48.png"))); // NOI18N
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel16MouseClicked(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel8.setText("Id Categoria");
 
@@ -455,6 +450,13 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
             }
         });
 
+        btnSeleccionarAvatarLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-program-48.png"))); // NOI18N
+        btnSeleccionarAvatarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarAvatarLibroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -483,12 +485,18 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodigoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(158, 158, 158)
-                                .addComponent(jButton2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(280, 280, 280)
+                        .addComponent(btnSeleccionarAvatarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
                         .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -505,7 +513,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnCargaLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 68, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(45, 45, 45))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -522,9 +530,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                             .addComponent(jLabel8)))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
                     .addComponent(jLabel17)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(200, 200, 200)))
+                    .addGap(250, 250, 250)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,9 +539,12 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(btnSeleccionarAvatarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -581,10 +590,8 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(42, 42, 42)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel17)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(16, 16, 16)
+                    .addComponent(jLabel17)
+                    .addGap(39, 39, 39)
                     .addComponent(jLabel3)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
                     .addComponent(jLabel8)
@@ -869,10 +876,20 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel31.setText("Telefono ");
 
         txtCodigoEditorial.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtCodigoEditorial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoEditorialKeyTyped(evt);
+            }
+        });
 
         txtNombreEditorial.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
         txtTelefonoEditorial.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtTelefonoEditorial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoEditorialKeyTyped(evt);
+            }
+        });
 
         txtDireccionEditorial.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
@@ -1166,6 +1183,11 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel48.setText("Edad");
 
         txtCodigoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtCodigoLector.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoLectorKeyTyped(evt);
+            }
+        });
 
         jLabel49.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel49.setText("Codigo Lector ");
@@ -1176,8 +1198,18 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel50.setText("Direccion");
 
         txtEdadLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEdadLector.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEdadLectorKeyTyped(evt);
+            }
+        });
 
         txtTelefonoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtTelefonoLector.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoLectorKeyTyped(evt);
+            }
+        });
 
         txtApellidoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
@@ -1524,6 +1556,11 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         });
 
         txtCodigoEscritor.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtCodigoEscritor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoEscritorKeyTyped(evt);
+            }
+        });
 
         lblImagen1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1567,14 +1604,14 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
 
         jLabel66.setText("Seleccionar Avatar");
 
-        jLabel67.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-program-48.png"))); // NOI18N
-        jLabel67.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel67MouseClicked(evt);
+        btnCargaEscritor.setText("...");
+
+        btnSeleccionarAvatarEscritor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-program-48.png"))); // NOI18N
+        btnSeleccionarAvatarEscritor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarAvatarEscritorActionPerformed(evt);
             }
         });
-
-        btnCargaEscritor.setText("...");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1602,8 +1639,8 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                             .addGap(0, 0, Short.MAX_VALUE)
                             .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(70, 70, 70)
+                            .addComponent(btnSeleccionarAvatarEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(66, 66, 66)
                             .addComponent(lblImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(30, 30, 30))
             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1649,8 +1686,8 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel66))))
+                            .addComponent(jLabel66)
+                            .addComponent(btnSeleccionarAvatarEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
@@ -1857,6 +1894,11 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         FrmVentas.addTab("Datos Escritor", jPanel11);
 
         txtCodigoCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtCodigoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoClienteKeyTyped(evt);
+            }
+        });
 
         btnAgregarCliente.setBackground(java.awt.Color.blue);
         btnAgregarCliente.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
@@ -1877,10 +1919,10 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel33.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         jLabel33.setText("Codigo Cliente ");
 
-        btnCargar.setText("Seleccionar Avatar");
-        btnCargar.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionarAvatarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-program-48.png"))); // NOI18N
+        btnSeleccionarAvatarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCargarActionPerformed(evt);
+                btnSeleccionarAvatarClienteActionPerformed(evt);
             }
         });
 
@@ -1894,6 +1936,11 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         jLabel36.setText("Apellido");
 
         txtTelefonoCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtTelefonoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoClienteKeyTyped(evt);
+            }
+        });
 
         jLabel37.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         jLabel37.setText("Edad");
@@ -1912,6 +1959,8 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
 
         jLabel39.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
         jLabel39.setText("Telefono");
+
+        jLabel67.setText("Seleccionar Avatar:");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1953,8 +2002,10 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                         .addComponent(btnAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                        .addComponent(btnCargar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel67)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSeleccionarAvatarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
                         .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(147, 147, 147))))
@@ -1966,10 +2017,12 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
-                                .addComponent(btnCargar))
-                            .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel67)
+                                    .addComponent(btnSeleccionarAvatarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(95, 95, 95))
@@ -2015,25 +2068,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
 
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
-
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        String Ruta = "";
-
-        JFileChooser jFileChooser = new JFileChooser();
-        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif" );
-        jFileChooser.setFileFilter(filtrado);
-
-        int respuesta = jFileChooser.showOpenDialog(this);
-
-        if(respuesta == JFileChooser.APPROVE_OPTION){
-            Ruta =jFileChooser.getSelectedFile().getPath();
-
-            Image mImagen = new ImageIcon(Ruta).getImage();
-            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen.getWidth(),lblImagen.getHeight(), Image.SCALE_SMOOTH));
-            lblImagen.setIcon(mIcono);
-
-        }
-    }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -2198,7 +2232,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         txtCodigoCliente.requestFocus();
     }//GEN-LAST:event_btnAgregarClienteActionPerformed
 
-    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+    private void btnSeleccionarAvatarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarAvatarClienteActionPerformed
         String Ruta = "";
 
         JFileChooser jFileChooser = new JFileChooser();
@@ -2215,7 +2249,7 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
             lblAvatar.setIcon(mIcono);
 
         }
-    }//GEN-LAST:event_btnCargarActionPerformed
+    }//GEN-LAST:event_btnSeleccionarAvatarClienteActionPerformed
 
     private void txtEdadClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadClienteKeyTyped
         char c = evt.getKeyChar();
@@ -2570,25 +2604,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAgregarEscritorActionPerformed
 
-    private void jLabel67MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel67MouseClicked
-      String Ruta = "";
-
-        JFileChooser jFileChooser = new JFileChooser();
-        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
-        jFileChooser.setFileFilter(filtrado);
-
-        int respuesta = jFileChooser.showOpenDialog(this);
-
-        if (respuesta == JFileChooser.APPROVE_OPTION) {
-            Ruta = jFileChooser.getSelectedFile().getPath();
-
-            Image mImagen = new ImageIcon(Ruta).getImage();
-            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen1.getWidth(), lblImagen1.getHeight(), Image.SCALE_SMOOTH));
-            lblImagen1.setIcon(mIcono);
-
-        }
-    }//GEN-LAST:event_jLabel67MouseClicked
-
     public void CargaDatosEscritor(){
         Limpiar();
         String titulos[] = {"Id", "Id Escritor", "Fecha Nacimiento", "Lugar Nacimiento", "Fecha Deceso", "Lugar Deceso", "Biografia"};
@@ -2705,6 +2720,100 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
         cargaEditorial();
     }//GEN-LAST:event_btnCargaEditorialActionPerformed
 
+    private void txtCodigoEditorialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoEditorialKeyTyped
+       if(txtCodigoEditorial.getText().length() >= 8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtCodigoEditorialKeyTyped
+
+    private void txtTelefonoEditorialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoEditorialKeyTyped
+       if(txtTelefonoEditorial.getText().length() >= 8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtTelefonoEditorialKeyTyped
+
+    private void txtCodigoLectorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoLectorKeyTyped
+        if(txtCodigoLector.getText().length() >= 8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtCodigoLectorKeyTyped
+
+    private void txtEdadLectorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadLectorKeyTyped
+        if(txtEdadLector.getText().length() >= 3){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtEdadLectorKeyTyped
+
+    private void txtTelefonoLectorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoLectorKeyTyped
+      if(txtTelefonoLector.getText().length() >= 8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtTelefonoLectorKeyTyped
+
+    private void btnSeleccionarAvatarEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarAvatarEscritorActionPerformed
+         String Ruta = "";
+
+        JFileChooser jFileChooser = new JFileChooser();
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        jFileChooser.setFileFilter(filtrado);
+
+        int respuesta = jFileChooser.showOpenDialog(this);
+
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+            Ruta = jFileChooser.getSelectedFile().getPath();
+
+            Image mImagen = new ImageIcon(Ruta).getImage();
+            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen1.getWidth(), lblImagen1.getHeight(), Image.SCALE_SMOOTH));
+            lblImagen1.setIcon(mIcono);
+
+        }
+    }//GEN-LAST:event_btnSeleccionarAvatarEscritorActionPerformed
+
+    private void txtCodigoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoClienteKeyTyped
+        if(txtCodigoCliente.getText().length() >= 8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtCodigoClienteKeyTyped
+
+    private void txtTelefonoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoClienteKeyTyped
+         if(txtTelefonoCliente.getText().length() >= 8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtTelefonoClienteKeyTyped
+
+    private void btnSeleccionarAvatarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarAvatarLibroActionPerformed
+       String Ruta = "";
+
+        JFileChooser jFileChooser = new JFileChooser();
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif" );
+        jFileChooser.setFileFilter(filtrado);
+
+        int respuesta = jFileChooser.showOpenDialog(this);
+
+        if(respuesta == JFileChooser.APPROVE_OPTION){
+            Ruta =jFileChooser.getSelectedFile().getPath();
+
+            Image mImagen = new ImageIcon(Ruta).getImage();
+            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen.getWidth(),lblImagen.getHeight(), Image.SCALE_SMOOTH));
+            lblImagen.setIcon(mIcono);
+
+        }
+    }//GEN-LAST:event_btnSeleccionarAvatarLibroActionPerformed
+
+    private void txtCodigoEscritorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoEscritorKeyTyped
+        if(txtCodigoEscritor.getText().length() >= 8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtCodigoEscritorKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -2768,7 +2877,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnCargaLibro;
     private javax.swing.JButton btnCargaPrestamo;
     private javax.swing.JButton btnCargaVentas;
-    private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnCompra;
     private javax.swing.JButton btnEditoriales;
@@ -2779,6 +2887,9 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnLector;
     private javax.swing.JButton btnPrestamo;
+    private javax.swing.JButton btnSeleccionarAvatarCliente;
+    private javax.swing.JButton btnSeleccionarAvatarEscritor;
+    private javax.swing.JButton btnSeleccionarAvatarLibro;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnVentas;
     private javax.swing.JButton jButton1;
@@ -2797,7 +2908,6 @@ public class FrmSistemaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
