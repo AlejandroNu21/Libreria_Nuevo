@@ -9,13 +9,50 @@ package Entidades;
  * @author Kevin
  */
 public class clientes {
-
+    
+    private int idCliente;
     private String CodigoCliente;
     private String NombreCliente;
     private String ApellidoCliente;
     private String Edad;
     private String Direccion;
     private String Telefono;
+
+    public clientes() {
+    }
+
+    public clientes(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public clientes(String CodigoCliente, String NombreCliente, String ApellidoCliente, String Edad, String Direccion, String Telefono) {
+        this.CodigoCliente = CodigoCliente;
+        this.NombreCliente = NombreCliente;
+        this.ApellidoCliente = ApellidoCliente;
+        this.Edad = Edad;
+        this.Direccion = Direccion;
+        this.Telefono = Telefono;
+    }
+
+    public clientes(int idCliente, String CodigoCliente, String NombreCliente, String ApellidoCliente, String Edad, String Direccion, String Telefono) {
+        this.idCliente = idCliente;
+        this.CodigoCliente = CodigoCliente;
+        this.NombreCliente = NombreCliente;
+        this.ApellidoCliente = ApellidoCliente;
+        this.Edad = Edad;
+        this.Direccion = Direccion;
+        this.Telefono = Telefono;
+    }
+    
+    
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
 
     public String getCodigoCliente() {
         return CodigoCliente;
@@ -49,8 +86,6 @@ public class clientes {
         this.Edad = Edad;
     }
 
-
-
     public String getDireccion() {
         return Direccion;
     }
@@ -66,5 +101,7 @@ public class clientes {
     public void setTelefono(String Telefono) {
         this.Telefono = Telefono;
     }
+
+    
 
 }

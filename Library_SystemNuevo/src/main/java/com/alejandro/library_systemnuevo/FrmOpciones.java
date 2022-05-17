@@ -672,7 +672,7 @@ public class FrmOpciones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubGeneroActionPerformed
 
     private void btnSubGeneroLiterario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubGeneroLiterario1ActionPerformed
-        FrmSistemaMenu AbrirFrm = new FrmSistemaMenu();
+        JfrmMenu AbrirFrm = new JfrmMenu();
         AbrirFrm.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnSubGeneroLiterario1ActionPerformed

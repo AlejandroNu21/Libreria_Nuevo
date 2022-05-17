@@ -169,7 +169,7 @@ public class FrmLogin extends javax.swing.JFrame {
         
         Login users = new Login();
         if(users.Logu(us)){
-         FrmSistemaMenu abrir = new FrmSistemaMenu();
+         JfrmMenu abrir = new JfrmMenu();
                 abrir.setVisible(true);
                 this.setVisible(false);
         

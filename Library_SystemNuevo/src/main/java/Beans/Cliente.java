@@ -32,6 +32,7 @@ public class Cliente {
 
             while (resultado.next()) {
                 clientes cl = new clientes();
+                cl.setIdCliente(resultado.getInt("idClientes"));
                 cl.setCodigoCliente(resultado.getString("CodigoCliente"));
                 cl.setNombreCliente(resultado.getString("NombreCliente"));
                 cl.setApellidoCliente(resultado.getString("ApellidoCliente"));
