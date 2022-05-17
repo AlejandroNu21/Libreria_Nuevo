@@ -157,62 +157,37 @@ public class JpLector extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNuevoLectorActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-//
-//        try{
-//            if(isSelect==true){
-//                Lectores lectorDao = new Lectores();
-//
-//                int Id = Integer.parseInt(txtIdLector.getText());
-//
-//                Lector lector = new Lector(Id);
-//                lectorDao.DeleteLector(lector);
-//                cargaLector();
-//
-//                isSelect = false;
-//            }else{
-//                JOptionPane.showMessageDialog(null,"No ha seleccionado ningun lector","Aviso",1);
-//            }
-//
-//        }catch(Exception ex){
-//            JOptionPane.showMessageDialog(null,"Ha ocurrido un error"+ex);
-//        }
+ if (TblLector.getSelectedRowCount()>0) {
+             Lector es = new Lector();
+        Lectores esDAO = new Lectores();
+            int selectedRow =TblLector.getSelectedRow();
+            es.setIdLector(Integer.parseInt(TblLector.getValueAt(selectedRow, 0).toString()));
+
+             esDAO.DeleteLector(es);
+             carga();
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+            }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizar1ActionPerformed
-//        try{
-//            if(isSelect==true){
-//
-//                Lectores editLect = new Lectores();
-//                int idLector= Integer.parseInt(txtIdLector.getText());
-//
-//                String CodigoLector = txtCodigoLector.getText();
-//                String Nombre_Lector = txtNombreLector.getText();
-//                String Apellido_Lector = txtApellidoLector.getText();
-//                String Edad=txtEdadLector.getText();
-//                String Direccion = txtDireccionLector.getText();
-//                String Telefono = txtTelefonoLector.getText();
-//
-//                int row = TblLector.getSelectedRow();
-//
-//                TblLector.setValueAt(CodigoLector, row, 1);
-//                TblLector.setValueAt(Nombre_Lector, row, 2);
-//                TblLector.setValueAt(Apellido_Lector, row, 3);
-//                TblLector.setValueAt(Edad, row, 4);
-//                TblLector.setValueAt(Direccion, row, 5);
-//                TblLector.setValueAt(Telefono, row, 6);
-//
-//                Lector lct = new Lector(idLector, CodigoLector, Nombre_Lector,Apellido_Lector, Edad,Direccion,Telefono);
-//                editLect.UpdateLector(lct);
-//                LimpiarLector();
-//                cargaLector();
-//                isSelect = false;
-//            }else{
-//                JOptionPane.showMessageDialog(null,"Seleccione una fila","Aviso",1);
-//            }
-//        }catch(Exception ex){
-//            JOptionPane.showMessageDialog(null,"Ha ocurrido otro error","Error",JOptionPane.ERROR_MESSAGE);
-//
-//        }
+if (TblLector.getSelectedRowCount() > 0) {
+
+            JfrmLectorCrud frm = new JfrmLectorCrud();
+            int selectedRow = TblLector.getSelectedRow();
+            frm.txtIdLector.setText(String.valueOf(TblLector.getValueAt(selectedRow, 0)));
+            frm.txtCodigoLector.setText(String.valueOf(TblLector.getValueAt(selectedRow, 1)));
+            frm.txtNombreLector.setText(String.valueOf(TblLector.getValueAt(selectedRow, 2)));
+            frm.txtApellidoLector.setText(String.valueOf(TblLector.getValueAt(selectedRow, 3)));
+            frm.txtEdadLector.setText(String.valueOf(TblLector.getValueAt(selectedRow, 4)));
+            frm.txtDireccionLector.setText(String.valueOf(TblLector.getValueAt(selectedRow, 5)));
+            frm.txtTelefonoLector.setText(String.valueOf(TblLector.getValueAt(selectedRow, 6)));
+            frm.jpL = this;
+            frm.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
     }//GEN-LAST:event_btnActualizar1ActionPerformed
 
 

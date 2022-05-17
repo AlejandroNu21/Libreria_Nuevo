@@ -132,14 +132,13 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAgregar2, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtDireccionLector, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                        .addComponent(txtEdadLector)
-                        .addComponent(txtApellidoLector)
-                        .addComponent(txtIdLector, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCodigoLector)
-                        .addComponent(txtNombreLector)
-                        .addComponent(txtTelefonoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtDireccionLector, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(txtEdadLector)
+                    .addComponent(txtApellidoLector)
+                    .addComponent(txtIdLector, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoLector)
+                    .addComponent(txtNombreLector)
+                    .addComponent(txtTelefonoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -214,25 +213,45 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCodigoLectorKeyTyped
 
     private void btnAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar2ActionPerformed
+        Lector es = new Lector();
+        Lectores esDAO = new Lectores();
+
         if (txtCodigoLector.getText().equals("") || txtNombreLector.getText().equals("")
-            || txtApellidoLector.getText().equals("") || txtEdadLector.getText().equals("")
-            || txtDireccionLector.getText().equals("") || txtTelefonoLector.getText().equals(""))
-        {
+                || txtApellidoLector.getText().equals("") || txtEdadLector.getText().equals("")
+                || txtDireccionLector.getText().equals("") || txtTelefonoLector.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
             txtCodigoLector.requestFocus();
         } else {
-            Lector es = new Lector();
-            Lectores esDAO = new Lectores();
+            if (txtIdLector.getText().equals("")) {
 
-            es.setCodigoLector(txtCodigoLector.getText());
-            es.setNombre_Lector(txtNombreLector.getText());
-            es.setApellido_Lector(txtApellidoLector.getText());
-            es.setEdad(txtEdadLector.getText());
-            es.setDireccion(txtDireccionLector.getText());
-            es.setTelefono(txtTelefonoLector.getText());
+                es.setCodigoLector(txtCodigoLector.getText());
+                es.setNombre_Lector(txtNombreLector.getText());
+                es.setApellido_Lector(txtApellidoLector.getText());
+                es.setEdad(txtEdadLector.getText());
+                es.setDireccion(txtDireccionLector.getText());
+                es.setTelefono(txtTelefonoLector.getText());
 
-            esDAO.AddLector(es);
-            this.setVisible(false);
+                esDAO.AddLector(es);
+                this.setVisible(false);
+
+            } else {
+
+                es.setIdLector(Integer.parseInt(txtIdLector.getText()));
+                es.setCodigoLector(txtCodigoLector.getText());
+                es.setNombre_Lector(txtNombreLector.getText());
+                es.setApellido_Lector(txtApellidoLector.getText());
+                es.setEdad(txtEdadLector.getText());
+                es.setDireccion(txtDireccionLector.getText());
+                es.setTelefono(txtTelefonoLector.getText());
+
+                esDAO.UpdateLector(es);
+
+                this.setVisible(false);
+
+            }
+            jpL.carga();
+        
+    
         }
     }//GEN-LAST:event_btnAgregar2ActionPerformed
 
@@ -270,7 +289,7 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
             }
         });
     }
-
+public JpLector jpL ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar2;
     private javax.swing.JLabel jLabel47;
@@ -281,12 +300,12 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtApellidoLector;
-    private javax.swing.JTextField txtCodigoLector;
-    private javax.swing.JTextField txtDireccionLector;
-    private javax.swing.JTextField txtEdadLector;
-    private javax.swing.JTextField txtIdLector;
-    private javax.swing.JTextField txtNombreLector;
-    private javax.swing.JTextField txtTelefonoLector;
+    public javax.swing.JTextField txtApellidoLector;
+    public javax.swing.JTextField txtCodigoLector;
+    public javax.swing.JTextField txtDireccionLector;
+    public javax.swing.JTextField txtEdadLector;
+    public javax.swing.JTextField txtIdLector;
+    public javax.swing.JTextField txtNombreLector;
+    public javax.swing.JTextField txtTelefonoLector;
     // End of variables declaration//GEN-END:variables
 }

@@ -69,5 +69,24 @@ public class Cliente {
         }
 
     }
+         public void UpdateCliente(clientes cli) {
+     try {
+            CallableStatement cb = conexion.prepareCall("{call SP_U_LECTOR(?,?,?,?,?,?,?)}");
+            cb.setInt(7,cli.getIdCliente());
+            cb.setString(1, cli.getCodigoCliente());
+            cb.setString(2, cli.getNombreCliente());
+            cb.setString(3, cli.getApellidoCliente());
+            cb.setString(4, cli.getEdad());
+            cb.setString(5, cli.getDireccion());
+            cb.setString(6, cli.getTelefono());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Cliente Actualizado con exito","Exito",JOptionPane.INFORMATION_MESSAGE);
+            System.out.println(cli.getCodigoCliente()+cli.getNombreCliente()+cli.getApellidoCliente()+cli.getEdad()+cli.getDireccion()+cli.getTelefono()+cli.getIdCliente());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
+    
+    }
 
 }

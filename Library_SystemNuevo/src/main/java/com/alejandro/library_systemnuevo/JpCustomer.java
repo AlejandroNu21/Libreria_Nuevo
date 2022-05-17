@@ -8,6 +8,7 @@ import Beans.Cliente;
 import Entidades.clientes;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -151,7 +152,24 @@ public class JpCustomer extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
 
     private void btnActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarClienteActionPerformed
-        // TODO add your handling code here:
+         if (TblClientes.getSelectedRowCount() > 0) {
+
+            JfrmClienteCrud frmCliente = new JfrmClienteCrud();
+            int selectedRow = TblClientes.getSelectedRow();
+            frmCliente.txtIdCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 0)));
+            frmCliente.txtCodigoCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 1)));
+            frmCliente.txtNombreCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 2)));
+            frmCliente.txtApellidoCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 3)));
+            frmCliente.txtEdadCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 4)));
+            frmCliente.txtDireccionCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 4)));
+            frmCliente.txtTelefonoCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 4)));
+            frmCliente.jpC = this;
+            frmCliente.setVisible(true);
+
+            //isSelect = false;
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
     }//GEN-LAST:event_btnActualizarClienteActionPerformed
 
     private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed

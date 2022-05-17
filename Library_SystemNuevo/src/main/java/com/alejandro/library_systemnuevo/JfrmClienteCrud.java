@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -270,7 +271,18 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+            public void limpiar() {
+        txtIdCliente.setText("");
+        txtCodigoCliente.setText("");
+        txtNombreCliente.setText("");
+        txtApellidoCliente.setText("");
+        txtEdadCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtCodigoCliente.requestFocus();
+    }
+            
     private void txtEdadClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadClienteKeyTyped
         char c = evt.getKeyChar();
 
@@ -316,18 +328,44 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCodigoClienteKeyTyped
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        clientes es = new clientes();
-        Cliente esDAO = new Cliente();
+        clientes cl = new clientes();
+        Cliente clDAO = new Cliente();
+    
+        if (txtCodigoCliente.getText().equals("") || txtNombreCliente.getText().equals("")
+            || txtApellidoCliente.getText().equals("") || txtEdadCliente.getText().equals("")
+                || txtDireccionCliente.getText().equals("")|| txtTelefonoCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            
+        } else { 
+            if(txtIdCliente.getText().equals("")){
 
-        es.setCodigoCliente(txtCodigoCliente.getText());
-        es.setNombreCliente(txtNombreCliente.getText());
-        es.setApellidoCliente(txtApellidoCliente.getText());
-        es.setEdad(txtEdadCliente.getText());
-        es.setDireccion(txtDireccionCliente.getText());
-        es.setTelefono(txtTelefonoCliente.getText());
-        esDAO.AddCliente(es);
-        //Limpiar();
-        txtCodigoCliente.requestFocus();
+        cl.setCodigoCliente(txtCodigoCliente.getText());
+        cl.setNombreCliente(txtNombreCliente.getText());
+        cl.setApellidoCliente(txtApellidoCliente.getText());
+        cl.setEdad(txtEdadCliente.getText());
+        cl.setDireccion(txtDireccionCliente.getText());
+        cl.setTelefono(txtTelefonoCliente.getText());
+        clDAO.AddCliente(cl);
+        limpiar();
+            
+            }else{
+
+            cl.setIdCliente(Integer.parseInt(txtIdCliente.getText()));
+            cl.setCodigoCliente(txtCodigoCliente.getText());
+            cl.setNombreCliente(txtNombreCliente.getText());
+            cl.setApellidoCliente(txtApellidoCliente.getText());
+            cl.setEdad(txtEdadCliente.getText());
+            cl.setDireccion(txtDireccionCliente.getText());
+            cl.setTelefono(txtTelefonoCliente.getText());
+
+            clDAO.UpdateCliente(cl);
+
+                this.setVisible(false);
+                
+            }
+            jpC.carga();
+            
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtIdClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdClienteKeyTyped
@@ -369,7 +407,8 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
             }
         });
     }
-
+    public JpCustomer jpC ;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSeleccionarAvatarCliente;
@@ -384,12 +423,12 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblIdCliente;
-    private javax.swing.JTextField txtApellidoCliente;
-    private javax.swing.JTextField txtCodigoCliente;
-    private javax.swing.JTextField txtDireccionCliente;
-    private javax.swing.JTextField txtEdadCliente;
-    private javax.swing.JTextField txtIdCliente;
-    private javax.swing.JTextField txtNombreCliente;
-    private javax.swing.JTextField txtTelefonoCliente;
+    public javax.swing.JTextField txtApellidoCliente;
+    public javax.swing.JTextField txtCodigoCliente;
+    public javax.swing.JTextField txtDireccionCliente;
+    public javax.swing.JTextField txtEdadCliente;
+    public javax.swing.JTextField txtIdCliente;
+    public javax.swing.JTextField txtNombreCliente;
+    public javax.swing.JTextField txtTelefonoCliente;
     // End of variables declaration//GEN-END:variables
 }
