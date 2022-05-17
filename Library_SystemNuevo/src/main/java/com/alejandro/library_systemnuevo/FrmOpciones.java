@@ -547,7 +547,7 @@ public class FrmOpciones extends javax.swing.JFrame {
             fila[1] = estBucle.getGenero_Literario();
             df.addRow(fila);
         }
-        TblCategoria.setModel(df);
+      TblGeneroLiterario.setModel(df);
     }
 
     public void LimpiarGeneroLiterario() {
