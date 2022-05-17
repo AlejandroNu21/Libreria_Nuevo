@@ -69,24 +69,39 @@ public class Cliente {
         }
 
     }
-         public void UpdateCliente(clientes cli) {
+         public void UpdateCliente(clientes clie) {
      try {
-            CallableStatement cb = conexion.prepareCall("{call SP_U_LECTOR(?,?,?,?,?,?,?)}");
-            cb.setInt(7,cli.getIdCliente());
-            cb.setString(1, cli.getCodigoCliente());
-            cb.setString(2, cli.getNombreCliente());
-            cb.setString(3, cli.getApellidoCliente());
-            cb.setString(4, cli.getEdad());
-            cb.setString(5, cli.getDireccion());
-            cb.setString(6, cli.getTelefono());
+            CallableStatement cb = conexion.prepareCall("{call SP_U_CLIENTES(?,?,?,?,?,?,?)}");
+            cb.setInt(7,clie.getIdCliente());
+            cb.setString(1, clie.getCodigoCliente());
+            cb.setString(2, clie.getNombreCliente());
+            cb.setString(3, clie.getApellidoCliente());
+            cb.setString(4, clie.getEdad());
+            cb.setString(5,clie.getDireccion());
+            cb.setString(6,clie.getTelefono());
             cb.execute();
 
-            JOptionPane.showMessageDialog(null, "Cliente Actualizado con exito","Exito",JOptionPane.INFORMATION_MESSAGE);
-            System.out.println(cli.getCodigoCliente()+cli.getNombreCliente()+cli.getApellidoCliente()+cli.getEdad()+cli.getDireccion()+cli.getTelefono()+cli.getIdCliente());
+            JOptionPane.showMessageDialog(null, "Cliente Actualizado","Exito",JOptionPane.INFORMATION_MESSAGE);
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "error" + ex);
         }
     
+    }
+         
+         public void DeleteClient (clientes clt){
+    
+    try{
+         CallableStatement cb = conexion.prepareCall("delete from clientes as clt where clt.idClientes=?;");
+            cb.setInt(1, clt.getIdCliente());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente");
+            
+    
+    }catch (SQLException ex){
+        JOptionPane.showMessageDialog(null, "Ups, Error, " + ex);
+    }
     }
 
 }

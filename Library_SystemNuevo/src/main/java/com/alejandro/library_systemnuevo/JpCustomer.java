@@ -173,7 +173,18 @@ public class JpCustomer extends javax.swing.JPanel {
     }//GEN-LAST:event_btnActualizarClienteActionPerformed
 
     private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
-        // TODO add your handling code here:
+         if (TblClientes.getSelectedRowCount()>0) {
+             
+             clientes cl = new clientes();
+        Cliente esDAO = new Cliente();
+            int selectedRow =TblClientes.getSelectedRow();
+            cl.setIdCliente(Integer.parseInt(TblClientes.getValueAt(selectedRow, 0).toString()));
+
+             esDAO.DeleteClient(cl);
+             carga();
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+            }
     }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
 
