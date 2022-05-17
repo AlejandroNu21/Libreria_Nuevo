@@ -499,7 +499,7 @@ public class FrmOpciones extends javax.swing.JFrame {
         ArrayList<Categoria> listar = es.ListaCat();
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[5];
+        Object fila[] = new Object[3];
 
         while (iterador.hasNext()) {
             //CASTEAR
@@ -529,22 +529,22 @@ public class FrmOpciones extends javax.swing.JFrame {
 
     public void cargaGeneroLiterario() {
         LimpiarGeneroLiterario();
-        String titulos[] = {"Id", "Categoria"};
+        String titulos[] = {"Id", "Genero Literario"};
         //Ejemplosdearreglos
         Double numero[] = new Double[3];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        Categoria_beans es = new Categoria_beans();
-        ArrayList<Categoria> listar = es.ListaCat();
+        GeneroLiterario_beans es = new GeneroLiterario_beans();
+        ArrayList<generoLiterario> listar = es.ListaGenero();
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[5];
+        Object fila[] = new Object[3];
 
         while (iterador.hasNext()) {
             //CASTEAR
-            Categoria estBucle = (Categoria) iterador.next();
-            fila[0] = estBucle.getIdCategoria();
-            fila[1] = estBucle.getCategoria();
+            generoLiterario estBucle = (generoLiterario) iterador.next();
+            fila[0] = estBucle.getIdGenero_Literario();
+            fila[1] = estBucle.getGenero_Literario();
             df.addRow(fila);
         }
         TblCategoria.setModel(df);
@@ -630,7 +630,7 @@ public class FrmOpciones extends javax.swing.JFrame {
         ArrayList<subGeneroLiterario> listar = es.MostrarSubGeneroLiterario();
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[5];
+        Object fila[] = new Object[3];
 
         while (iterador.hasNext()) {
             //CASTEAR
