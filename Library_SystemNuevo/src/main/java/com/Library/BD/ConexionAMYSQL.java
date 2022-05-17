@@ -4,6 +4,7 @@
  */
 package com.Library.BD;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
@@ -18,8 +19,8 @@ public class ConexionAMYSQL {
     try {
         
         String url = "jdbc:mysql://localhost:3306/libreriabd";
-        String user = "Vkaiido";
-        String password ="root";
+        String user = "Nuñez";
+        String password ="Alexxkr2120sv";
         
         ConnectionBD=DriverManager.getConnection(url,user,password);
         System.out.println("Conexion Exitosa");
@@ -30,4 +31,5 @@ public class ConexionAMYSQL {
     } 
         return ConnectionBD;
     }
+    
 }
