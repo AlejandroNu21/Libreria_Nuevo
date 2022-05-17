@@ -4,10 +4,20 @@
  */
 package com.alejandro.library_systemnuevo;
 
+import Beans.Escritores;
+import Beans.Lectores;
+import Beans.Libros;
+import Entidades.Escritor;
+import Entidades.Lector;
+import Entidades.Libro;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -245,16 +255,16 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         String Ruta = "";
 
         JFileChooser jFileChooser = new JFileChooser();
-        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif" );
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         jFileChooser.setFileFilter(filtrado);
 
         int respuesta = jFileChooser.showOpenDialog(this);
 
-        if(respuesta == JFileChooser.APPROVE_OPTION){
-            Ruta =jFileChooser.getSelectedFile().getPath();
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+            Ruta = jFileChooser.getSelectedFile().getPath();
 
             Image mImagen = new ImageIcon(Ruta).getImage();
-            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen.getWidth(),lblImagen.getHeight(), Image.SCALE_SMOOTH));
+            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
             lblImagen.setIcon(mIcono);
 
         }
@@ -264,8 +274,76 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdEditorialActionPerformed
 
+//    public void carga() {
+//        String titulos[] = {"Id", "Codigo", "Id Editorial", "Titulo", "Id Escritor", "Id Categoria", "Id Genero", "Id SubGenero", "Clasificacion"};
+//        //Ejemplosdearreglos
+//        Double numero[] = new Double[7];
+//        DefaultTableModel df = new DefaultTableModel(null, titulos);
+//
+//        Libros es = new Libros();
+//        ArrayList<Libro> listar = es.ListaLibro();
+//
+//        Iterator iterador = listar.iterator();
+//        Object fila[] = new Object[7];
+//
+//        while (iterador.hasNext()) {
+//            //CASTEAR
+//            Libro estBucle = (Libro) iterador.next();
+//            fila[0] = estBucle.getIdLibro();
+//            fila[1] = estBucle.getCodigo_Libro();
+//            fila[2] = estBucle.getIdEditorial();
+//            fila[3] = estBucle.getTitulo();
+//            fila[4] = estBucle.getIdEscritor();
+//            fila[5] = estBucle.getIdCategoria();
+//            fila[6] = estBucle.getIdGenero_Literario();
+//            fila[7] = estBucle.getIdSubgenero_Literario();
+//            fila[8] = estBucle.getClasificacion();
+//            df.addRow(fila);
+//        }
+//        jTable1.setModel(df);
+//    }
+
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        Libro es = new Libro();
+        Libros esDAO = new Libros();
+
+        if (txtCodigoLibro.getText().equals("") || txtIdEditorial.getText().equals("")
+                || txtTitulo.getText().equals("") || txtIdEscritor.getText().equals("")
+                || txtIdCategoria.getText().equals("") || txtGeneroLiterario.getText().equals("")
+                || txtSubGeneroLiterario.getText().equals("") || txtClasificacion.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+        } else {
+            if (txtIdLibro.getText().equals("")) {
+
+                es.setCodigo_Libro(txtCodigoLibro.getText());
+                es.setIdEditorial(Integer.parseInt(txtIdEditorial.getText()));
+
+                es.setTitulo(txtTitulo.getText());
+                es.setIdEscritor(Integer.parseInt(txtIdEscritor.getText()));
+                es.setIdCategoria(Integer.parseInt(txtIdCategoria.getText()));
+                es.setIdGenero_Literario(Integer.parseInt(txtGeneroLiterario.getText()));
+                es.setIdSubgenero_Literario(Integer.parseInt(txtSubGeneroLiterario.getText()));
+                es.setClasificacion(txtClasificacion.getText());
+
+                esDAO.AddLibro(es);
+
+            } else {
+
+//                es.setIdEscritor(Integer.parseInt(txtIdEscritor1.getText()));
+//                es.setCodigo_Escritor(txtCodigoEscritor.getText());
+//                es.setNombre_Escritor(txtNombreEscritor.getText());
+//                es.setApellido_Escritor(txtApellidoEscritor.getText());
+//                es.setPais_Escritor(txtPaisEscritor.getText());
+//
+//                esDAO.UpdateEscritor(es);
+//
+//                this.setVisible(false);
+            }
+
+           
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -303,7 +381,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
             }
         });
     }
-
+    public JpLibro jpL;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSeleccionarAvatarLibro;
     private javax.swing.JButton jButton1;
