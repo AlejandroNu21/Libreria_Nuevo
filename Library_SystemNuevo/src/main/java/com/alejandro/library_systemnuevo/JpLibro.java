@@ -4,10 +4,15 @@
  */
 package com.alejandro.library_systemnuevo;
 
+import Beans.Libros;
+import Entidades.Libro;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,10 +24,43 @@ public class JpLibro extends javax.swing.JPanel {
      * Creates new form JpBook
      */
     public JpLibro(JfrmMenu main) {
+        
         initComponents();
+        carga();
         mainForm = main;
     }
+    
 
+    public void carga() {
+        String titulos[] = {"Id", "Codigo", "Id Editorial", "Titulo", "Id Escritor", "Id Categoria", "Id Genero", "Id SubGenero", "Clasificacion"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[9];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Libros es = new Libros();
+        ArrayList<Libro> listar = es.ListaLibro();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[9];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            Libro estBucle = (Libro) iterador.next();
+            fila[0] = estBucle.getIdLibro();
+            fila[1] = estBucle.getCodigo_Libro();
+            fila[2] = estBucle.getIdEditorial();
+            fila[3] = estBucle.getTitulo();
+            fila[4] = estBucle.getIdEscritor();
+            fila[5] = estBucle.getIdCategoria();
+            fila[6] = estBucle.getIdGenero_Literario();
+            fila[7] = estBucle.getIdSubgenero_Literario();
+            fila[8] = estBucle.getClasificacion();
+            df.addRow(fila);
+        }
+        jTable1.setModel(df);
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,8 +143,7 @@ public class JpLibro extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 542, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
                 .addGap(24, 24, 24))
         );
@@ -154,6 +191,6 @@ public class JpLibro extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
