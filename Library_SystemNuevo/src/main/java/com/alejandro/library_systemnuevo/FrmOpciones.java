@@ -30,7 +30,6 @@ public class FrmOpciones extends javax.swing.JFrame {
     public FrmOpciones() {
         initComponents();
          setIconImage(getIconImage());
-        
         this.setLocationRelativeTo(null);
     }
     
@@ -95,7 +94,7 @@ public class FrmOpciones extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 255));
 
         btnSubGeneroLiterario1.setBackground(new java.awt.Color(0, 51, 102));
         btnSubGeneroLiterario1.setText("Regresar");
@@ -121,8 +120,8 @@ public class FrmOpciones extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 640));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/encabezado.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 1000, 180));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CasaDelLibro.jpeg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, -10, 1010, 190));
 
         btnAgregarGeneroLiterario.setBackground(new java.awt.Color(153, 153, 153));
         btnAgregarGeneroLiterario.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
