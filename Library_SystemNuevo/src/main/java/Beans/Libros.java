@@ -4,6 +4,7 @@
  */
 package Beans;
 
+import Entidades.Enums.*;
 import Entidades.Escritor;
 import Entidades.Libro;
 import com.Library.BD.ConexionAMYSQL;
@@ -39,9 +40,9 @@ public class Libros {
                 li.setIdEditorial(resultado.getInt("idEditorial"));
                 li.setTitulo(resultado.getString("Titulo"));
                 li.setIdEscritor(resultado.getInt("idEscritor"));
-                li.setIdCategoria(resultado.getInt("idCategoria"));
-                li.setIdGenero_Literario(resultado.getInt("idGenero_Literario"));
-                li.setIdSubgenero_Literario(resultado.getInt("idSubgenero_Literario"));
+                li.setCategoria(categoryType.values()[resultado.getInt("Categoria")-1]);
+                li.setGenero(generoType.values()[resultado.getInt("Genero")-1]);
+                li.setSubGenero(subgeneroType.values()[resultado.getInt("Subgenero")-1]);
                 li.setClasificacion(resultado.getString("Clasificacion"));
                 lista.add(li);
             }
@@ -62,9 +63,9 @@ public class Libros {
             cb.setInt("PidEditorial", lib.getIdEditorial());
             cb.setString("PTitulo", lib.getTitulo());
             cb.setInt("PidEscritor", lib.getIdEscritor());
-            cb.setInt("PidCategoria", lib.getIdCategoria());
-            cb.setInt("PidGenero_Literario", lib.getIdGenero_Literario());
-            cb.setInt("PidSubgenero_Literario", lib.getIdSubgenero_Literario());
+            cb.setInt("PCategoria", lib.getCategoria().ordinal()+1);
+            cb.setInt("PGenero", lib.getGenero().ordinal()+1);
+            cb.setInt("PSubGenero", lib.getSubGenero().ordinal()+1);
             cb.setString("PClasificacion", lib.getClasificacion());
             cb.execute();
 

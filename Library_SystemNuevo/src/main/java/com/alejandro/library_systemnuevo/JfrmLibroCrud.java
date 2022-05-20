@@ -7,6 +7,7 @@ package com.alejandro.library_systemnuevo;
 import Beans.Escritores;
 import Beans.Lectores;
 import Beans.Libros;
+import Entidades.Enums.categoryType;
 import Entidades.Escritor;
 import Entidades.Lector;
 import Entidades.Libro;
@@ -18,6 +19,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import Entidades.Enums.*;
 
 /**
  *
@@ -31,6 +33,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
     public JfrmLibroCrud() {
         initComponents();
         setLocationRelativeTo(null);
+        CargaCmb();
     }
 
     /**
@@ -47,11 +50,8 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtIdCategoria = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtSubGeneroLiterario = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtGeneroLiterario = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtClasificacion = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -66,6 +66,9 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btnSeleccionarAvatarLibro = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        CmbCat = new javax.swing.JComboBox<>();
+        CmbGen = new javax.swing.JComboBox<>();
+        CmbSub = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("NUEVO LIBRO");
@@ -160,11 +163,11 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtClasificacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSubGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGeneroLiterario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(CmbCat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CmbGen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CmbSub, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,16 +208,16 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(CmbCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSubGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
+                            .addComponent(jLabel9)
+                            .addComponent(CmbGen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtGeneroLiterario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel10)
+                            .addComponent(CmbSub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,7 +305,17 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
 //        }
 //        jTable1.setModel(df);
 //    }
-
+void CargaCmb() {
+        for (var Categoria : categoryType.values()) {
+            CmbCat.addItem(Categoria.toString());
+        }
+        for (var Genero : generoType.values()){
+        CmbGen.addItem(Genero.toString());
+        }
+        for(var Subgenero : subgeneroType.values()){
+        CmbSub.addItem(Subgenero.toString());
+        }
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
@@ -311,20 +324,18 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
 
         if (txtCodigoLibro.getText().equals("") || txtIdEditorial.getText().equals("")
                 || txtTitulo.getText().equals("") || txtIdEscritor.getText().equals("")
-                || txtIdCategoria.getText().equals("") || txtGeneroLiterario.getText().equals("")
-                || txtSubGeneroLiterario.getText().equals("") || txtClasificacion.getText().equals("")) {
+                || txtClasificacion.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
         } else {
             if (txtIdLibro.getText().equals("")) {
 
                 es.setCodigo_Libro(txtCodigoLibro.getText());
                 es.setIdEditorial(Integer.parseInt(txtIdEditorial.getText()));
-
                 es.setTitulo(txtTitulo.getText());
                 es.setIdEscritor(Integer.parseInt(txtIdEscritor.getText()));
-                es.setIdCategoria(Integer.parseInt(txtIdCategoria.getText()));
-                es.setIdGenero_Literario(Integer.parseInt(txtGeneroLiterario.getText()));
-                es.setIdSubgenero_Literario(Integer.parseInt(txtSubGeneroLiterario.getText()));
+                es.setCategoria(categoryType.values()[CmbCat.getSelectedIndex()]);
+                es.setGenero(generoType.values()[CmbGen.getSelectedIndex()]);
+                es.setSubGenero(subgeneroType.values()[CmbSub.getSelectedIndex()]);
                 es.setClasificacion(txtClasificacion.getText());
 
                 esDAO.AddLibro(es);
@@ -383,6 +394,9 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
     }
     public JpLibro jpL;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CmbCat;
+    private javax.swing.JComboBox<String> CmbGen;
+    private javax.swing.JComboBox<String> CmbSub;
     private javax.swing.JButton btnSeleccionarAvatarLibro;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -400,12 +414,9 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
     private javax.swing.JLabel lblImagen;
     private javax.swing.JTextField txtClasificacion;
     private javax.swing.JTextField txtCodigoLibro;
-    private javax.swing.JTextField txtGeneroLiterario;
-    private javax.swing.JTextField txtIdCategoria;
     private javax.swing.JTextField txtIdEditorial;
     private javax.swing.JTextField txtIdEscritor;
     private javax.swing.JTextField txtIdLibro;
-    private javax.swing.JTextField txtSubGeneroLiterario;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

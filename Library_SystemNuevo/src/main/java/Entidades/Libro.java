@@ -4,6 +4,8 @@
  */
 package Entidades;
 
+import Entidades.Enums.*;
+
 
 public class Libro {
     int idLibro; 
@@ -11,40 +13,39 @@ public class Libro {
     int idEditorial;
     String Titulo;
     int idEscritor;
-    int idCategoria;
-    int idGenero_Literario;
-    int idSubgenero_Literario;
+    categoryType  Categoria;
+    generoType Genero;
+    subgeneroType SubGenero;
     String Clasificacion;
 
     public Libro() {
     }
 
+    
     public Libro(int idLibro) {
         this.idLibro = idLibro;
     }
 
-    public Libro(int idLibro, String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, int idCategoria, int idGenero_Literario, int idSubgenero_Literario, String Clasificacion) {
+    public Libro(String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion) {
+        this.Codigo_Libro = Codigo_Libro;
+        this.idEditorial = idEditorial;
+        this.Titulo = Titulo;
+        this.idEscritor = idEscritor;
+        this.Categoria = Categoria;
+        this.Genero = Genero;
+        this.SubGenero = SubGenero;
+        this.Clasificacion = Clasificacion;
+    }
+
+    public Libro(int idLibro, String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion) {
         this.idLibro = idLibro;
         this.Codigo_Libro = Codigo_Libro;
         this.idEditorial = idEditorial;
         this.Titulo = Titulo;
         this.idEscritor = idEscritor;
-        this.idCategoria = idCategoria;
-        this.idGenero_Literario = idGenero_Literario;
-        this.idSubgenero_Literario = idSubgenero_Literario;
-        this.Clasificacion = Clasificacion;
-    }
-    
-    
-
-    public Libro(String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, int idCategoria, int idGenero_Literario, int idSubgenero_Literario, String Clasificacion) {
-        this.Codigo_Libro = Codigo_Libro;
-        this.idEditorial = idEditorial;
-        this.Titulo = Titulo;
-        this.idEscritor = idEscritor;
-        this.idCategoria = idCategoria;
-        this.idGenero_Literario = idGenero_Literario;
-        this.idSubgenero_Literario = idSubgenero_Literario;
+        this.Categoria = Categoria;
+        this.Genero = Genero;
+        this.SubGenero = SubGenero;
         this.Clasificacion = Clasificacion;
     }
 
@@ -90,28 +91,28 @@ public class Libro {
         this.idEscritor = idEscritor;
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
+    public categoryType getCategoria() {
+        return Categoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setCategoria(categoryType Categoria) {
+        this.Categoria = Categoria;
     }
 
-    public int getIdGenero_Literario() {
-        return idGenero_Literario;
+    public generoType getGenero() {
+        return Genero;
     }
 
-    public void setIdGenero_Literario(int idGenero_Literario) {
-        this.idGenero_Literario = idGenero_Literario;
+    public void setGenero(generoType Genero) {
+        this.Genero = Genero;
     }
 
-    public int getIdSubgenero_Literario() {
-        return idSubgenero_Literario;
+    public subgeneroType getSubGenero() {
+        return SubGenero;
     }
 
-    public void setIdSubgenero_Literario(int idSubgenero_Literario) {
-        this.idSubgenero_Literario = idSubgenero_Literario;
+    public void setSubGenero(subgeneroType SubGenero) {
+        this.SubGenero = SubGenero;
     }
 
     public String getClasificacion() {
@@ -121,4 +122,7 @@ public class Libro {
     public void setClasificacion(String Clasificacion) {
         this.Clasificacion = Clasificacion;
     }
+
+    
+    
 }

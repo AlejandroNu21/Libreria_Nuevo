@@ -51,9 +51,9 @@ public class JpLibro extends javax.swing.JPanel {
             fila[2] = estBucle.getIdEditorial();
             fila[3] = estBucle.getTitulo();
             fila[4] = estBucle.getIdEscritor();
-            fila[5] = estBucle.getIdCategoria();
-            fila[6] = estBucle.getIdGenero_Literario();
-            fila[7] = estBucle.getIdSubgenero_Literario();
+            fila[5] = estBucle.getCategoria().name();
+            fila[6] = estBucle.getGenero().name();
+            fila[7] = estBucle.getSubGenero().name();
             fila[8] = estBucle.getClasificacion();
             df.addRow(fila);
         }
