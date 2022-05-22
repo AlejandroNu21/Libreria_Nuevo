@@ -10,6 +10,7 @@ package Entidades;
  */
 public class formaDePago {
     private int idformadepago;
+     private String Pago;
 
     public int getIdformadepago() {
         return idformadepago;
@@ -18,7 +19,6 @@ public class formaDePago {
     public void setIdformadepago(int idformadepago) {
         this.idformadepago = idformadepago;
     }
-    private String Pago;
 
     public String getPago() {
         return Pago;
@@ -27,4 +27,6 @@ public class formaDePago {
     public void setPago(String Pago) {
         this.Pago = Pago;
     }
+
+    
 }

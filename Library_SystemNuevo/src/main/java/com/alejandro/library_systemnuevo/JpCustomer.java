@@ -161,8 +161,8 @@ public class JpCustomer extends javax.swing.JPanel {
             frmCliente.txtNombreCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 2)));
             frmCliente.txtApellidoCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 3)));
             frmCliente.txtEdadCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 4)));
-            frmCliente.txtDireccionCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 4)));
-            frmCliente.txtTelefonoCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 4)));
+            frmCliente.txtDireccionCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 5)));
+            frmCliente.txtTelefonoCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 6)));
             frmCliente.jpC = this;
             frmCliente.setVisible(true);
 

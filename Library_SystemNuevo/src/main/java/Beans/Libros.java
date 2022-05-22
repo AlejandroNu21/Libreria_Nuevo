@@ -7,6 +7,7 @@ package Beans;
 import Entidades.Enums.*;
 import Entidades.Escritor;
 import Entidades.Libro;
+import ViewModel.LibroVM;
 import com.Library.BD.ConexionAMYSQL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -53,6 +54,35 @@ public class Libros {
 
         return lista;
     }
+
+//    public ArrayList<LibroVM> ListaLibro() {
+//        ArrayList<LibroVM> lista = null;
+//        try {
+//            lista = new ArrayList<LibroVM>();
+//
+//            CallableStatement cb = conexion.prepareCall("{call spsLibro}");
+//            ResultSet resultado = cb.executeQuery();
+//
+//            while (resultado.next()) {
+//                LibroVM li = new LibroVM();
+//                li.setIdLibro(resultado.getInt("idLibro"));
+//                li.setCodigo_Libro(resultado.getString("Codigo_Libro"));
+//                li.setNombre_Editorial(resultado.getString("Nombre_Editorial"));
+//                li.setTitulo(resultado.getString("Titulo"));
+//                li.setNombre_Escritor(resultado.getString("Nombre_Escritor"));
+//                li.setCategoria(categoryType.values()[resultado.getInt("Categoria")-1]);
+//                li.setGenero(generoType.values()[resultado.getInt("Genero")-1]);
+//                li.setSubGenero(subgeneroType.values()[resultado.getInt("Subgenero")-1]);
+//                li.setClasificacion(resultado.getString("Clasificacion"));
+//                lista.add(li);
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println("Error man" + e);
+//        }
+//
+//        return lista;
+//    }
 
     //ADD
     public void AddLibro(Libro lib) {

@@ -32,7 +32,7 @@ public class JpLibro extends javax.swing.JPanel {
     
 
     public void carga() {
-        String titulos[] = {"Id", "Codigo", "Id Editorial", "Titulo", "Id Escritor", "Id Categoria", "Id Genero", "Id SubGenero", "Clasificacion"};
+        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion"};
         //Ejemplosdearreglos
         Double numero[] = new Double[9];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
