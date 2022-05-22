@@ -5,6 +5,7 @@
 package com.alejandro.library_systemnuevo;
 
 import Beans.Escritores;
+import javax.swing.JPanel;
 import Entidades.Escritor;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -25,6 +26,7 @@ public class JpEscritor extends javax.swing.JPanel {
         carga();
         mainForm = main;
     }
+
     public void carga() {
         String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Pais"};
         //Ejemplosdearreglos
@@ -173,7 +175,7 @@ public class JpEscritor extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNuevoEscritorActionPerformed
 
     private void TblEscritorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblEscritorMouseClicked
-/*        isSelect = true;
+        /*        isSelect = true;
         try {
             new JfrmEscritorCrud()
             txtIdEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 0).toString());
@@ -206,23 +208,29 @@ public class JpEscritor extends javax.swing.JPanel {
     }//GEN-LAST:event_TblEscritorKeyReleased
 
     private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
-if (TblEscritor.getSelectedRowCount()>0) {
-             Escritor es = new Escritor();
-        Escritores esDAO = new Escritores();
-            int selectedRow =TblEscritor.getSelectedRow();
+        if (TblEscritor.getSelectedRowCount() > 0) {
+            Escritor es = new Escritor();
+            Escritores esDAO = new Escritores();
+            int selectedRow = TblEscritor.getSelectedRow();
             es.setIdEscritor(Integer.parseInt(TblEscritor.getValueAt(selectedRow, 0).toString()));
 
-             esDAO.DeleteEscritor(es);
-             carga();
-                //isSelect = false;
-            } else {
-                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
-            }
+            esDAO.DeleteEscritor(es);
+            carga();
+            //isSelect = false;
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
     }//GEN-LAST:event_btnEliminar1ActionPerformed
     public JfrmMenu mainForm;
     private void btnDatosEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosEscritorActionPerformed
-        mainForm.currentPanel = null;
-        mainForm.showJPanel(new JpDatosEscritor(mainForm));
+        //if (TblEscritor.getSelectedRowCount() > 0) {
+//            JfrmEscritorCrud pa = new JfrmEscritorCrud();
+//            int selectedRow = TblEscritor.getSelectedRow();
+//            pa.txtId.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
+
+            mainForm.currentPanel = null;
+            mainForm.showJPanel(new JpDatosEscritor(mainForm));
+       // }
     }//GEN-LAST:event_btnDatosEscritorActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -245,7 +253,7 @@ if (TblEscritor.getSelectedRowCount()>0) {
 
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-public boolean isSelect = false;
+    public boolean isSelect = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblEscritor;
     private javax.swing.JButton btnDatosEscritor;
