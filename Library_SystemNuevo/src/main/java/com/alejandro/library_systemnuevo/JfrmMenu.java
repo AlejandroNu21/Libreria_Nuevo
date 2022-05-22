@@ -48,7 +48,6 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnClientes = new javax.swing.JButton();
         btnVentas = new javax.swing.JButton();
         btnPrestamo = new javax.swing.JButton();
-        btnEscritor = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnLector = new javax.swing.JButton();
         btnEscritor1 = new javax.swing.JButton();
@@ -122,16 +121,6 @@ public class JfrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnEscritor.setBackground(new java.awt.Color(102, 102, 255));
-        btnEscritor.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        btnEscritor.setForeground(new java.awt.Color(255, 255, 255));
-        btnEscritor.setText("Opciones");
-        btnEscritor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEscritorActionPerformed(evt);
-            }
-        });
-
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255)));
 
         btnLector.setBackground(new java.awt.Color(102, 102, 255));
@@ -166,7 +155,6 @@ public class JfrmMenu extends javax.swing.JFrame {
             .addComponent(btnLector, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnPrestamo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnEscritor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnEscritor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -193,9 +181,7 @@ public class JfrmMenu extends javax.swing.JFrame {
                 .addComponent(btnPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEscritor1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         JpMain.setBackground(new java.awt.Color(255, 255, 255));
@@ -283,12 +269,6 @@ public class JfrmMenu extends javax.swing.JFrame {
         currentPanel = null;
         showJPanel(new JpLibro(formMain));
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
-
-    private void btnEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEscritorActionPerformed
-        FrmOpciones AbrirFrm = new FrmOpciones();
-        AbrirFrm.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnEscritorActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
 
@@ -385,7 +365,6 @@ public class JfrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnCompra;
     private javax.swing.JButton btnEditoriales;
-    private javax.swing.JButton btnEscritor;
     private javax.swing.JButton btnEscritor1;
     private javax.swing.JButton btnLector;
     private javax.swing.JButton btnPrestamo;

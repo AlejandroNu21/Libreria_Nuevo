@@ -1,5 +1,6 @@
 com\alejandro\library_systemnuevo\FrmSistemaMenu$21.class
 Beans\Editorials.class
+Entidades\Libro.class
 com\alejandro\library_systemnuevo\JpLector.class
 com\alejandro\library_systemnuevo\FrmOpciones$2.class
 com\alejandro\library_systemnuevo\JpCustomer$1.class
@@ -29,11 +30,12 @@ com\alejandro\library_systemnuevo\JpEditorial$1.class
 com\alejandro\library_systemnuevo\JfrmMenu$8.class
 com\alejandro\library_systemnuevo\JpEditorial.class
 com\alejandro\library_systemnuevo\FrmOpciones$7.class
+com\alejandro\library_systemnuevo\FrmLogin$5.class
 com\alejandro\library_systemnuevo\FrmSistemaMenu$33.class
 com\alejandro\library_systemnuevo\JfrmMenu$1.class
 com\alejandro\library_systemnuevo\JpDatosEscritor$3.class
-botones\BotonWeb.class
 com\alejandro\library_systemnuevo\FrmOpciones$13.class
+Entidades\Enums\categoryType.class
 com\alejandro\library_systemnuevo\FrmSistemaMenu$7.class
 com\alejandro\library_systemnuevo\FrmSistemaMenu$22.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud$5.class
@@ -66,6 +68,7 @@ com\alejandro\library_systemnuevo\JpEscritor$5.class
 com\alejandro\library_systemnuevo\JpCustomer$2.class
 Entidades\Editorial.class
 com\alejandro\library_systemnuevo\JpLibro$4.class
+com\alejandro\library_systemnuevo\FrmLogin$4.class
 com\alejandro\library_systemnuevo\JfrmMenu$5.class
 com\alejandro\library_systemnuevo\FrmSistemaMenu$26.class
 com\alejandro\library_systemnuevo\JfrmClienteCrud$3.class
@@ -97,6 +100,7 @@ com\alejandro\library_systemnuevo\FrmSistemaMenu$31.class
 com\alejandro\library_systemnuevo\JpDatosEscritor$1.class
 com\alejandro\library_systemnuevo\JpPrestamo.class
 com\alejandro\library_systemnuevo\JfrmClienteCrud$1.class
+Beans\Libros.class
 Services\ISubgenero.class
 com\Library\BD\ConexionAMYSQL.class
 com\alejandro\library_systemnuevo\FrmSistemaMenu$9.class
@@ -104,6 +108,7 @@ com\alejandro\library_systemnuevo\JfrmLibroCrud$4.class
 com\alejandro\library_systemnuevo\JfrmEscritorCrud$2.class
 com\alejandro\library_systemnuevo\JfrmClienteCrud$7.class
 com\alejandro\library_systemnuevo\JfrmMenu$10.class
+Entidades\Enums\formadePagoType.class
 com\alejandro\library_systemnuevo\JpDatosLibro$4.class
 com\alejandro\library_systemnuevo\FrmSistemaMenu$24.class
 com\alejandro\library_systemnuevo\JfrmEditorialCrud$2.class
@@ -150,15 +155,16 @@ com\alejandro\library_systemnuevo\JfrmLibroCrud.class
 Entidades\Lector.class
 Entidades\generoLiterario.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud$1.class
-botones\BotonWeb$1.class
 com\alejandro\library_systemnuevo\FrmSistemaMenu$36.class
 Entidades\Categoria.class
 com\alejandro\library_systemnuevo\JfrmMenu$9.class
+Entidades\Enums\generoType.class
 com\alejandro\library_systemnuevo\FrmSistemaMenu$13.class
 com\alejandro\library_systemnuevo\FrmOpciones$4.class
 com\alejandro\library_systemnuevo\JfrmLibroCrud$3.class
 com\alejandro\library_systemnuevo\FrmLogin.class
 com\alejandro\library_systemnuevo\JfrmMenu.class
+Entidades\Enums\subgeneroType.class
 com\alejandro\library_systemnuevo\FrmSistemaMenu$37.class
 com\alejandro\library_systemnuevo\FrmOpciones$10.class
 Entidades\subGeneroLiterario.class
