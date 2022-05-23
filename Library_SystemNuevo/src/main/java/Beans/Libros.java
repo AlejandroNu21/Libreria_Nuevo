@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class Libros {
 
     ConexionAMYSQL con = new ConexionAMYSQL();
-    Connection conexion = con.getConecction();
+    Connection conexion = null;
 
     //SELECT
     /*public ArrayList<Libro> ListaLibro() {
@@ -57,11 +57,14 @@ public class Libros {
 
     public ArrayList<LibroVM> ListaLibro() {
         ArrayList<LibroVM> lista = null;
+        CallableStatement cb = null;
+        ResultSet resultado = null;
         try {
+            conexion = con.getConecction();
             lista = new ArrayList<LibroVM>();
 
-            CallableStatement cb = conexion.prepareCall("{call spsLibro}");
-            ResultSet resultado = cb.executeQuery();
+             cb = conexion.prepareCall("{call spsLibro}");
+            resultado = cb.executeQuery();
 
             while (resultado.next()) {
                 //LibroVM li = new LibroVM();
@@ -74,31 +77,37 @@ public class Libros {
                         categoryType.values()[resultado.getInt("Categoria")-1],
                         generoType.values()[resultado.getInt("Genero")-1],
                         subgeneroType.values()[resultado.getInt("Subgenero")-1],
-                        resultado.getString("Clasificacion") ));               
-//                li.setIdLibro(resultado.getInt("idLibro"));
-//                li.setCodigo_Libro(resultado.getString("Codigo_Libro"));
-//                li.setNombre_Editorial(resultado.getString("Nombre_Editorial"));
-//                li.setTitulo(resultado.getString("Titulo"));
-//                li.setNombre_Escritor(resultado.getString("Nombre_Escritor"));
-//                li.setCategoria(categoryType.values()[resultado.getInt("Categoria")-1]);
-//                li.setGenero(generoType.values()[resultado.getInt("Genero")-1]);
-//                li.setSubGenero(subgeneroType.values()[resultado.getInt("Subgenero")-1]);
-//                li.setClasificacion(resultado.getString("Clasificacion"));
-//                lista.add(li);
+                        resultado.getString("Clasificacion") ));    
+                
+                
             }
-
+                
+                
         } catch (Exception e) {
-            System.out.println("Error man" + e);
+            System.out.println("Error al mostrar los datos del Libro" + e);
+            
+        }finally{
+        try{
+        resultado.close();
+                cb.close();
+                conexion.close();
+        }catch(Exception e){
+            System.out.println("Error, no se han cerrado las conexiones correctamenbte" + e);
+        }
+        
         }
 
         return lista;
+        
     }
 
     //ADD
     public void AddLibro(Libro lib) {
-
+        CallableStatement cb = null;
+        
         try {
-            CallableStatement cb = conexion.prepareCall("{call SP_I_LIBRo(?,?,?,?,?,?,?,?)}");
+            conexion = con.getConecction();
+            cb = conexion.prepareCall("{call SP_I_LIBRO(?,?,?,?,?,?,?,?)}");
             cb.setString("PCodigo_Libro", lib.getCodigo_Libro());
             cb.setInt("PidEditorial", lib.getIdEditorial());
             cb.setString("PTitulo", lib.getTitulo());
@@ -110,11 +119,60 @@ public class Libros {
             cb.execute();
 
             JOptionPane.showMessageDialog(null, "Libro Agregado");
+           
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "error" + ex);
+                }finally{
+        try{
+                cb.close();
+                conexion.close();
+        }catch(Exception e){
+            System.out.println("Error, no se han guardado las conexiones correctamenbte" + e);
+        }
+        
         }
 
     }
+        //Actualizar
+    
+        public void UpdateBook(Libro lib) {
+        CallableStatement cb = null;
+        try {
+            conexion = con.getConecction();
+            cb = conexion.prepareCall("{call SP_U_LIBRO(?,?,?,?,?,?,?,?,?)}");
+            cb.setInt(9, lib.getIdLibro());
+            cb.setString(1, lib.getCodigo_Libro());
+            cb.setInt(2, lib.getIdEditorial());
+            cb.setString(3, lib.getTitulo());
+            cb.setString(4, lib.getClasificacion());
+            cb.setInt(5, lib.getIdEscritor());
+            cb.setInt(6, lib.getCategoria().ordinal()+1);
+            cb.setInt(7, lib.getGenero().ordinal()+1);
+            cb.setInt(8, lib.getSubGenero().ordinal()+1);
+            
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Libro actualizado con exito");
+           
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+                }finally{
+        try{
+                cb.close();
+                conexion.close();
+        }catch(Exception e){
+            System.out.println("Error, no se han guardado las conexiones correctamenbte" + e);
+        }
+        
+        }
+        
+
+
+    }
+        
+        
+        
 
 }

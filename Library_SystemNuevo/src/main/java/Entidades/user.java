@@ -4,6 +4,8 @@
  */
 package Entidades;
 
+import Entidades.Enums.rolType;
+
 /**
  *
  * @author COREI5 10TH GEN
@@ -11,7 +13,24 @@ package Entidades;
 public class user {
     private String Usuario;
     private String Contrasenia;
+    private rolType Rol;
 
+    public user() {
+    }
+
+    public user(String Contrasenia, rolType Rol) {
+        this.Contrasenia = Contrasenia;
+        this.Rol = Rol;
+    }
+
+    public user(String Usuario, String Contrasenia, rolType Rol) {
+        this.Usuario = Usuario;
+        this.Contrasenia = Contrasenia;
+        this.Rol = Rol;
+    }
+
+    
+    
     public String getUsuario() {
         return Usuario;
     }
@@ -26,6 +45,14 @@ public class user {
 
     public void setContrasenia(String Contrasenia) {
         this.Contrasenia = Contrasenia;
+    }
+
+    public rolType getRol() {
+        return Rol;
+    }
+
+    public void setRol(rolType Rol) {
+        this.Rol = Rol;
     }
     
 }

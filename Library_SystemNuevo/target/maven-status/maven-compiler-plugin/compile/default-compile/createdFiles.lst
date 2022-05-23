@@ -16,6 +16,7 @@ Services\ISubgenero.class
 Entidades\DatosEscritor.class
 com\alejandro\library_systemnuevo\JfrmEscritorCrud.class
 com\Library\BD\ConexionAMYSQL.class
+ViewModel\LibroVM.class
 com\alejandro\library_systemnuevo\JfrmClienteCrud.class
 Entidades\clientes.class
 com\alejandro\library_systemnuevo\JpEscritor$4.class

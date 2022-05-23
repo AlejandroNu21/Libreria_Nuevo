@@ -69,7 +69,6 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         CmbCat = new javax.swing.JComboBox<>();
         CmbGen = new javax.swing.JComboBox<>();
         CmbSub = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("NUEVO LIBRO");
@@ -79,21 +78,19 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtIdEscritor.setEnabled(false);
-
         jLabel17.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel17.setText("Seleccionar Avatar");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel8.setText("Id Categoria");
+        jLabel8.setText("Categoria");
 
         jLabel1.setText("Portada");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel9.setText("Id Genero Literario");
+        jLabel9.setText("Genero Literario");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel10.setText("Id SubGenero Literario");
+        jLabel10.setText("SubGenero Literario");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel11.setText("Clasificacion");
@@ -109,7 +106,6 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel5.setText("Id Editorial");
 
-        txtIdEditorial.setEnabled(false);
         txtIdEditorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdEditorialActionPerformed(evt);
@@ -124,7 +120,6 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel7.setText("Id Escritor");
 
-        btnSeleccionarAvatarLibro.setBackground(new java.awt.Color(255, 255, 255));
         btnSeleccionarAvatarLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-program-48.png"))); // NOI18N
         btnSeleccionarAvatarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,15 +127,12 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-save-64.png"))); // NOI18N
+        jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("Registrar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -148,41 +140,37 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtIdEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtIdEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(txtCodigoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel10)
-                                .addComponent(jLabel11))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtClasificacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CmbCat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CmbGen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CmbSub, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(txtCodigoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtClasificacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CmbCat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CmbGen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CmbSub, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -235,11 +223,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jLabel2)))
+                            .addComponent(jLabel11)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel1)
@@ -251,7 +235,9 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
                                 .addComponent(jLabel17)))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -293,34 +279,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdEditorialActionPerformed
 
-//    public void carga() {
-//        String titulos[] = {"Id", "Codigo", "Id Editorial", "Titulo", "Id Escritor", "Id Categoria", "Id Genero", "Id SubGenero", "Clasificacion"};
-//        //Ejemplosdearreglos
-//        Double numero[] = new Double[7];
-//        DefaultTableModel df = new DefaultTableModel(null, titulos);
-//
-//        Libros es = new Libros();
-//        ArrayList<Libro> listar = es.ListaLibro();
-//
-//        Iterator iterador = listar.iterator();
-//        Object fila[] = new Object[7];
-//
-//        while (iterador.hasNext()) {
-//            //CASTEAR
-//            Libro estBucle = (Libro) iterador.next();
-//            fila[0] = estBucle.getIdLibro();
-//            fila[1] = estBucle.getCodigo_Libro();
-//            fila[2] = estBucle.getIdEditorial();
-//            fila[3] = estBucle.getTitulo();
-//            fila[4] = estBucle.getIdEscritor();
-//            fila[5] = estBucle.getIdCategoria();
-//            fila[6] = estBucle.getIdGenero_Literario();
-//            fila[7] = estBucle.getIdSubgenero_Literario();
-//            fila[8] = estBucle.getClasificacion();
-//            df.addRow(fila);
-//        }
-//        jTable1.setModel(df);
-//    }
+
 void CargaCmb() {
         for (var Categoria : categoryType.values()) {
             CmbCat.addItem(Categoria.toString());
@@ -358,19 +317,23 @@ void CargaCmb() {
                 
 
             } else {
+                
+                es.setIdLibro(Integer.parseInt(txtIdLibro.getText()));
+                es.setCodigo_Libro(txtCodigoLibro.getText());
+                es.setIdEditorial(Integer.parseInt(txtIdEditorial.getText()));
+                es.setTitulo(txtTitulo.getText());
+                es.setIdEscritor(Integer.parseInt(txtIdEscritor.getText()));
+                es.setCategoria(categoryType.values()[CmbCat.getSelectedIndex()]);
+                es.setGenero(generoType.values()[CmbGen.getSelectedIndex()]);
+                es.setSubGenero(subgeneroType.values()[CmbSub.getSelectedIndex()]);
+                es.setClasificacion(txtClasificacion.getText());
 
-//                es.setIdEscritor(Integer.parseInt(txtIdEscritor1.getText()));
-//                es.setCodigo_Escritor(txtCodigoEscritor.getText());
-//                es.setNombre_Escritor(txtNombreEscritor.getText());
-//                es.setApellido_Escritor(txtApellidoEscritor.getText());
-//                es.setPais_Escritor(txtPaisEscritor.getText());
-//
-//                esDAO.UpdateEscritor(es);
-//
-//                this.setVisible(false);
+                esDAO.UpdateBook(es);
+
+                this.dispose();
             }
 
-           
+           jpL.carga();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -411,16 +374,15 @@ void CargaCmb() {
     }
     public JpLibro jpL;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CmbCat;
-    private javax.swing.JComboBox<String> CmbGen;
-    private javax.swing.JComboBox<String> CmbSub;
+    public javax.swing.JComboBox<String> CmbCat;
+    public javax.swing.JComboBox<String> CmbGen;
+    public javax.swing.JComboBox<String> CmbSub;
     private javax.swing.JButton btnSeleccionarAvatarLibro;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -430,11 +392,11 @@ void CargaCmb() {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblImagen;
-    private javax.swing.JTextField txtClasificacion;
-    private javax.swing.JTextField txtCodigoLibro;
-    private javax.swing.JTextField txtIdEditorial;
-    private javax.swing.JTextField txtIdEscritor;
-    private javax.swing.JTextField txtIdLibro;
-    private javax.swing.JTextField txtTitulo;
+    public javax.swing.JTextField txtClasificacion;
+    public javax.swing.JTextField txtCodigoLibro;
+    public javax.swing.JTextField txtIdEditorial;
+    public javax.swing.JTextField txtIdEscritor;
+    public javax.swing.JTextField txtIdLibro;
+    public javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

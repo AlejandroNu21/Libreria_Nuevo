@@ -29,6 +29,7 @@ public class Login {
          CallableStatement cb = conexion.prepareCall("{call SP_S_ROL(?,?)}");
          cb.setString("PUsuario", usu.getUsuario());
          cb.setString("PContrasenia", usu.getContrasenia());
+         
             ResultSet resultado = cb.executeQuery();
 
          int x = 0;
@@ -47,9 +48,6 @@ public class Login {
          
          }catch(SQLException ex){
              JOptionPane.showMessageDialog(null, "error"+ex);
-         
-         
-         
          }
          return valid;
      }
