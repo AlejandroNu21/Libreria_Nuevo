@@ -13,16 +13,31 @@ import Entidades.Enums.subgeneroType;
  * @author Vkaiido
  */
 public class LibroVM {
-        int idLibro; 
-    String Codigo_Libro;
-    String Nombre_Editorial;
-    String Titulo;
-    String Nombre_Escritor;
-    categoryType  Categoria;
-    generoType Genero;
-    subgeneroType SubGenero;
-    String Clasificacion;
+    private int idLibro; 
+    private String Codigo_Libro;
+    private String Nombre_Editorial;
+    private String Titulo;
+    private String Nombre_Escritor;
+    private categoryType  Categoria;
+    private generoType Genero;
+    private subgeneroType SubGenero;
+    private String Clasificacion;
 
+    public LibroVM(int idLibro, String Codigo_Libro, String Nombre_Editorial, String Titulo, String Nombre_Escritor, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion) {
+        this.idLibro = idLibro;
+        this.Codigo_Libro = Codigo_Libro;
+        this.Nombre_Editorial = Nombre_Editorial;
+        this.Titulo = Titulo;
+        this.Nombre_Escritor = Nombre_Escritor;
+        this.Categoria = Categoria;
+        this.Genero = Genero;
+        this.SubGenero = SubGenero;
+        this.Clasificacion = Clasificacion;
+    }
+
+    
+    
+    
     public int getIdLibro() {
         return idLibro;
     }
