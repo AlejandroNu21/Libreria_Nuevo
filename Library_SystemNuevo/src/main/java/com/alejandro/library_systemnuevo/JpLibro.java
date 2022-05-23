@@ -6,6 +6,7 @@ package com.alejandro.library_systemnuevo;
 
 import Beans.Libros;
 import Entidades.Libro;
+import ViewModel.LibroVM;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,19 +39,19 @@ public class JpLibro extends javax.swing.JPanel {
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
         Libros es = new Libros();
-        ArrayList<Libro> listar = es.ListaLibro();
+        ArrayList<LibroVM> listar = es.ListaLibro();
 
         Iterator iterador = listar.iterator();
         Object fila[] = new Object[9];
 
         while (iterador.hasNext()) {
             //CASTEAR
-            Libro estBucle = (Libro) iterador.next();
+            LibroVM estBucle = (LibroVM) iterador.next();
             fila[0] = estBucle.getIdLibro();
             fila[1] = estBucle.getCodigo_Libro();
-            fila[2] = estBucle.getIdEditorial();
+            fila[2] = estBucle.getNombre_Editorial();
             fila[3] = estBucle.getTitulo();
-            fila[4] = estBucle.getIdEscritor();
+            fila[4] = estBucle.getNombre_Escritor();
             fila[5] = estBucle.getCategoria().name();
             fila[6] = estBucle.getGenero().name();
             fila[7] = estBucle.getSubGenero().name();

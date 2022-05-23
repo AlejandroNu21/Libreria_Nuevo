@@ -26,7 +26,7 @@ public class Libros {
     Connection conexion = con.getConecction();
 
     //SELECT
-    public ArrayList<Libro> ListaLibro() {
+    /*public ArrayList<Libro> ListaLibro() {
         ArrayList<Libro> lista = null;
         try {
             lista = new ArrayList<Libro>();
@@ -53,18 +53,28 @@ public class Libros {
         }
 
         return lista;
-    }
+    }*/
 
-//    public ArrayList<LibroVM> ListaLibro() {
-//        ArrayList<LibroVM> lista = null;
-//        try {
-//            lista = new ArrayList<LibroVM>();
-//
-//            CallableStatement cb = conexion.prepareCall("{call spsLibro}");
-//            ResultSet resultado = cb.executeQuery();
-//
-//            while (resultado.next()) {
-//                LibroVM li = new LibroVM();
+    public ArrayList<LibroVM> ListaLibro() {
+        ArrayList<LibroVM> lista = null;
+        try {
+            lista = new ArrayList<LibroVM>();
+
+            CallableStatement cb = conexion.prepareCall("{call spsLibro}");
+            ResultSet resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                //LibroVM li = new LibroVM();
+                lista.add(new LibroVM(
+                resultado.getInt("idLibro"),
+                        resultado.getString("Codigo_Libro"),
+                        resultado.getString("Nombre_Editorial"),
+                        resultado.getString("Titulo"),
+                        resultado.getString("Nombre_Escritor"),
+                        categoryType.values()[resultado.getInt("Categoria")-1],
+                        generoType.values()[resultado.getInt("Genero")-1],
+                        subgeneroType.values()[resultado.getInt("Subgenero")-1],
+                        resultado.getString("Clasificacion") ));               
 //                li.setIdLibro(resultado.getInt("idLibro"));
 //                li.setCodigo_Libro(resultado.getString("Codigo_Libro"));
 //                li.setNombre_Editorial(resultado.getString("Nombre_Editorial"));
@@ -75,14 +85,14 @@ public class Libros {
 //                li.setSubGenero(subgeneroType.values()[resultado.getInt("Subgenero")-1]);
 //                li.setClasificacion(resultado.getString("Clasificacion"));
 //                lista.add(li);
-//            }
-//
-//        } catch (Exception e) {
-//            System.out.println("Error man" + e);
-//        }
-//
-//        return lista;
-//    }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error man" + e);
+        }
+
+        return lista;
+    }
 
     //ADD
     public void AddLibro(Libro lib) {
