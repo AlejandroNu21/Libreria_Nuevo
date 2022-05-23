@@ -171,7 +171,9 @@ public class JpEscritor extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoEscritorActionPerformed
-        new JfrmEscritorCrud().setVisible(true);
+        JfrmEscritorCrud frm = new JfrmEscritorCrud();
+        frm.jpE = this;
+        frm.setVisible(true);
     }//GEN-LAST:event_btnNuevoEscritorActionPerformed
 
     private void TblEscritorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblEscritorMouseClicked

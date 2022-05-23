@@ -148,7 +148,10 @@ public class JpCustomer extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClienteActionPerformed
-        new JfrmClienteCrud().setVisible(true);
+        
+        JfrmClienteCrud frm = new JfrmClienteCrud();
+        frm.jpC = this;
+        frm.setVisible(true);
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
 
     private void btnActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarClienteActionPerformed

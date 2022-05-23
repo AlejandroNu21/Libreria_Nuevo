@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -22,7 +23,16 @@ public class JfrmMenu extends javax.swing.JFrame {
     public JfrmMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        lblBanner.setIcon(new ImageIcon(imagenBanner.getImage().getScaledInstance(lblBanner.getWidth(), lblBanner.getHeight(), Image.SCALE_SMOOTH)));
+        
+        lblLogo.setIcon(new ImageIcon(imagenLogo.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_SMOOTH)));
     }
+    
+    final ImageIcon imagenBanner = new ImageIcon(getClass().getResource("/Imagenes/banner.png"));
+    final ImageIcon imagenLogo = new ImageIcon(getClass().getResource("/Imagenes/logo.png"));
+    
+    
     
     @Override
     public Image getIconImage () {
@@ -48,33 +58,37 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnClientes = new javax.swing.JButton();
         btnVentas = new javax.swing.JButton();
         btnPrestamo = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
         btnLector = new javax.swing.JButton();
         btnEscritor1 = new javax.swing.JButton();
         btnUsuarios = new javax.swing.JButton();
         JpMain = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblBanner = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.SystemColor.controlHighlight);
         setPreferredSize(new java.awt.Dimension(1236, 720));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(150, 731));
 
-        btnAgregarLibro.setBackground(new java.awt.Color(102, 102, 255));
+        btnAgregarLibro.setBackground(new java.awt.Color(61, 90, 128));
         btnAgregarLibro.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnAgregarLibro.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarLibro.setText("Libro");
+        btnAgregarLibro.addHierarchyListener(new java.awt.event.HierarchyListener() {
+            public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
+                btnAgregarLibroHierarchyChanged(evt);
+            }
+        });
         btnAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarLibroActionPerformed(evt);
             }
         });
 
-        btnCompra.setBackground(new java.awt.Color(102, 102, 255));
+        btnCompra.setBackground(new java.awt.Color(61, 90, 128));
         btnCompra.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnCompra.setForeground(new java.awt.Color(255, 255, 255));
         btnCompra.setText("Compra");
@@ -84,7 +98,7 @@ public class JfrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnEditoriales.setBackground(new java.awt.Color(102, 102, 255));
+        btnEditoriales.setBackground(new java.awt.Color(61, 90, 128));
         btnEditoriales.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnEditoriales.setForeground(new java.awt.Color(255, 255, 255));
         btnEditoriales.setText("Editoriales");
@@ -94,7 +108,7 @@ public class JfrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnClientes.setBackground(new java.awt.Color(102, 102, 255));
+        btnClientes.setBackground(new java.awt.Color(61, 90, 128));
         btnClientes.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnClientes.setForeground(new java.awt.Color(255, 255, 255));
         btnClientes.setText("Clientes");
@@ -104,7 +118,7 @@ public class JfrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnVentas.setBackground(new java.awt.Color(102, 102, 255));
+        btnVentas.setBackground(new java.awt.Color(61, 90, 128));
         btnVentas.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnVentas.setForeground(new java.awt.Color(255, 255, 255));
         btnVentas.setText("Ventas");
@@ -114,7 +128,7 @@ public class JfrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnPrestamo.setBackground(new java.awt.Color(102, 102, 255));
+        btnPrestamo.setBackground(new java.awt.Color(61, 90, 128));
         btnPrestamo.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnPrestamo.setForeground(new java.awt.Color(255, 255, 255));
         btnPrestamo.setText("Prestamo");
@@ -124,9 +138,7 @@ public class JfrmMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255)));
-
-        btnLector.setBackground(new java.awt.Color(102, 102, 255));
+        btnLector.setBackground(new java.awt.Color(61, 90, 128));
         btnLector.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnLector.setForeground(new java.awt.Color(255, 255, 255));
         btnLector.setText("Lector");
@@ -136,7 +148,7 @@ public class JfrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnEscritor1.setBackground(new java.awt.Color(102, 102, 255));
+        btnEscritor1.setBackground(new java.awt.Color(61, 90, 128));
         btnEscritor1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnEscritor1.setForeground(new java.awt.Color(255, 255, 255));
         btnEscritor1.setText("Escritor");
@@ -146,7 +158,7 @@ public class JfrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnUsuarios.setBackground(new java.awt.Color(102, 102, 255));
+        btnUsuarios.setBackground(new java.awt.Color(61, 90, 128));
         btnUsuarios.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         btnUsuarios.setText("Usuarios");
@@ -162,23 +174,19 @@ public class JfrmMenu extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnAgregarLibro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCompra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnEditoriales, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+            .addComponent(btnEditoriales, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
             .addComponent(btnClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnVentas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnLector, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnPrestamo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnEscritor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -197,7 +205,7 @@ public class JfrmMenu extends javax.swing.JFrame {
                 .addComponent(btnEscritor1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         JpMain.setBackground(new java.awt.Color(255, 255, 255));
@@ -212,54 +220,36 @@ public class JfrmMenu extends javax.swing.JFrame {
         JpMain.setLayout(JpMainLayout);
         JpMainLayout.setHorizontalGroup(
             JpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1064, Short.MAX_VALUE)
         );
         JpMainLayout.setVerticalGroup(
             JpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 636, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 255));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CasaDelLibro.jpeg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(24, 24, 24))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        lblBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CasaDelLibro.jpeg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1067, Short.MAX_VALUE))
+                    .addComponent(JpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
+                    .addComponent(lblBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(lblBanner, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                .addComponent(JpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
         );
 
         pack();
@@ -344,6 +334,10 @@ public class JfrmMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
+    private void btnAgregarLibroHierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_btnAgregarLibroHierarchyChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarLibroHierarchyChanged
+
     /**
      * @param args the command line arguments
      */
@@ -391,9 +385,8 @@ public class JfrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnPrestamo;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JButton btnVentas;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblBanner;
+    private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 }

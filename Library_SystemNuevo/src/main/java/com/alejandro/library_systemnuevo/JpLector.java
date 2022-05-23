@@ -153,7 +153,9 @@ public class JpLector extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoLectorActionPerformed
-        new JfrmLectorCrud().setVisible(true);
+        JfrmLectorCrud frm = new JfrmLectorCrud();
+        frm.jpL = this;
+        frm.setVisible(true);
     }//GEN-LAST:event_btnNuevoLectorActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

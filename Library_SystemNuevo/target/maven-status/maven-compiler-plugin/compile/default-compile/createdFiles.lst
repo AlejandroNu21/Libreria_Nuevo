@@ -50,6 +50,7 @@ com\alejandro\library_systemnuevo\JpEditorial.class
 com\alejandro\library_systemnuevo\JpDatosEscritor.class
 com\alejandro\library_systemnuevo\FrmLogin$5.class
 com\alejandro\library_systemnuevo\JpDatosLibro$3.class
+com\alejandro\library_systemnuevo\JfrmRegistro.class
 com\alejandro\library_systemnuevo\JfrmMenu$1.class
 com\alejandro\library_systemnuevo\JpDatosEscritor$3.class
 com\alejandro\library_systemnuevo\JpLibro$2.class
@@ -65,6 +66,7 @@ com\alejandro\library_systemnuevo\JpPrestamo$3.class
 Services\IFormadepago.class
 Entidades\user.class
 com\alejandro\library_systemnuevo\JfrmPrestamoCrud$1.class
+com\alejandro\library_systemnuevo\JfrmMenu$12.class
 com\alejandro\library_systemnuevo\JfrmMenu$3.class
 com\alejandro\library_systemnuevo\JpLibro$1.class
 com\alejandro\library_systemnuevo\JfrmClienteCrud$5.class
@@ -80,6 +82,7 @@ com\alejandro\library_systemnuevo\JpEditorial$3.class
 com\alejandro\library_systemnuevo\JpEscritor.class
 com\alejandro\library_systemnuevo\JpPrestamo$1.class
 Services\ICategoria.class
+com\alejandro\library_systemnuevo\JfrmRegistro$1.class
 com\alejandro\library_systemnuevo\JpEscritor$2.class
 Beans\Formadepago_beans.class
 com\alejandro\library_systemnuevo\JpLector$1.class
@@ -94,8 +97,10 @@ com\alejandro\library_systemnuevo\FrmLogin$4.class
 com\alejandro\library_systemnuevo\JfrmMenu$5.class
 com\alejandro\library_systemnuevo\JfrmClienteCrud$3.class
 Entidades\generoLiterario.class
+com\alejandro\library_systemnuevo\JfrmRegistro$2.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud$1.class
 Entidades\Categoria.class
+com\alejandro\library_systemnuevo\JfrmMenu$11.class
 com\alejandro\library_systemnuevo\JpLector$3.class
 Beans\Cliente.class
 com\alejandro\library_systemnuevo\JfrmMenu$9.class
@@ -123,3 +128,5 @@ Services\IGenero.class
 Beans\Escritores.class
 com\alejandro\library_systemnuevo\JfrmEditorialCrud$4.class
 com\alejandro\library_systemnuevo\JfrmEditorialCrud.class
+Entidades\Enums\rolType.class
+com\alejandro\library_systemnuevo\JfrmRegistro$3.class
