@@ -127,6 +127,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtIdCompra">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel22">
       <Properties>
@@ -135,6 +138,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtIdLibro2">
       <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[800, 2147483647]"/>
         </Property>
@@ -147,6 +151,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtEditorial">
       <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[800, 2147483647]"/>
         </Property>
@@ -158,6 +163,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtIdFormaPago">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdFormaPagoActionPerformed"/>
       </Events>

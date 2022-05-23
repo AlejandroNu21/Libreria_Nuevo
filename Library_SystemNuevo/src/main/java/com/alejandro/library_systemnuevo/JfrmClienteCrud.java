@@ -148,6 +148,7 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
         lblIdCliente.setText("Id Cliente ");
 
         txtIdCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtIdCliente.setEnabled(false);
         txtIdCliente.setMaximumSize(new java.awt.Dimension(500, 0));
         txtIdCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {

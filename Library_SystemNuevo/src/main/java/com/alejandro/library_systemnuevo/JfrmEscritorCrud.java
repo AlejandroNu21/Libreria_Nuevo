@@ -86,6 +86,7 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
 
         txtIdEscritor1.setEditable(false);
         txtIdEscritor1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        txtIdEscritor1.setEnabled(false);
 
         jLabel62.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel62.setText("Id");

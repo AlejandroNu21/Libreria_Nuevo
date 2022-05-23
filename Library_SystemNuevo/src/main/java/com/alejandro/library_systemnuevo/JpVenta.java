@@ -65,10 +65,13 @@ public class JpVenta extends javax.swing.JPanel {
         jLabel43.setForeground(new java.awt.Color(51, 51, 51));
         jLabel43.setText("Id Venta");
 
+        txtIdVenta.setEnabled(false);
+
         jLabel45.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(51, 51, 51));
         jLabel45.setText("Id Cliente");
 
+        txtIdCliente.setEnabled(false);
         txtIdCliente.setMaximumSize(new java.awt.Dimension(800, 29));
 
         jLabel46.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N

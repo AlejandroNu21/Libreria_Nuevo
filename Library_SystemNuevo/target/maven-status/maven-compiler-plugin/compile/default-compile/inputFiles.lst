@@ -11,6 +11,7 @@ C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src
 C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpLector.java
 C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JfrmPrestamoCrud.java
 C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Lector.java
+C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Modelo\Venta.java
 C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpEscritor.java
 C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Enums\subgeneroType.java
 C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Enums\generoType.java
@@ -46,4 +47,5 @@ C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src
 C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpCustomer.java
 C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpVenta.java
 C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Escritor.java
+C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Modelo\VentaDao.java
 C:\Users\COREI5 10TH GEN\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Services\ICategoria.java

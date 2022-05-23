@@ -78,6 +78,8 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtIdEscritor.setEnabled(false);
+
         jLabel17.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel17.setText("Seleccionar Avatar");
 
@@ -98,12 +100,15 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel3.setText("Id Libro");
 
+        txtIdLibro.setEnabled(false);
+
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel4.setText("Codigo Libro");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel5.setText("Id Editorial");
 
+        txtIdEditorial.setEnabled(false);
         txtIdEditorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdEditorialActionPerformed(evt);

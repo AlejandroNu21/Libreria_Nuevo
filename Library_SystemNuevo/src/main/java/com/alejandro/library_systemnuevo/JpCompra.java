@@ -50,16 +50,21 @@ public class JpCompra extends javax.swing.JPanel {
 
         jLabel21.setText("Id Compras");
 
+        txtIdCompra.setEnabled(false);
+
         jLabel22.setText("Id Libro");
 
+        txtIdLibro2.setEnabled(false);
         txtIdLibro2.setMaximumSize(new java.awt.Dimension(800, 2147483647));
 
         jLabel23.setText("Id Editorial");
 
+        txtEditorial.setEnabled(false);
         txtEditorial.setMaximumSize(new java.awt.Dimension(800, 2147483647));
 
         jLabel25.setText("Id Forma de Pago");
 
+        txtIdFormaPago.setEnabled(false);
         txtIdFormaPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdFormaPagoActionPerformed(evt);

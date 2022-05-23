@@ -58,6 +58,7 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
         jLabel52.setText("Id");
 
         txtIdLector.setEditable(false);
+        txtIdLector.setEnabled(false);
 
         jLabel49.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel49.setText("Codigo Lector ");

@@ -43,9 +43,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(560, 390));
         setMinimumSize(new java.awt.Dimension(560, 390));
-        setPreferredSize(new java.awt.Dimension(560, 390));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -53,6 +51,12 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
         jButton6.setText("Registrar");
 
         jLabel54.setText("IdPrestamo");
+
+        txtIdPrestamo.setEnabled(false);
+
+        txtIdLector1.setEnabled(false);
+
+        txtIdLibro4.setEnabled(false);
 
         jLabel57.setText("Fecha Prestamo");
 
@@ -95,7 +99,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
                             .addComponent(txtFechaDevolucion)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 243, Short.MAX_VALUE)))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
