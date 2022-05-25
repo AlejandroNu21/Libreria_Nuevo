@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author wilian
+ * @author Vkaiido
  */
 public class JpEditorial extends javax.swing.JPanel {
 

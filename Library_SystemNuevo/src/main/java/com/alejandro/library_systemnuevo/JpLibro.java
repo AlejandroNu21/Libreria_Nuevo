@@ -174,9 +174,9 @@ public class JpLibro extends javax.swing.JPanel {
             int selectedRow = jTable1.getSelectedRow();
             frm.txtIdLibro.setText(String.valueOf(jTable1.getValueAt(selectedRow, 0)));
             frm.txtCodigoLibro.setText(String.valueOf(jTable1.getValueAt(selectedRow, 1)));
-            frm.txtIdEditorial.setText(String.valueOf(jTable1.getValueAt(selectedRow, 2)));
+            frm.CmbEdi.setSelectedItem(String.valueOf(jTable1.getValueAt(selectedRow, 2)));
             frm.txtTitulo.setText(String.valueOf(jTable1.getValueAt(selectedRow, 3)));
-            frm.txtIdEscritor.setText(String.valueOf(jTable1.getValueAt(selectedRow, 4)));
+            frm.CmbEsc.setSelectedItem(String.valueOf(jTable1.getValueAt(selectedRow, 4)));
             frm.CmbCat.setSelectedItem(String.valueOf(jTable1.getValueAt(selectedRow, 5)));
             frm.CmbGen.setSelectedItem(String.valueOf(jTable1.getValueAt(selectedRow, 6)));
             frm.CmbSub.setSelectedItem(String.valueOf(jTable1.getValueAt(selectedRow, 7)));

@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author wilian
+ * @author Vkaiido
  */
 public class JpDatosEscritor extends javax.swing.JPanel {
 

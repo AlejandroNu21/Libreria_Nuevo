@@ -15,7 +15,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author wilian
+ * @author Vkaiido
  */
 public class JfrmEscritorCrud extends javax.swing.JFrame {
 

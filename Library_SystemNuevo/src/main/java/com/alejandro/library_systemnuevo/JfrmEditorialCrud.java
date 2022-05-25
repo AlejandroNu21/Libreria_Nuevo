@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author wilian
+ * @author Vkaiido
  */
 public class JfrmEditorialCrud extends javax.swing.JFrame {
 

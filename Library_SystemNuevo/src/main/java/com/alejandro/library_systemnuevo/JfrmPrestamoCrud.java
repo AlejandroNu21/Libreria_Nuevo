@@ -6,7 +6,7 @@ package com.alejandro.library_systemnuevo;
 
 /**
  *
- * @author wilian
+ * @author Vkaiido
  */
 public class JfrmPrestamoCrud extends javax.swing.JFrame {
 

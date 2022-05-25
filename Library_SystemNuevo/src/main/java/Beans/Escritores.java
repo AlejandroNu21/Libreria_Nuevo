@@ -43,11 +43,37 @@ public class Escritores {
             }
 
         } catch (Exception e) {
-            System.out.println("Error man" + e);
+            System.out.println("Error" + e);
         }
 
         return lista;
     }
+    
+    
+    public ArrayList<Escritor> FiltroEscritor(String Busqueda) {
+        ArrayList<Escritor> lista = null;
+        try {
+            lista = new ArrayList<Escritor>();
+
+            CallableStatement cb = conexion.prepareCall("{call SP_F_ESCRITOR(?)}");
+            cb.setString(1, Busqueda);
+            ResultSet resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                Escritor ed = new Escritor();
+                ed.setIdEscritor(resultado.getInt("idEscritor"));
+                ed.setCodigo_Escritor(resultado.getString("Codigo_Escritor"));
+                ed.setNombre_Escritor(resultado.getString("Nombre_Escritor"));
+                lista.add(ed);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+        return lista;
+    }
+    
 
     //ADD
     public void AddEscritor(Escritor edi) {

@@ -50,7 +50,6 @@ public class JfrmRegistro extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(396, 541));
         setMinimumSize(new java.awt.Dimension(396, 541));
-        setPreferredSize(new java.awt.Dimension(396, 541));
         setResizable(false);
 
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N

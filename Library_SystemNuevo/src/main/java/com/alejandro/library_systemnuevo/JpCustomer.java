@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author wilian
+ * @author Vkaiido
  */
 public class JpCustomer extends javax.swing.JPanel {
 

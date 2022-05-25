@@ -6,6 +6,9 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="e6" green="e6" id="Control Highlight" palette="2" red="e6" type="palette"/>
     </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1257, 727]"/>
+    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -42,12 +45,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-              <Component id="lblBanner" min="-2" pref="201" max="-2" attributes="0"/>
+              <Component id="lblBanner" min="-2" pref="186" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JpMain" pref="644" max="32767" attributes="0"/>
+              <Component id="JpMain" pref="520" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Component id="jPanel1" pref="858" max="32767" attributes="0"/>
+          <Component id="jPanel1" pref="727" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -82,24 +85,24 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="lblLogo" min="-2" pref="184" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnAgregarLibro" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="btnAgregarLibro" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnCompra" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="btnCompra" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnEditoriales" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="btnEditoriales" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnClientes" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="btnClientes" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnVentas" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="btnVentas" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnLector" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="btnLector" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnPrestamo" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="btnPrestamo" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnEscritor1" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="btnEscritor1" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnUsuarios" min="-2" pref="50" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnUsuarios" min="-2" pref="45" max="-2" attributes="0"/>
+                  <EmptySpace pref="75" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -284,7 +287,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="636" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
