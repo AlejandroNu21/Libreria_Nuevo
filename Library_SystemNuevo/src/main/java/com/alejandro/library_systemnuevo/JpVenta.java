@@ -83,6 +83,11 @@ public class JpVenta extends javax.swing.JPanel {
         jLabel42.setText("Precio Unitario");
 
         jButton5.setText("Registrar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         tblVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,6 +183,10 @@ public class JpVenta extends javax.swing.JPanel {
         txtFechaVenta.setText(tblVentas.getValueAt(fila, 0).toString());
         txtPrecioUnitario1.setText(tblVentas.getValueAt(fila, 0).toString());
     }//GEN-LAST:event_tblVentasMouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
  
     

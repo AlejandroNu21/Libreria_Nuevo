@@ -317,7 +317,7 @@ public class JfrmMenu extends javax.swing.JFrame {
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
         currentPanel = null;
-        showJPanel(new JpVenta());
+        showJPanel(new JpVentas1());
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnEditorialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditorialesActionPerformed
@@ -327,7 +327,7 @@ public class JfrmMenu extends javax.swing.JFrame {
 
     private void btnCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraActionPerformed
         currentPanel = null;
-        showJPanel(new JpCompra());
+        showJPanel(new JpCompras1());
     }//GEN-LAST:event_btnCompraActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
