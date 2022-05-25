@@ -4,6 +4,12 @@
  */
 package com.alejandro.library_systemnuevo;
 
+import Beans.DatosLibross;
+import Entidades.DatosLibro;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Vkaiido
@@ -17,6 +23,36 @@ public class JpDatosLibro extends javax.swing.JPanel {
     public JpDatosLibro(JfrmMenu main) {
         initComponents();
         mainForm = main;
+        carga();
+    }
+    
+    
+       public void carga() {
+        String titulos[] = {"idDatos_Libro", "idLibro", "Reseña", "Precio",
+            "Cantidad", "Disponible", "Año_Publicacion"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[7];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        DatosLibross es = new DatosLibross();
+        ArrayList<DatosLibro> listar = es.ListaDatosLibros();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[7];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            DatosLibro estBucle = (DatosLibro) iterador.next();
+            fila[0] = estBucle.getIdDatos_Libro();
+            fila[1] = estBucle.getIdLibro();
+            fila[2] = estBucle.getReseña();
+            fila[3] = estBucle.getPrecio();
+            fila[4] = estBucle.getCantidad();
+            fila[5] = estBucle.getDisponible().name();
+            fila[6] = estBucle.getAño_Publicacion();
+            df.addRow(fila);
+        }
+        TblDatosLibro.setModel(df);
     }
 
     /**
@@ -46,7 +82,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
         jLabel18 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         jScrollPane11 = new javax.swing.JScrollPane();
-        TblDatosEscritor = new javax.swing.JTable();
+        TblDatosLibro = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -166,7 +202,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
                 .addGap(26, 26, 26))
         );
 
-        TblDatosEscritor.setModel(new javax.swing.table.DefaultTableModel(
+        TblDatosLibro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -177,17 +213,17 @@ public class JpDatosLibro extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        TblDatosEscritor.addMouseListener(new java.awt.event.MouseAdapter() {
+        TblDatosLibro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TblDatosEscritorMouseClicked(evt);
+                TblDatosLibroMouseClicked(evt);
             }
         });
-        TblDatosEscritor.addKeyListener(new java.awt.event.KeyAdapter() {
+        TblDatosLibro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                TblDatosEscritorKeyReleased(evt);
+                TblDatosLibroKeyReleased(evt);
             }
         });
-        jScrollPane11.setViewportView(TblDatosEscritor);
+        jScrollPane11.setViewportView(TblDatosLibro);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -227,7 +263,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    private void TblDatosEscritorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDatosEscritorMouseClicked
+    private void TblDatosLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDatosLibroMouseClicked
         //        isSelect = true;
         //        try {
             //            txtIdEscritor.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 0).toString());
@@ -240,9 +276,9 @@ public class JpDatosLibro extends javax.swing.JPanel {
             //
             //        } catch (Exception ex) {
             //        }
-    }//GEN-LAST:event_TblDatosEscritorMouseClicked
+    }//GEN-LAST:event_TblDatosLibroMouseClicked
 
-    private void TblDatosEscritorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblDatosEscritorKeyReleased
+    private void TblDatosLibroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblDatosLibroKeyReleased
         //        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
             //
             //            isSelect = true;
@@ -260,11 +296,11 @@ public class JpDatosLibro extends javax.swing.JPanel {
                 //            }
             //
             //        }
-    }//GEN-LAST:event_TblDatosEscritorKeyReleased
+    }//GEN-LAST:event_TblDatosLibroKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TblDatosEscritor;
+    private javax.swing.JTable TblDatosLibro;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
