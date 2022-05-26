@@ -51,4 +51,24 @@ public class Login {
          }
          return valid;
      }
+     
+         public void AddUsuario(user usr) {
+             
+             Connection conexion = con.getConecction();
+        try {
+            CallableStatement cb = conexion.prepareCall("{call SP_I_ROL(?,?,?)}");
+            cb.setString("PUsuario", usr.getUsuario());
+            cb.setString("PContrasenia", usr.getContrasenia());
+            cb.setInt("PRol", usr.getRol().ordinal()+1);
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Usuario Agregado correctamente");
+
+            conexion.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
+        
+        
+    }
 }

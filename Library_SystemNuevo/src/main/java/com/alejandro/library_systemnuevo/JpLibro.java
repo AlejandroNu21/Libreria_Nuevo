@@ -83,6 +83,10 @@ public class JpLibro extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1050, 540));
 
+        jButton3.setBackground(new java.awt.Color(238, 108, 77));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         jButton3.setText("Actualizar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +94,10 @@ public class JpLibro extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 51, 51));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash.png"))); // NOI18N
         jButton2.setText("Eliminar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +105,6 @@ public class JpLibro extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -113,6 +120,10 @@ public class JpLibro extends javax.swing.JPanel {
         jTable1.setSelectionBackground(new java.awt.Color(161, 220, 173));
         jScrollPane1.setViewportView(jTable1);
 
+        btnNuevoLibro.setBackground(new java.awt.Color(0, 153, 51));
+        btnNuevoLibro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnNuevoLibro.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevoLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoLibro.setText("Nuevo");
         btnNuevoLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +133,10 @@ public class JpLibro extends javax.swing.JPanel {
 
         jLabel1.setText("GESTIÓN DE LIBROS");
 
+        btnDatosLibro.setBackground(new java.awt.Color(61, 90, 128));
+        btnDatosLibro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDatosLibro.setForeground(new java.awt.Color(255, 255, 255));
+        btnDatosLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/profiles.png"))); // NOI18N
         btnDatosLibro.setText("Datos del libro");
         btnDatosLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

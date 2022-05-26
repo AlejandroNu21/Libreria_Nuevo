@@ -224,6 +224,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
             }
         });
         jScrollPane11.setViewportView(TblDatosLibro);
+        TblDatosLibro.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

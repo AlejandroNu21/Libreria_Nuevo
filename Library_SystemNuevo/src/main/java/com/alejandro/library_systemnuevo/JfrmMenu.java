@@ -5,10 +5,12 @@
 package com.alejandro.library_systemnuevo;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -25,6 +27,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         lblBanner.setIcon(new ImageIcon(imagenBanner.getImage().getScaledInstance(lblBanner.getWidth(), lblBanner.getHeight(), Image.SCALE_SMOOTH)));
+        lblBanner.setBackground(btnLibro.getBackground());
         
         lblLogo.setIcon(new ImageIcon(imagenLogo.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_SMOOTH)));
     }
@@ -52,7 +55,7 @@ public class JfrmMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnAgregarLibro = new javax.swing.JButton();
+        btnLibro = new javax.swing.JButton();
         btnCompra = new javax.swing.JButton();
         btnEditoriales = new javax.swing.JButton();
         btnClientes = new javax.swing.JButton();
@@ -62,117 +65,197 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnLector = new javax.swing.JButton();
         btnEscritor1 = new javax.swing.JButton();
         btnUsuarios = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lblCerrar = new javax.swing.JLabel();
+        lblResizable = new javax.swing.JLabel();
+        lblMinimize = new javax.swing.JLabel();
         JpMain = new javax.swing.JPanel();
+        JPBanner = new javax.swing.JPanel();
         lblBanner = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.SystemColor.controlHighlight);
-        setPreferredSize(new java.awt.Dimension(1257, 727));
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(150, 731));
 
-        btnAgregarLibro.setBackground(new java.awt.Color(61, 90, 128));
-        btnAgregarLibro.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        btnAgregarLibro.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregarLibro.setText("Libro");
-        btnAgregarLibro.addHierarchyListener(new java.awt.event.HierarchyListener() {
+        btnLibro.setBackground(new java.awt.Color(41, 50, 65));
+        btnLibro.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        btnLibro.setForeground(new java.awt.Color(255, 255, 255));
+        btnLibro.setText("Libro");
+        btnLibro.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnLibro.setBorderPainted(false);
+        btnLibro.setFocusPainted(false);
+        btnLibro.setRequestFocusEnabled(false);
+        btnLibro.setRolloverEnabled(false);
+        btnLibro.addHierarchyListener(new java.awt.event.HierarchyListener() {
             public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
-                btnAgregarLibroHierarchyChanged(evt);
+                btnLibroHierarchyChanged(evt);
             }
         });
-        btnAgregarLibro.addActionListener(new java.awt.event.ActionListener() {
+        btnLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarLibroActionPerformed(evt);
+                btnLibroActionPerformed(evt);
             }
         });
 
-        btnCompra.setBackground(new java.awt.Color(61, 90, 128));
+        btnCompra.setBackground(new java.awt.Color(41, 50, 65));
         btnCompra.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnCompra.setForeground(new java.awt.Color(255, 255, 255));
         btnCompra.setText("Compra");
+        btnCompra.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnCompra.setBorderPainted(false);
         btnCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompraActionPerformed(evt);
             }
         });
 
-        btnEditoriales.setBackground(new java.awt.Color(61, 90, 128));
+        btnEditoriales.setBackground(new java.awt.Color(41, 50, 65));
         btnEditoriales.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnEditoriales.setForeground(new java.awt.Color(255, 255, 255));
         btnEditoriales.setText("Editoriales");
+        btnEditoriales.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnEditoriales.setBorderPainted(false);
         btnEditoriales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditorialesActionPerformed(evt);
             }
         });
 
-        btnClientes.setBackground(new java.awt.Color(61, 90, 128));
+        btnClientes.setBackground(new java.awt.Color(41, 50, 65));
         btnClientes.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnClientes.setForeground(new java.awt.Color(255, 255, 255));
         btnClientes.setText("Clientes");
+        btnClientes.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnClientes.setBorderPainted(false);
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClientesActionPerformed(evt);
             }
         });
 
-        btnVentas.setBackground(new java.awt.Color(61, 90, 128));
+        btnVentas.setBackground(new java.awt.Color(41, 50, 65));
         btnVentas.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnVentas.setForeground(new java.awt.Color(255, 255, 255));
         btnVentas.setText("Ventas");
+        btnVentas.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnVentas.setBorderPainted(false);
         btnVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVentasActionPerformed(evt);
             }
         });
 
-        btnPrestamo.setBackground(new java.awt.Color(61, 90, 128));
+        btnPrestamo.setBackground(new java.awt.Color(41, 50, 65));
         btnPrestamo.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnPrestamo.setForeground(new java.awt.Color(255, 255, 255));
         btnPrestamo.setText("Prestamo");
+        btnPrestamo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnPrestamo.setBorderPainted(false);
         btnPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrestamoActionPerformed(evt);
             }
         });
 
-        btnLector.setBackground(new java.awt.Color(61, 90, 128));
+        btnLector.setBackground(new java.awt.Color(41, 50, 65));
         btnLector.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnLector.setForeground(new java.awt.Color(255, 255, 255));
         btnLector.setText("Lector");
+        btnLector.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnLector.setBorderPainted(false);
         btnLector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLectorActionPerformed(evt);
             }
         });
 
-        btnEscritor1.setBackground(new java.awt.Color(61, 90, 128));
+        btnEscritor1.setBackground(new java.awt.Color(41, 50, 65));
         btnEscritor1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnEscritor1.setForeground(new java.awt.Color(255, 255, 255));
         btnEscritor1.setText("Escritor");
+        btnEscritor1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnEscritor1.setBorderPainted(false);
         btnEscritor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEscritor1ActionPerformed(evt);
             }
         });
 
-        btnUsuarios.setBackground(new java.awt.Color(61, 90, 128));
+        btnUsuarios.setBackground(new java.awt.Color(41, 50, 65));
         btnUsuarios.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         btnUsuarios.setText("Usuarios");
+        btnUsuarios.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnUsuarios.setBorderPainted(false);
         btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuariosActionPerformed(evt);
             }
         });
 
+        jPanel2.setPreferredSize(new java.awt.Dimension(0, 25));
+
+        lblCerrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCerrar.setForeground(new java.awt.Color(255, 0, 0));
+        lblCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCerrar.setText("X");
+        lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCerrarMouseClicked(evt);
+            }
+        });
+
+        lblResizable.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblResizable.setForeground(new java.awt.Color(255, 0, 0));
+        lblResizable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblResizable.setText("[]");
+        lblResizable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblResizableMouseClicked(evt);
+            }
+        });
+
+        lblMinimize.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblMinimize.setForeground(new java.awt.Color(255, 0, 0));
+        lblMinimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMinimize.setText("-");
+        lblMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMinimizeMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblResizable, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblResizable, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnAgregarLibro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnLibro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCompra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnEditoriales, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
             .addComponent(btnClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -181,31 +264,34 @@ public class JfrmMenu extends javax.swing.JFrame {
             .addComponent(btnPrestamo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnEscritor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addComponent(btnCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addComponent(btnEditoriales, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addComponent(btnVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addComponent(btnLector, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addComponent(btnPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addComponent(btnEscritor1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(15, 15, 15)
                 .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         JpMain.setBackground(new java.awt.Color(255, 255, 255));
@@ -224,10 +310,35 @@ public class JfrmMenu extends javax.swing.JFrame {
         );
         JpMainLayout.setVerticalGroup(
             JpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 527, Short.MAX_VALUE)
         );
 
-        lblBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CasaDelLibro.jpeg"))); // NOI18N
+        JPBanner.setBackground(new java.awt.Color(41, 50, 65));
+        JPBanner.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JPBannerMouseDragged(evt);
+            }
+        });
+
+        lblBanner.setBackground(new java.awt.Color(41, 50, 65));
+        lblBanner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBanner.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblBanner.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                lblBannerMouseDragged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JPBannerLayout = new javax.swing.GroupLayout(JPBanner);
+        JPBanner.setLayout(JPBannerLayout);
+        JPBannerLayout.setHorizontalGroup(
+            JPBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        JPBannerLayout.setVerticalGroup(
+            JPBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblBanner, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -238,18 +349,17 @@ public class JfrmMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE)
-                    .addComponent(lblBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JPBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(lblBanner, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JPBanner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+                .addComponent(JpMain, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
         );
 
         pack();
@@ -272,10 +382,10 @@ public class JfrmMenu extends javax.swing.JFrame {
         }
     } 
  
-    private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
+    private void btnLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibroActionPerformed
         currentPanel = null;
         showJPanel(new JpLibro(formMain));
-    }//GEN-LAST:event_btnAgregarLibroActionPerformed
+    }//GEN-LAST:event_btnLibroActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
 
@@ -331,12 +441,47 @@ public class JfrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCompraActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        // TODO add your handling code here:
+        /*JfrmRegistro frm= new JfrmRegistro();
+        frm.setVisible(true);
+        this.dispose();*/
+        currentPanel = null;
+        showJPanel(new JpUsuario());
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
-    private void btnAgregarLibroHierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_btnAgregarLibroHierarchyChanged
+    private void btnLibroHierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_btnLibroHierarchyChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarLibroHierarchyChanged
+    }//GEN-LAST:event_btnLibroHierarchyChanged
+
+    private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_lblCerrarMouseClicked
+
+    private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
+        this.setState(1);
+    }//GEN-LAST:event_lblMinimizeMouseClicked
+
+    private void lblResizableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblResizableMouseClicked
+        if(this.getExtendedState()==6){
+            this.setExtendedState(0);
+        }else{
+        this.setExtendedState(6);
+        
+        }
+    }//GEN-LAST:event_lblResizableMouseClicked
+
+    private int x;
+    private int y;
+    
+    private void lblBannerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBannerMouseDragged
+
+    }//GEN-LAST:event_lblBannerMouseDragged
+
+    private void JPBannerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPBannerMouseDragged
+        x=evt.getX();
+        y= evt.getY();
+
+        this.setLocation(evt.getXOnScreen()-x, evt.getYOnScreen()-y);
+    }//GEN-LAST:event_JPBannerMouseDragged
 
     /**
      * @param args the command line arguments
@@ -375,18 +520,23 @@ public class JfrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JPBanner;
     private javax.swing.JPanel JpMain;
-    private javax.swing.JButton btnAgregarLibro;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnCompra;
     private javax.swing.JButton btnEditoriales;
     private javax.swing.JButton btnEscritor1;
     private javax.swing.JButton btnLector;
+    private javax.swing.JButton btnLibro;
     private javax.swing.JButton btnPrestamo;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JButton btnVentas;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblBanner;
+    private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblMinimize;
+    private javax.swing.JLabel lblResizable;
     // End of variables declaration//GEN-END:variables
 }
