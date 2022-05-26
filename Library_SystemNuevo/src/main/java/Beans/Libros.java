@@ -100,6 +100,34 @@ public class Libros {
         return lista;
         
     }
+    
+    
+    //Filtro
+    
+        public ArrayList<Libro> FiltroLibro(String Busqueda) {
+        ArrayList<Libro> lista = null;
+        try {
+            lista = new ArrayList<Libro>();
+            conexion = con.getConecction();
+            CallableStatement cb = conexion.prepareCall("{call SP_F_LIBROS(?)}");
+            cb.setString(1, Busqueda);
+            ResultSet resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                Libro li = new Libro();
+                li.setIdLibro(resultado.getInt("idLibro"));
+                li.setCodigo_Libro(resultado.getString("Codigo_Libro"));
+                li.setTitulo(resultado.getString("Titulo"));
+                
+                lista.add(li);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error " + e);
+        }
+
+        return lista;
+    }
 
     //ADD
     public void AddLibro(Libro lib) {

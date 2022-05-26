@@ -45,11 +45,40 @@ public class Lectores {
             }
 
         } catch (Exception e) {
-            System.out.println("Error man" + e);
+            System.out.println("Error" + e);
         }
 
         return lista;
     }
+    
+    //FiltroLector
+    
+        public ArrayList<Lector> FiltroLector(String Busqueda) {
+        ArrayList<Lector> lista = null;
+        try {
+            lista = new ArrayList<Lector>();
+
+            CallableStatement cb = conexion.prepareCall("{call SP_F_LECTORES(?)}");
+            cb.setString(1, Busqueda);
+            ResultSet resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                Lector le = new Lector();
+                le.setIdLector(resultado.getInt("idLector"));
+                le.setCodigoLector(resultado.getString("CodigoLector"));
+                le.setNombre_Lector(resultado.getString("Nombre_Lector"));
+                lista.add(le);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+        return lista;
+    }
+    
+    
+    
 
     //ADD
     public void AddLector(Lector le) {

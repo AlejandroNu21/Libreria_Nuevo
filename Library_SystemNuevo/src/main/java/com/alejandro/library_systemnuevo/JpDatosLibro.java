@@ -86,6 +86,9 @@ public class JpDatosLibro extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
+        btnRegresar.setBackground(new java.awt.Color(61, 90, 128));
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/back.png"))); // NOI18N
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +121,9 @@ public class JpDatosLibro extends javax.swing.JPanel {
 
         jLabel15.setText("Precio");
 
+        jButton3.setBackground(new java.awt.Color(0, 153, 51));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         jButton3.setText("Registrar");
 
         jLabel18.setText("Cantidad");
@@ -153,13 +159,10 @@ public class JpDatosLibro extends javax.swing.JPanel {
                                 .addComponent(jLabel12)
                                 .addComponent(jLabel13))
                             .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(txtIdDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(txtIdLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtIdLibro1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                                .addComponent(txtIdDatos))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,7 +321,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
     private javax.swing.JTextField txtAñoPublicacion;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtIdDatos;
-    private javax.swing.JTextField txtIdLibro1;
+    public javax.swing.JTextField txtIdLibro1;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }

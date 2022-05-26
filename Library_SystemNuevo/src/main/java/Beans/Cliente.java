@@ -44,12 +44,40 @@ public class Cliente {
             }
 
         } catch (Exception e) {
-            System.out.println("Error man" + e);
+            System.out.println("Error" + e);
         }
 
         return lista;
     }
 
+    //FiltroClientes
+        public ArrayList<clientes> FiltroClientes(String Busqueda) {
+        ArrayList<clientes> lista = null;
+        try {
+            lista = new ArrayList<clientes>();
+
+            CallableStatement cb = conexion.prepareCall("{call SP_F_CLIENTE()}");
+            cb.setString(1, Busqueda);
+            ResultSet resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                clientes cl = new clientes();
+                cl.setIdCliente(resultado.getInt("idClientes"));
+                cl.setCodigoCliente(resultado.getString("CodigoCliente"));
+
+
+                lista.add(cl);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+        return lista;
+    }
+    
+    
+    
     public void AddCliente(clientes cl) {
 
         try {

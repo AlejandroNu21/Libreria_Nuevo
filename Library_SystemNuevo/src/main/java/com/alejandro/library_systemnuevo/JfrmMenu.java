@@ -202,7 +202,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         lblCerrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblCerrar.setForeground(new java.awt.Color(255, 0, 0));
         lblCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCerrar.setText("X");
+        lblCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cancel.png"))); // NOI18N
         lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCerrarMouseClicked(evt);
@@ -212,7 +212,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         lblResizable.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblResizable.setForeground(new java.awt.Color(255, 0, 0));
         lblResizable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblResizable.setText("[]");
+        lblResizable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maximize.png"))); // NOI18N
         lblResizable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblResizableMouseClicked(evt);
@@ -222,7 +222,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         lblMinimize.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblMinimize.setForeground(new java.awt.Color(255, 0, 0));
         lblMinimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMinimize.setText("-");
+        lblMinimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/minus-button.png"))); // NOI18N
         lblMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblMinimizeMouseClicked(evt);
@@ -235,9 +235,9 @@ public class JfrmMenu extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(lblResizable, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(lblMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );

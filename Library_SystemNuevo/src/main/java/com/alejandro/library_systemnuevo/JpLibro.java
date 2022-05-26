@@ -218,9 +218,22 @@ public class JpLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNuevoLibroActionPerformed
 
     JfrmMenu mainForm;
+    
     private void btnDatosLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosLibroActionPerformed
-        mainForm.currentPanel = null;
-        mainForm.showJPanel(new JpDatosLibro(mainForm));
+        if (jTable1.getSelectedRowCount() > 0) {
+            JpDatosLibro jp = new JpDatosLibro(mainForm);
+            
+            int selectedRow = jTable1.getSelectedRow();
+            jp.txtIdLibro1.setText(String.valueOf(jTable1.getValueAt(selectedRow, 0)));
+            mainForm.currentPanel = null;
+            mainForm.showJPanel(new JpDatosLibro(mainForm));
+
+            //isSelect = false;
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
+        
+        
     }//GEN-LAST:event_btnDatosLibroActionPerformed
 
 

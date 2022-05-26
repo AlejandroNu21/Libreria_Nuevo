@@ -328,8 +328,8 @@ void CargaCmb() {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        Libro es = new Libro();
-        Libros esDAO = new Libros();
+        Libro lib = new Libro();
+        Libros lbDAO = new Libros();
 
         if (txtCodigoLibro.getText().equals("") || CmbEdi.getSelectedIndex()==-1
                 || txtTitulo.getText().equals("") || CmbEsc.getSelectedIndex()==-1
@@ -338,32 +338,32 @@ void CargaCmb() {
         } else {
             if (txtIdLibro.getText().equals("")) {
 
-                es.setCodigo_Libro(txtCodigoLibro.getText());
-                es.setIdEditorial(IdEditorial[CmbEdi.getSelectedIndex()]);
-                es.setTitulo(txtTitulo.getText());
-                es.setIdEscritor(IdEscritor[CmbEsc.getSelectedIndex()]);
-                es.setCategoria(categoryType.values()[CmbCat.getSelectedIndex()]);
-                es.setGenero(generoType.values()[CmbGen.getSelectedIndex()]);
-                es.setSubGenero(subgeneroType.values()[CmbSub.getSelectedIndex()]);
-                es.setClasificacion(txtClasificacion.getText());
+                lib.setCodigo_Libro(txtCodigoLibro.getText());
+                lib.setIdEditorial(IdEditorial[CmbEdi.getSelectedIndex()]);
+                lib.setTitulo(txtTitulo.getText());
+                lib.setIdEscritor(IdEscritor[CmbEsc.getSelectedIndex()]);
+                lib.setCategoria(categoryType.values()[CmbCat.getSelectedIndex()]);
+                lib.setGenero(generoType.values()[CmbGen.getSelectedIndex()]);
+                lib.setSubGenero(subgeneroType.values()[CmbSub.getSelectedIndex()]);
+                lib.setClasificacion(txtClasificacion.getText());
 
-                esDAO.AddLibro(es);
+                lbDAO.AddLibro(lib);
                 Limpiar();
                 
 
             } else {
                 
-                es.setIdLibro(Integer.parseInt(txtIdLibro.getText()));
-                es.setCodigo_Libro(txtCodigoLibro.getText());
-                es.setIdEditorial(IdEditorial[CmbEdi.getSelectedIndex()]);
-                es.setTitulo(txtTitulo.getText());
-                es.setIdEscritor(IdEscritor[CmbEsc.getSelectedIndex()]);
-                es.setCategoria(categoryType.values()[CmbCat.getSelectedIndex()]);
-                es.setGenero(generoType.values()[CmbGen.getSelectedIndex()]);
-                es.setSubGenero(subgeneroType.values()[CmbSub.getSelectedIndex()]);
-                es.setClasificacion(txtClasificacion.getText());
+                lib.setIdLibro(Integer.parseInt(txtIdLibro.getText()));
+                lib.setCodigo_Libro(txtCodigoLibro.getText());
+                lib.setIdEditorial(IdEditorial[CmbEdi.getSelectedIndex()]);
+                lib.setTitulo(txtTitulo.getText());
+                lib.setIdEscritor(IdEscritor[CmbEsc.getSelectedIndex()]);
+                lib.setCategoria(categoryType.values()[CmbCat.getSelectedIndex()]);
+                lib.setGenero(generoType.values()[CmbGen.getSelectedIndex()]);
+                lib.setSubGenero(subgeneroType.values()[CmbSub.getSelectedIndex()]);
+                lib.setClasificacion(txtClasificacion.getText());
 
-                esDAO.UpdateBook(es);
+                lbDAO.UpdateBook(lib);
 
                 this.dispose();
             }
