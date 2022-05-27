@@ -92,6 +92,8 @@ public class JpCustomer extends javax.swing.JPanel {
         btnNuevoCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoCliente.setText("Nuevo");
+        btnNuevoCliente.setContentAreaFilled(false);
+        btnNuevoCliente.setOpaque(true);
         btnNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoClienteActionPerformed(evt);
@@ -102,6 +104,8 @@ public class JpCustomer extends javax.swing.JPanel {
         btnActualizarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnActualizarCliente.setText("Actualizar");
+        btnActualizarCliente.setContentAreaFilled(false);
+        btnActualizarCliente.setOpaque(true);
         btnActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarClienteActionPerformed(evt);
@@ -112,6 +116,8 @@ public class JpCustomer extends javax.swing.JPanel {
         btnEliminarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btnEliminarCliente.setText("Eliminar");
+        btnEliminarCliente.setContentAreaFilled(false);
+        btnEliminarCliente.setOpaque(true);
         btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarClienteActionPerformed(evt);

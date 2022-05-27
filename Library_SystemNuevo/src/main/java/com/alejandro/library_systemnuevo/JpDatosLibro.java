@@ -114,6 +114,8 @@ public class JpDatosLibro extends javax.swing.JPanel {
         btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/back.png"))); // NOI18N
         btnRegresar.setText("Regresar");
+        btnRegresar.setContentAreaFilled(false);
+        btnRegresar.setOpaque(true);
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
@@ -142,6 +144,8 @@ public class JpDatosLibro extends javax.swing.JPanel {
         BtnDL.setForeground(new java.awt.Color(255, 255, 255));
         BtnDL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         BtnDL.setText("Registrar");
+        BtnDL.setContentAreaFilled(false);
+        BtnDL.setOpaque(true);
         BtnDL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnDLActionPerformed(evt);
@@ -155,6 +159,8 @@ public class JpDatosLibro extends javax.swing.JPanel {
         btnUDL.setForeground(new java.awt.Color(255, 255, 255));
         btnUDL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnUDL.setText("Actualizar");
+        btnUDL.setContentAreaFilled(false);
+        btnUDL.setOpaque(true);
         btnUDL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUDLActionPerformed(evt);
@@ -166,6 +172,8 @@ public class JpDatosLibro extends javax.swing.JPanel {
         BtnEDL.setForeground(new java.awt.Color(255, 255, 255));
         BtnEDL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash.png"))); // NOI18N
         BtnEDL.setText("Eliminar");
+        BtnEDL.setContentAreaFilled(false);
+        BtnEDL.setOpaque(true);
         BtnEDL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnEDLActionPerformed(evt);
@@ -316,8 +324,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -330,21 +337,6 @@ public class JpDatosLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void TblDatosLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDatosLibroMouseClicked
-            int selectedRow = TblDatosLibro.getSelectedRow();
-            isSelect = true;
-            
-            try {
-            txtIdDatos.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 0)));
-            txtIdLibro1.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 1)));
-            txtReseña.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 2)));
-            txtPrecio.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 3)));
-            txtCantidad.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 4)));
-            cmbDisp.setSelectedItem(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 5)));
-            txtAñoPublicacion.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 6)));
-
-        } catch (Exception ex) {
-        }
-            
 
     }//GEN-LAST:event_TblDatosLibroMouseClicked
 
@@ -389,7 +381,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
     private void btnUDLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUDLActionPerformed
 
 
-            if (isSelect==true) {
+            if (TblDatosLibro.getSelectedRowCount()>0) {
             DatosLibro dl = new DatosLibro();
             DatosLibross dLDAO = new DatosLibross();
 
@@ -416,7 +408,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUDLActionPerformed
 
     private void BtnEDLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEDLActionPerformed
-        if (isSelect == true) 
+        if (TblDatosLibro.getSelectedRowCount()>0) 
         {
             DatosLibro dl = new DatosLibro();
             DatosLibross dLDAO = new DatosLibross();

@@ -32,6 +32,7 @@ com\alejandro\library_systemnuevo\FrmLogin$5.class
 com\alejandro\library_systemnuevo\JfrmMenu$1.class
 com\alejandro\library_systemnuevo\JpDatosEscritor$3.class
 com\alejandro\library_systemnuevo\JpCompras1.class
+com\alejandro\library_systemnuevo\JfrmLibroCrud$6.class
 Entidades\Enums\categoryType.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud$5.class
 com\alejandro\library_systemnuevo\JpCompras1$1.class
@@ -143,12 +144,14 @@ com\alejandro\library_systemnuevo\JpDatosLibro$7.class
 com\alejandro\library_systemnuevo\JfrmMenu$9.class
 Entidades\Enums\generoType.class
 com\alejandro\library_systemnuevo\JfrmMenu$17.class
+com\alejandro\library_systemnuevo\JfrmEscritorCrud$5.class
 com\alejandro\library_systemnuevo\JfrmLibroCrud$3.class
 com\alejandro\library_systemnuevo\FrmLogin.class
 com\alejandro\library_systemnuevo\JfrmMenu.class
 com\alejandro\library_systemnuevo\JpCompras1$4.class
 Entidades\Enums\subgeneroType.class
 Modelo\VentaDao.class
+com\alejandro\library_systemnuevo\JfrmClienteCrud$9.class
 com\alejandro\library_systemnuevo\JpDatosLibro$6.class
 com\alejandro\library_systemnuevo\JfrmPrestamoCrud$2.class
 com\alejandro\library_systemnuevo\JfrmPrestamoCrud.class

@@ -94,6 +94,8 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
         btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnAgregar.setText("Agregar");
+        btnAgregar.setContentAreaFilled(false);
+        btnAgregar.setOpaque(true);
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);

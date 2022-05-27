@@ -78,6 +78,8 @@ public class JpEscritor extends javax.swing.JPanel {
         btnNuevoEscritor.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevoEscritor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoEscritor.setText("Nuevo");
+        btnNuevoEscritor.setContentAreaFilled(false);
+        btnNuevoEscritor.setOpaque(true);
         btnNuevoEscritor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoEscritorActionPerformed(evt);
@@ -115,6 +117,8 @@ public class JpEscritor extends javax.swing.JPanel {
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnUpdate.setText("Actualizar");
+        btnUpdate.setContentAreaFilled(false);
+        btnUpdate.setOpaque(true);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -126,6 +130,8 @@ public class JpEscritor extends javax.swing.JPanel {
         btnEliminar1.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btnEliminar1.setText("Eliminar");
+        btnEliminar1.setContentAreaFilled(false);
+        btnEliminar1.setOpaque(true);
         btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminar1ActionPerformed(evt);
@@ -136,6 +142,8 @@ public class JpEscritor extends javax.swing.JPanel {
         btnDatosEscritor.setForeground(new java.awt.Color(255, 255, 255));
         btnDatosEscritor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/profiles.png"))); // NOI18N
         btnDatosEscritor.setText("Datos de escritor");
+        btnDatosEscritor.setContentAreaFilled(false);
+        btnDatosEscritor.setOpaque(true);
         btnDatosEscritor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDatosEscritorActionPerformed(evt);

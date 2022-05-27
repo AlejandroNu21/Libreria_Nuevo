@@ -127,6 +127,8 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/back.png"))); // NOI18N
         btnRegresar.setText("Regresar");
+        btnRegresar.setContentAreaFilled(false);
+        btnRegresar.setOpaque(true);
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
@@ -151,6 +153,8 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnIngresar.setText("Ingresar");
+        btnIngresar.setContentAreaFilled(false);
+        btnIngresar.setOpaque(true);
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);

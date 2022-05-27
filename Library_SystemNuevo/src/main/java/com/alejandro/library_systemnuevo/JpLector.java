@@ -75,6 +75,8 @@ public class JpLector extends javax.swing.JPanel {
         btnNuevoLector.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevoLector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoLector.setText("Nuevo");
+        btnNuevoLector.setContentAreaFilled(false);
+        btnNuevoLector.setOpaque(true);
         btnNuevoLector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoLectorActionPerformed(evt);
@@ -102,6 +104,8 @@ public class JpLector extends javax.swing.JPanel {
         btnEliminar.setForeground(new java.awt.Color(254, 254, 255));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setOpaque(true);
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -113,6 +117,8 @@ public class JpLector extends javax.swing.JPanel {
         btnActualizar1.setForeground(new java.awt.Color(254, 254, 255));
         btnActualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnActualizar1.setText("Actualizar");
+        btnActualizar1.setContentAreaFilled(false);
+        btnActualizar1.setOpaque(true);
         btnActualizar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizar1ActionPerformed(evt);

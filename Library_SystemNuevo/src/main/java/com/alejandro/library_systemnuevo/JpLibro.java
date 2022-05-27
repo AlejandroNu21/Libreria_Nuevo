@@ -88,6 +88,8 @@ public class JpLibro extends javax.swing.JPanel {
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         jButton3.setText("Actualizar");
+        jButton3.setContentAreaFilled(false);
+        jButton3.setOpaque(true);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -99,6 +101,8 @@ public class JpLibro extends javax.swing.JPanel {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash.png"))); // NOI18N
         jButton2.setText("Eliminar");
+        jButton2.setContentAreaFilled(false);
+        jButton2.setOpaque(true);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -125,6 +129,8 @@ public class JpLibro extends javax.swing.JPanel {
         btnNuevoLibro.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevoLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoLibro.setText("Nuevo");
+        btnNuevoLibro.setContentAreaFilled(false);
+        btnNuevoLibro.setOpaque(true);
         btnNuevoLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoLibroActionPerformed(evt);
@@ -138,6 +144,8 @@ public class JpLibro extends javax.swing.JPanel {
         btnDatosLibro.setForeground(new java.awt.Color(255, 255, 255));
         btnDatosLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/profiles.png"))); // NOI18N
         btnDatosLibro.setText("Datos del libro");
+        btnDatosLibro.setContentAreaFilled(false);
+        btnDatosLibro.setOpaque(true);
         btnDatosLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDatosLibroActionPerformed(evt);

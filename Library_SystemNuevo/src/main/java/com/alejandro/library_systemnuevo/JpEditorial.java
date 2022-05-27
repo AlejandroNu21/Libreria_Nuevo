@@ -92,6 +92,8 @@ public class JpEditorial extends javax.swing.JPanel {
         btnNuevaEditorial.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevaEditorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevaEditorial.setText("Nuevo");
+        btnNuevaEditorial.setContentAreaFilled(false);
+        btnNuevaEditorial.setOpaque(true);
         btnNuevaEditorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevaEditorialActionPerformed(evt);
@@ -103,6 +105,8 @@ public class JpEditorial extends javax.swing.JPanel {
         btnActualizar.setForeground(new java.awt.Color(254, 254, 255));
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
+        btnActualizar.setContentAreaFilled(false);
+        btnActualizar.setOpaque(true);
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
@@ -114,6 +118,8 @@ public class JpEditorial extends javax.swing.JPanel {
         btmBorrar.setForeground(new java.awt.Color(254, 254, 255));
         btmBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btmBorrar.setText("Eliminar");
+        btmBorrar.setContentAreaFilled(false);
+        btmBorrar.setOpaque(true);
         btmBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btmBorrarActionPerformed(evt);

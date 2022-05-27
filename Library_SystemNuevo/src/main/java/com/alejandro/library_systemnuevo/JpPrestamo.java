@@ -120,6 +120,8 @@ public class JpPrestamo extends javax.swing.JPanel {
         btnActualizarPrestamo.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizarPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnActualizarPrestamo.setText("Actualizar");
+        btnActualizarPrestamo.setContentAreaFilled(false);
+        btnActualizarPrestamo.setOpaque(true);
         btnActualizarPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarPrestamoActionPerformed(evt);
@@ -130,6 +132,8 @@ public class JpPrestamo extends javax.swing.JPanel {
         btnEliminarPrestamo.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btnEliminarPrestamo.setText("Eliminar");
+        btnEliminarPrestamo.setContentAreaFilled(false);
+        btnEliminarPrestamo.setOpaque(true);
         btnEliminarPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarPrestamoActionPerformed(evt);
@@ -140,6 +144,8 @@ public class JpPrestamo extends javax.swing.JPanel {
         btnNuevoPrestamo.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevoPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoPrestamo.setText("Nuevo prestamo");
+        btnNuevoPrestamo.setContentAreaFilled(false);
+        btnNuevoPrestamo.setOpaque(true);
         btnNuevoPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoPrestamoActionPerformed(evt);
@@ -170,13 +176,10 @@ public class JpPrestamo extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
+                    .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
