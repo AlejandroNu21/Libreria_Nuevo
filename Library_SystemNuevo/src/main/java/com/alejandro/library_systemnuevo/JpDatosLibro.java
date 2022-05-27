@@ -6,8 +6,10 @@ package com.alejandro.library_systemnuevo;
 
 import Beans.DatosLibross;
 import Entidades.DatosLibro;
+import Entidades.Enums.disponibleType;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +26,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
         initComponents();
         mainForm = main;
         carga();
+        CargaCmb();
     }
     
     
@@ -55,6 +58,24 @@ public class JpDatosLibro extends javax.swing.JPanel {
         TblDatosLibro.setModel(df);
     }
 
+       
+       void CargaCmb() {
+        for (var Disponible : disponibleType.values()) {
+            cmbDisp.addItem(Disponible.toString());
+        }
+    }
+       
+       
+       void Limpiar(){
+    txtIdDatos.setText("");
+    txtIdLibro1.setText("");
+    txtPrecio.setText("");
+    txtCantidad.setText("");
+    cmbDisp.setSelectedIndex(0);
+    txtAñoPublicacion.setText("");
+    txtReseña.setText("");
+
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,20 +88,23 @@ public class JpDatosLibro extends javax.swing.JPanel {
         btnRegresar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         txtIdDatos = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txtIdLibro1 = new javax.swing.JTextField();
         txtAñoPublicacion = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        BtnDL = new javax.swing.JButton();
         txtPrecio = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
+        txtReseña = new javax.swing.JTextField();
+        cmbDisp = new javax.swing.JComboBox<>();
+        btnUDL = new javax.swing.JButton();
+        BtnEDL = new javax.swing.JButton();
+        lblBarrer = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
         TblDatosLibro = new javax.swing.JTable();
 
@@ -100,13 +124,6 @@ public class JpDatosLibro extends javax.swing.JPanel {
 
         jLabel19.setText("Disponible");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
         txtIdDatos.setEnabled(false);
 
         jLabel20.setText("Año de Publicacion");
@@ -117,18 +134,53 @@ public class JpDatosLibro extends javax.swing.JPanel {
 
         jLabel12.setText("Id Datos");
 
-        jScrollPane3.setMaximumSize(new java.awt.Dimension(429, 429));
-
         jLabel13.setText("Id Libro");
 
         jLabel15.setText("Precio");
 
-        jButton3.setBackground(new java.awt.Color(0, 153, 51));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
-        jButton3.setText("Registrar");
+        BtnDL.setBackground(new java.awt.Color(0, 153, 51));
+        BtnDL.setForeground(new java.awt.Color(255, 255, 255));
+        BtnDL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
+        BtnDL.setText("Registrar");
+        BtnDL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDLActionPerformed(evt);
+            }
+        });
 
         jLabel18.setText("Cantidad");
+
+        btnUDL.setBackground(new java.awt.Color(238, 108, 77));
+        btnUDL.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnUDL.setForeground(new java.awt.Color(255, 255, 255));
+        btnUDL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
+        btnUDL.setText("Actualizar");
+        btnUDL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUDLActionPerformed(evt);
+            }
+        });
+
+        BtnEDL.setBackground(new java.awt.Color(255, 51, 51));
+        BtnEDL.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BtnEDL.setForeground(new java.awt.Color(255, 255, 255));
+        BtnEDL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash.png"))); // NOI18N
+        BtnEDL.setText("Eliminar");
+        BtnEDL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEDLActionPerformed(evt);
+            }
+        });
+
+        lblBarrer.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblBarrer.setForeground(new java.awt.Color(255, 0, 0));
+        lblBarrer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBarrer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/broom.png"))); // NOI18N
+        lblBarrer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblBarrerMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -152,32 +204,41 @@ public class JpDatosLibro extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cmbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel14))
-                        .addGap(365, 365, 365))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12)
-                                .addComponent(jLabel13))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtIdLibro1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                                .addComponent(txtIdDatos))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 59, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtIdLibro1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                            .addComponent(txtIdDatos))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblBarrer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BtnDL, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnUDL, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnEDL, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(txtIdDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel12)
+                        .addComponent(txtIdDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblBarrer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,8 +253,8 @@ public class JpDatosLibro extends javax.swing.JPanel {
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
+                    .addComponent(jLabel19)
+                    .addComponent(cmbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAñoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,10 +262,13 @@ public class JpDatosLibro extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addComponent(txtReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnDL, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUDL, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnEDL, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         TblDatosLibro.setModel(new javax.swing.table.DefaultTableModel(
@@ -236,7 +300,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,15 +316,11 @@ public class JpDatosLibro extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
-                        .addGap(24, 24, 24)))
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     JfrmMenu mainForm;
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
@@ -270,18 +330,22 @@ public class JpDatosLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void TblDatosLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDatosLibroMouseClicked
-        //        isSelect = true;
-        //        try {
-            //            txtIdEscritor.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 0).toString());
-            //            txtId.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 1).toString());
-            //            txtFechaNacimiento.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 2).toString());
-            //            txtLugarNacimiento.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 3).toString());
-            //            txtFechaDeceso.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 4).toString());
-            //            txtLugarDeceso.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 5).toString());
-            //            jTextArea2.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 6).toString());
-            //
-            //        } catch (Exception ex) {
-            //        }
+            int selectedRow = TblDatosLibro.getSelectedRow();
+            isSelect = true;
+            
+            try {
+            txtIdDatos.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 0)));
+            txtIdLibro1.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 1)));
+            txtReseña.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 2)));
+            txtPrecio.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 3)));
+            txtCantidad.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 4)));
+            cmbDisp.setSelectedItem(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 5)));
+            txtAñoPublicacion.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 6)));
+
+        } catch (Exception ex) {
+        }
+            
+
     }//GEN-LAST:event_TblDatosLibroMouseClicked
 
     private void TblDatosLibroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblDatosLibroKeyReleased
@@ -304,12 +368,93 @@ public class JpDatosLibro extends javax.swing.JPanel {
             //        }
     }//GEN-LAST:event_TblDatosLibroKeyReleased
 
+    private void BtnDLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDLActionPerformed
+            
+            DatosLibro dl = new DatosLibro();
+            DatosLibross dLDAO = new DatosLibross();
 
+            dl.setIdLibro(Integer.parseInt(txtIdLibro1.getText()));
+            dl.setPrecio(Double.parseDouble(txtPrecio.getText()));
+            dl.setCantidad(Integer.parseInt(txtCantidad.getText()));
+            dl.setDisponible(disponibleType.values()[cmbDisp.getSelectedIndex()]);
+            dl.setReseña(txtReseña.getText());
+            dl.setAño_Publicacion(txtAñoPublicacion.getText());
+
+            dLDAO.AddDatosLibros(dl);
+            carga();
+            Limpiar();
+
+    }//GEN-LAST:event_BtnDLActionPerformed
+
+    private void btnUDLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUDLActionPerformed
+
+
+            if (isSelect==true) {
+            DatosLibro dl = new DatosLibro();
+            DatosLibross dLDAO = new DatosLibross();
+
+            dl.setIdDatos_Libro(Integer.parseInt(txtIdDatos.getText()));
+            dl.setIdLibro(Integer.parseInt(txtIdLibro1.getText()));
+            dl.setPrecio(Double.parseDouble(txtPrecio.getText()));
+            dl.setCantidad(Integer.parseInt(txtCantidad.getText()));
+            dl.setDisponible(disponibleType.values()[cmbDisp.getSelectedIndex()]);
+            dl.setReseña(txtReseña.getText());
+            dl.setAño_Publicacion(txtAñoPublicacion.getText());
+
+            dLDAO.UpdateDL(dl);
+            carga();
+            Limpiar();
+
+            //isSelect = false;
+        
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
+        
+        
+    }//GEN-LAST:event_btnUDLActionPerformed
+
+    private void BtnEDLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEDLActionPerformed
+        if (isSelect == true) 
+        {
+            DatosLibro dl = new DatosLibro();
+            DatosLibross dLDAO = new DatosLibross();
+
+            dl.setIdDatos_Libro(Integer.parseInt(txtIdDatos.getText()));
+            dl.setIdLibro(Integer.parseInt(txtIdLibro1.getText()));
+            dl.setPrecio(Double.parseDouble(txtPrecio.getText()));
+            dl.setCantidad(Integer.parseInt(txtCantidad.getText()));
+            dl.setDisponible(disponibleType.values()[cmbDisp.getSelectedIndex()]);
+            dl.setReseña(txtReseña.getText());
+            dl.setAño_Publicacion(txtAñoPublicacion.getText());
+
+            dLDAO.DeleteDL(dl);
+            carga();
+            Limpiar();
+
+            //isSelect = false;
+        
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
+        
+    }//GEN-LAST:event_BtnEDLActionPerformed
+
+    private void lblBarrerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBarrerMouseClicked
+        Limpiar();
+    }//GEN-LAST:event_lblBarrerMouseClicked
+
+  public boolean isSelect = false;
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnDL;
+    private javax.swing.JButton BtnEDL;
     private javax.swing.JTable TblDatosLibro;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JButton jButton3;
-    public javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnUDL;
+    public javax.swing.JComboBox<String> cmbDisp;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -319,11 +464,12 @@ public class JpDatosLibro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblBarrer;
     public javax.swing.JTextField txtAñoPublicacion;
     public javax.swing.JTextField txtCantidad;
     public javax.swing.JTextField txtIdDatos;
     public javax.swing.JTextField txtIdLibro1;
     public javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtReseña;
     // End of variables declaration//GEN-END:variables
 }

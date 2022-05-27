@@ -5,13 +5,10 @@ C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\ja
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Beans\DatosLibross.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Lector.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JfrmRegistro.java
-C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\subGeneroLiterario.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Enums\formadePagoType.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Escritor.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Modelo\Venta.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpUsuario.java
-C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Services\IGenero.java
-C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\generoLiterario.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpEscritor.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\ViewModel\PrestamoVM.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Beans\Login.java
@@ -26,7 +23,6 @@ C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\ja
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JfrmClienteCrud.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpEditorial.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Beans\Escritores.java
-C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Services\ISubgenero.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\DatosLibro.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpLibro.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Editorial.java
@@ -35,15 +31,12 @@ C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\ja
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpCustomer.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\ViewModel\LibroVM.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\clientes.java
-C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Services\IFormadepago.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Beans\Editorials.java
-C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Services\ICategoria.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Enums\categoryType.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpDatosEscritor.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpDatosLibro.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpVentas1.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Enums\edoPrestamoType.java
-C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\formaDePago.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Beans\DatosEscritores.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpPrestamo.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Enums\rolType.java
@@ -51,7 +44,6 @@ C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\ja
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Libro.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Prestamo.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JfrmMenu.java
-C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Categoria.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpVenta.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Modelo\VentaDao.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\Library\BD\ConexionAMYSQL.java

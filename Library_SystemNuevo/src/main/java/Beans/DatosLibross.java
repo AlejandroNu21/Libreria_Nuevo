@@ -28,7 +28,7 @@ public class DatosLibross {
         try {
             lista = new ArrayList<DatosLibro>();
 
-            CallableStatement cb = conexion.prepareCall("{call SP_S_DATOS_LIBRO}");
+            CallableStatement cb = conexion.prepareCall("{call SP_S_DATOS_LIBRO()}");
             ResultSet resultado = cb.executeQuery();
 
             while (resultado.next()) {
@@ -52,39 +52,12 @@ public class DatosLibross {
         return lista;
     }
 
-//    public ArrayList<DatosLibro> ListaDatosLibros() {
-//        ArrayList<DatosLibro> lista = null;
-//        try {
-//            lista = new ArrayList<DatosLibro>();
-//
-//            CallableStatement cb = conexion.prepareCall("{call SP_S_DATOS_LIBRO()}");
-//            ResultSet resultado = cb.executeQuery();
-//
-//            while (resultado.next()) {
-//                DatosLibro cl = new DatosLibro();
-//                cl.setIdDatos_Libro(resultado.getInt("idDatos_Libro"));
-//                cl.setIdLibro(resultado.getInt("idLibro"));
-//                cl.setReseña(resultado.getString("Reseña"));
-//                cl.setPrecio(resultado.getDouble("Precio"));
-//                cl.setCantidad(resultado.getInt("Cantidad"));
-//               //disponibleType.values()[resultado.getInt("Disponible")-1],
-//                cl.setAño_Publicacion(resultado.getString("Año_Publicacion"));
-//                disponibleType.values()[resultado.getInt("Disponible")-1];
-//
-//                lista.add(cl);
-//            }
-//
-//        } catch (Exception e) {
-//            System.out.println("Error man" + e);
-//        }
-//
-//        return lista;
-//    }
+
     public void AddDatosLibros(DatosLibro cl) {
 
         try {
             CallableStatement cb = conexion.prepareCall("{call SP_I_DATOS_LIBRO(?,?,?,?,?,?)}");
-            //Escritor es = new Escritor();
+            
             cb.setInt("PidLibro", cl.getIdLibro());
             cb.setString("PReseña", cl.getReseña());
             cb.setDouble("PPrecio", cl.getPrecio());
@@ -100,5 +73,42 @@ public class DatosLibross {
         }
 
     }
+    
+        public void UpdateDL(DatosLibro dl) {
+
+        try {
+            CallableStatement cb = conexion.prepareCall("{call SP_U_DATOSLIBRO(?,?,?,?,?,?,?)}");
+            cb.setInt(7, dl.getIdDatos_Libro());
+            cb.setInt(1, dl.getIdLibro());
+            cb.setString(2, dl.getReseña());
+            cb.setDouble(3, dl.getPrecio());
+            cb.setInt(4, dl.getCantidad());
+            cb.setInt(5, dl.getDisponible().ordinal() + 1);
+            cb.setString(6, dl.getAño_Publicacion());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Datos del libro actualizados correctamente");
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
+
+    }
+             public void DeleteDL(DatosLibro dl) {
+
+        try {
+            //System.out.println("Id=" +edi.getIdEditorial());
+            CallableStatement cb = conexion.prepareCall("delete from datos_libro as a where a.idDatos_Libro = ?;");
+            cb.setInt(1, dl.getIdDatos_Libro());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Datos del libro eliminados correctamente");
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
+    }
+    
 
 }

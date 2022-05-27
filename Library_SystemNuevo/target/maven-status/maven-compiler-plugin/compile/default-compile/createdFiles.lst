@@ -1,6 +1,5 @@
 Beans\Editorials.class
 Modelo\Venta.class
-com\alejandro\library_systemnuevo\JpPrestamo$5.class
 Entidades\Libro.class
 com\alejandro\library_systemnuevo\JpLector.class
 com\alejandro\library_systemnuevo\JpUsuario$1.class
@@ -28,7 +27,6 @@ com\alejandro\library_systemnuevo\JfrmLectorCrud$4.class
 com\alejandro\library_systemnuevo\JpVentas1.class
 com\alejandro\library_systemnuevo\JpEditorial$1.class
 com\alejandro\library_systemnuevo\JfrmMenu$8.class
-com\alejandro\library_systemnuevo\JpPrestamo$4.class
 com\alejandro\library_systemnuevo\JpEditorial.class
 com\alejandro\library_systemnuevo\FrmLogin$5.class
 com\alejandro\library_systemnuevo\JfrmMenu$1.class
@@ -36,7 +34,6 @@ com\alejandro\library_systemnuevo\JpDatosEscritor$3.class
 com\alejandro\library_systemnuevo\JpCompras1.class
 Entidades\Enums\categoryType.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud$5.class
-Entidades\formaDePago.class
 com\alejandro\library_systemnuevo\JpCompras1$1.class
 com\alejandro\library_systemnuevo\JfrmMenu$7.class
 com\alejandro\library_systemnuevo\JpDatosLibro.class
@@ -81,7 +78,6 @@ com\alejandro\library_systemnuevo\JpUsuario$3.class
 Beans\Login.class
 com\alejandro\library_systemnuevo\JpVenta$1.class
 com\alejandro\library_systemnuevo\JpEscritor$3.class
-Services\IGenero.class
 com\alejandro\library_systemnuevo\JfrmEditorialCrud$4.class
 com\alejandro\library_systemnuevo\JfrmEditorialCrud.class
 Entidades\Enums\rolType.class
@@ -98,7 +94,6 @@ com\alejandro\library_systemnuevo\JfrmClienteCrud$1.class
 com\alejandro\library_systemnuevo\JfrmMenu$16.class
 Beans\Libros.class
 com\alejandro\library_systemnuevo\JpUsuario.class
-Services\ISubgenero.class
 com\Library\BD\ConexionAMYSQL.class
 com\alejandro\library_systemnuevo\JfrmLibroCrud$4.class
 com\alejandro\library_systemnuevo\JfrmEscritorCrud$2.class
@@ -125,7 +120,7 @@ com\alejandro\library_systemnuevo\JfrmMenu$15.class
 com\alejandro\library_systemnuevo\JfrmEditorialCrud$1.class
 com\alejandro\library_systemnuevo\JpPrestamo$3.class
 Entidades\DatosLibro.class
-Services\IFormadepago.class
+com\alejandro\library_systemnuevo\JpDatosLibro$5.class
 com\alejandro\library_systemnuevo\JfrmPrestamoCrud$1.class
 com\alejandro\library_systemnuevo\JpLibro$1.class
 com\alejandro\library_systemnuevo\JfrmLibroCrud$5.class
@@ -137,16 +132,14 @@ Entidades\Enums\prestamoType.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud$3.class
 com\alejandro\library_systemnuevo\JpEscritor.class
 com\alejandro\library_systemnuevo\JpPrestamo$1.class
-Services\ICategoria.class
 com\alejandro\library_systemnuevo\JfrmLibroCrud.class
 com\alejandro\library_systemnuevo\JpCompras1$6.class
 Entidades\Lector.class
 ViewModel\PrestamoVM.class
-Entidades\generoLiterario.class
 com\alejandro\library_systemnuevo\JpCompras1$3.class
 com\alejandro\library_systemnuevo\JfrmPrestamoCrud$3.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud$1.class
-Entidades\Categoria.class
+com\alejandro\library_systemnuevo\JpDatosLibro$7.class
 com\alejandro\library_systemnuevo\JfrmMenu$9.class
 Entidades\Enums\generoType.class
 com\alejandro\library_systemnuevo\JfrmMenu$17.class
@@ -156,8 +149,8 @@ com\alejandro\library_systemnuevo\JfrmMenu.class
 com\alejandro\library_systemnuevo\JpCompras1$4.class
 Entidades\Enums\subgeneroType.class
 Modelo\VentaDao.class
+com\alejandro\library_systemnuevo\JpDatosLibro$6.class
 com\alejandro\library_systemnuevo\JfrmPrestamoCrud$2.class
-Entidades\subGeneroLiterario.class
 com\alejandro\library_systemnuevo\JfrmPrestamoCrud.class
 com\alejandro\library_systemnuevo\JfrmEscritorCrud$4.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud.class
