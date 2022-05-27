@@ -28,7 +28,7 @@ public class DatosLibross {
         try {
             lista = new ArrayList<DatosLibro>();
 
-            CallableStatement cb = conexion.prepareCall("{call SP_S_DATOS_LIBRO()}");
+            CallableStatement cb = conexion.prepareCall("{call SP_S_DATOS_LIBRO}");
             ResultSet resultado = cb.executeQuery();
 
             while (resultado.next()) {

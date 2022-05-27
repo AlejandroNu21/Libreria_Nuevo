@@ -71,6 +71,9 @@ public class JpLector extends javax.swing.JPanel {
 
         jLabel1.setText("GESTIÓN DE LECTORES");
 
+        btnNuevoLector.setBackground(new java.awt.Color(0, 153, 51));
+        btnNuevoLector.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevoLector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoLector.setText("Nuevo");
         btnNuevoLector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,9 +97,10 @@ public class JpLector extends javax.swing.JPanel {
         TblLector.setSelectionBackground(new java.awt.Color(161, 220, 173));
         jScrollPane1.setViewportView(TblLector);
 
-        btnEliminar.setBackground(java.awt.Color.blue);
+        btnEliminar.setBackground(new java.awt.Color(255, 51, 51));
         btnEliminar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(254, 254, 255));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,9 +108,10 @@ public class JpLector extends javax.swing.JPanel {
             }
         });
 
-        btnActualizar1.setBackground(java.awt.Color.blue);
+        btnActualizar1.setBackground(new java.awt.Color(238, 108, 77));
         btnActualizar1.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         btnActualizar1.setForeground(new java.awt.Color(254, 254, 255));
+        btnActualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnActualizar1.setText("Actualizar");
         btnActualizar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

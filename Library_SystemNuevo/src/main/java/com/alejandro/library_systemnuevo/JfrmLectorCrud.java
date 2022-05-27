@@ -105,9 +105,10 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
             }
         });
 
-        btnAgregar2.setBackground(java.awt.Color.blue);
+        btnAgregar2.setBackground(new java.awt.Color(61, 90, 128));
         btnAgregar2.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         btnAgregar2.setForeground(new java.awt.Color(254, 254, 255));
+        btnAgregar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnAgregar2.setText("Agregar");
         btnAgregar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,12 +135,13 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAgregar2, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                     .addComponent(txtDireccionLector, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                    .addComponent(txtEdadLector)
                     .addComponent(txtApellidoLector)
-                    .addComponent(txtIdLector, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCodigoLector)
                     .addComponent(txtNombreLector)
-                    .addComponent(txtTelefonoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefonoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtCodigoLector, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtIdLector, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                    .addComponent(txtEdadLector, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

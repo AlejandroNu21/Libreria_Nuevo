@@ -89,9 +89,10 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
             }
         });
 
-        btnAgregar.setBackground(java.awt.Color.blue);
+        btnAgregar.setBackground(new java.awt.Color(61, 90, 128));
         btnAgregar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(254, 254, 255));
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

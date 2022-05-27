@@ -4,7 +4,7 @@
  */
 package Beans;
 
-import Entidades.Categoria;
+
 import Entidades.Editorial;
 import com.Library.BD.ConexionAMYSQL;
 import java.sql.CallableStatement;

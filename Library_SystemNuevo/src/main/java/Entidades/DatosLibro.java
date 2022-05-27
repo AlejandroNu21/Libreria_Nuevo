@@ -19,6 +19,34 @@ public class DatosLibro {
     disponibleType Disponible;
     String Año_Publicacion;
 
+    public DatosLibro() {
+    }
+
+    public DatosLibro(int idDatos_Libro) {
+        this.idDatos_Libro = idDatos_Libro;
+    }
+
+    public DatosLibro(int idLibro, String Reseña, Double Precio, int Cantidad, disponibleType Disponible, String Año_Publicacion) {
+        this.idLibro = idLibro;
+        this.Reseña = Reseña;
+        this.Precio = Precio;
+        this.Cantidad = Cantidad;
+        this.Disponible = Disponible;
+        this.Año_Publicacion = Año_Publicacion;
+    }
+
+    public DatosLibro(int idDatos_Libro, int idLibro, String Reseña, Double Precio, int Cantidad, disponibleType Disponible, String Año_Publicacion) {
+        this.idDatos_Libro = idDatos_Libro;
+        this.idLibro = idLibro;
+        this.Reseña = Reseña;
+        this.Precio = Precio;
+        this.Cantidad = Cantidad;
+        this.Disponible = Disponible;
+        this.Año_Publicacion = Año_Publicacion;
+    }
+
+    
+    
     public int getIdDatos_Libro() {
         return idDatos_Libro;
     }

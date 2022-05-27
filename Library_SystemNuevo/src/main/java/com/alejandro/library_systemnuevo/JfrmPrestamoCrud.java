@@ -9,6 +9,7 @@ import Beans.Libros;
 import Beans.Prestamos;
 import Entidades.Enums.prestamoType;
 import Entidades.Prestamo;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,6 +58,9 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jButton6.setBackground(new java.awt.Color(61, 90, 128));
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         jButton6.setText("Registrar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,40 +105,40 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel55)
-                            .addComponent(jLabel54)
-                            .addComponent(jLabel56))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(CmbFL, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel55)
+                                    .addComponent(jLabel54)
+                                    .addComponent(jLabel56))
                                 .addGap(18, 18, 18)
-                                .addComponent(btnMCl))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtIdPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(CmbFL, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnMCl))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(CmbFLib, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnMLi))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(CmbFLib, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnMLi))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel57)
-                            .addComponent(jLabel58)
-                            .addComponent(jLabel59))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel57)
+                                    .addComponent(jLabel58)
+                                    .addComponent(jLabel59))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cmbDevuelto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(JDCFDev, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
-                                        .addComponent(JDCFprestamo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                                        .addComponent(JDCFprestamo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -168,12 +172,11 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
                         .addComponent(JDCFDev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel59)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel59)
                     .addComponent(cmbDevuelto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -190,6 +193,12 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    void limpiar(){
+    
+    
+    }
+    
     void CargaCmb() {
         for (var Devuelto : prestamoType.values()) {
             cmbDevuelto.addItem(Devuelto.toString());
@@ -202,17 +211,38 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         Prestamo pr = new Prestamo();
         Prestamos PrDao = new Prestamos();
-        
-        //pr.setIdLector(Integer.parseInt(txtIdLector1.getText()));
-        pr.setIdLector(IdLector[CmbFL.getSelectedIndex()]);
-        //pr.setIdLibro(Integer.parseInt(txtIdLibro4.getText()));
-        pr.setIdLibro(IdLibro[CmbFLib.getSelectedIndex()]);
-        pr.setFecha_Prestamo(JDCFprestamo.getDate());
-        pr.setFecha_Devolucion(JDCFDev.getDate());
-        pr.setDevuelto(prestamoType.values()[cmbDevuelto.getSelectedIndex()]);
-        
-        PrDao.AddPrestamo(pr);
-        
+
+        if (CmbFL.getSelectedIndex() == -1
+                || CmbFLib.getSelectedIndex() == -1
+                || cmbDevuelto.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+        } else {
+            if (txtIdPrestamo.getText().equals("")) {
+                pr.setIdLector(IdLector[CmbFL.getSelectedIndex()]);
+                pr.setIdLibro(IdLibro[CmbFLib.getSelectedIndex()]);
+                pr.setFecha_Prestamo(JDCFprestamo.getDate());
+                pr.setFecha_Devolucion(JDCFDev.getDate());
+                pr.setDevuelto(prestamoType.values()[cmbDevuelto.getSelectedIndex()]);
+
+                PrDao.AddPrestamo(pr);
+
+            } else {
+                
+                pr.setIdPrestamo(Integer.parseInt(txtIdPrestamo.getText()));
+                pr.setIdLector(IdLector[CmbFL.getSelectedIndex()]);
+                pr.setIdLibro(IdLibro[CmbFLib.getSelectedIndex()]);
+                pr.setFecha_Prestamo(JDCFprestamo.getDate());
+                pr.setFecha_Devolucion(JDCFDev.getDate());
+                pr.setDevuelto(prestamoType.values()[cmbDevuelto.getSelectedIndex()]);
+
+                PrDao.UpdatePrestamo(pr);
+
+                this.dispose();
+            }
+
+            jpP.carga();
+        }
+
     }//GEN-LAST:event_jButton6ActionPerformed
        
     
@@ -291,12 +321,14 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
             }
         });
     }
+    
+            public JpPrestamo jpP;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> CmbFL;
     public javax.swing.JComboBox<String> CmbFLib;
-    private com.toedter.calendar.JDateChooser JDCFDev;
-    private com.toedter.calendar.JDateChooser JDCFprestamo;
+    public com.toedter.calendar.JDateChooser JDCFDev;
+    public com.toedter.calendar.JDateChooser JDCFprestamo;
     private javax.swing.JButton btnMCl;
     private javax.swing.JButton btnMLi;
     public javax.swing.JComboBox<String> cmbDevuelto;
@@ -308,6 +340,6 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtIdPrestamo;
+    public javax.swing.JTextField txtIdPrestamo;
     // End of variables declaration//GEN-END:variables
 }

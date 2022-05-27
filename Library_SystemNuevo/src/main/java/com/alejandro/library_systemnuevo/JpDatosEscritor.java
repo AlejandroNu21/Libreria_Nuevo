@@ -123,6 +123,9 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         });
         jScrollPane11.setViewportView(TblDatosEscritor);
 
+        btnRegresar.setBackground(new java.awt.Color(61, 90, 128));
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/back.png"))); // NOI18N
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,6 +147,9 @@ public class JpDatosEscritor extends javax.swing.JPanel {
 
         jLabel71.setText("Fecha de Nacimiento");
 
+        btnIngresar.setBackground(new java.awt.Color(0, 153, 51));
+        btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

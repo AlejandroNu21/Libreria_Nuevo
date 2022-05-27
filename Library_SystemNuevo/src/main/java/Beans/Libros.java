@@ -63,7 +63,7 @@ public class Libros {
             conexion = con.getConecction();
             lista = new ArrayList<LibroVM>();
 
-             cb = conexion.prepareCall("{call spsLibro}");
+             cb = conexion.prepareCall("{call SP_IJ_LIBRO}");
             resultado = cb.executeQuery();
 
             while (resultado.next()) {

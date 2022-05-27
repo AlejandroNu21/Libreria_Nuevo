@@ -4,6 +4,16 @@
  */
 package com.alejandro.library_systemnuevo;
 
+import Beans.Prestamos;
+import Entidades.Enums.prestamoType;
+import Entidades.Prestamo;
+import ViewModel.PrestamoVM;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Vkaiido
@@ -15,8 +25,60 @@ public class JpPrestamo extends javax.swing.JPanel {
      */
     public JpPrestamo() {
         initComponents();
+        carga();
     }
+//    public void DeltFilas(){
+//        //Casteo
+//    DefaultTableModel tbl = (DefaultTableModel)tblPrest.getModel();
+//        for (int i = 0; i < tbl.getRowCount(); i++) {
+//            tbl.removeRow(i);
+//        }
+//        
+//        tblPrest.setModel(tbl);
+//    }
+    public void carga() {
+        String titulos[] = {"Id", "Lector", "Titulo Libro", "Fecha Prestamo", "Fecha Devolucion", "Devuelto",};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[7];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
 
+        Prestamos es = new Prestamos();
+        ArrayList<PrestamoVM> listar = es.ListaPrestamo();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[7];
+            //CASTEAR
+            while (iterador.hasNext()) {
+            PrestamoVM estBucle = (PrestamoVM) iterador.next();
+            //if(estBucle.getDevuelto()==prestamoType.No){
+            fila[0] = estBucle.getIdPrestamo();
+            fila[1] = estBucle.getNombre_Lector();
+            fila[2] = estBucle.getTitulo();
+            fila[3] = estBucle.getFecha_Prestamo();
+            fila[4] = estBucle.getFecha_Devolucion();
+            fila[5] = estBucle.getDevuelto().name();
+            //}
+            df.addRow(fila);
+            }
+        
+//else if(CmbEdo.getSelectedItem().equals("Devuelto")){
+//            while (iterador.hasNext()) {
+//            PrestamoVM estBucle = (PrestamoVM) iterador.next();
+//            if(estBucle.getDevuelto()==prestamoType.Si){
+//            fila[0] = estBucle.getIdPrestamo();
+//            fila[1] = estBucle.getNombre_Lector();
+//            fila[2] = estBucle.getTitulo();
+//            fila[3] = estBucle.getFecha_Prestamo();
+//            fila[4] = estBucle.getFecha_Devolucion();
+//            fila[5] = estBucle.getDevuelto().name();
+//            }
+//            }
+           // }
+            
+
+        tblPrest.setModel(df);
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +90,7 @@ public class JpPrestamo extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblPrest = new javax.swing.JTable();
         btnActualizarPrestamo = new javax.swing.JButton();
         btnEliminarPrestamo = new javax.swing.JButton();
         btnNuevoPrestamo = new javax.swing.JButton();
@@ -38,8 +100,8 @@ public class JpPrestamo extends javax.swing.JPanel {
 
         jLabel1.setText("GESTIÓN DE PRESTAMOS");
 
-        jTable1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblPrest.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        tblPrest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -50,10 +112,13 @@ public class JpPrestamo extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(161, 220, 173));
-        jScrollPane1.setViewportView(jTable1);
+        tblPrest.setGridColor(new java.awt.Color(0, 0, 0));
+        tblPrest.setSelectionBackground(new java.awt.Color(161, 220, 173));
+        jScrollPane1.setViewportView(tblPrest);
 
+        btnActualizarPrestamo.setBackground(new java.awt.Color(238, 108, 77));
+        btnActualizarPrestamo.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizarPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnActualizarPrestamo.setText("Actualizar");
         btnActualizarPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +126,9 @@ public class JpPrestamo extends javax.swing.JPanel {
             }
         });
 
+        btnEliminarPrestamo.setBackground(new java.awt.Color(255, 51, 51));
+        btnEliminarPrestamo.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btnEliminarPrestamo.setText("Eliminar");
         btnEliminarPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +136,9 @@ public class JpPrestamo extends javax.swing.JPanel {
             }
         });
 
+        btnNuevoPrestamo.setBackground(new java.awt.Color(0, 153, 51));
+        btnNuevoPrestamo.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevoPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoPrestamo.setText("Nuevo prestamo");
         btnNuevoPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,10 +170,13 @@ public class JpPrestamo extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -114,16 +188,45 @@ public class JpPrestamo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarPrestamoActionPerformed
-        // TODO add your handling code here:
+            if (tblPrest.getSelectedRowCount() > 0) {
+            JfrmPrestamoCrud frm = new JfrmPrestamoCrud();
+            
+            int selectedRow = tblPrest.getSelectedRow();
+            frm.txtIdPrestamo.setText(String.valueOf(tblPrest.getValueAt(selectedRow, 0)));
+            frm.CmbFL.setSelectedItem(String.valueOf(tblPrest.getValueAt(selectedRow, 1)));
+            frm.CmbFLib.setSelectedItem(String.valueOf(tblPrest.getValueAt(selectedRow, 2)));
+            frm.JDCFprestamo.setDate((Date)tblPrest.getValueAt(selectedRow, 3));
+           frm.JDCFDev.setDate((Date)tblPrest.getValueAt(selectedRow, 4));
+            frm.cmbDevuelto.setSelectedItem(String.valueOf(tblPrest.getValueAt(selectedRow, 5)));
+            
+            frm.jpP = this;
+            frm.setVisible(true);
+
+            //isSelect = false;
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
     }//GEN-LAST:event_btnActualizarPrestamoActionPerformed
 
     private void btnEliminarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoActionPerformed
-        // TODO add your handling code here:
+                if (tblPrest.getSelectedRowCount()>0) {
+             Prestamo prees = new Prestamo();
+            Prestamos prDAO = new Prestamos();
+            int selectedRow =tblPrest.getSelectedRow();
+            prees.setIdPrestamo(Integer.parseInt(tblPrest.getValueAt(selectedRow, 0).toString()));
+
+             prDAO.DeletePrestamo(prees);
+             carga();
+                //isSelect = false;
+            } else {
+                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+            }
     }//GEN-LAST:event_btnEliminarPrestamoActionPerformed
 
     private void btnNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoPrestamoActionPerformed
         new JfrmPrestamoCrud().setVisible(true);
     }//GEN-LAST:event_btnNuevoPrestamoActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -132,6 +235,6 @@ public class JpPrestamo extends javax.swing.JPanel {
     private javax.swing.JButton btnNuevoPrestamo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblPrest;
     // End of variables declaration//GEN-END:variables
 }

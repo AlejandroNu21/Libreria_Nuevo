@@ -111,6 +111,8 @@ public class JpDatosLibro extends javax.swing.JPanel {
 
         jLabel20.setText("Año de Publicacion");
 
+        txtIdLibro1.setEnabled(false);
+
         jLabel14.setText("Reseña");
 
         jLabel12.setText("Id Datos");
@@ -307,7 +309,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
     private javax.swing.JTable TblDatosLibro;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -318,10 +320,10 @@ public class JpDatosLibro extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField txtAñoPublicacion;
-    private javax.swing.JTextField txtCantidad;
-    private javax.swing.JTextField txtIdDatos;
+    public javax.swing.JTextField txtAñoPublicacion;
+    public javax.swing.JTextField txtCantidad;
+    public javax.swing.JTextField txtIdDatos;
     public javax.swing.JTextField txtIdLibro1;
-    private javax.swing.JTextField txtPrecio;
+    public javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }

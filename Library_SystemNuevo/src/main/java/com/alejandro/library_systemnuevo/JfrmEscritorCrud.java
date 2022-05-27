@@ -104,6 +104,9 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
 
         jLabel1.setText("Perfil");
 
+        btnGuardar.setBackground(new java.awt.Color(61, 90, 128));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

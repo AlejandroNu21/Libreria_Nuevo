@@ -221,14 +221,14 @@ public class JpLibro extends javax.swing.JPanel {
     
     private void btnDatosLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosLibroActionPerformed
         if (jTable1.getSelectedRowCount() > 0) {
+            mainForm.currentPanel = null;
             JpDatosLibro jp = new JpDatosLibro(mainForm);
             
             int selectedRow = jTable1.getSelectedRow();
             jp.txtIdLibro1.setText(String.valueOf(jTable1.getValueAt(selectedRow, 0)));
-            mainForm.currentPanel = null;
-            mainForm.showJPanel(new JpDatosLibro(mainForm));
-
-            //isSelect = false;
+            
+            
+            mainForm.showJPanel(jp);
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
         }

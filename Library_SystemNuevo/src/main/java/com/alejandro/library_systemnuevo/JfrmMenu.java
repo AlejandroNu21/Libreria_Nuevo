@@ -84,10 +84,13 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnLibro.setBackground(new java.awt.Color(41, 50, 65));
         btnLibro.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnLibro.setForeground(new java.awt.Color(255, 255, 255));
-        btnLibro.setText("Libro");
-        btnLibro.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        btnLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/open-book.png"))); // NOI18N
+        btnLibro.setText("Libros");
+        btnLibro.setBorder(null);
         btnLibro.setBorderPainted(false);
+        btnLibro.setContentAreaFilled(false);
         btnLibro.setFocusPainted(false);
+        btnLibro.setOpaque(true);
         btnLibro.setRequestFocusEnabled(false);
         btnLibro.setRolloverEnabled(false);
         btnLibro.addHierarchyListener(new java.awt.event.HierarchyListener() {
@@ -104,9 +107,12 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnCompra.setBackground(new java.awt.Color(41, 50, 65));
         btnCompra.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnCompra.setForeground(new java.awt.Color(255, 255, 255));
-        btnCompra.setText("Compra");
+        btnCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shopping-cart.png"))); // NOI18N
+        btnCompra.setText("Compras");
         btnCompra.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnCompra.setBorderPainted(false);
+        btnCompra.setContentAreaFilled(false);
+        btnCompra.setOpaque(true);
         btnCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompraActionPerformed(evt);
@@ -116,9 +122,12 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnEditoriales.setBackground(new java.awt.Color(41, 50, 65));
         btnEditoriales.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnEditoriales.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditoriales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bookhouse.png"))); // NOI18N
         btnEditoriales.setText("Editoriales");
         btnEditoriales.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnEditoriales.setBorderPainted(false);
+        btnEditoriales.setContentAreaFilled(false);
+        btnEditoriales.setOpaque(true);
         btnEditoriales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditorialesActionPerformed(evt);
@@ -128,9 +137,12 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnClientes.setBackground(new java.awt.Color(41, 50, 65));
         btnClientes.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnClientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/client.png"))); // NOI18N
         btnClientes.setText("Clientes");
         btnClientes.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnClientes.setBorderPainted(false);
+        btnClientes.setContentAreaFilled(false);
+        btnClientes.setOpaque(true);
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClientesActionPerformed(evt);
@@ -140,9 +152,12 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnVentas.setBackground(new java.awt.Color(41, 50, 65));
         btnVentas.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnVentas.setForeground(new java.awt.Color(255, 255, 255));
+        btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/best-price.png"))); // NOI18N
         btnVentas.setText("Ventas");
         btnVentas.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnVentas.setBorderPainted(false);
+        btnVentas.setContentAreaFilled(false);
+        btnVentas.setOpaque(true);
         btnVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVentasActionPerformed(evt);
@@ -152,9 +167,12 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnPrestamo.setBackground(new java.awt.Color(41, 50, 65));
         btnPrestamo.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnPrestamo.setForeground(new java.awt.Color(255, 255, 255));
-        btnPrestamo.setText("Prestamo");
+        btnPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/contract.png"))); // NOI18N
+        btnPrestamo.setText("Prestamos");
         btnPrestamo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnPrestamo.setBorderPainted(false);
+        btnPrestamo.setContentAreaFilled(false);
+        btnPrestamo.setOpaque(true);
         btnPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrestamoActionPerformed(evt);
@@ -164,9 +182,12 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnLector.setBackground(new java.awt.Color(41, 50, 65));
         btnLector.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnLector.setForeground(new java.awt.Color(255, 255, 255));
-        btnLector.setText("Lector");
+        btnLector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/study.png"))); // NOI18N
+        btnLector.setText("Lectores");
         btnLector.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnLector.setBorderPainted(false);
+        btnLector.setContentAreaFilled(false);
+        btnLector.setOpaque(true);
         btnLector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLectorActionPerformed(evt);
@@ -176,9 +197,12 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnEscritor1.setBackground(new java.awt.Color(41, 50, 65));
         btnEscritor1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnEscritor1.setForeground(new java.awt.Color(255, 255, 255));
-        btnEscritor1.setText("Escritor");
+        btnEscritor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/writer.png"))); // NOI18N
+        btnEscritor1.setText("Escritores");
         btnEscritor1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnEscritor1.setBorderPainted(false);
+        btnEscritor1.setContentAreaFilled(false);
+        btnEscritor1.setOpaque(true);
         btnEscritor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEscritor1ActionPerformed(evt);
@@ -188,9 +212,12 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnUsuarios.setBackground(new java.awt.Color(41, 50, 65));
         btnUsuarios.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        btnUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/skills.png"))); // NOI18N
         btnUsuarios.setText("Usuarios");
         btnUsuarios.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnUsuarios.setBorderPainted(false);
+        btnUsuarios.setContentAreaFilled(false);
+        btnUsuarios.setOpaque(true);
         btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuariosActionPerformed(evt);
@@ -255,7 +282,6 @@ public class JfrmMenu extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnLibro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCompra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnEditoriales, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
             .addComponent(btnClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -266,6 +292,7 @@ public class JfrmMenu extends javax.swing.JFrame {
             .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+            .addComponent(btnLibro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

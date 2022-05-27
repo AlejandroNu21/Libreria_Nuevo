@@ -74,6 +74,9 @@ public class JpEscritor extends javax.swing.JPanel {
 
         jLabel1.setText("GESTIÓN DE ESCRITORES");
 
+        btnNuevoEscritor.setBackground(new java.awt.Color(0, 153, 51));
+        btnNuevoEscritor.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevoEscritor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoEscritor.setText("Nuevo");
         btnNuevoEscritor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,17 +110,21 @@ public class JpEscritor extends javax.swing.JPanel {
         });
         jScrollPane9.setViewportView(TblEscritor);
 
-        btnUpdate.setBackground(new java.awt.Color(0, 102, 102));
-        btnUpdate.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btnUpdate.setBackground(new java.awt.Color(238, 108, 77));
+        btnUpdate.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdate.setText("Update");
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
+        btnUpdate.setText("Actualizar");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
 
-        btnEliminar1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btnEliminar1.setBackground(new java.awt.Color(255, 51, 51));
+        btnEliminar1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnEliminar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btnEliminar1.setText("Eliminar");
         btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +132,9 @@ public class JpEscritor extends javax.swing.JPanel {
             }
         });
 
+        btnDatosEscritor.setBackground(new java.awt.Color(61, 90, 128));
+        btnDatosEscritor.setForeground(new java.awt.Color(255, 255, 255));
+        btnDatosEscritor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/profiles.png"))); // NOI18N
         btnDatosEscritor.setText("Datos de escritor");
         btnDatosEscritor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +155,7 @@ public class JpEscritor extends javax.swing.JPanel {
                         .addComponent(btnNuevoEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1006, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDatosEscritor)
+                        .addComponent(btnDatosEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)

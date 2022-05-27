@@ -123,9 +123,10 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setBackground(java.awt.Color.blue);
+        btnGuardar.setBackground(new java.awt.Color(61, 90, 128));
         btnGuardar.setFont(new java.awt.Font("Roboto Bk", 0, 14)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(254, 254, 255));
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

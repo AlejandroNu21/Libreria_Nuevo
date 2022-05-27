@@ -6,6 +6,7 @@ package Beans;
 
 import Entidades.Enums.prestamoType;
 import Entidades.Prestamo;
+import ViewModel.PrestamoVM;
 import com.Library.BD.ConexionAMYSQL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -25,23 +26,22 @@ public class Prestamos {
     
     //Select
     
-        public ArrayList<Prestamo> ListaEditorial() {
-        ArrayList<Prestamo> lista = null;
+        public ArrayList<PrestamoVM> ListaPrestamo() {
+        ArrayList<PrestamoVM> lista = null;
         try {
-            lista = new ArrayList<Prestamo>();
+            lista = new ArrayList<PrestamoVM>();
 
-            CallableStatement cb = conexion.prepareCall("{call SP_S_EDITORIAL}");
+            CallableStatement cb = conexion.prepareCall("{call SP_IJ_PRESTAMO}");
             ResultSet resultado = cb.executeQuery();
 
             while (resultado.next()) {
-                   Prestamo prs = new Prestamo();
-                   prs.setIdPrestamo(resultado.getInt("idPrestamo"));
-                   prs.setIdLector(resultado.getInt("idLector"));
-                   prs.setIdLibro(resultado.getInt("idLibro"));
-                   prs.setFecha_Prestamo(resultado.getDate("Fecha_Prestamo"));
-                   prs.setFecha_Devolucion(resultado.getDate("Fecha_Devolucion"));
-                   prs.setDevuelto(prestamoType.values()[resultado.getInt("Devuelto")-1]);
-                lista.add(prs);
+                   lista.add(new PrestamoVM(
+                resultado.getInt("idPrestamo"),
+                        resultado.getString("Nombre_Lector"),
+                        resultado.getString("Titulo"),
+                           resultado.getDate("Fecha_Prestamo"),
+                           resultado.getDate("Fecha_Devolucion"),
+                        prestamoType.values()[resultado.getInt("Devuelto")-1] ));
             }
 
         } catch (Exception e) {
@@ -99,7 +99,7 @@ public class Prestamos {
            
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "error" + ex);
+            JOptionPane.showMessageDialog(null, "Solicitud de prestamo no actualizada" + ex);
                 }finally{
         try{
                 cb.close();
@@ -108,6 +108,23 @@ public class Prestamos {
             System.out.println("Error, no se han guardado las conexiones correctamenbte" + e);
         }
         
+        }
+    }
+    
+    
+    public void DeletePrestamo(Prestamo prs) {
+
+        try {
+            //System.out.println("Id=" +edi.getIdEditorial());
+            CallableStatement cb = conexion.prepareCall("delete from prestamo as a where a.idPrestamo=?;");
+            cb.setInt(1, prs.getIdPrestamo());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Solicitud de prestamo eliminada correctamente");
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
         }
     }
     

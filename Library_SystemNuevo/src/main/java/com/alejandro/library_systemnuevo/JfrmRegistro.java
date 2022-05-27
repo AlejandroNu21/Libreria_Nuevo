@@ -69,6 +69,7 @@ public class JfrmRegistro extends javax.swing.JFrame {
         btnRegistrar.setBackground(new java.awt.Color(0, 102, 102));
         btnRegistrar.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user.png"))); // NOI18N
         btnRegistrar.setText("Ingresar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
