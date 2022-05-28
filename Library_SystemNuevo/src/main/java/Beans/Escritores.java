@@ -39,6 +39,7 @@ public class Escritores {
                 ed.setNombre_Escritor(resultado.getString("Nombre_Escritor"));
                 ed.setApellido_Escritor(resultado.getString("Apellido_Escritor"));
                 ed.setPais_Escritor(resultado.getString("Pais_Escritor"));
+                ed.setAvatarEscritor(resultado.getBytes("AvatarEscritor"));
                 lista.add(ed);
             }
 

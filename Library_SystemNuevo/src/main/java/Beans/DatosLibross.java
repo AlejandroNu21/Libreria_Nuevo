@@ -40,7 +40,7 @@ public class DatosLibross {
                 cl.setPrecio(resultado.getDouble("Precio"));
                 cl.setCantidad(resultado.getInt("Cantidad"));
                 cl.setDisponible(disponibleType.values()[resultado.getInt("Disponible") - 1]);
-                cl.setAño_Publicacion(resultado.getString("Año_Publicacion"));
+                cl.setAño_Publicacion(resultado.getDate("Año_Publicacion"));
 
                 lista.add(cl);
             }
@@ -63,7 +63,8 @@ public class DatosLibross {
             cb.setDouble("PPrecio", cl.getPrecio());
             cb.setInt("PCantidad", cl.getCantidad());
             cb.setInt("PDisponible", cl.getDisponible().ordinal() + 1);
-            cb.setString("PAño_Publicacion", cl.getAño_Publicacion());
+            //cb.setDate("PAño_Publicacion",());
+            cb.setDate("PAño_Publicacion", new java.sql.Date( cl.getAño_Publicacion().getTime()));
             cb.execute();
 
             JOptionPane.showMessageDialog(null, "Datos del libro agregado correctamente");
@@ -84,7 +85,8 @@ public class DatosLibross {
             cb.setDouble(3, dl.getPrecio());
             cb.setInt(4, dl.getCantidad());
             cb.setInt(5, dl.getDisponible().ordinal() + 1);
-            cb.setString(6, dl.getAño_Publicacion());
+            //cb.setDate(6, dl.getAño_Publicacion());
+            cb.setDate(6, new java.sql.Date( dl.getAño_Publicacion().getTime()));
             cb.execute();
 
             JOptionPane.showMessageDialog(null, "Datos del libro actualizados correctamente");

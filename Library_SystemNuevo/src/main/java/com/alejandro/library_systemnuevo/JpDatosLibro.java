@@ -8,6 +8,7 @@ import Beans.DatosLibross;
 import Entidades.DatosLibro;
 import Entidades.Enums.disponibleType;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -72,7 +73,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
     txtPrecio.setText("");
     txtCantidad.setText("");
     cmbDisp.setSelectedIndex(0);
-    txtAñoPublicacion.setText("");
+    //txtAñoPublicacion.setText("");
     txtReseña.setText("");
 
 }
@@ -91,7 +92,6 @@ public class JpDatosLibro extends javax.swing.JPanel {
         txtIdDatos = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         txtIdLibro1 = new javax.swing.JTextField();
-        txtAñoPublicacion = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -105,6 +105,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
         btnUDL = new javax.swing.JButton();
         BtnEDL = new javax.swing.JButton();
         lblBarrer = new javax.swing.JLabel();
+        JdcY = new com.toedter.calendar.JDateChooser();
         jScrollPane11 = new javax.swing.JScrollPane();
         TblDatosLibro = new javax.swing.JTable();
 
@@ -198,36 +199,38 @@ public class JpDatosLibro extends javax.swing.JPanel {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(22, 22, 22)
-                                .addComponent(txtAñoPublicacion))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel15))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel14))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 59, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtIdLibro1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                            .addComponent(txtIdDatos))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblBarrer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel20)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JdcY, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel19)
+                                            .addComponent(jLabel18)
+                                            .addComponent(jLabel15))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cmbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel14))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtIdLibro1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                                    .addComponent(txtIdDatos))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblBarrer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(42, 42, 42))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -264,9 +267,9 @@ public class JpDatosLibro extends javax.swing.JPanel {
                     .addComponent(jLabel19)
                     .addComponent(cmbDisp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAñoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addComponent(JdcY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -337,7 +340,21 @@ public class JpDatosLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void TblDatosLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDatosLibroMouseClicked
+ int selectedRow = TblDatosLibro.getSelectedRow();
+            isSelect = true;
+            
+            try {
+            txtIdDatos.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 0)));
+            txtIdLibro1.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 1)));
+            txtReseña.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 2)));
+            txtPrecio.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 3)));
+            txtCantidad.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 4)));
+            cmbDisp.setSelectedItem(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 5)));
+            //txtAñoPublicacion.setText(String.valueOf(TblDatosLibro.getValueAt(selectedRow, 6)));
+            JdcY.setDate((Date)TblDatosLibro.getValueAt(selectedRow, 6));
 
+        } catch (Exception ex) {
+        }
     }//GEN-LAST:event_TblDatosLibroMouseClicked
 
     private void TblDatosLibroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblDatosLibroKeyReleased
@@ -370,7 +387,8 @@ public class JpDatosLibro extends javax.swing.JPanel {
             dl.setCantidad(Integer.parseInt(txtCantidad.getText()));
             dl.setDisponible(disponibleType.values()[cmbDisp.getSelectedIndex()]);
             dl.setReseña(txtReseña.getText());
-            dl.setAño_Publicacion(txtAñoPublicacion.getText());
+            //dl.setAño_Publicacion(txtAñoPublicacion.getText());
+            dl.setAño_Publicacion(JdcY.getDate());
 
             dLDAO.AddDatosLibros(dl);
             carga();
@@ -391,7 +409,8 @@ public class JpDatosLibro extends javax.swing.JPanel {
             dl.setCantidad(Integer.parseInt(txtCantidad.getText()));
             dl.setDisponible(disponibleType.values()[cmbDisp.getSelectedIndex()]);
             dl.setReseña(txtReseña.getText());
-            dl.setAño_Publicacion(txtAñoPublicacion.getText());
+            //dl.setAño_Publicacion(txtAñoPublicacion.getText());
+            dl.setAño_Publicacion(JdcY.getDate());
 
             dLDAO.UpdateDL(dl);
             carga();
@@ -419,7 +438,8 @@ public class JpDatosLibro extends javax.swing.JPanel {
             dl.setCantidad(Integer.parseInt(txtCantidad.getText()));
             dl.setDisponible(disponibleType.values()[cmbDisp.getSelectedIndex()]);
             dl.setReseña(txtReseña.getText());
-            dl.setAño_Publicacion(txtAñoPublicacion.getText());
+            //dl.setAño_Publicacion(txtAñoPublicacion.getText());
+            dl.setAño_Publicacion(JdcY.getDate());
 
             dLDAO.DeleteDL(dl);
             carga();
@@ -443,6 +463,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnDL;
     private javax.swing.JButton BtnEDL;
+    public com.toedter.calendar.JDateChooser JdcY;
     private javax.swing.JTable TblDatosLibro;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnUDL;
@@ -457,7 +478,6 @@ public class JpDatosLibro extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JLabel lblBarrer;
-    public javax.swing.JTextField txtAñoPublicacion;
     public javax.swing.JTextField txtCantidad;
     public javax.swing.JTextField txtIdDatos;
     public javax.swing.JTextField txtIdLibro1;

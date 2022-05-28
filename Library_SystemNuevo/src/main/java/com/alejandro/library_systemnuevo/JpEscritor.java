@@ -255,15 +255,19 @@ public class JpEscritor extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         if (TblEscritor.getSelectedRowCount() > 0) {
+            
+            //Escritores esc = new Escritores();
 
             JfrmEscritorCrud frmOp = new JfrmEscritorCrud();
             int selectedRow = TblEscritor.getSelectedRow();
             frmOp.txtIdEscritor1.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
+            frmOp.Id= Integer.parseInt(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
             frmOp.txtCodigoEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 1)));
             frmOp.txtNombreEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 2)));
             frmOp.txtApellidoEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 3)));
             frmOp.txtPaisEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 4)));
             frmOp.jpE = this;
+            //frmOp.mostrarImagen();
             frmOp.setVisible(true);
 
             //isSelect = false;

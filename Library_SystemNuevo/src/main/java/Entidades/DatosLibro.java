@@ -5,6 +5,7 @@
 package Entidades;
 
 import Entidades.Enums.disponibleType;
+import java.util.Date;
 
 /**
  *
@@ -17,7 +18,7 @@ public class DatosLibro {
     Double Precio;
     int Cantidad;
     disponibleType Disponible;
-    String Año_Publicacion;
+    Date Año_Publicacion;
 
     public DatosLibro() {
     }
@@ -26,7 +27,7 @@ public class DatosLibro {
         this.idDatos_Libro = idDatos_Libro;
     }
 
-    public DatosLibro(int idLibro, String Reseña, Double Precio, int Cantidad, disponibleType Disponible, String Año_Publicacion) {
+    public DatosLibro(int idLibro, String Reseña, Double Precio, int Cantidad, disponibleType Disponible, Date Año_Publicacion) {
         this.idLibro = idLibro;
         this.Reseña = Reseña;
         this.Precio = Precio;
@@ -35,7 +36,7 @@ public class DatosLibro {
         this.Año_Publicacion = Año_Publicacion;
     }
 
-    public DatosLibro(int idDatos_Libro, int idLibro, String Reseña, Double Precio, int Cantidad, disponibleType Disponible, String Año_Publicacion) {
+    public DatosLibro(int idDatos_Libro, int idLibro, String Reseña, Double Precio, int Cantidad, disponibleType Disponible, Date Año_Publicacion) {
         this.idDatos_Libro = idDatos_Libro;
         this.idLibro = idLibro;
         this.Reseña = Reseña;
@@ -45,6 +46,7 @@ public class DatosLibro {
         this.Año_Publicacion = Año_Publicacion;
     }
 
+    
     
     
     public int getIdDatos_Libro() {
@@ -95,11 +97,13 @@ public class DatosLibro {
         this.Disponible = Disponible;
     }
 
-    public String getAño_Publicacion() {
+    public Date getAño_Publicacion() {
         return Año_Publicacion;
     }
 
-    public void setAño_Publicacion(String Año_Publicacion) {
+    public void setAño_Publicacion(Date Año_Publicacion) {
         this.Año_Publicacion = Año_Publicacion;
     }
+
+ 
 }

@@ -6,8 +6,23 @@ package com.alejandro.library_systemnuevo;
 
 import Beans.Escritores;
 import Entidades.Escritor;
+import Modelo.Imagenes;
+import com.Library.BD.ConexionAMYSQL;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -24,7 +39,10 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
      */
     public JfrmEscritorCrud() {
         initComponents();
+        //mostrarImagen();
+        
         setLocationRelativeTo(null);
+
     }
 
     /**
@@ -55,6 +73,7 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lblCerrar = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(648, 355));
@@ -154,6 +173,13 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton1.setText("Cargar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -183,14 +209,17 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 42, Short.MAX_VALUE)
-                                .addComponent(jLabel66)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSeleccionarAvatarEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 47, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel66)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnSeleccionarAvatarEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(22, 22, 22))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
@@ -203,6 +232,8 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -229,13 +260,13 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtPaisEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel64))
-                        .addGap(18, 25, Short.MAX_VALUE)))
+                        .addGap(18, 18, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSeleccionarAvatarEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel66)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,8 +275,7 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,22 +301,89 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
         txtCodigoEscritor.requestFocus();
     }
     
+    
+   public int Id = 0;
+   public byte[] AvatarE=null;
+   
+   public void mostrarImagen(){
+       Escritor escritorEnt = new Escritor();
+       
+   //if(escritorEnt.getAvatarEscritor()!=null){
+   PreparedStatement ps;
+        ResultSet rs;
+
+        try {
+            
+            ConexionAMYSQL con = new ConexionAMYSQL();
+            Connection conexion = con.getConecction();
+            ps = conexion.prepareStatement("SELECT AvatarEscritor FROM escritor WHERE idEscritor = ?");
+            ps.setInt(1, Id);
+            rs = ps.executeQuery();
+
+            BufferedImage buffing = null;
+            byte[] image = null;
+            while (rs.next()) {
+                image = rs.getBytes("AvatarEscritor");
+                InputStream img = rs.getBinaryStream(1);
+                try {
+                    buffing = ImageIO.read(img);
+                } catch (IOException ex) {
+                    Logger.getLogger(JfrmEscritorCrud.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Imagenes imagen = new Imagenes(lblImagen1.getHeight(), lblImagen1.getWidth(), buffing);
+                lblImagen1.add(imagen);
+                lblImagen1.repaint();
+            }
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null,"error: "+ ex.getMessage());
+        }
+   //}
+   
+   
+   }
+   
+   //public void mostrarImagen(){
+   
+   //}
+    
     private void btnSeleccionarAvatarEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarAvatarEscritorActionPerformed
-        String Ruta = "";
+JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        fc.setFileFilter(filtro);
 
-        JFileChooser jFileChooser = new JFileChooser();
-        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
-        jFileChooser.setFileFilter(filtrado);
+        int seleccion = fc.showOpenDialog(this);
 
-        int respuesta = jFileChooser.showOpenDialog(this);
+        PreparedStatement ps;
+        ResultSet rs;
 
-        if (respuesta == JFileChooser.APPROVE_OPTION) {
-            Ruta = jFileChooser.getSelectedFile().getPath();
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = fc.getSelectedFile();
+            String url = archivo.getAbsolutePath();
+            try {
+                FileInputStream fis = new FileInputStream(archivo);
+                
+                try {
+                        ConexionAMYSQL con = new ConexionAMYSQL();
+                        Connection conexion = con.getConecction();
+                    ps = conexion.prepareStatement("update escritor set AvatarEscritor = ? where idEscritor=?;");
+                    ps.setInt(2, Id);
+                    ps.setBinaryStream(1, fis, (int) archivo.length());
+                    ps.execute();
+                    mostrarImagen();
 
-            Image mImagen = new ImageIcon(Ruta).getImage();
+                    JOptionPane.showMessageDialog(null, "La imagen fue guardada");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                }
+            } catch (FileNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+
+            }         
+            
+            Image mImagen = new ImageIcon(url).getImage();
             ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen1.getWidth(), lblImagen1.getHeight(), Image.SCALE_SMOOTH));
             lblImagen1.setIcon(mIcono);
-
         }
     }//GEN-LAST:event_btnSeleccionarAvatarEscritorActionPerformed
 
@@ -330,6 +427,10 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_lblCerrarMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        mostrarImagen();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -366,9 +467,11 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
         });
     }
 public JpEscritor jpE ;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSeleccionarAvatarEscritor;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel60;

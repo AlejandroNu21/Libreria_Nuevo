@@ -181,8 +181,11 @@ public class JpCustomer extends javax.swing.JPanel {
             frmCliente.txtEdadCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 4)));
             frmCliente.txtDireccionCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 5)));
             frmCliente.txtTelefonoCliente.setText(String.valueOf(TblClientes.getValueAt(selectedRow, 6)));
+            frmCliente.lblInCl.setText("Actualizar Cliente");
             frmCliente.jpC = this;
             frmCliente.setVisible(true);
+            
+            
 
             //isSelect = false;
         } else {

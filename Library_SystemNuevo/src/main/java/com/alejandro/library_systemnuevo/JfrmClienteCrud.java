@@ -59,7 +59,7 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblCerrar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblTitu = new javax.swing.JLabel();
+        lblInCl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("NUEVO CLIENTE");
@@ -70,7 +70,7 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel33.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel33.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel33.setText("Codigo Cliente ");
 
         txtCodigoCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -86,10 +86,10 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
         txtNombreCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtNombreCliente.setMaximumSize(new java.awt.Dimension(500, 0));
 
-        jLabel34.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel34.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel34.setText("Nombre ");
 
-        jLabel36.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel36.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel36.setText("Apellido");
 
         txtApellidoCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -103,10 +103,10 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
             }
         });
 
-        jLabel37.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel37.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel37.setText("Edad");
 
-        jLabel35.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel35.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel35.setText("Direccion");
 
         txtDireccionCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -117,7 +117,7 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
             }
         });
 
-        jLabel39.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        jLabel39.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel39.setText("Telefono");
 
         txtTelefonoCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -152,7 +152,7 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
 
         jLabel1.setText("Perfil");
 
-        lblIdCliente.setFont(new java.awt.Font("Roboto Bk", 1, 14)); // NOI18N
+        lblIdCliente.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         lblIdCliente.setText("Id Cliente ");
 
         txtIdCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -178,10 +178,10 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo_dark.png"))); // NOI18N
 
-        lblTitu.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        lblTitu.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitu.setText("Registro de Clientes");
-        lblTitu.setEnabled(false);
+        lblInCl.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        lblInCl.setForeground(new java.awt.Color(255, 255, 255));
+        lblInCl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInCl.setText("Insertar Cliente");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -190,9 +190,9 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitu, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblInCl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -201,11 +201,9 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitu)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInCl, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -234,7 +232,7 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
                                     .addComponent(txtEdadCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(0, 5, Short.MAX_VALUE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel35)
@@ -487,7 +485,7 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblIdCliente;
-    private javax.swing.JLabel lblTitu;
+    public javax.swing.JLabel lblInCl;
     public javax.swing.JTextField txtApellidoCliente;
     public javax.swing.JTextField txtCodigoCliente;
     public javax.swing.JTextField txtDireccionCliente;

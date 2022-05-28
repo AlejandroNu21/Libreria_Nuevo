@@ -15,37 +15,44 @@ public class Escritor {
     private String Nombre_Escritor;
     private String Apellido_Escritor;
     private String Pais_Escritor;
+    private byte [] AvatarEscritor;
 
     public Escritor() {
     }
-    
-    public Escritor(int Id) {
-        this.idEscritor = Id;
-    }
-    
-    
-    
 
-    public Escritor(String Codigo_Escritor, String Nombre_Escritor, String Apellido_Escritor, String Pais_Escritor) {
+    public Escritor(int idEscritor) {
+        this.idEscritor = idEscritor;
+    }
+
+    public Escritor(String Codigo_Escritor, String Nombre_Escritor, String Apellido_Escritor, String Pais_Escritor, byte[] AvatarEscritor) {
         this.Codigo_Escritor = Codigo_Escritor;
         this.Nombre_Escritor = Nombre_Escritor;
         this.Apellido_Escritor = Apellido_Escritor;
         this.Pais_Escritor = Pais_Escritor;
+        this.AvatarEscritor = AvatarEscritor;
     }
 
-    
-    
-    
-    public Escritor(int idEscritor, String Codigo_Escritor, String Nombre_Escritor, String Apellido_Escritor, String Pais_Escritor) {
+    public Escritor(int idEscritor, String Codigo_Escritor, String Nombre_Escritor, String Apellido_Escritor, String Pais_Escritor, byte[] AvatarEscritor) {
         this.idEscritor = idEscritor;
         this.Codigo_Escritor = Codigo_Escritor;
         this.Nombre_Escritor = Nombre_Escritor;
         this.Apellido_Escritor = Apellido_Escritor;
         this.Pais_Escritor = Pais_Escritor;
+        this.AvatarEscritor = AvatarEscritor;
     }
+
     
     
     
+    public byte[] getAvatarEscritor() {
+        return AvatarEscritor;
+    }
+
+    public void setAvatarEscritor(byte[] AvatarEscritor) {
+        this.AvatarEscritor = AvatarEscritor;
+    }
+
+
 
     public int getIdEscritor() {
         return idEscritor;
