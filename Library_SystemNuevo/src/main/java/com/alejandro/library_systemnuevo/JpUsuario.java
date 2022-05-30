@@ -178,6 +178,9 @@ public class JpUsuario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    
     private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
 
     }//GEN-LAST:event_cmbRolActionPerformed

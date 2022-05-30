@@ -11,16 +11,12 @@ import Entidades.Enums.rolType;
  * @author COREI5 10TH GEN
  */
 public class user {
+    private int idUsuario;
     private String Usuario;
     private String Contrasenia;
     private rolType Rol;
 
     public user() {
-    }
-
-    public user(String Contrasenia, rolType Rol) {
-        this.Contrasenia = Contrasenia;
-        this.Rol = Rol;
     }
 
     public user(String Usuario, String Contrasenia, rolType Rol) {
@@ -29,8 +25,22 @@ public class user {
         this.Rol = Rol;
     }
 
+    public user(int idUsuario, String Usuario, String Contrasenia, rolType Rol) {
+        this.idUsuario = idUsuario;
+        this.Usuario = Usuario;
+        this.Contrasenia = Contrasenia;
+        this.Rol = Rol;
+    }
+
     
-    
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     public String getUsuario() {
         return Usuario;
     }
@@ -54,5 +64,7 @@ public class user {
     public void setRol(rolType Rol) {
         this.Rol = Rol;
     }
+
+
     
 }
