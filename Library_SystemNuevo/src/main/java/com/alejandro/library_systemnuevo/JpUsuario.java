@@ -186,26 +186,31 @@ public class JpUsuario extends javax.swing.JPanel {
             cmbRol.addItem(Rol.toString());
         }
     }
-    
+
+    public void limpiar() {
+        txtUsuario.setText("");
+        txtPassword.setText("");
+        txtPassword2.setText("");
+    }
+
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         user us = new user();
         Login lgDAO = new Login();
 
-        if (txtUsuario.getText().equals("") || String.valueOf(txtPassword.getPassword()).equals("") 
-                || String.valueOf(txtPassword2.getPassword()).equals("") || cmbRol.getSelectedIndex()==-1
-        ) {
+        if (txtUsuario.getText().equals("") || String.valueOf(txtPassword.getPassword()).equals("")
+                || String.valueOf(txtPassword2.getPassword()).equals("") || cmbRol.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
         } else {
             if (!(String.valueOf(txtPassword2.getPassword()).equals(String.valueOf(txtPassword.getPassword())))) {
-                JOptionPane.showMessageDialog(null, "Las contraseña no coincide","Error",JOptionPane.ERROR_MESSAGE);
-            }else{
+                JOptionPane.showMessageDialog(null, "Las contraseña no coincide", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
                 us.setUsuario(txtUsuario.getText());
                 us.setContrasenia(String.valueOf(txtPassword.getPassword()));
                 //String password2 = String.valueOf(txtPassword2.getPassword());
                 us.setRol(rolType.values()[cmbRol.getSelectedIndex()]);
 
                 lgDAO.AddUsuario(us);
-
+                limpiar();
             }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
