@@ -29,8 +29,8 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         mainForm = main;
         carga();
     }
-    
-    public void limpiar(){
+
+    public void limpiar() {
         txtIdEscritor2.setText("");
         txtId.setText("");
         //txtFechaNacimiento.setText("");
@@ -38,6 +38,7 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         //txtFechaDeceso.setText("");
         txtLugarDeceso.setText("");
         txtBiografia.setText("");
+
     }
 
     public void carga() {
@@ -67,9 +68,7 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         }
         TblDatosEscritor.setModel(df);
     }
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -301,33 +300,39 @@ public class JpDatosEscritor extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        if (txtId.getText().equals("") || txtLugarNacimiento.getText().equals("") || JDCFN.getDate() == null
+                || txtLugarNacimiento.getText().equals("") || JDCFD.getDate() == null || txtLugarDeceso.getText().equals("") || txtBiografia.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llenar campos vacios");
 
-                        DatosEscritor es = new DatosEscritor();
-                        DatosEscritores esDAO = new DatosEscritores();
-            
-                        es.setIdEscritor(Integer.parseInt(txtId.getText()));
-                        es.setFecha_Nacimiento(JDCFN.getDate());
-                        es.setLugar_Nacimiento(txtLugarNacimiento.getText());
-                        es.setFecha_Deceso(JDCFD.getDate());
-                        es.setLugar_Deceso(txtLugarDeceso.getText());
-                        es.setBiografia(txtBiografia.getText());
-            
-                        esDAO.AddDatosEscritor(es);
-                        txtId.requestFocus();
-                        carga();
-                        limpiar();
+        } else {
+            DatosEscritor es = new DatosEscritor();
+            DatosEscritores esDAO = new DatosEscritores();
+
+            es.setIdEscritor(Integer.parseInt(txtId.getText()));
+            es.setFecha_Nacimiento(JDCFN.getDate());
+            es.setLugar_Nacimiento(txtLugarNacimiento.getText());
+            es.setFecha_Deceso(JDCFD.getDate());
+            es.setLugar_Deceso(txtLugarDeceso.getText());
+            es.setBiografia(txtBiografia.getText());
+
+            esDAO.AddDatosEscritor(es);
+            txtId.requestFocus();
+            carga();
+            limpiar();
+        }
+
     }//GEN-LAST:event_btnIngresarActionPerformed
-    
+
     private void TblDatosEscritorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDatosEscritorMouseClicked
         int selectedRow = TblDatosEscritor.getSelectedRow();
-            isSelect = true;
-            
-            try {
+        isSelect = true;
+
+        try {
             txtIdEscritor2.setText(String.valueOf(TblDatosEscritor.getValueAt(selectedRow, 0)));
             txtId.setText(String.valueOf(TblDatosEscritor.getValueAt(selectedRow, 1)));
-            JDCFN.setDate((Date)TblDatosEscritor.getValueAt(selectedRow, 2));
+            JDCFN.setDate((Date) TblDatosEscritor.getValueAt(selectedRow, 2));
             txtLugarNacimiento.setText(String.valueOf(TblDatosEscritor.getValueAt(selectedRow, 3)));
-            JDCFD.setDate((Date)TblDatosEscritor.getValueAt(selectedRow, 4));
+            JDCFD.setDate((Date) TblDatosEscritor.getValueAt(selectedRow, 4));
             txtLugarDeceso.setText(String.valueOf(TblDatosEscritor.getValueAt(selectedRow, 5)));
             txtBiografia.setText(String.valueOf(TblDatosEscritor.getValueAt(selectedRow, 6)));
 
@@ -337,22 +342,22 @@ public class JpDatosEscritor extends javax.swing.JPanel {
 
     private void TblDatosEscritorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblDatosEscritorKeyReleased
         //        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
-            //
-            //            isSelect = true;
-            //            try {
-                //                int filaSeleccionada = this.TblDatosEscritor.getSelectedRow();
-                //                this.txtIdEscritor.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 0).toString());
-                //                this.txtId.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 1).toString());
-                //                this.txtFechaNacimiento.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 2).toString());
-                //                this.txtLugarNacimiento.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 3).toString());
-                //                this.txtFechaDeceso.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 4).toString());
-                //                this.txtLugarDeceso.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 5).toString());
-                //                this.jTextArea2.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 6).toString());
-                //            } catch (Exception e) {
-                //                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
-                //            }
-            //
-            //        }
+        //
+        //            isSelect = true;
+        //            try {
+        //                int filaSeleccionada = this.TblDatosEscritor.getSelectedRow();
+        //                this.txtIdEscritor.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 0).toString());
+        //                this.txtId.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 1).toString());
+        //                this.txtFechaNacimiento.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 2).toString());
+        //                this.txtLugarNacimiento.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 3).toString());
+        //                this.txtFechaDeceso.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 4).toString());
+        //                this.txtLugarDeceso.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 5).toString());
+        //                this.jTextArea2.setText(TblDatosEscritor.getValueAt(filaSeleccionada, 6).toString());
+        //            } catch (Exception e) {
+        //                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
+        //            }
+        //
+        //        }
     }//GEN-LAST:event_TblDatosEscritorKeyReleased
 
     public JfrmMenu mainForm;
@@ -364,27 +369,25 @@ public class JpDatosEscritor extends javax.swing.JPanel {
 
     private void btnUDLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUDLActionPerformed
 
-        if (TblDatosEscritor.getSelectedRowCount()>0) {
+        if (TblDatosEscritor.getSelectedRowCount() > 0) {
 
-                        DatosEscritor es = new DatosEscritor();
-                        DatosEscritores esDAO = new DatosEscritores();
-            
-                        es.setIdDatos_Escritor(Integer.parseInt(txtIdEscritor2.getText()));
-                        es.setIdEscritor(Integer.parseInt(txtId.getText()));
-                        es.setFecha_Nacimiento(JDCFN.getDate());
-                        es.setLugar_Nacimiento(txtLugarNacimiento.getText());
-                        es.setFecha_Deceso(JDCFD.getDate());
-                        es.setLugar_Deceso(txtLugarDeceso.getText());
-                        es.setBiografia(txtBiografia.getText());
-            
-                        esDAO.UpdateDatosEscritor(es);
-                        txtId.requestFocus();
-                        carga();
-                        limpiar();
+            DatosEscritor es = new DatosEscritor();
+            DatosEscritores esDAO = new DatosEscritores();
 
+            es.setIdDatos_Escritor(Integer.parseInt(txtIdEscritor2.getText()));
+            es.setIdEscritor(Integer.parseInt(txtId.getText()));
+            es.setFecha_Nacimiento(JDCFN.getDate());
+            es.setLugar_Nacimiento(txtLugarNacimiento.getText());
+            es.setFecha_Deceso(JDCFD.getDate());
+            es.setLugar_Deceso(txtLugarDeceso.getText());
+            es.setBiografia(txtBiografia.getText());
+
+            esDAO.UpdateDatosEscritor(es);
+            txtId.requestFocus();
+            carga();
+            limpiar();
 
             //isSelect = false;
-
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
         }
@@ -408,16 +411,14 @@ public class JpDatosEscritor extends javax.swing.JPanel {
             carga();
             limpiar();
 
-
             //isSelect = false;
-
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
         }
 
     }//GEN-LAST:event_BtnEDLActionPerformed
 
-  public boolean isSelect = false;
+    public boolean isSelect = false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEDL;

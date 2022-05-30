@@ -59,7 +59,7 @@ public class JpLibro extends javax.swing.JPanel {
             fila[8] = estBucle.getClasificacion();
             df.addRow(fila);
         }
-        jTable1.setModel(df);
+        Tbl_Libro.setModel(df);
     }
 
     
@@ -75,7 +75,7 @@ public class JpLibro extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tbl_Libro = new javax.swing.JTable();
         btnNuevoLibro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnDatosLibro = new javax.swing.JButton();
@@ -109,7 +109,7 @@ public class JpLibro extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tbl_Libro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -120,9 +120,9 @@ public class JpLibro extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable1.setSelectionBackground(new java.awt.Color(161, 220, 173));
-        jScrollPane1.setViewportView(jTable1);
+        Tbl_Libro.setGridColor(new java.awt.Color(0, 0, 0));
+        Tbl_Libro.setSelectionBackground(new java.awt.Color(161, 220, 173));
+        jScrollPane1.setViewportView(Tbl_Libro);
 
         btnNuevoLibro.setBackground(new java.awt.Color(0, 153, 51));
         btnNuevoLibro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -191,19 +191,19 @@ public class JpLibro extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (jTable1.getSelectedRowCount() > 0) {
+        if (Tbl_Libro.getSelectedRowCount() > 0) {
             JfrmLibroCrud frm = new JfrmLibroCrud();
             
-            int selectedRow = jTable1.getSelectedRow();
-            frm.txtIdLibro.setText(String.valueOf(jTable1.getValueAt(selectedRow, 0)));
-            frm.txtCodigoLibro.setText(String.valueOf(jTable1.getValueAt(selectedRow, 1)));
-            frm.CmbEdi.setSelectedItem(String.valueOf(jTable1.getValueAt(selectedRow, 2)));
-            frm.txtTitulo.setText(String.valueOf(jTable1.getValueAt(selectedRow, 3)));
-            frm.CmbEsc.setSelectedItem(String.valueOf(jTable1.getValueAt(selectedRow, 4)));
-            frm.CmbCat.setSelectedItem(String.valueOf(jTable1.getValueAt(selectedRow, 5)));
-            frm.CmbGen.setSelectedItem(String.valueOf(jTable1.getValueAt(selectedRow, 6)));
-            frm.CmbSub.setSelectedItem(String.valueOf(jTable1.getValueAt(selectedRow, 7)));
-            frm.txtClasificacion.setText(String.valueOf(jTable1.getValueAt(selectedRow, 8)));
+            int selectedRow = Tbl_Libro.getSelectedRow();
+            frm.txtIdLibro.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 0)));
+            frm.txtCodigoLibro.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 1)));
+            frm.CmbEdi.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 2)));
+            frm.txtTitulo.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 3)));
+            frm.CmbEsc.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 4)));
+            frm.CmbCat.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 5)));
+            frm.CmbGen.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 6)));
+            frm.CmbSub.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 7)));
+            frm.txtClasificacion.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 8)));
             
             frm.jpL = this;
             frm.setVisible(true);
@@ -228,12 +228,12 @@ public class JpLibro extends javax.swing.JPanel {
     JfrmMenu mainForm;
     
     private void btnDatosLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosLibroActionPerformed
-        if (jTable1.getSelectedRowCount() > 0) {
+        if (Tbl_Libro.getSelectedRowCount() > 0) {
             mainForm.currentPanel = null;
             JpDatosLibro jp = new JpDatosLibro(mainForm);
             
-            int selectedRow = jTable1.getSelectedRow();
-            jp.txtIdLibro1.setText(String.valueOf(jTable1.getValueAt(selectedRow, 0)));
+            int selectedRow = Tbl_Libro.getSelectedRow();
+            jp.txtIdLibro1.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 0)));
             
             
             mainForm.showJPanel(jp);
@@ -246,12 +246,12 @@ public class JpLibro extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTable Tbl_Libro;
     private javax.swing.JButton btnDatosLibro;
     private javax.swing.JButton btnNuevoLibro;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
