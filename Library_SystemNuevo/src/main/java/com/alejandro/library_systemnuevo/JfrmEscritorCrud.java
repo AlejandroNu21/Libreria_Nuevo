@@ -73,6 +73,7 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lblCerrar = new javax.swing.JLabel();
+        lblesc = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -139,7 +140,7 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(61, 90, 128));
+        jPanel2.setBackground(new java.awt.Color(41, 50, 65));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logotransp.png"))); // NOI18N
 
@@ -153,6 +154,11 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
             }
         });
 
+        lblesc.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        lblesc.setForeground(new java.awt.Color(255, 255, 255));
+        lblesc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblesc.setText("Agregar Escritor");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -163,6 +169,11 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(169, 169, 169)
+                    .addComponent(lblesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(170, 170, 170)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,6 +182,11 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(17, 17, 17)
+                    .addComponent(lblesc, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(18, Short.MAX_VALUE)))
         );
 
         jButton1.setText("Cargar");
@@ -484,6 +500,7 @@ public JpEscritor jpE ;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblImagen1;
+    public javax.swing.JLabel lblesc;
     public javax.swing.JTextField txtApellidoEscritor;
     public javax.swing.JTextField txtCodigoEscritor;
     public javax.swing.JTextField txtIdEscritor1;

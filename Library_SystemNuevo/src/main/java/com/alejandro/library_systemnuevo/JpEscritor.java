@@ -273,6 +273,7 @@ public class JpEscritor extends javax.swing.JPanel {
             frmOp.txtApellidoEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 3)));
             frmOp.txtPaisEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 4)));
             frmOp.jpE = this;
+            frmOp.lblesc.setText("Actualizar Escritor");
             //frmOp.mostrarImagen();
             frmOp.setVisible(true);
 

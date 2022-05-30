@@ -21,6 +21,21 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import Entidades.Enums.*;
+import Modelo.Imagenes;
+import com.Library.BD.ConexionAMYSQL;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -75,6 +90,8 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lblCerrar = new javax.swing.JLabel();
+        lblLib = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("NUEVO LIBRO");
@@ -158,7 +175,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(61, 90, 128));
+        jPanel1.setBackground(new java.awt.Color(41, 50, 65));
         jPanel1.setPreferredSize(new java.awt.Dimension(88, 79));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logotransp.png"))); // NOI18N
@@ -173,6 +190,11 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
             }
         });
 
+        lblLib.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        lblLib.setForeground(new java.awt.Color(255, 255, 255));
+        lblLib.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLib.setText("Ingresar Libro");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -183,6 +205,11 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(198, 198, 198)
+                    .addComponent(lblLib, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(199, 199, 199)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +218,19 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(17, 17, 17)
+                    .addComponent(lblLib, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(18, Short.MAX_VALUE)))
         );
+
+        jButton2.setText("Cargar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -246,7 +285,8 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addGap(42, 42, 42)
-                        .addComponent(btnSeleccionarAvatarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSeleccionarAvatarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(31, 31, 31))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
         );
@@ -254,10 +294,11 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jButton2))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -308,7 +349,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                                 .addComponent(jLabel17)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -327,23 +368,89 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     public int IdL = 0;
+   public byte[] PortadaL=null;
+   
+   public void mostrarImagenLibro(){
+       Libro libroent = new Libro();
+       
+   //if(escritorEnt.getAvatarEscritor()!=null){
+   PreparedStatement ps;
+        ResultSet rs;
+
+        try {
+            
+            ConexionAMYSQL con = new ConexionAMYSQL();
+            Connection conexion = con.getConecction();
+            ps = conexion.prepareStatement("SELECT PortadaLibro FROM libro WHERE idLibro = ?");
+            ps.setInt(1, IdL);
+            rs = ps.executeQuery();
+
+            BufferedImage buffing = null;
+            byte[] imagelb = null;
+            while (rs.next()) {
+                imagelb = rs.getBytes("PortadaLibro");
+                InputStream img = rs.getBinaryStream(1);
+                try {
+                    buffing = ImageIO.read(img);
+                } catch (IOException ex) {
+                    Logger.getLogger(JfrmEscritorCrud.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Imagenes imagen = new Imagenes(lblImagen.getHeight(), lblImagen.getWidth(), buffing);
+                lblImagen.add(imagen);
+                lblImagen.repaint();
+            }
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null,"error: "+ ex.getMessage());
+        }
+   //}
+   
+   
+   }
+    
+    
     private void btnSeleccionarAvatarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarAvatarLibroActionPerformed
-        String Ruta = "";
+JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
+        fc.setFileFilter(filtro);
 
-        JFileChooser jFileChooser = new JFileChooser();
-        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
-        jFileChooser.setFileFilter(filtrado);
+        int seleccion = fc.showOpenDialog(this);
 
-        int respuesta = jFileChooser.showOpenDialog(this);
+        PreparedStatement ps;
+        ResultSet rs;
 
-        if (respuesta == JFileChooser.APPROVE_OPTION) {
-            Ruta = jFileChooser.getSelectedFile().getPath();
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = fc.getSelectedFile();
+            String url = archivo.getAbsolutePath();
+            try {
+                FileInputStream fisl = new FileInputStream(archivo);
+                
+                try {
+                        ConexionAMYSQL con = new ConexionAMYSQL();
+                        Connection conexion = con.getConecction();
+                    ps = conexion.prepareStatement("update libro set PortadaLibro = ? where idLibro=?");
+                    ps.setInt(2, IdL);
+                    ps.setBinaryStream(1, fisl, (int) archivo.length());
+                    ps.execute();
+                    mostrarImagenLibro();
 
-            Image mImagen = new ImageIcon(Ruta).getImage();
+                    JOptionPane.showMessageDialog(null, "La imagen fue guardada");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                }
+            } catch (FileNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+
+            }         
+            Image mImagen = new ImageIcon(url).getImage();
             ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH));
             lblImagen.setIcon(mIcono);
-
         }
+
+
+
+        
     }//GEN-LAST:event_btnSeleccionarAvatarLibroActionPerformed
 
 void Limpiar(){
@@ -460,6 +567,10 @@ void CargaCmb() {
         this.dispose();
     }//GEN-LAST:event_lblCerrarMouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        mostrarImagenLibro();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -508,6 +619,7 @@ void CargaCmb() {
     private javax.swing.JButton btnFEdi;
     private javax.swing.JButton btnSeleccionarAvatarLibro;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -524,6 +636,7 @@ void CargaCmb() {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblImagen;
+    public javax.swing.JLabel lblLib;
     public javax.swing.JTextField txtClasificacion;
     public javax.swing.JTextField txtCodigoLibro;
     public javax.swing.JTextField txtIdLibro;

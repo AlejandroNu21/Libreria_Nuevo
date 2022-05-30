@@ -196,6 +196,7 @@ public class JpLibro extends javax.swing.JPanel {
             
             int selectedRow = Tbl_Libro.getSelectedRow();
             frm.txtIdLibro.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 0)));
+            frm.IdL= Integer.parseInt(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 0)));
             frm.txtCodigoLibro.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 1)));
             frm.CmbEdi.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 2)));
             frm.txtTitulo.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 3)));
@@ -204,7 +205,7 @@ public class JpLibro extends javax.swing.JPanel {
             frm.CmbGen.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 6)));
             frm.CmbSub.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 7)));
             frm.txtClasificacion.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 8)));
-            
+            frm.lblLib.setText("Actualizar Libro");
             frm.jpL = this;
             frm.setVisible(true);
 
