@@ -10,6 +10,7 @@ import Entidades.DatosEscritor;
 import Entidades.Editorial;
 import Entidades.Escritor;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -32,9 +33,9 @@ public class JpDatosEscritor extends javax.swing.JPanel {
     public void limpiar(){
         txtIdEscritor2.setText("");
         txtId.setText("");
-        txtFechaNacimiento.setText("");
+        //txtFechaNacimiento.setText("");
         txtLugarNacimiento.setText("");
-        txtFechaDeceso.setText("");
+        //txtFechaDeceso.setText("");
         txtLugarDeceso.setText("");
         txtBiografia.setText("");
     }
@@ -43,14 +44,14 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         String titulos[] = {"idDatos_Escritor", "idEscritor", "Fecha_Nacimiento", "Lugar_Nacimiento",
             "Fecha_Deceso", "Lugar_Deceso", "Biografia"};
         //Ejemplosdearreglos
-        Double numero[] = new Double[9];
+        Double numero[] = new Double[8];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
         DatosEscritores es = new DatosEscritores();
         ArrayList<DatosEscritor> listar = es.ListaDatosEscritor();
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[9];
+        Object fila[] = new Object[8];
 
         while (iterador.hasNext()) {
             //CASTEAR
@@ -84,10 +85,8 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         txtId = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
-        txtFechaNacimiento = new javax.swing.JTextField();
         jLabel74 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
-        txtFechaDeceso = new javax.swing.JTextField();
         jLabel69 = new javax.swing.JLabel();
         txtLugarNacimiento = new javax.swing.JTextField();
         txtLugarDeceso = new javax.swing.JTextField();
@@ -97,6 +96,10 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         jLabel68 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
         txtBiografia = new javax.swing.JTextField();
+        btnUDL = new javax.swing.JButton();
+        BtnEDL = new javax.swing.JButton();
+        JDCFN = new com.toedter.calendar.JDateChooser();
+        JDCFD = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -165,6 +168,32 @@ public class JpDatosEscritor extends javax.swing.JPanel {
 
         jLabel73.setText("Biografia");
 
+        btnUDL.setBackground(new java.awt.Color(238, 108, 77));
+        btnUDL.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnUDL.setForeground(new java.awt.Color(255, 255, 255));
+        btnUDL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
+        btnUDL.setText("Actualizar");
+        btnUDL.setContentAreaFilled(false);
+        btnUDL.setOpaque(true);
+        btnUDL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUDLActionPerformed(evt);
+            }
+        });
+
+        BtnEDL.setBackground(new java.awt.Color(255, 51, 51));
+        BtnEDL.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BtnEDL.setForeground(new java.awt.Color(255, 255, 255));
+        BtnEDL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash.png"))); // NOI18N
+        BtnEDL.setText("Eliminar");
+        BtnEDL.setContentAreaFilled(false);
+        BtnEDL.setOpaque(true);
+        BtnEDL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEDLActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -185,9 +214,9 @@ public class JpDatosEscritor extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLugarNacimiento)
-                            .addComponent(txtFechaDeceso)
-                            .addComponent(txtFechaNacimiento)
-                            .addComponent(txtBiografia)))
+                            .addComponent(txtBiografia)
+                            .addComponent(JDCFN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JDCFD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel72)
@@ -196,8 +225,13 @@ public class JpDatosEscritor extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel69)))
-                    .addComponent(btnIngresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUDL, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnEDL, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,17 +247,17 @@ public class JpDatosEscritor extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIdEscritor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel71))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel71)
+                    .addComponent(JDCFN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLugarNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel74))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFechaDeceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel70))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel70)
+                    .addComponent(JDCFD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLugarDeceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,9 +266,12 @@ public class JpDatosEscritor extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel73)
                     .addComponent(txtBiografia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUDL, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnEDL, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -245,7 +282,7 @@ public class JpDatosEscritor extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
                     .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
@@ -255,25 +292,23 @@ public class JpDatosEscritor extends javax.swing.JPanel {
                 .addGap(16, 16, 16)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane11)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(33, 33, 33))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-                if (txtFechaNacimiento.getText().equals("") || txtLugarNacimiento.getText().equals("")
-                        || txtFechaDeceso.getText().equals("") || txtLugarDeceso.getText().equals("") || txtBiografia.getText().equals("")) {
-                        JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
-                        txtFechaNacimiento.requestFocus();
-                    } else {
+
                         DatosEscritor es = new DatosEscritor();
                         DatosEscritores esDAO = new DatosEscritores();
             
                         es.setIdEscritor(Integer.parseInt(txtId.getText()));
-                        es.setFecha_Nacimiento(txtFechaNacimiento.getText());
+                        es.setFecha_Nacimiento(JDCFN.getDate());
                         es.setLugar_Nacimiento(txtLugarNacimiento.getText());
-                        es.setFecha_Deceso(txtFechaDeceso.getText());
+                        es.setFecha_Deceso(JDCFD.getDate());
                         es.setLugar_Deceso(txtLugarDeceso.getText());
                         es.setBiografia(txtBiografia.getText());
             
@@ -282,20 +317,22 @@ public class JpDatosEscritor extends javax.swing.JPanel {
                         carga();
                         limpiar();
     }//GEN-LAST:event_btnIngresarActionPerformed
-    }
+    
     private void TblDatosEscritorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblDatosEscritorMouseClicked
-        //        isSelect = true;
-        //        try {
-            //            txtIdEscritor.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 0).toString());
-            //            txtId.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 1).toString());
-            //            txtFechaNacimiento.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 2).toString());
-            //            txtLugarNacimiento.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 3).toString());
-            //            txtFechaDeceso.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 4).toString());
-            //            txtLugarDeceso.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 5).toString());
-            //            jTextArea2.setText(TblDatosEscritor.getValueAt(TblDatosEscritor.getSelectedRow(), 6).toString());
-            //
-            //        } catch (Exception ex) {
-            //        }
+        int selectedRow = TblDatosEscritor.getSelectedRow();
+            isSelect = true;
+            
+            try {
+            txtIdEscritor2.setText(String.valueOf(TblDatosEscritor.getValueAt(selectedRow, 0)));
+            txtId.setText(String.valueOf(TblDatosEscritor.getValueAt(selectedRow, 1)));
+            JDCFN.setDate((Date)TblDatosEscritor.getValueAt(selectedRow, 2));
+            txtLugarNacimiento.setText(String.valueOf(TblDatosEscritor.getValueAt(selectedRow, 3)));
+            JDCFD.setDate((Date)TblDatosEscritor.getValueAt(selectedRow, 4));
+            txtLugarDeceso.setText(String.valueOf(TblDatosEscritor.getValueAt(selectedRow, 5)));
+            txtBiografia.setText(String.valueOf(TblDatosEscritor.getValueAt(selectedRow, 6)));
+
+        } catch (Exception ex) {
+        }
     }//GEN-LAST:event_TblDatosEscritorMouseClicked
 
     private void TblDatosEscritorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblDatosEscritorKeyReleased
@@ -325,11 +362,71 @@ public class JpDatosEscritor extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnRegresarActionPerformed
 
+    private void btnUDLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUDLActionPerformed
+
+        if (TblDatosEscritor.getSelectedRowCount()>0) {
+
+                        DatosEscritor es = new DatosEscritor();
+                        DatosEscritores esDAO = new DatosEscritores();
+            
+                        es.setIdDatos_Escritor(Integer.parseInt(txtIdEscritor2.getText()));
+                        es.setIdEscritor(Integer.parseInt(txtId.getText()));
+                        es.setFecha_Nacimiento(JDCFN.getDate());
+                        es.setLugar_Nacimiento(txtLugarNacimiento.getText());
+                        es.setFecha_Deceso(JDCFD.getDate());
+                        es.setLugar_Deceso(txtLugarDeceso.getText());
+                        es.setBiografia(txtBiografia.getText());
+            
+                        esDAO.UpdateDatosEscritor(es);
+                        txtId.requestFocus();
+                        carga();
+                        limpiar();
+
+
+            //isSelect = false;
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
+
+    }//GEN-LAST:event_btnUDLActionPerformed
+
+    private void BtnEDLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEDLActionPerformed
+        if (TblDatosEscritor.getSelectedRowCount() > 0) {
+            DatosEscritor es = new DatosEscritor();
+            DatosEscritores esDAO = new DatosEscritores();
+            es.setIdDatos_Escritor(Integer.parseInt(txtIdEscritor2.getText()));
+            es.setIdEscritor(Integer.parseInt(txtId.getText()));
+            es.setFecha_Nacimiento(JDCFN.getDate());
+            es.setLugar_Nacimiento(txtLugarNacimiento.getText());
+            es.setFecha_Deceso(JDCFD.getDate());
+            es.setLugar_Deceso(txtLugarDeceso.getText());
+            es.setBiografia(txtBiografia.getText());
+
+            esDAO.DeleteDE(es);
+            txtId.requestFocus();
+            carga();
+            limpiar();
+
+
+            //isSelect = false;
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
+
+    }//GEN-LAST:event_BtnEDLActionPerformed
+
+  public boolean isSelect = false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnEDL;
+    private com.toedter.calendar.JDateChooser JDCFD;
+    private com.toedter.calendar.JDateChooser JDCFN;
     private javax.swing.JTable TblDatosEscritor;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnUDL;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel70;
@@ -340,8 +437,6 @@ public class JpDatosEscritor extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JTextField txtBiografia;
-    private javax.swing.JTextField txtFechaDeceso;
-    private javax.swing.JTextField txtFechaNacimiento;
     public static javax.swing.JTextField txtId;
     private javax.swing.JTextField txtIdEscritor2;
     private javax.swing.JTextField txtLugarDeceso;

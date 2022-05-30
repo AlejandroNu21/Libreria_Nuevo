@@ -243,13 +243,19 @@ public class JpEscritor extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminar1ActionPerformed
     public JfrmMenu mainForm;
     private void btnDatosEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosEscritorActionPerformed
-        //if (TblEscritor.getSelectedRowCount() > 0) {
-//            JfrmEscritorCrud pa = new JfrmEscritorCrud();
-//            int selectedRow = TblEscritor.getSelectedRow();
-//            pa.txtId.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
-
+        if (TblEscritor.getSelectedRowCount() > 0) {
             mainForm.currentPanel = null;
-            mainForm.showJPanel(new JpDatosEscritor(mainForm));
+            JpDatosEscritor jp = new JpDatosEscritor(mainForm);
+            
+            int selectedRow = TblEscritor.getSelectedRow();
+            jp.txtId.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
+            
+            
+            mainForm.showJPanel(jp);
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
+        
        // }
     }//GEN-LAST:event_btnDatosEscritorActionPerformed
 

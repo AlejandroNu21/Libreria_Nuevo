@@ -4,11 +4,46 @@
  */
 package Entidades;
 
+import com.mysql.cj.util.Util;
+import java.util.Date;
+
 /**
  *
  * @author Kevin
  */
-public class DatosEscritor extends Escritor{
+public class DatosEscritor{
+
+    private int idDatos_Escritor;
+    private int idEscritor;
+    private Date Fecha_Nacimiento;
+    private String Lugar_Nacimiento;
+    private Date Fecha_Deceso;
+    private String Lugar_Deceso;
+    private String Biografia;
+
+    public DatosEscritor() {
+    }
+
+    public DatosEscritor(int idEscritor, Date Fecha_Nacimiento, String Lugar_Nacimiento, Date Fecha_Deceso, String Lugar_Deceso, String Biografia) {
+        this.idEscritor = idEscritor;
+        this.Fecha_Nacimiento = Fecha_Nacimiento;
+        this.Lugar_Nacimiento = Lugar_Nacimiento;
+        this.Fecha_Deceso = Fecha_Deceso;
+        this.Lugar_Deceso = Lugar_Deceso;
+        this.Biografia = Biografia;
+    }
+
+    public DatosEscritor(int idDatos_Escritor, int idEscritor, Date Fecha_Nacimiento, String Lugar_Nacimiento, Date Fecha_Deceso, String Lugar_Deceso, String Biografia) {
+        this.idDatos_Escritor = idDatos_Escritor;
+        this.idEscritor = idEscritor;
+        this.Fecha_Nacimiento = Fecha_Nacimiento;
+        this.Lugar_Nacimiento = Lugar_Nacimiento;
+        this.Fecha_Deceso = Fecha_Deceso;
+        this.Lugar_Deceso = Lugar_Deceso;
+        this.Biografia = Biografia;
+    }
+    
+    
 
     public int getIdDatos_Escritor() {
         return idDatos_Escritor;
@@ -18,11 +53,19 @@ public class DatosEscritor extends Escritor{
         this.idDatos_Escritor = idDatos_Escritor;
     }
 
-    public String getFecha_Nacimiento() {
+    public int getIdEscritor() {
+        return idEscritor;
+    }
+
+    public void setIdEscritor(int idEscritor) {
+        this.idEscritor = idEscritor;
+    }
+
+    public Date getFecha_Nacimiento() {
         return Fecha_Nacimiento;
     }
 
-    public void setFecha_Nacimiento(String Fecha_Nacimiento) {
+    public void setFecha_Nacimiento(Date Fecha_Nacimiento) {
         this.Fecha_Nacimiento = Fecha_Nacimiento;
     }
 
@@ -34,11 +77,11 @@ public class DatosEscritor extends Escritor{
         this.Lugar_Nacimiento = Lugar_Nacimiento;
     }
 
-    public String getFecha_Deceso() {
+    public Date getFecha_Deceso() {
         return Fecha_Deceso;
     }
 
-    public void setFecha_Deceso(String Fecha_Deceso) {
+    public void setFecha_Deceso(Date Fecha_Deceso) {
         this.Fecha_Deceso = Fecha_Deceso;
     }
 
@@ -58,10 +101,7 @@ public class DatosEscritor extends Escritor{
         this.Biografia = Biografia;
     }
 
-    private int idDatos_Escritor;
-    private String Fecha_Nacimiento;
-    private String Lugar_Nacimiento;
-    private String Fecha_Deceso;
-    private String Lugar_Deceso;
-    private String Biografia;
+
+    
 }
+

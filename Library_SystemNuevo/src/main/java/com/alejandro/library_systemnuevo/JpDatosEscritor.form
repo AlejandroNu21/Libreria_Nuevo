@@ -25,7 +25,7 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane11" alignment="1" pref="483" max="32767" attributes="0"/>
+                  <Component id="jScrollPane11" alignment="1" pref="482" max="32767" attributes="0"/>
                   <Component id="btnRegresar" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -38,10 +38,13 @@
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="btnRegresar" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-              <Component id="jScrollPane11" max="32767" attributes="0"/>
+              <Component id="jScrollPane11" pref="0" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -118,9 +121,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtLugarNacimiento" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtFechaDeceso" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtFechaNacimiento" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtBiografia" alignment="0" max="32767" attributes="0"/>
+                              <Component id="JDCFN" alignment="0" max="32767" attributes="0"/>
+                              <Component id="JDCFD" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -134,9 +137,15 @@
                               <Component id="jLabel69" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="btnIngresar" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnIngresar" min="-2" pref="150" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnUDL" min="-2" pref="149" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="BtnEDL" min="-2" pref="149" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -157,21 +166,21 @@
                       </Group>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtFechaNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel71" min="-2" max="-2" attributes="0"/>
+                      <Component id="JDCFN" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtLugarNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtFechaDeceso" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
+                      <Component id="JDCFD" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtLugarDeceso" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel68" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -181,9 +190,13 @@
                       <Component id="jLabel73" min="-2" max="-2" attributes="0"/>
                       <Component id="txtBiografia" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="btnIngresar" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace pref="153" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnIngresar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btnUDL" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="BtnEDL" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -199,8 +212,6 @@
             <Property name="text" type="java.lang.String" value="Fecha de Deceso"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtFechaNacimiento">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel74">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lugar de Nacimiento"/>
@@ -210,8 +221,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="ID"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtFechaDeceso">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel69">
           <Properties>
@@ -262,6 +271,54 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtBiografia">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnUDL">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="4d" green="6c" red="ee" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagenes/Update.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Actualizar"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="opaque" type="boolean" value="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUDLActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="BtnEDL">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagenes/trash.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Eliminar"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="opaque" type="boolean" value="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnEDLActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="JDCFN">
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="JDCFD">
         </Component>
       </SubComponents>
     </Container>

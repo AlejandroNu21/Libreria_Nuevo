@@ -458,6 +458,7 @@ public class JpDatosLibro extends javax.swing.JPanel {
         Limpiar();
     }//GEN-LAST:event_lblBarrerMouseClicked
 
+
   public boolean isSelect = false;
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
