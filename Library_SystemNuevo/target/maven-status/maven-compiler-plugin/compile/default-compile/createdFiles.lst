@@ -6,6 +6,7 @@ com\alejandro\library_systemnuevo\JpUsuario$1.class
 com\alejandro\library_systemnuevo\JpCustomer$1.class
 Entidades\DatosEscritor.class
 com\alejandro\library_systemnuevo\JfrmEscritorCrud.class
+com\alejandro\library_systemnuevo\JpLibro$5.class
 ViewModel\LibroVM.class
 com\alejandro\library_systemnuevo\JfrmClienteCrud.class
 Entidades\clientes.class
@@ -28,6 +29,7 @@ com\alejandro\library_systemnuevo\JfrmLectorCrud$4.class
 com\alejandro\library_systemnuevo\JpVentas1.class
 com\alejandro\library_systemnuevo\JpEditorial$1.class
 com\alejandro\library_systemnuevo\JfrmMenu$8.class
+com\alejandro\library_systemnuevo\JpPrestamo$4.class
 com\alejandro\library_systemnuevo\JpEditorial.class
 com\alejandro\library_systemnuevo\FrmLogin$5.class
 com\alejandro\library_systemnuevo\JfrmInformacion$1.class
@@ -55,6 +57,7 @@ com\alejandro\library_systemnuevo\JpEditorial$3.class
 com\alejandro\library_systemnuevo\JfrmRegistro$1.class
 com\alejandro\library_systemnuevo\JpEscritor$2.class
 com\alejandro\library_systemnuevo\JpLector$1.class
+utilidades\GestionColumnas.class
 com\alejandro\library_systemnuevo\FrmLogin$1.class
 com\alejandro\library_systemnuevo\JpEscritor$5.class
 com\alejandro\library_systemnuevo\JpCustomer$2.class
@@ -102,6 +105,7 @@ com\alejandro\library_systemnuevo\JfrmMenu$16.class
 Beans\Libros.class
 com\alejandro\library_systemnuevo\JpUsuario.class
 com\Library\BD\ConexionAMYSQL.class
+utilidades\GestionEncabezadoTabla.class
 com\alejandro\library_systemnuevo\JfrmLibroCrud$4.class
 com\alejandro\library_systemnuevo\JfrmEscritorCrud$2.class
 com\alejandro\library_systemnuevo\JfrmClienteCrud$7.class

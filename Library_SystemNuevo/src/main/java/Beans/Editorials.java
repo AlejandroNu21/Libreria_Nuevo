@@ -73,6 +73,35 @@ public class Editorials {
 
         return lista;
     }
+     
+     
+     //Busquedas
+         public ArrayList<Editorial> BusquedaEditorial(String Busqueda) {
+        ArrayList<Editorial> lista = null;
+        try {
+            lista = new ArrayList<Editorial>();
+
+            CallableStatement cb = conexion.prepareCall("{call SP_B_EDITORIAL}");
+            cb.setString(1, Busqueda);
+            ResultSet resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                Editorial ed = new Editorial();
+                ed.setIdEditorial(resultado.getInt("idEditorial"));
+                ed.setCodigoEditorial(resultado.getString("CodigoEditorial"));
+                ed.setNombre_Editorial(resultado.getString("Nombre_Editorial"));
+                ed.setDireccion_Editorial(resultado.getString("Direccion_Editorial"));
+                ed.setTelefono_Editorial(resultado.getString("Telefono_Editorial"));
+                lista.add(ed);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+        return lista;
+    }
+     
 
     //ADD
     public void AddEditorial(Editorial edi) {

@@ -166,7 +166,7 @@ public class Libros {
                 cb.close();
                 conexion.close();
         }catch(Exception e){
-            System.out.println("Error, no se han cerrado las conexiones correctamenbte" + e);
+            System.out.println("Error, no se han cerrado las conexiones correctamente" + e);
         }
         
         }

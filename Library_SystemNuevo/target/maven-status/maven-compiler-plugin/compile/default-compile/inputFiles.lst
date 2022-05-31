@@ -4,6 +4,7 @@ C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\ja
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Enums\generoType.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Beans\DatosLibross.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Lector.java
+C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\utilidades\GestionEncabezadoTabla.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JfrmRegistro.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Enums\formadePagoType.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Escritor.java
@@ -27,6 +28,7 @@ C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\ja
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpLibro.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Editorial.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\Entidades\Enums\subgeneroType.java
+C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\utilidades\GestionColumnas.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JfrmLibroCrud.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\com\alejandro\library_systemnuevo\JpCustomer.java
 C:\Users\Vkaiido\Documents\GitHub\Libreria_Nuevo\Library_SystemNuevo\src\main\java\ViewModel\LibroVM.java

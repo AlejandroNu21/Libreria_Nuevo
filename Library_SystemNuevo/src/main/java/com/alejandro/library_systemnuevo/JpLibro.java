@@ -63,6 +63,18 @@ public class JpLibro extends javax.swing.JPanel {
             df.addRow(fila);
         }
         Tbl_Libro.setModel(df);
+        
+                
+                Tbl_Libro.getTableHeader().setReorderingAllowed(false);
+        Tbl_Libro.setRowHeight(30);
+        Tbl_Libro.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = Tbl_Libro.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        Tbl_Libro.setTableHeader(jtableHeader);
+
+        Tbl_Libro.setDefaultRenderer(Object.class, new GestionColumnas());
     }
 
         public void cargaBusqueda() {
@@ -198,7 +210,12 @@ public class JpLibro extends javax.swing.JPanel {
             }
         });
 
+        btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
+        btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
         btnBusqueda.setText("Buscar");
+        btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setOpaque(true);
         btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBusquedaActionPerformed(evt);
