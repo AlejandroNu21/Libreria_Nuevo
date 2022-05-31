@@ -6,16 +6,23 @@ package com.alejandro.library_systemnuevo;
 
 import Beans.Editorials;
 import Entidades.Editorial;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
+import utilidades.GestionColumnas;
 import utilidades.GestionEncabezadoTabla;
 
 /**
@@ -24,6 +31,8 @@ import utilidades.GestionEncabezadoTabla;
  */
 public class JpEditorial extends javax.swing.JPanel {
 
+    private JPanel contentPane;
+    private JScrollPane jscrollpane;
     /**
      * Creates new form JpEditorial
      */
@@ -66,7 +75,7 @@ public class JpEditorial extends javax.swing.JPanel {
         jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
         TblEditorial.setTableHeader(jtableHeader);
         
-        
+        TblEditorial.setDefaultRenderer(Object.class, new GestionColumnas());
     }
     
     
@@ -236,4 +245,8 @@ public class JpEditorial extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void setContentPane(JPanel contentPane) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
