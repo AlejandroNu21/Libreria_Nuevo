@@ -201,7 +201,7 @@ public class JpEditorial extends javax.swing.JPanel {
             frm.txtNombreEditorial.setText(String.valueOf(TblEditorial.getValueAt(selectedRow, 2)));
             frm.txtDireccionEditorial.setText(String.valueOf(TblEditorial.getValueAt(selectedRow, 3)));
             frm.txtTelefonoEditorial.setText(String.valueOf(TblEditorial.getValueAt(selectedRow, 4)));
-            
+            frm.lblInCl.setText("Actualizar Editorial");
             frm.jp = this;
             frm.setVisible(true);
 

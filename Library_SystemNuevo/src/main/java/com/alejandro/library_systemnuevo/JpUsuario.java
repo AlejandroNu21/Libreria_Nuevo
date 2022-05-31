@@ -178,6 +178,9 @@ public class JpUsuario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    
     private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
 
     }//GEN-LAST:event_cmbRolActionPerformed
@@ -202,7 +205,7 @@ public class JpUsuario extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
         } else {
             if (!(String.valueOf(txtPassword2.getPassword()).equals(String.valueOf(txtPassword.getPassword())))) {
-                JOptionPane.showMessageDialog(null, "Las contraseña no coincide", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 us.setUsuario(txtUsuario.getText());
                 us.setContrasenia(String.valueOf(txtPassword.getPassword()));

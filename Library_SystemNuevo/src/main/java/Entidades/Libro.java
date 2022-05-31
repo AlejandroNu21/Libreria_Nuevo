@@ -17,16 +17,12 @@ public class Libro {
     generoType Genero;
     subgeneroType SubGenero;
     String Clasificacion;
+    private byte [] PortadaLibro;
 
     public Libro() {
     }
 
-    
-    public Libro(int idLibro) {
-        this.idLibro = idLibro;
-    }
-
-    public Libro(String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion) {
+    public Libro(String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion, byte[] PortadaLibro) {
         this.Codigo_Libro = Codigo_Libro;
         this.idEditorial = idEditorial;
         this.Titulo = Titulo;
@@ -35,9 +31,10 @@ public class Libro {
         this.Genero = Genero;
         this.SubGenero = SubGenero;
         this.Clasificacion = Clasificacion;
+        this.PortadaLibro = PortadaLibro;
     }
 
-    public Libro(int idLibro, String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion) {
+    public Libro(int idLibro, String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion, byte[] PortadaLibro) {
         this.idLibro = idLibro;
         this.Codigo_Libro = Codigo_Libro;
         this.idEditorial = idEditorial;
@@ -47,6 +44,7 @@ public class Libro {
         this.Genero = Genero;
         this.SubGenero = SubGenero;
         this.Clasificacion = Clasificacion;
+        this.PortadaLibro = PortadaLibro;
     }
 
     
@@ -123,6 +121,14 @@ public class Libro {
         this.Clasificacion = Clasificacion;
     }
 
-    
+    public byte[] getPortadaLibro() {
+        return PortadaLibro;
+    }
+
+    public void setPortadaLibro(byte[] PortadaLibro) {
+        this.PortadaLibro = PortadaLibro;
+    }
+
+
     
 }

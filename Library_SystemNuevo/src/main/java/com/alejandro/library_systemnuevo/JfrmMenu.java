@@ -90,6 +90,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnLibro.setBorderPainted(false);
         btnLibro.setContentAreaFilled(false);
         btnLibro.setFocusPainted(false);
+        btnLibro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnLibro.setOpaque(true);
         btnLibro.setRequestFocusEnabled(false);
         btnLibro.setRolloverEnabled(false);
@@ -112,6 +113,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnCompra.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnCompra.setBorderPainted(false);
         btnCompra.setContentAreaFilled(false);
+        btnCompra.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnCompra.setOpaque(true);
         btnCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +129,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnEditoriales.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnEditoriales.setBorderPainted(false);
         btnEditoriales.setContentAreaFilled(false);
+        btnEditoriales.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnEditoriales.setOpaque(true);
         btnEditoriales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +145,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnClientes.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnClientes.setBorderPainted(false);
         btnClientes.setContentAreaFilled(false);
+        btnClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnClientes.setOpaque(true);
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,6 +161,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnVentas.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnVentas.setBorderPainted(false);
         btnVentas.setContentAreaFilled(false);
+        btnVentas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnVentas.setOpaque(true);
         btnVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +177,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnPrestamo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnPrestamo.setBorderPainted(false);
         btnPrestamo.setContentAreaFilled(false);
+        btnPrestamo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnPrestamo.setOpaque(true);
         btnPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,6 +193,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnLector.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnLector.setBorderPainted(false);
         btnLector.setContentAreaFilled(false);
+        btnLector.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnLector.setOpaque(true);
         btnLector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +209,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnEscritor1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnEscritor1.setBorderPainted(false);
         btnEscritor1.setContentAreaFilled(false);
+        btnEscritor1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnEscritor1.setOpaque(true);
         btnEscritor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,6 +225,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnUsuarios.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnUsuarios.setBorderPainted(false);
         btnUsuarios.setContentAreaFilled(false);
+        btnUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnUsuarios.setOpaque(true);
         btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

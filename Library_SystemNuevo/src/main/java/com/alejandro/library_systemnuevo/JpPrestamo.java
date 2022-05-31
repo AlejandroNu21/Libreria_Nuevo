@@ -201,6 +201,7 @@ public class JpPrestamo extends javax.swing.JPanel {
             frm.JDCFprestamo.setDate((Date)tblPrest.getValueAt(selectedRow, 3));
            frm.JDCFDev.setDate((Date)tblPrest.getValueAt(selectedRow, 4));
             frm.cmbDevuelto.setSelectedItem(String.valueOf(tblPrest.getValueAt(selectedRow, 5)));
+            frm.lblInCl.setText("Actualizar Solicitud de Prestamo");
             
             frm.jpP = this;
             frm.setVisible(true);

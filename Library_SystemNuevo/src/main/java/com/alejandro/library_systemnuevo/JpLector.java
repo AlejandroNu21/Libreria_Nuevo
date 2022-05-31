@@ -195,6 +195,7 @@ if (TblLector.getSelectedRowCount() > 0) {
             frm.txtEdadLector.setText(String.valueOf(TblLector.getValueAt(selectedRow, 4)));
             frm.txtDireccionLector.setText(String.valueOf(TblLector.getValueAt(selectedRow, 5)));
             frm.txtTelefonoLector.setText(String.valueOf(TblLector.getValueAt(selectedRow, 6)));
+            frm.lblLect.setText("Actualizar Lector");
             frm.jpL = this;
             frm.setVisible(true);
 
