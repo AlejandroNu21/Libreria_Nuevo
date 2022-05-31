@@ -51,15 +51,17 @@ public class JpPrestamo extends javax.swing.JPanel {
             while (iterador.hasNext()) {
             PrestamoVM estBucle = (PrestamoVM) iterador.next();
             //if(estBucle.getDevuelto()==prestamoType.No){
+            if(estBucle.getDevuelto().name().equals("No")){
             fila[0] = estBucle.getIdPrestamo();
             fila[1] = estBucle.getNombre_Lector();
             fila[2] = estBucle.getTitulo();
             fila[3] = estBucle.getFecha_Prestamo();
             fila[4] = estBucle.getFecha_Devolucion();
             fila[5] = estBucle.getDevuelto().name();
-            //}
             df.addRow(fila);
             }
+                //System.out.println(estBucle.getDevuelto().name());
+            }   
         
 //else if(CmbEdo.getSelectedItem().equals("Devuelto")){
 //            while (iterador.hasNext()) {
@@ -74,11 +76,39 @@ public class JpPrestamo extends javax.swing.JPanel {
 //            }
 //            }
            // }
-            
-
         tblPrest.setModel(df);
     
     }
+    
+    
+        public void carga2(int EdoDevolucion) {
+        String titulos[] = {"Id", "Lector", "Titulo Libro", "Fecha Prestamo", "Fecha Devolucion", "Devuelto",};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[7];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Prestamos es = new Prestamos();
+        ArrayList<PrestamoVM> listar = es.ListaPrestamo();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[7];
+        //String Estado = String.valueOf(prestamoType.values());
+            //CASTEAR
+            while (iterador.hasNext()) {
+            PrestamoVM estBucle = (PrestamoVM) iterador.next();
+            //if(estBucle.getDevuelto()==prestamoType.No){
+            if(estBucle.getDevuelto().name().equals(String.valueOf(prestamoType.values()[EdoDevolucion]))){
+            fila[0] = estBucle.getIdPrestamo();
+            fila[1] = estBucle.getNombre_Lector();
+            fila[2] = estBucle.getTitulo();
+            fila[3] = estBucle.getFecha_Prestamo();
+            fila[4] = estBucle.getFecha_Devolucion();
+            fila[5] = estBucle.getDevuelto().name();
+            df.addRow(fila);
+            }
+            }
+                    tblPrest.setModel(df);
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,6 +124,8 @@ public class JpPrestamo extends javax.swing.JPanel {
         btnActualizarPrestamo = new javax.swing.JButton();
         btnEliminarPrestamo = new javax.swing.JButton();
         btnNuevoPrestamo = new javax.swing.JButton();
+        cmbEdo = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1050, 540));
@@ -152,6 +184,15 @@ public class JpPrestamo extends javax.swing.JPanel {
             }
         });
 
+        cmbEdo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin Devolver", "Devuelto" }));
+        cmbEdo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEdoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Estado");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -169,6 +210,10 @@ public class JpPrestamo extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbEdo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(72, 72, 72)
                                 .addComponent(btnNuevoPrestamo))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE))))
                 .addGap(20, 20, 20))
@@ -176,12 +221,18 @@ public class JpPrestamo extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cmbEdo)
+                        .addGap(19, 19, 19))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminarPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,13 +282,21 @@ public class JpPrestamo extends javax.swing.JPanel {
         new JfrmPrestamoCrud().setVisible(true);
     }//GEN-LAST:event_btnNuevoPrestamoActionPerformed
 
+    
+    private void cmbEdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEdoActionPerformed
+
+        carga2(cmbEdo.getSelectedIndex());
+    }//GEN-LAST:event_cmbEdoActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarPrestamo;
     private javax.swing.JButton btnEliminarPrestamo;
     private javax.swing.JButton btnNuevoPrestamo;
+    private javax.swing.JComboBox<String> cmbEdo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPrest;
     // End of variables declaration//GEN-END:variables

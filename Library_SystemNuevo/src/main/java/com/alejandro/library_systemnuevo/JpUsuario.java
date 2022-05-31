@@ -4,10 +4,15 @@
  */
 package com.alejandro.library_systemnuevo;
 
+import Beans.Editorials;
 import Beans.Login;
+import Entidades.Editorial;
 import Entidades.Enums.rolType;
 import Entidades.user;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +25,7 @@ public class JpUsuario extends javax.swing.JPanel {
      */
     public JpUsuario() {
         initComponents();
+        carga();
         cargaCmb();
     }
 
@@ -178,7 +184,28 @@ public class JpUsuario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
+        public void carga() {
+        String titulos[] = {"Id", "Usuario","Contraseña", "Rol"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[5];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Login es = new Login();
+        ArrayList<user> listar = es.listaUser();
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[4];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            user estBucle = (user) iterador.next();
+            fila[0] = estBucle.getIdUsuario();
+            fila[1] = estBucle.getUsuario();
+            fila[2] = estBucle.getContrasenia();
+            fila[3] = estBucle.getRol();
+            df.addRow(fila);
+        }
+        jTable1.setModel(df);}
     
     
     private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
@@ -213,13 +240,26 @@ public class JpUsuario extends javax.swing.JPanel {
                 us.setRol(rolType.values()[cmbRol.getSelectedIndex()]);
 
                 lgDAO.AddUsuario(us);
+                carga();
                 limpiar();
             }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        if (jTable1.getSelectedRowCount() > 0) {         
+            user us = new user();
+            Login lgDAO = new Login();
+            
+            int selectedRow =jTable1.getSelectedRow();
+            if(selectedRow !=0){
+            us.setIdUsuario(Integer.parseInt(jTable1.getValueAt(selectedRow, 0).toString()));
+
+             lgDAO.DeleteUser(us);
+             carga();
+            } else{
+            JOptionPane.showMessageDialog(null, "El usuario seleccionado no se puede eliminar");}
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
 

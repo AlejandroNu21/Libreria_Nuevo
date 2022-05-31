@@ -15,6 +15,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import utilidades.GestionColumnas;
+import utilidades.GestionEncabezadoTabla;
 
 /**
  *
@@ -62,7 +65,48 @@ public class JpLibro extends javax.swing.JPanel {
         Tbl_Libro.setModel(df);
     }
 
-    
+        public void cargaBusqueda() {
+        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[9];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Libros es = new Libros();
+        ArrayList<LibroVM> listar = es.busquedaLibros(txtBusquedalibro.getText());
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[9];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            LibroVM estBucle = (LibroVM) iterador.next();
+            
+            fila[0] = estBucle.getIdLibro();
+            fila[1] = estBucle.getCodigo_Libro();
+            fila[2] = estBucle.getNombre_Editorial();
+            fila[3] = estBucle.getTitulo();
+            fila[4] = estBucle.getNombre_Escritor();
+            fila[5] = estBucle.getCategoria().name();
+            fila[6] = estBucle.getGenero().name();
+            fila[7] = estBucle.getSubGenero().name();
+            fila[8] = estBucle.getClasificacion();
+            df.addRow(fila);
+        }
+        Tbl_Libro.setModel(df);
+        
+        
+                Tbl_Libro.getTableHeader().setReorderingAllowed(false);
+        Tbl_Libro.setRowHeight(30);
+        Tbl_Libro.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = Tbl_Libro.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        Tbl_Libro.setTableHeader(jtableHeader);
+
+        Tbl_Libro.setDefaultRenderer(Object.class, new GestionColumnas());
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,6 +123,8 @@ public class JpLibro extends javax.swing.JPanel {
         btnNuevoLibro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnDatosLibro = new javax.swing.JButton();
+        txtBusquedalibro = new javax.swing.JTextField();
+        btnBusqueda = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1050, 540));
@@ -152,6 +198,13 @@ public class JpLibro extends javax.swing.JPanel {
             }
         });
 
+        btnBusqueda.setText("Buscar");
+        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,6 +214,10 @@ public class JpLibro extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBusquedalibro, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBusqueda)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnNuevoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -175,10 +232,13 @@ public class JpLibro extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnNuevoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
+                        .addComponent(txtBusquedalibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -245,14 +305,20 @@ public class JpLibro extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnDatosLibroActionPerformed
 
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+        cargaBusqueda();
+    }//GEN-LAST:event_btnBusquedaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTable Tbl_Libro;
+    private javax.swing.JButton btnBusqueda;
     private javax.swing.JButton btnDatosLibro;
     private javax.swing.JButton btnNuevoLibro;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtBusquedalibro;
     // End of variables declaration//GEN-END:variables
 }

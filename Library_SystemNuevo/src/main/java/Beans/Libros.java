@@ -128,6 +128,54 @@ public class Libros {
 
         return lista;
     }
+        
+            public ArrayList<LibroVM> busquedaLibros(String Busqueda) {
+        ArrayList<LibroVM> lista = null;
+        CallableStatement cb = null;
+        ResultSet resultado = null;
+        try {
+            conexion = con.getConecction();
+            lista = new ArrayList<LibroVM>();
+
+             cb = conexion.prepareCall("{call SP_B_LIBROS(?)}");
+             cb.setString(1, Busqueda);
+            resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                //LibroVM li = new LibroVM();
+                lista.add(new LibroVM(
+                resultado.getInt("idLibro"),
+                        resultado.getString("Codigo_Libro"),
+                        resultado.getString("Nombre_Editorial"),
+                        resultado.getString("Titulo"),
+                        resultado.getString("Nombre_Escritor"),
+                        categoryType.values()[resultado.getInt("Categoria")-1],
+                        generoType.values()[resultado.getInt("Genero")-1],
+                        subgeneroType.values()[resultado.getInt("Subgenero")-1],
+                        resultado.getString("Clasificacion") ));    
+
+            }
+                
+                
+        } catch (Exception e) {
+            System.out.println("Error al mostrar los datos del Libro" + e);
+            
+        }finally{
+        try{
+        resultado.close();
+                cb.close();
+                conexion.close();
+        }catch(Exception e){
+            System.out.println("Error, no se han cerrado las conexiones correctamenbte" + e);
+        }
+        
+        }
+
+        return lista;
+        
+    }
+            
+            
 
     //ADD
     public void AddLibro(Libro lib) {

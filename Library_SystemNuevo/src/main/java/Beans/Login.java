@@ -4,12 +4,14 @@
  */
 package Beans;
 
+import Entidades.Enums.rolType;
 import Entidades.user;
 import com.Library.BD.ConexionAMYSQL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,6 +54,35 @@ public class Login {
          return valid;
      }
      
+         public ArrayList<user> listaUser() {
+        ArrayList<user> lista = null;
+        try {
+            lista = new ArrayList<>();
+            Connection conexion = con.getConecction();
+
+            CallableStatement cb = conexion.prepareCall("{call SP_S_USERS}");
+            ResultSet resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                user us = new user();
+                us.setIdUsuario(resultado.getInt("idRol"));
+                us.setUsuario(resultado.getString("Usuario"));
+                us.setContrasenia(resultado.getString("Contrasenia"));
+                us.setRol(rolType.values()[resultado.getInt("Rol")-1]);
+
+
+                lista.add(us);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al mostrar usuarios" + e);
+        }
+
+        return lista;
+    }
+     
+     
+     
          public void AddUsuario(user usr) {
              
              Connection conexion = con.getConecction();
@@ -70,5 +101,21 @@ public class Login {
         }
         
         
+    }
+         
+              public void DeleteUser(user usuario) {
+
+        try {
+             Connection conexion = con.getConecction();
+            CallableStatement cb = conexion.prepareCall("delete from rol as a where a.idRol=?;");
+            cb.setInt(1, usuario.getIdUsuario());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente");
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
     }
 }
