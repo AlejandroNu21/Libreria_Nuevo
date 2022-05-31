@@ -6,10 +6,17 @@ package com.alejandro.library_systemnuevo;
 
 import Beans.Editorials;
 import Entidades.Editorial;
+import java.awt.Color;
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellRenderer;
+import utilidades.GestionEncabezadoTabla;
 
 /**
  *
@@ -48,6 +55,18 @@ public class JpEditorial extends javax.swing.JPanel {
             df.addRow(fila);
         }
         TblEditorial.setModel(df);
+        
+        
+        TblEditorial.getTableHeader().setReorderingAllowed(false);
+        TblEditorial.setRowHeight(30);
+        TblEditorial.setGridColor(new java.awt.Color(0, 0, 0));
+        
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = TblEditorial.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        TblEditorial.setTableHeader(jtableHeader);
+        
+        
     }
     
     
