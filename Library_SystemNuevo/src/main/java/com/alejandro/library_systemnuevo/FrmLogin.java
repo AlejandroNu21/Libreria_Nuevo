@@ -9,6 +9,7 @@ import Entidades.user;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -184,26 +185,29 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarLoginActionPerformed
+                if (txtUsuario.getText().equals("") || String.valueOf(txtPassword.getPassword()).equals("")) {
+            JOptionPane.showMessageDialog(null, "Llena todos los campos");
+        } else {
+        
         String contraseña = "";
-        
-        for (char caracter: txtPassword.getPassword()) {
-        contraseña += caracter;
-        
-        
+
+        for (char caracter : txtPassword.getPassword()) {
+            contraseña += caracter;
+
         }
-        
-        
+
         user us = new user();
         us.setUsuario(txtUsuario.getText());
         us.setContrasenia(contraseña);
-        
+
         Login users = new Login();
-        if(users.Logu(us)){
-         JfrmMenu abrir = new JfrmMenu();
-                abrir.setVisible(true);
-                this.setVisible(false);
-        
+        if (users.Logu(us)) {
+            JfrmMenu abrir = new JfrmMenu();
+            abrir.setVisible(true);
+            this.setVisible(false);
+
         }
+                }
     }//GEN-LAST:event_btnIngresarLoginActionPerformed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked

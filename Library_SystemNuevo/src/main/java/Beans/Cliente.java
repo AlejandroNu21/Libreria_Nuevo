@@ -51,7 +51,7 @@ public class Cliente {
     }
 
     //FiltroClientes
-        public ArrayList<clientes> FiltroClientes(String Busqueda) {
+    public ArrayList<clientes> FiltroClientes(String Busqueda) {
         ArrayList<clientes> lista = null;
         try {
             lista = new ArrayList<clientes>();
@@ -65,6 +65,35 @@ public class Cliente {
                 cl.setIdCliente(resultado.getInt("idClientes"));
                 cl.setCodigoCliente(resultado.getString("CodigoCliente"));
 
+                lista.add(cl);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+        return lista;
+    }
+
+    //Busqueda
+    public ArrayList<clientes> BusquedaClientes(String Busqueda) {
+        ArrayList<clientes> lista = null;
+        try {
+            lista = new ArrayList<clientes>();
+
+            CallableStatement cb = conexion.prepareCall("{call SP_B_CLIENTES(?)}");
+            cb.setString(1, Busqueda);
+            ResultSet resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                clientes cl = new clientes();
+                cl.setIdCliente(resultado.getInt("idClientes"));
+                cl.setCodigoCliente(resultado.getString("CodigoCliente"));
+                cl.setNombreCliente(resultado.getString("NombreCliente"));
+                cl.setApellidoCliente(resultado.getString("ApellidoCliente"));
+                cl.setEdad(resultado.getString("Edad"));
+                cl.setDireccion(resultado.getString("Direccion"));
+                cl.setTelefono(resultado.getString("Telefono"));
 
                 lista.add(cl);
             }
@@ -75,9 +104,8 @@ public class Cliente {
 
         return lista;
     }
-    
-    
-    
+    //ADD
+
     public void AddCliente(clientes cl) {
 
         try {
@@ -97,39 +125,39 @@ public class Cliente {
         }
 
     }
-         public void UpdateCliente(clientes clie) {
-     try {
+
+    public void UpdateCliente(clientes clie) {
+        try {
             CallableStatement cb = conexion.prepareCall("{call SP_U_CLIENTES(?,?,?,?,?,?,?)}");
-            cb.setInt(7,clie.getIdCliente());
+            cb.setInt(7, clie.getIdCliente());
             cb.setString(1, clie.getCodigoCliente());
             cb.setString(2, clie.getNombreCliente());
             cb.setString(3, clie.getApellidoCliente());
             cb.setString(4, clie.getEdad());
-            cb.setString(5,clie.getDireccion());
-            cb.setString(6,clie.getTelefono());
+            cb.setString(5, clie.getDireccion());
+            cb.setString(6, clie.getTelefono());
             cb.execute();
 
-            JOptionPane.showMessageDialog(null, "Cliente Actualizado","Exito",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cliente Actualizado", "Exito", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "error" + ex);
         }
-    
+
     }
-         
-         public void DeleteClient (clientes clt){
-    
-    try{
-         CallableStatement cb = conexion.prepareCall("delete from clientes as clt where clt.idClientes=?;");
+
+    public void DeleteClient(clientes clt) {
+
+        try {
+            CallableStatement cb = conexion.prepareCall("delete from clientes as clt where clt.idClientes=?;");
             cb.setInt(1, clt.getIdCliente());
             cb.execute();
 
             JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente");
-            
-    
-    }catch (SQLException ex){
-        JOptionPane.showMessageDialog(null, "Ups, Error, " + ex);
-    }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ups, Error, " + ex);
+        }
     }
 
 }

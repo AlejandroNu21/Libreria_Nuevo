@@ -67,6 +67,42 @@ public class JpEscritor extends javax.swing.JPanel {
         TblEscritor.setDefaultRenderer(Object.class, new GestionColumnas());
     }
 
+        public void cargaBusq() {
+        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Pais"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[5];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Escritores es = new Escritores();
+        ArrayList<Escritor> listar = es.BusquedaEscritor(txtBusqEs.getText());
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[5];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            Escritor estBucle = (Escritor) iterador.next();
+            fila[0] = estBucle.getIdEscritor();
+            fila[1] = estBucle.getCodigo_Escritor();
+            fila[2] = estBucle.getNombre_Escritor();
+            fila[3] = estBucle.getApellido_Escritor();
+            fila[4] = estBucle.getPais_Escritor();
+            df.addRow(fila);
+        }
+        TblEscritor.setModel(df);
+
+        //DISEÑO TABLA
+        TblEscritor.getTableHeader().setReorderingAllowed(false);
+        TblEscritor.setRowHeight(30);
+        TblEscritor.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = TblEscritor.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        TblEscritor.setTableHeader(jtableHeader);
+
+        TblEscritor.setDefaultRenderer(Object.class, new GestionColumnas());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,6 +119,8 @@ public class JpEscritor extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnEliminar1 = new javax.swing.JButton();
         btnDatosEscritor = new javax.swing.JButton();
+        txtBusqEs = new javax.swing.JTextField();
+        btnBusqueda = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1050, 540));
@@ -165,6 +203,18 @@ public class JpEscritor extends javax.swing.JPanel {
             }
         });
 
+        btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
+        btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
+        btnBusqueda.setText("Buscar");
+        btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setOpaque(true);
+        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -174,7 +224,11 @@ public class JpEscritor extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(639, 639, 639)
+                        .addGap(29, 29, 29)
+                        .addComponent(txtBusqEs, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(btnBusqueda)
+                        .addGap(200, 200, 200)
                         .addComponent(btnNuevoEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1006, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -189,11 +243,17 @@ public class JpEscritor extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnNuevoEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnNuevoEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtBusqEs, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,14 +357,20 @@ public class JpEscritor extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+        cargaBusq();
+    }//GEN-LAST:event_btnBusquedaActionPerformed
+
     public boolean isSelect = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblEscritor;
+    private javax.swing.JButton btnBusqueda;
     private javax.swing.JButton btnDatosEscritor;
     private javax.swing.JButton btnEliminar1;
     private javax.swing.JButton btnNuevoEscritor;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextField txtBusqEs;
     // End of variables declaration//GEN-END:variables
 }

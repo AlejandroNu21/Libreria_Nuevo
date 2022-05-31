@@ -81,7 +81,7 @@ public class Editorials {
         try {
             lista = new ArrayList<Editorial>();
 
-            CallableStatement cb = conexion.prepareCall("{call SP_B_EDITORIAL}");
+            CallableStatement cb = conexion.prepareCall("{call SP_B_EDITORIAL(?)}");
             cb.setString(1, Busqueda);
             ResultSet resultado = cb.executeQuery();
 

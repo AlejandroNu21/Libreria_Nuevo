@@ -78,7 +78,42 @@ public class JpEditorial extends javax.swing.JPanel {
         TblEditorial.setDefaultRenderer(Object.class, new GestionColumnas());
     }
     
-    
+        public void carga2() {
+        String titulos[] = {"Id", "Codigo", "Nombre", "Direccion", "Telefono"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[5];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Editorials es = new Editorials();
+        ArrayList<Editorial> listar = es.BusquedaEditorial(txtBusqueda.getText());
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[5];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            Editorial estBucle = (Editorial) iterador.next();
+            fila[0] = estBucle.getIdEditorial();
+            fila[1] = estBucle.getCodigoEditorial();
+            fila[2] = estBucle.getNombre_Editorial();
+            fila[3] = estBucle.getDireccion_Editorial();
+            fila[4] = estBucle.getTelefono_Editorial();
+            df.addRow(fila);
+        }
+        TblEditorial.setModel(df);
+        
+        
+        TblEditorial.getTableHeader().setReorderingAllowed(false);
+        TblEditorial.setRowHeight(30);
+        TblEditorial.setGridColor(new java.awt.Color(0, 0, 0));
+        
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = TblEditorial.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        TblEditorial.setTableHeader(jtableHeader);
+        
+        TblEditorial.setDefaultRenderer(Object.class, new GestionColumnas());
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,6 +130,8 @@ public class JpEditorial extends javax.swing.JPanel {
         btnNuevaEditorial = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btmBorrar = new javax.swing.JButton();
+        txtBusqueda = new javax.swing.JTextField();
+        btnBusqueda = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -154,6 +191,18 @@ public class JpEditorial extends javax.swing.JPanel {
             }
         });
 
+        btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
+        btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
+        btnBusqueda.setText("Buscar");
+        btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setOpaque(true);
+        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -170,6 +219,10 @@ public class JpEditorial extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(109, 109, 109)
+                                .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(btnBusqueda)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnNuevaEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1008, Short.MAX_VALUE))))
@@ -178,14 +231,18 @@ public class JpEditorial extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel1))
-                    .addComponent(btnNuevaEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(0, 29, Short.MAX_VALUE)
+                            .addComponent(jLabel1))
+                        .addComponent(btnNuevaEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,6 +291,10 @@ public class JpEditorial extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
             }
     }//GEN-LAST:event_btmBorrarActionPerformed
+
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+        carga2();
+    }//GEN-LAST:event_btnBusquedaActionPerformed
 //public boolean isSelect = false;
 
 
@@ -241,9 +302,11 @@ public class JpEditorial extends javax.swing.JPanel {
     private javax.swing.JTable TblEditorial;
     private javax.swing.JButton btmBorrar;
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBusqueda;
     private javax.swing.JButton btnNuevaEditorial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
 
   

@@ -67,6 +67,44 @@ public class JpCustomer extends javax.swing.JPanel {
         TblClientes.setDefaultRenderer(Object.class, new GestionColumnas());
     }
 
+        public void cargaBusqueda() {
+
+        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[7];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Cliente es = new Cliente();
+        ArrayList<clientes> listar = es.BusquedaClientes(txtBusq.getText());
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[7];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            clientes estBucle = (clientes) iterador.next();
+            fila[0] = estBucle.getIdCliente();
+            fila[1] = estBucle.getCodigoCliente();
+            fila[2] = estBucle.getNombreCliente();
+            fila[3] = estBucle.getApellidoCliente();
+            fila[4] = estBucle.getEdad();
+            fila[5] = estBucle.getDireccion();
+            fila[6] = estBucle.getTelefono();
+            df.addRow(fila);
+        }
+        TblClientes.setModel(df);
+
+        TblClientes.getTableHeader().setReorderingAllowed(false);
+        TblClientes.setRowHeight(30);
+        TblClientes.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = TblClientes.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        TblClientes.setTableHeader(jtableHeader);
+
+        TblClientes.setDefaultRenderer(Object.class, new GestionColumnas());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,6 +120,8 @@ public class JpCustomer extends javax.swing.JPanel {
         btnNuevoCliente = new javax.swing.JButton();
         btnActualizarCliente = new javax.swing.JButton();
         btnEliminarCliente = new javax.swing.JButton();
+        txtBusq = new javax.swing.JTextField();
+        btnBusqueda = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -139,6 +179,18 @@ public class JpCustomer extends javax.swing.JPanel {
             }
         });
 
+        btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
+        btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
+        btnBusqueda.setText("Buscar");
+        btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setOpaque(true);
+        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,6 +207,10 @@ public class JpCustomer extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
+                                .addGap(155, 155, 155)
+                                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(btnBusqueda)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 976, Short.MAX_VALUE))))
@@ -164,11 +220,17 @@ public class JpCustomer extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,13 +283,19 @@ public class JpCustomer extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+        cargaBusqueda();
+    }//GEN-LAST:event_btnBusquedaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblClientes;
     private javax.swing.JButton btnActualizarCliente;
+    private javax.swing.JButton btnBusqueda;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnNuevoCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtBusq;
     // End of variables declaration//GEN-END:variables
 }

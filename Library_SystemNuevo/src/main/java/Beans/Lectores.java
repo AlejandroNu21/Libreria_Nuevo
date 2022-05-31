@@ -77,7 +77,34 @@ public class Lectores {
         return lista;
     }
     
-    
+    //Busqueda
+            public ArrayList<Lector> BusquedaLector(String Busqueda) {
+        ArrayList<Lector> lista = null;
+        try {
+            lista = new ArrayList<Lector>();
+
+            CallableStatement cb = conexion.prepareCall("{call SP_B_LECTORES (?)}");
+             cb.setString(1, Busqueda);
+            ResultSet resultado = cb.executeQuery();
+
+            while (resultado.next()) {
+                Lector le = new Lector();
+                le.setIdLector(resultado.getInt("idLector"));
+                le.setCodigoLector(resultado.getString("CodigoLector"));
+                le.setNombre_Lector(resultado.getString("Nombre_Lector"));
+                le.setApellido_Lector(resultado.getString("Apellido_Lector"));
+                le.setEdad(resultado.getString("Edad"));
+                le.setDireccion(resultado.getString("Direccion"));
+                le.setTelefono(resultado.getString("Telefono"));
+                lista.add(le);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
+
+        return lista;
+    }
     
 
     //ADD

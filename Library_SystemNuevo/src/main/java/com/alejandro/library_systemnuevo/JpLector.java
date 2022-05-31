@@ -66,6 +66,46 @@ public class JpLector extends javax.swing.JPanel {
 
         TblLector.setDefaultRenderer(Object.class, new GestionColumnas());
     }
+     
+     
+          public void cargaBusquedaLector() {
+        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[7];
+        DefaultTableModel df = new DefaultTableModel(null, titulos);
+
+        Lectores es = new Lectores();
+        ArrayList<Lector> listar = es.BusquedaLector(txtxBusq.getText());
+
+        Iterator iterador = listar.iterator();
+        Object fila[] = new Object[7];
+
+        while (iterador.hasNext()) {
+            //CASTEAR
+            Lector estBucle = (Lector) iterador.next();
+            fila[0] = estBucle.getIdLector();
+            fila[1] = estBucle.getCodigoLector();
+            fila[2] = estBucle.getNombre_Lector();
+            fila[3] = estBucle.getApellido_Lector();
+            fila[4] = estBucle.getEdad();
+            fila[5] = estBucle.getDireccion();
+            fila[6] = estBucle.getTelefono();
+            df.addRow(fila);
+        }
+        TblLector.setModel(df);
+        
+        //DISEÑO TABLA
+        TblLector.getTableHeader().setReorderingAllowed(false);
+        TblLector.setRowHeight(30);
+        TblLector.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = TblLector.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        TblLector.setTableHeader(jtableHeader);
+
+        TblLector.setDefaultRenderer(Object.class, new GestionColumnas());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -81,6 +121,8 @@ public class JpLector extends javax.swing.JPanel {
         TblLector = new javax.swing.JTable();
         btnEliminar = new javax.swing.JButton();
         btnActualizar1 = new javax.swing.JButton();
+        txtxBusq = new javax.swing.JTextField();
+        btnBusqueda = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -140,6 +182,18 @@ public class JpLector extends javax.swing.JPanel {
             }
         });
 
+        btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
+        btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
+        btnBusqueda.setText("Buscar");
+        btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setOpaque(true);
+        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,6 +210,10 @@ public class JpLector extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
+                                .addGap(192, 192, 192)
+                                .addComponent(txtxBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(btnBusqueda)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnNuevoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE))))
@@ -166,10 +224,13 @@ public class JpLector extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnNuevoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnNuevoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBusqueda)
+                        .addComponent(txtxBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,13 +280,19 @@ if (TblLector.getSelectedRowCount() > 0) {
         }
     }//GEN-LAST:event_btnActualizar1ActionPerformed
 
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+        cargaBusquedaLector();
+    }//GEN-LAST:event_btnBusquedaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblLector;
     private javax.swing.JButton btnActualizar1;
+    private javax.swing.JButton btnBusqueda;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnNuevoLector;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtxBusq;
     // End of variables declaration//GEN-END:variables
 }
