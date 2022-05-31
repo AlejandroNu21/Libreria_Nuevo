@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import utilidades.GestionColumnas;
+import utilidades.GestionEncabezadoTabla;
 
 /**
  *
@@ -26,8 +29,8 @@ public class JpCustomer extends javax.swing.JPanel {
     }
 
     public void carga() {
-        
-        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad","Direccion","Telefono"};
+
+        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
         //Ejemplosdearreglos
         Double numero[] = new Double[7];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
@@ -51,7 +54,19 @@ public class JpCustomer extends javax.swing.JPanel {
             df.addRow(fila);
         }
         TblClientes.setModel(df);
+
+        TblClientes.getTableHeader().setReorderingAllowed(false);
+        TblClientes.setRowHeight(30);
+        TblClientes.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = TblClientes.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        TblClientes.setTableHeader(jtableHeader);
+
+        TblClientes.setDefaultRenderer(Object.class, new GestionColumnas());
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -163,14 +178,14 @@ public class JpCustomer extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClienteActionPerformed
-        
+
         JfrmClienteCrud frm = new JfrmClienteCrud();
         frm.jpC = this;
         frm.setVisible(true);
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
 
     private void btnActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarClienteActionPerformed
-         if (TblClientes.getSelectedRowCount() > 0) {
+        if (TblClientes.getSelectedRowCount() > 0) {
 
             JfrmClienteCrud frmCliente = new JfrmClienteCrud();
             int selectedRow = TblClientes.getSelectedRow();
@@ -184,8 +199,6 @@ public class JpCustomer extends javax.swing.JPanel {
             frmCliente.lblInCl.setText("Actualizar Cliente");
             frmCliente.jpC = this;
             frmCliente.setVisible(true);
-            
-            
 
             //isSelect = false;
         } else {
@@ -194,18 +207,18 @@ public class JpCustomer extends javax.swing.JPanel {
     }//GEN-LAST:event_btnActualizarClienteActionPerformed
 
     private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
-         if (TblClientes.getSelectedRowCount()>0) {
-             
-             clientes cl = new clientes();
-        Cliente esDAO = new Cliente();
-            int selectedRow =TblClientes.getSelectedRow();
+        if (TblClientes.getSelectedRowCount() > 0) {
+
+            clientes cl = new clientes();
+            Cliente esDAO = new Cliente();
+            int selectedRow = TblClientes.getSelectedRow();
             cl.setIdCliente(Integer.parseInt(TblClientes.getValueAt(selectedRow, 0).toString()));
 
-             esDAO.DeleteClient(cl);
-             carga();
-            } else {
-                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
-            }
+            esDAO.DeleteClient(cl);
+            carga();
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
     }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
 

@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import utilidades.GestionColumnas;
+import utilidades.GestionEncabezadoTabla;
 
 /**
  *
@@ -50,6 +53,18 @@ public class JpLector extends javax.swing.JPanel {
             df.addRow(fila);
         }
         TblLector.setModel(df);
+        
+        //DISEÑO TABLA
+        TblLector.getTableHeader().setReorderingAllowed(false);
+        TblLector.setRowHeight(30);
+        TblLector.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = TblLector.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        TblLector.setTableHeader(jtableHeader);
+
+        TblLector.setDefaultRenderer(Object.class, new GestionColumnas());
     }
     /**
      * This method is called from within the constructor to initialize the form.

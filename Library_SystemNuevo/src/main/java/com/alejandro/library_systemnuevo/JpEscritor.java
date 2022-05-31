@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import utilidades.GestionColumnas;
+import utilidades.GestionEncabezadoTabla;
 
 /**
  *
@@ -50,6 +53,18 @@ public class JpEscritor extends javax.swing.JPanel {
             df.addRow(fila);
         }
         TblEscritor.setModel(df);
+
+        //DISEÑO TABLA
+        TblEscritor.getTableHeader().setReorderingAllowed(false);
+        TblEscritor.setRowHeight(30);
+        TblEscritor.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = TblEscritor.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        TblEscritor.setTableHeader(jtableHeader);
+
+        TblEscritor.setDefaultRenderer(Object.class, new GestionColumnas());
     }
 
     /**
@@ -246,28 +261,26 @@ public class JpEscritor extends javax.swing.JPanel {
         if (TblEscritor.getSelectedRowCount() > 0) {
             mainForm.currentPanel = null;
             JpDatosEscritor jp = new JpDatosEscritor(mainForm);
-            
+
             int selectedRow = TblEscritor.getSelectedRow();
             jp.txtId.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
-            
-            
+
             mainForm.showJPanel(jp);
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
         }
-        
-       // }
+
+        // }
     }//GEN-LAST:event_btnDatosEscritorActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         if (TblEscritor.getSelectedRowCount() > 0) {
-            
-            //Escritores esc = new Escritores();
 
+            //Escritores esc = new Escritores();
             JfrmEscritorCrud frmOp = new JfrmEscritorCrud();
             int selectedRow = TblEscritor.getSelectedRow();
             frmOp.txtIdEscritor1.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
-            frmOp.Id= Integer.parseInt(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
+            frmOp.Id = Integer.parseInt(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
             frmOp.txtCodigoEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 1)));
             frmOp.txtNombreEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 2)));
             frmOp.txtApellidoEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 3)));
