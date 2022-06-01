@@ -14,6 +14,9 @@ import java.util.Date;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import utilidades.GestionColumnas;
+import utilidades.GestionEncabezadoTabla;
 
 /**
  *
@@ -67,6 +70,17 @@ public class JpDatosEscritor extends javax.swing.JPanel {
             df.addRow(fila);
         }
         TblDatosEscritor.setModel(df);
+
+        TblDatosEscritor.getTableHeader().setReorderingAllowed(false);
+        TblDatosEscritor.setRowHeight(30);
+        TblDatosEscritor.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = TblDatosEscritor.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        TblDatosEscritor.setTableHeader(jtableHeader);
+
+        TblDatosEscritor.setDefaultRenderer(Object.class, new GestionColumnas());
     }
 
     /**

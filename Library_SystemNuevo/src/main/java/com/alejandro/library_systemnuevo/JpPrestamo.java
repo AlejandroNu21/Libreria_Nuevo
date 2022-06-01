@@ -13,6 +13,9 @@ import java.util.Date;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import utilidades.GestionColumnas;
+import utilidades.GestionEncabezadoTabla;
 
 /**
  *
@@ -36,6 +39,7 @@ public class JpPrestamo extends javax.swing.JPanel {
 //        
 //        tblPrest.setModel(tbl);
 //    }
+
     public void carga() {
         String titulos[] = {"Id", "Lector", "Titulo Libro", "Fecha Prestamo", "Fecha Devolucion", "Devuelto",};
         //Ejemplosdearreglos
@@ -47,22 +51,22 @@ public class JpPrestamo extends javax.swing.JPanel {
 
         Iterator iterador = listar.iterator();
         Object fila[] = new Object[7];
-            //CASTEAR
-            while (iterador.hasNext()) {
+        //CASTEAR
+        while (iterador.hasNext()) {
             PrestamoVM estBucle = (PrestamoVM) iterador.next();
             //if(estBucle.getDevuelto()==prestamoType.No){
-            if(estBucle.getDevuelto().name().equals("No")){
-            fila[0] = estBucle.getIdPrestamo();
-            fila[1] = estBucle.getNombre_Lector();
-            fila[2] = estBucle.getTitulo();
-            fila[3] = estBucle.getFecha_Prestamo();
-            fila[4] = estBucle.getFecha_Devolucion();
-            fila[5] = estBucle.getDevuelto().name();
-            df.addRow(fila);
+            if (estBucle.getDevuelto().name().equals("No")) {
+                fila[0] = estBucle.getIdPrestamo();
+                fila[1] = estBucle.getNombre_Lector();
+                fila[2] = estBucle.getTitulo();
+                fila[3] = estBucle.getFecha_Prestamo();
+                fila[4] = estBucle.getFecha_Devolucion();
+                fila[5] = estBucle.getDevuelto().name();
+                df.addRow(fila);
             }
-                //System.out.println(estBucle.getDevuelto().name());
-            }   
-        
+            //System.out.println(estBucle.getDevuelto().name());
+        }
+
 //else if(CmbEdo.getSelectedItem().equals("Devuelto")){
 //            while (iterador.hasNext()) {
 //            PrestamoVM estBucle = (PrestamoVM) iterador.next();
@@ -75,13 +79,22 @@ public class JpPrestamo extends javax.swing.JPanel {
 //            fila[5] = estBucle.getDevuelto().name();
 //            }
 //            }
-           // }
+        // }
         tblPrest.setModel(df);
-    
+
+        tblPrest.getTableHeader().setReorderingAllowed(false);
+        tblPrest.setRowHeight(30);
+        tblPrest.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = tblPrest.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        tblPrest.setTableHeader(jtableHeader);
+
+        tblPrest.setDefaultRenderer(Object.class, new GestionColumnas());
     }
-    
-    
-        public void carga2(int EdoDevolucion) {
+
+    public void carga2(int EdoDevolucion) {
         String titulos[] = {"Id", "Lector", "Titulo Libro", "Fecha Prestamo", "Fecha Devolucion", "Devuelto",};
         //Ejemplosdearreglos
         Double numero[] = new Double[7];
@@ -93,22 +106,23 @@ public class JpPrestamo extends javax.swing.JPanel {
         Iterator iterador = listar.iterator();
         Object fila[] = new Object[7];
         //String Estado = String.valueOf(prestamoType.values());
-            //CASTEAR
-            while (iterador.hasNext()) {
+        //CASTEAR
+        while (iterador.hasNext()) {
             PrestamoVM estBucle = (PrestamoVM) iterador.next();
             //if(estBucle.getDevuelto()==prestamoType.No){
-            if(estBucle.getDevuelto().name().equals(String.valueOf(prestamoType.values()[EdoDevolucion]))){
-            fila[0] = estBucle.getIdPrestamo();
-            fila[1] = estBucle.getNombre_Lector();
-            fila[2] = estBucle.getTitulo();
-            fila[3] = estBucle.getFecha_Prestamo();
-            fila[4] = estBucle.getFecha_Devolucion();
-            fila[5] = estBucle.getDevuelto().name();
-            df.addRow(fila);
+            if (estBucle.getDevuelto().name().equals(String.valueOf(prestamoType.values()[EdoDevolucion]))) {
+                fila[0] = estBucle.getIdPrestamo();
+                fila[1] = estBucle.getNombre_Lector();
+                fila[2] = estBucle.getTitulo();
+                fila[3] = estBucle.getFecha_Prestamo();
+                fila[4] = estBucle.getFecha_Devolucion();
+                fila[5] = estBucle.getDevuelto().name();
+                df.addRow(fila);
             }
-            }
-                    tblPrest.setModel(df);
         }
+        tblPrest.setModel(df);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -243,18 +257,18 @@ public class JpPrestamo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarPrestamoActionPerformed
-            if (tblPrest.getSelectedRowCount() > 0) {
+        if (tblPrest.getSelectedRowCount() > 0) {
             JfrmPrestamoCrud frm = new JfrmPrestamoCrud();
-            
+
             int selectedRow = tblPrest.getSelectedRow();
             frm.txtIdPrestamo.setText(String.valueOf(tblPrest.getValueAt(selectedRow, 0)));
             frm.CmbFL.setSelectedItem(String.valueOf(tblPrest.getValueAt(selectedRow, 1)));
             frm.CmbFLib.setSelectedItem(String.valueOf(tblPrest.getValueAt(selectedRow, 2)));
-            frm.JDCFprestamo.setDate((Date)tblPrest.getValueAt(selectedRow, 3));
-           frm.JDCFDev.setDate((Date)tblPrest.getValueAt(selectedRow, 4));
+            frm.JDCFprestamo.setDate((Date) tblPrest.getValueAt(selectedRow, 3));
+            frm.JDCFDev.setDate((Date) tblPrest.getValueAt(selectedRow, 4));
             frm.cmbDevuelto.setSelectedItem(String.valueOf(tblPrest.getValueAt(selectedRow, 5)));
             frm.lblInCl.setText("Actualizar Solicitud de Prestamo");
-            
+
             frm.jpP = this;
             frm.setVisible(true);
 
@@ -265,30 +279,29 @@ public class JpPrestamo extends javax.swing.JPanel {
     }//GEN-LAST:event_btnActualizarPrestamoActionPerformed
 
     private void btnEliminarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoActionPerformed
-                if (tblPrest.getSelectedRowCount()>0) {
-             Prestamo prees = new Prestamo();
+        if (tblPrest.getSelectedRowCount() > 0) {
+            Prestamo prees = new Prestamo();
             Prestamos prDAO = new Prestamos();
-            int selectedRow =tblPrest.getSelectedRow();
+            int selectedRow = tblPrest.getSelectedRow();
             prees.setIdPrestamo(Integer.parseInt(tblPrest.getValueAt(selectedRow, 0).toString()));
 
-             prDAO.DeletePrestamo(prees);
-             carga();
-                //isSelect = false;
-            } else {
-                JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
-            }
+            prDAO.DeletePrestamo(prees);
+            carga();
+            //isSelect = false;
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
     }//GEN-LAST:event_btnEliminarPrestamoActionPerformed
 
     private void btnNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoPrestamoActionPerformed
         new JfrmPrestamoCrud().setVisible(true);
     }//GEN-LAST:event_btnNuevoPrestamoActionPerformed
 
-    
+
     private void cmbEdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEdoActionPerformed
 
         carga2(cmbEdo.getSelectedIndex());
     }//GEN-LAST:event_cmbEdoActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

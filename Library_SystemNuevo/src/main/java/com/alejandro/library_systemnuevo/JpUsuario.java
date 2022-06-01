@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import utilidades.GestionColumnas;
+import utilidades.GestionEncabezadoTabla;
 
 /**
  *
@@ -49,7 +52,7 @@ public class JpUsuario extends javax.swing.JPanel {
         cmbRol = new javax.swing.JComboBox();
         btnRegistrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_Usuario = new javax.swing.JTable();
         btnEliminar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -97,7 +100,7 @@ public class JpUsuario extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_Usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -108,7 +111,7 @@ public class JpUsuario extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbl_Usuario);
 
         btnEliminar.setBackground(new java.awt.Color(255, 51, 51));
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
@@ -184,8 +187,8 @@ public class JpUsuario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-        public void carga() {
-        String titulos[] = {"Id", "Usuario","Contraseña", "Rol"};
+    public void carga() {
+        String titulos[] = {"Id", "Usuario", "Contraseña", "Rol"};
         //Ejemplosdearreglos
         Double numero[] = new Double[5];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
@@ -205,9 +208,21 @@ public class JpUsuario extends javax.swing.JPanel {
             fila[3] = estBucle.getRol();
             df.addRow(fila);
         }
-        jTable1.setModel(df);}
-    
-    
+        tbl_Usuario.setModel(df);
+
+        tbl_Usuario.getTableHeader().setReorderingAllowed(false);
+        tbl_Usuario.setRowHeight(30);
+        tbl_Usuario.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = tbl_Usuario.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        tbl_Usuario.setTableHeader(jtableHeader);
+
+        tbl_Usuario.setDefaultRenderer(Object.class, new GestionColumnas());
+    }
+
+
     private void cmbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRolActionPerformed
 
     }//GEN-LAST:event_cmbRolActionPerformed
@@ -247,18 +262,19 @@ public class JpUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        if (jTable1.getSelectedRowCount() > 0) {         
+        if (tbl_Usuario.getSelectedRowCount() > 0) {
             user us = new user();
             Login lgDAO = new Login();
-            
-            int selectedRow =jTable1.getSelectedRow();
-            if(selectedRow !=0){
-            us.setIdUsuario(Integer.parseInt(jTable1.getValueAt(selectedRow, 0).toString()));
 
-             lgDAO.DeleteUser(us);
-             carga();
-            } else{
-            JOptionPane.showMessageDialog(null, "El usuario seleccionado no se puede eliminar");}
+            int selectedRow = tbl_Usuario.getSelectedRow();
+            if (selectedRow != 0) {
+                us.setIdUsuario(Integer.parseInt(tbl_Usuario.getValueAt(selectedRow, 0).toString()));
+
+                lgDAO.DeleteUser(us);
+                carga();
+            } else {
+                JOptionPane.showMessageDialog(null, "El usuario seleccionado no se puede eliminar");
+            }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -273,7 +289,7 @@ public class JpUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbl_Usuario;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JPasswordField txtPassword2;
     private javax.swing.JTextField txtUsuario;
