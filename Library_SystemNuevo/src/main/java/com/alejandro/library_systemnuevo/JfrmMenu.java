@@ -25,23 +25,21 @@ public class JfrmMenu extends javax.swing.JFrame {
     public JfrmMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
         lblBanner.setIcon(new ImageIcon(imagenBanner.getImage().getScaledInstance(lblBanner.getWidth(), lblBanner.getHeight(), Image.SCALE_SMOOTH)));
         lblBanner.setBackground(btnLibro.getBackground());
-        
+
         lblLogo.setIcon(new ImageIcon(imagenLogo.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_SMOOTH)));
     }
-    
+
     final ImageIcon imagenBanner = new ImageIcon(getClass().getResource("/Imagenes/banner.png"));
     final ImageIcon imagenLogo = new ImageIcon(getClass().getResource("/Imagenes/logo.png"));
-    
-    
-    
+
     @Override
-    public Image getIconImage () {
-        
+    public Image getIconImage() {
+
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpeg"));
-        
+
         return retValue;
     }
 
@@ -90,6 +88,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnLibro.setBorderPainted(false);
         btnLibro.setContentAreaFilled(false);
         btnLibro.setFocusPainted(false);
+        btnLibro.setFocusable(false);
         btnLibro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnLibro.setOpaque(true);
         btnLibro.setRequestFocusEnabled(false);
@@ -97,6 +96,20 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnLibro.addHierarchyListener(new java.awt.event.HierarchyListener() {
             public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
                 btnLibroHierarchyChanged(evt);
+            }
+        });
+        btnLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLibroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLibroMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnLibroMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnLibroMouseReleased(evt);
             }
         });
         btnLibro.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +128,20 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnCompra.setContentAreaFilled(false);
         btnCompra.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnCompra.setOpaque(true);
+        btnCompra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCompraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCompraMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCompraMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnCompraMouseReleased(evt);
+            }
+        });
         btnCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompraActionPerformed(evt);
@@ -131,6 +158,20 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnEditoriales.setContentAreaFilled(false);
         btnEditoriales.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnEditoriales.setOpaque(true);
+        btnEditoriales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEditorialesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEditorialesMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEditorialesMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnEditorialesMouseReleased(evt);
+            }
+        });
         btnEditoriales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditorialesActionPerformed(evt);
@@ -147,6 +188,20 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnClientes.setContentAreaFilled(false);
         btnClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnClientes.setOpaque(true);
+        btnClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnClientesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnClientesMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnClientesMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnClientesMouseReleased(evt);
+            }
+        });
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClientesActionPerformed(evt);
@@ -163,6 +218,20 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnVentas.setContentAreaFilled(false);
         btnVentas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnVentas.setOpaque(true);
+        btnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVentasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVentasMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnVentasMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnVentasMouseReleased(evt);
+            }
+        });
         btnVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVentasActionPerformed(evt);
@@ -179,6 +248,20 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnPrestamo.setContentAreaFilled(false);
         btnPrestamo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnPrestamo.setOpaque(true);
+        btnPrestamo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPrestamoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPrestamoMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnPrestamoMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnPrestamoMouseReleased(evt);
+            }
+        });
         btnPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrestamoActionPerformed(evt);
@@ -195,6 +278,20 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnLector.setContentAreaFilled(false);
         btnLector.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnLector.setOpaque(true);
+        btnLector.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLectorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLectorMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnLectorMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnLectorMouseReleased(evt);
+            }
+        });
         btnLector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLectorActionPerformed(evt);
@@ -211,6 +308,20 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnEscritor1.setContentAreaFilled(false);
         btnEscritor1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnEscritor1.setOpaque(true);
+        btnEscritor1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEscritor1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEscritor1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEscritor1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnEscritor1MouseReleased(evt);
+            }
+        });
         btnEscritor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEscritor1ActionPerformed(evt);
@@ -227,6 +338,20 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnUsuarios.setContentAreaFilled(false);
         btnUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnUsuarios.setOpaque(true);
+        btnUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUsuariosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnUsuariosMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnUsuariosMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnUsuariosMouseReleased(evt);
+            }
+        });
         btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuariosActionPerformed(evt);
@@ -402,22 +527,23 @@ public class JfrmMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     JPanel currentPanel;
-    public void showJPanel(JPanel form){
+
+    public void showJPanel(JPanel form) {
         //currentPanel = null;
-        if (currentPanel==null) {
-            
+        if (currentPanel == null) {
+
             currentPanel = form;
             //form.setLocation(0,0);
-            JpMain.removeAll(); 
+            JpMain.removeAll();
             form.setSize(JpMain.getWidth(), JpMain.getHeight());
-            
+
             JpMain.add(form, BorderLayout.CENTER);
             JpMain.revalidate();
-            JpMain.repaint();          
-            
+            JpMain.repaint();
+
         }
-    } 
- 
+    }
+
     private void btnLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibroActionPerformed
         currentPanel = null;
         showJPanel(new JpLibro(formMain));
@@ -432,17 +558,16 @@ public class JfrmMenu extends javax.swing.JFrame {
 
     private void JpMainComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_JpMainComponentResized
         if (currentPanel != null) {
-            
-            JpMain.removeAll(); 
+
+            JpMain.removeAll();
             currentPanel.setSize(JpMain.getWidth(), JpMain.getHeight());
-            
+
             JpMain.add(currentPanel, BorderLayout.CENTER);
             JpMain.revalidate();
             JpMain.repaint();
             //System.out.println(JpMain.getWidth()+" "+JpMain.getHeight());       
         }
-        
-        
+
 
     }//GEN-LAST:event_JpMainComponentResized
     JfrmMenu formMain = this;
@@ -497,27 +622,178 @@ public class JfrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_lblMinimizeMouseClicked
 
     private void lblResizableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblResizableMouseClicked
-        if(this.getExtendedState()==6){
+        if (this.getExtendedState() == 6) {
             this.setExtendedState(0);
-        }else{
-        this.setExtendedState(6);
-        
+        } else {
+            this.setExtendedState(6);
+
         }
     }//GEN-LAST:event_lblResizableMouseClicked
 
     private int x;
     private int y;
-    
+
     private void lblBannerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBannerMouseDragged
 
     }//GEN-LAST:event_lblBannerMouseDragged
 
     private void JPBannerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPBannerMouseDragged
-        x=evt.getX();
-        y= evt.getY();
+        x = evt.getX();
+        y = evt.getY();
 
-        this.setLocation(evt.getXOnScreen()-x, evt.getYOnScreen()-y);
+        this.setLocation(evt.getXOnScreen() - x, evt.getYOnScreen() - y);
     }//GEN-LAST:event_JPBannerMouseDragged
+
+    private void btnLibroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibroMouseEntered
+        btnLibro.setBackground(new Color(75, 163, 252));
+
+    }//GEN-LAST:event_btnLibroMouseEntered
+
+    private void btnLibroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibroMouseExited
+        btnLibro.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnLibroMouseExited
+
+    private void btnLibroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibroMousePressed
+        btnLibro.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnLibroMousePressed
+
+    private void btnLibroMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibroMouseReleased
+        btnLibro.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnLibroMouseReleased
+
+
+    private void btnCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompraMouseEntered
+        btnCompra.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnCompraMouseEntered
+
+    private void btnCompraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompraMouseExited
+        btnCompra.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnCompraMouseExited
+
+    private void btnCompraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompraMousePressed
+        btnCompra.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnCompraMousePressed
+
+    private void btnCompraMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCompraMouseReleased
+        btnCompra.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnCompraMouseReleased
+
+
+    private void btnEditorialesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditorialesMouseEntered
+        btnEditoriales.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnEditorialesMouseEntered
+
+    private void btnEditorialesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditorialesMouseExited
+        btnEditoriales.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnEditorialesMouseExited
+
+    private void btnEditorialesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditorialesMousePressed
+        btnEditoriales.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnEditorialesMousePressed
+
+    private void btnEditorialesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditorialesMouseReleased
+        btnEditoriales.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnEditorialesMouseReleased
+
+
+    private void btnClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseEntered
+        btnClientes.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnClientesMouseEntered
+
+    private void btnClientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseExited
+        btnClientes.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnClientesMouseExited
+
+    private void btnClientesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMousePressed
+        btnClientes.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnClientesMousePressed
+
+    private void btnClientesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClientesMouseReleased
+        btnClientes.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnClientesMouseReleased
+
+
+    private void btnVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseEntered
+        btnVentas.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnVentasMouseEntered
+
+    private void btnVentasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseExited
+        btnVentas.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnVentasMouseExited
+
+    private void btnVentasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMousePressed
+        btnVentas.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnVentasMousePressed
+
+    private void btnVentasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseReleased
+        btnVentas.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnVentasMouseReleased
+
+
+    private void btnLectorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLectorMouseEntered
+        btnLector.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnLectorMouseEntered
+
+    private void btnLectorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLectorMouseExited
+        btnLector.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnLectorMouseExited
+
+    private void btnLectorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLectorMousePressed
+        btnLector.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnLectorMousePressed
+
+    private void btnLectorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLectorMouseReleased
+        btnLector.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnLectorMouseReleased
+
+
+    private void btnPrestamoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrestamoMouseEntered
+        btnPrestamo.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnPrestamoMouseEntered
+
+    private void btnPrestamoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrestamoMouseExited
+        btnPrestamo.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnPrestamoMouseExited
+
+    private void btnPrestamoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrestamoMousePressed
+        btnPrestamo.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnPrestamoMousePressed
+
+    private void btnPrestamoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrestamoMouseReleased
+        btnPrestamo.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnPrestamoMouseReleased
+
+    private void btnEscritor1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEscritor1MouseEntered
+        btnEscritor1.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnEscritor1MouseEntered
+
+    private void btnEscritor1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEscritor1MouseExited
+        btnEscritor1.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnEscritor1MouseExited
+
+    private void btnEscritor1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEscritor1MousePressed
+        btnEscritor1.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnEscritor1MousePressed
+
+    private void btnEscritor1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEscritor1MouseReleased
+        btnEscritor1.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnEscritor1MouseReleased
+
+    private void btnUsuariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseEntered
+        btnUsuarios.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnUsuariosMouseEntered
+
+    private void btnUsuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseExited
+        btnUsuarios.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnUsuariosMouseExited
+
+    private void btnUsuariosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMousePressed
+        btnUsuarios.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnUsuariosMousePressed
+
+    private void btnUsuariosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuariosMouseReleased
+        btnUsuarios.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnUsuariosMouseReleased
 
     /**
      * @param args the command line arguments
