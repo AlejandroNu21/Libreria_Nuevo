@@ -6,6 +6,7 @@ package com.alejandro.library_systemnuevo;
 
 import Beans.Editorials;
 import Entidades.Editorial;
+import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
@@ -50,7 +51,6 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
         lblInCl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(470, 300));
         setMinimumSize(new java.awt.Dimension(470, 300));
         setUndecorated(true);
         setResizable(false);
@@ -100,7 +100,22 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.setContentAreaFilled(false);
+        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregar.setOpaque(true);
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseReleased(evt);
+            }
+        });
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -237,6 +252,11 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCodigoEditorialKeyTyped
 
     private void txtTelefonoEditorialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoEditorialKeyTyped
+        char c = evt.getKeyChar();
+
+        if (c < '0' || c > '9')
+            evt.consume();
+        
         if(txtTelefonoEditorial.getText().length() >= 8){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -286,6 +306,22 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
     private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
         this.dispose();
     }//GEN-LAST:event_lblCerrarMouseClicked
+
+    private void btnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseEntered
+       btnAgregar.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnAgregarMouseEntered
+
+    private void btnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseExited
+        btnAgregar.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnAgregarMouseExited
+
+    private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
+        btnAgregar.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnAgregarMousePressed
+
+    private void btnAgregarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseReleased
+       btnAgregar.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnAgregarMouseReleased
 
     /**
      * @param args the command line arguments

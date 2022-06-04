@@ -6,6 +6,7 @@ package com.alejandro.library_systemnuevo;
 
 import Beans.Lectores;
 import Entidades.Lector;
+import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
@@ -116,7 +117,22 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
         btnAgregar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnAgregar2.setText("Agregar");
         btnAgregar2.setContentAreaFilled(false);
+        btnAgregar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregar2.setOpaque(true);
+        btnAgregar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregar2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregar2MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregar2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnAgregar2MouseReleased(evt);
+            }
+        });
         btnAgregar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregar2ActionPerformed(evt);
@@ -254,6 +270,11 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEdadLectorKeyTyped
 
     private void txtTelefonoLectorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoLectorKeyTyped
+        char c = evt.getKeyChar();
+
+        if (c < '0' || c > '9')
+            evt.consume();
+
         if(txtTelefonoLector.getText().length() >= 8){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -261,6 +282,7 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTelefonoLectorKeyTyped
 
     private void txtCodigoLectorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoLectorKeyTyped
+       
         if(txtCodigoLector.getText().length() >= 8){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -313,6 +335,22 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
     private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
         this.dispose();
     }//GEN-LAST:event_lblCerrarMouseClicked
+
+    private void btnAgregar2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar2MouseEntered
+        btnAgregar2.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnAgregar2MouseEntered
+
+    private void btnAgregar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar2MouseExited
+        btnAgregar2.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnAgregar2MouseExited
+
+    private void btnAgregar2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar2MousePressed
+       btnAgregar2.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnAgregar2MousePressed
+
+    private void btnAgregar2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregar2MouseReleased
+        btnAgregar2.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnAgregar2MouseReleased
 
     /**
      * @param args the command line arguments

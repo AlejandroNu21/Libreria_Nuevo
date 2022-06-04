@@ -23,6 +23,7 @@ import javax.swing.table.DefaultTableModel;
 import Entidades.Enums.*;
 import Modelo.Imagenes;
 import com.Library.BD.ConexionAMYSQL;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -79,7 +80,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         lblImagen = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnSeleccionarAvatarLibro = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         CmbCat = new javax.swing.JComboBox<>();
         CmbGen = new javax.swing.JComboBox<>();
         CmbSub = new javax.swing.JComboBox<>();
@@ -145,15 +146,30 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(61, 90, 128));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
-        jButton1.setText("Guardar");
-        jButton1.setContentAreaFilled(false);
-        jButton1.setOpaque(true);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setBackground(new java.awt.Color(61, 90, 128));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
+        btnGuardar.setText("Guardar");
+        btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.setOpaque(true);
+        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnGuardarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseReleased(evt);
+            }
+        });
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -239,7 +255,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -348,7 +364,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                                 .addGap(15, 15, 15)
                                 .addComponent(jLabel17)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -476,7 +492,7 @@ void CargaCmb() {
         }
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         Libro lib = new Libro();
         Libros lbDAO = new Libros();
@@ -520,7 +536,7 @@ void CargaCmb() {
 
            jpL.carga();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
     
     
     int IdEditorial[];
@@ -571,6 +587,22 @@ void CargaCmb() {
         mostrarImagenLibro();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseEntered
+        btnGuardar.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnGuardarMouseEntered
+
+    private void btnGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseExited
+        btnGuardar.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnGuardarMouseExited
+
+    private void btnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMousePressed
+        btnGuardar.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnGuardarMousePressed
+
+    private void btnGuardarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseReleased
+          btnGuardar.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnGuardarMouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -617,8 +649,8 @@ void CargaCmb() {
     public javax.swing.JComboBox<String> CmbGen;
     public javax.swing.JComboBox<String> CmbSub;
     private javax.swing.JButton btnFEdi;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSeleccionarAvatarLibro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

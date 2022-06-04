@@ -9,6 +9,7 @@ import Beans.Libros;
 import Beans.Prestamos;
 import Entidades.Enums.prestamoType;
 import Entidades.Prestamo;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,7 +37,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         jLabel54 = new javax.swing.JLabel();
         txtIdPrestamo = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
@@ -63,15 +64,30 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton6.setBackground(new java.awt.Color(61, 90, 128));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
-        jButton6.setText("Registrar");
-        jButton6.setContentAreaFilled(false);
-        jButton6.setOpaque(true);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(61, 90, 128));
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
+        btnAgregar.setText("Registrar");
+        btnAgregar.setContentAreaFilled(false);
+        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgregar.setOpaque(true);
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAgregarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseReleased(evt);
+            }
+        });
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
@@ -188,7 +204,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
                                         .addComponent(JDCFprestamo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(108, 108, 108)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(64, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -227,7 +243,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
                     .addComponent(jLabel59)
                     .addComponent(cmbDevuelto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -260,7 +276,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
     
     
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         Prestamo pr = new Prestamo();
         Prestamos PrDao = new Prestamos();
 
@@ -295,7 +311,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
             jpP.carga();
         }
 
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
        
     
     int IdLector[];
@@ -343,6 +359,22 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_lblCerrarMouseClicked
 
+    private void btnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseEntered
+        btnAgregar.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnAgregarMouseEntered
+
+    private void btnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseExited
+         btnAgregar.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnAgregarMouseExited
+
+    private void btnAgregarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMousePressed
+        btnAgregar.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnAgregarMousePressed
+
+    private void btnAgregarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseReleased
+        btnAgregar.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnAgregarMouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -385,10 +417,10 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> CmbFLib;
     public com.toedter.calendar.JDateChooser JDCFDev;
     public com.toedter.calendar.JDateChooser JDCFprestamo;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnMCl;
     private javax.swing.JButton btnMLi;
     public javax.swing.JComboBox<String> cmbDevuelto;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;

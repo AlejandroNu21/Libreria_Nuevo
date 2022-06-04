@@ -6,6 +6,7 @@ package com.alejandro.library_systemnuevo;
 
 import Beans.Cliente;
 import Entidades.clientes;
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -134,7 +135,22 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.setOpaque(true);
+        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnGuardarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseReleased(evt);
+            }
+        });
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -326,8 +342,8 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-            public void limpiar() {
+
+    public void limpiar() {
         txtIdCliente.setText("");
         txtCodigoCliente.setText("");
         txtNombreCliente.setText("");
@@ -337,12 +353,12 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
         txtTelefonoCliente.setText("");
         txtCodigoCliente.requestFocus();
     }
-            
+
     private void txtEdadClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadClienteKeyTyped
         char c = evt.getKeyChar();
 
         if (c < '0' || c > '9')
-        evt.consume();
+            evt.consume();
     }//GEN-LAST:event_txtEdadClienteKeyTyped
 
     private void txtDireccionClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionClienteActionPerformed
@@ -353,30 +369,36 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
         String Ruta = "";
 
         JFileChooser jFileChooser = new JFileChooser();
-        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif" );
+        FileNameExtensionFilter filtrado = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         jFileChooser.setFileFilter(filtrado);
 
         int respuesta = jFileChooser.showOpenDialog(this);
 
-        if(respuesta == JFileChooser.APPROVE_OPTION){
-            Ruta =jFileChooser.getSelectedFile().getPath();
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+            Ruta = jFileChooser.getSelectedFile().getPath();
 
             Image mImagen = new ImageIcon(Ruta).getImage();
-            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblAvatar.getWidth(),lblAvatar.getHeight(), Image.SCALE_SMOOTH));
+            ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblAvatar.getWidth(), lblAvatar.getHeight(), Image.SCALE_SMOOTH));
             lblAvatar.setIcon(mIcono);
 
         }
     }//GEN-LAST:event_btnSeleccionarAvatarClienteActionPerformed
 
     private void txtTelefonoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoClienteKeyTyped
-        if(txtTelefonoCliente.getText().length() >= 8){
+        char c = evt.getKeyChar();
+
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+
+        if (txtTelefonoCliente.getText().length() >= 8) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtTelefonoClienteKeyTyped
 
     private void txtCodigoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoClienteKeyTyped
-        if(txtCodigoCliente.getText().length() >= 8){
+        if (txtCodigoCliente.getText().length() >= 8) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -385,41 +407,41 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         clientes cl = new clientes();
         Cliente clDAO = new Cliente();
-    
+
         if (txtCodigoCliente.getText().equals("") || txtNombreCliente.getText().equals("")
-            || txtApellidoCliente.getText().equals("") || txtEdadCliente.getText().equals("")
-                || txtDireccionCliente.getText().equals("")|| txtTelefonoCliente.getText().equals("")) {
+                || txtApellidoCliente.getText().equals("") || txtEdadCliente.getText().equals("")
+                || txtDireccionCliente.getText().equals("") || txtTelefonoCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
-            
-        } else { 
-            if(txtIdCliente.getText().equals("")){
 
-        cl.setCodigoCliente(txtCodigoCliente.getText());
-        cl.setNombreCliente(txtNombreCliente.getText());
-        cl.setApellidoCliente(txtApellidoCliente.getText());
-        cl.setEdad(txtEdadCliente.getText());
-        cl.setDireccion(txtDireccionCliente.getText());
-        cl.setTelefono(txtTelefonoCliente.getText());
-        clDAO.AddCliente(cl);
-        limpiar();
-            
-            }else{
+        } else {
+            if (txtIdCliente.getText().equals("")) {
 
-            cl.setIdCliente(Integer.parseInt(txtIdCliente.getText()));
-            cl.setCodigoCliente(txtCodigoCliente.getText());
-            cl.setNombreCliente(txtNombreCliente.getText());
-            cl.setApellidoCliente(txtApellidoCliente.getText());
-            cl.setEdad(txtEdadCliente.getText());
-            cl.setDireccion(txtDireccionCliente.getText());
-            cl.setTelefono(txtTelefonoCliente.getText());
+                cl.setCodigoCliente(txtCodigoCliente.getText());
+                cl.setNombreCliente(txtNombreCliente.getText());
+                cl.setApellidoCliente(txtApellidoCliente.getText());
+                cl.setEdad(txtEdadCliente.getText());
+                cl.setDireccion(txtDireccionCliente.getText());
+                cl.setTelefono(txtTelefonoCliente.getText());
+                clDAO.AddCliente(cl);
+                limpiar();
 
-            clDAO.UpdateCliente(cl);
+            } else {
+
+                cl.setIdCliente(Integer.parseInt(txtIdCliente.getText()));
+                cl.setCodigoCliente(txtCodigoCliente.getText());
+                cl.setNombreCliente(txtNombreCliente.getText());
+                cl.setApellidoCliente(txtApellidoCliente.getText());
+                cl.setEdad(txtEdadCliente.getText());
+                cl.setDireccion(txtDireccionCliente.getText());
+                cl.setTelefono(txtTelefonoCliente.getText());
+
+                clDAO.UpdateCliente(cl);
 
                 this.setVisible(false);
-                
+
             }
             jpC.carga();
-            
+
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -430,6 +452,22 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
     private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
         this.dispose();
     }//GEN-LAST:event_lblCerrarMouseClicked
+
+    private void btnGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseEntered
+         btnGuardar.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnGuardarMouseEntered
+
+    private void btnGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseExited
+        btnGuardar.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnGuardarMouseExited
+
+    private void btnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMousePressed
+        btnGuardar.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnGuardarMousePressed
+
+    private void btnGuardarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseReleased
+        btnGuardar.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnGuardarMouseReleased
 
     /**
      * @param args the command line arguments
@@ -466,8 +504,8 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
             }
         });
     }
-    public JpCustomer jpC ;
-    
+    public JpCustomer jpC;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSeleccionarAvatarCliente;

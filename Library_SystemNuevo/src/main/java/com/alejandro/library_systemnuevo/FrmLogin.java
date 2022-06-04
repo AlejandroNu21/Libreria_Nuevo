@@ -6,6 +6,7 @@ package com.alejandro.library_systemnuevo;
 
 import Beans.Login;
 import Entidades.user;
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -84,6 +85,21 @@ public class FrmLogin extends javax.swing.JFrame {
         btnIngresarLogin.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         btnIngresarLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresarLogin.setText("Ingresar");
+        btnIngresarLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIngresarLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnIngresarLoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnIngresarLoginMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnIngresarLoginMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnIngresarLoginMouseReleased(evt);
+            }
+        });
         btnIngresarLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarLoginActionPerformed(evt);
@@ -256,6 +272,22 @@ public class FrmLogin extends javax.swing.JFrame {
         JfrmInformacion info = new JfrmInformacion();
         info.setVisible(true);        
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void btnIngresarLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarLoginMouseEntered
+        btnIngresarLogin.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnIngresarLoginMouseEntered
+
+    private void btnIngresarLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarLoginMouseExited
+        btnIngresarLogin.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_btnIngresarLoginMouseExited
+
+    private void btnIngresarLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarLoginMousePressed
+        btnIngresarLogin.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnIngresarLoginMousePressed
+
+    private void btnIngresarLoginMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarLoginMouseReleased
+        btnIngresarLogin.setBackground(new Color(0,102,102));
+    }//GEN-LAST:event_btnIngresarLoginMouseReleased
 
     /**
      * @param args the command line arguments

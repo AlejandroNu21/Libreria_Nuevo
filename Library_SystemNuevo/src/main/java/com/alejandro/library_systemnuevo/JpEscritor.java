@@ -7,6 +7,7 @@ package com.alejandro.library_systemnuevo;
 import Beans.Escritores;
 import javax.swing.JPanel;
 import Entidades.Escritor;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -67,7 +68,7 @@ public class JpEscritor extends javax.swing.JPanel {
         TblEscritor.setDefaultRenderer(Object.class, new GestionColumnas());
     }
 
-        public void cargaBusq() {
+    public void cargaBusq() {
         String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Pais"};
         //Ejemplosdearreglos
         Double numero[] = new Double[5];
@@ -103,6 +104,7 @@ public class JpEscritor extends javax.swing.JPanel {
 
         TblEscritor.setDefaultRenderer(Object.class, new GestionColumnas());
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,7 +134,22 @@ public class JpEscritor extends javax.swing.JPanel {
         btnNuevoEscritor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoEscritor.setText("Nuevo");
         btnNuevoEscritor.setContentAreaFilled(false);
+        btnNuevoEscritor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNuevoEscritor.setOpaque(true);
+        btnNuevoEscritor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnNuevoEscritorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnNuevoEscritorMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnNuevoEscritorMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnNuevoEscritorMouseReleased(evt);
+            }
+        });
         btnNuevoEscritor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoEscritorActionPerformed(evt);
@@ -171,7 +188,22 @@ public class JpEscritor extends javax.swing.JPanel {
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnUpdate.setText("Actualizar");
         btnUpdate.setContentAreaFilled(false);
+        btnUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUpdate.setOpaque(true);
+        btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnUpdateMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseReleased(evt);
+            }
+        });
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -184,7 +216,22 @@ public class JpEscritor extends javax.swing.JPanel {
         btnEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btnEliminar1.setText("Eliminar");
         btnEliminar1.setContentAreaFilled(false);
+        btnEliminar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar1.setOpaque(true);
+        btnEliminar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminar1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminar1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEliminar1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnEliminar1MouseReleased(evt);
+            }
+        });
         btnEliminar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminar1ActionPerformed(evt);
@@ -196,7 +243,22 @@ public class JpEscritor extends javax.swing.JPanel {
         btnDatosEscritor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/profiles.png"))); // NOI18N
         btnDatosEscritor.setText("Datos de escritor");
         btnDatosEscritor.setContentAreaFilled(false);
+        btnDatosEscritor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDatosEscritor.setOpaque(true);
+        btnDatosEscritor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDatosEscritorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDatosEscritorMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnDatosEscritorMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnDatosEscritorMouseReleased(evt);
+            }
+        });
         btnDatosEscritor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDatosEscritorActionPerformed(evt);
@@ -208,7 +270,22 @@ public class JpEscritor extends javax.swing.JPanel {
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
         btnBusqueda.setText("Buscar");
         btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBusqueda.setOpaque(true);
+        btnBusqueda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBusquedaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBusquedaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBusquedaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnBusquedaMouseReleased(evt);
+            }
+        });
         btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBusquedaActionPerformed(evt);
@@ -360,6 +437,86 @@ public class JpEscritor extends javax.swing.JPanel {
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
         cargaBusq();
     }//GEN-LAST:event_btnBusquedaActionPerformed
+
+    private void btnBusquedaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseEntered
+        btnBusqueda.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnBusquedaMouseEntered
+
+    private void btnBusquedaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseExited
+        btnBusqueda.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnBusquedaMouseExited
+
+    private void btnBusquedaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMousePressed
+        btnBusqueda.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnBusquedaMousePressed
+
+    private void btnBusquedaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseReleased
+        btnBusqueda.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnBusquedaMouseReleased
+
+    private void btnNuevoEscritorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoEscritorMouseEntered
+        btnNuevoEscritor.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnNuevoEscritorMouseEntered
+
+    private void btnNuevoEscritorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoEscritorMouseExited
+        btnNuevoEscritor.setBackground(new Color(0, 153, 51));
+    }//GEN-LAST:event_btnNuevoEscritorMouseExited
+
+    private void btnNuevoEscritorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoEscritorMousePressed
+        btnNuevoEscritor.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnNuevoEscritorMousePressed
+
+    private void btnNuevoEscritorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoEscritorMouseReleased
+        btnNuevoEscritor.setBackground(new Color(0, 153, 51));
+    }//GEN-LAST:event_btnNuevoEscritorMouseReleased
+
+    private void btnDatosEscritorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosEscritorMouseEntered
+        btnDatosEscritor.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnDatosEscritorMouseEntered
+
+    private void btnDatosEscritorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosEscritorMouseExited
+       btnDatosEscritor.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnDatosEscritorMouseExited
+
+    private void btnDatosEscritorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosEscritorMousePressed
+        btnDatosEscritor.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnDatosEscritorMousePressed
+
+    private void btnDatosEscritorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosEscritorMouseReleased
+        btnDatosEscritor.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnDatosEscritorMouseReleased
+
+    private void btnUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseEntered
+         btnUpdate.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnUpdateMouseEntered
+
+    private void btnUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseExited
+        btnUpdate.setBackground(new Color(238,108,77));
+    }//GEN-LAST:event_btnUpdateMouseExited
+
+    private void btnUpdateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMousePressed
+        btnUpdate.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnUpdateMousePressed
+
+    private void btnUpdateMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseReleased
+        btnUpdate.setBackground(new Color(238,108,77));
+    }//GEN-LAST:event_btnUpdateMouseReleased
+
+    private void btnEliminar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminar1MouseEntered
+         btnEliminar1.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnEliminar1MouseEntered
+
+    private void btnEliminar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminar1MouseExited
+         btnEliminar1.setBackground(new Color(255,51,51));
+    }//GEN-LAST:event_btnEliminar1MouseExited
+
+    private void btnEliminar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminar1MousePressed
+        btnEliminar1.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnEliminar1MousePressed
+
+    private void btnEliminar1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminar1MouseReleased
+         btnEliminar1.setBackground(new Color(255,51,51));
+    }//GEN-LAST:event_btnEliminar1MouseReleased
 
     public boolean isSelect = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables

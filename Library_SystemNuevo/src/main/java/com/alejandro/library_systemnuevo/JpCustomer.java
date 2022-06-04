@@ -6,6 +6,7 @@ package com.alejandro.library_systemnuevo;
 
 import Beans.Cliente;
 import Entidades.clientes;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -67,7 +68,7 @@ public class JpCustomer extends javax.swing.JPanel {
         TblClientes.setDefaultRenderer(Object.class, new GestionColumnas());
     }
 
-        public void cargaBusqueda() {
+    public void cargaBusqueda() {
 
         String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
         //Ejemplosdearreglos
@@ -105,6 +106,7 @@ public class JpCustomer extends javax.swing.JPanel {
 
         TblClientes.setDefaultRenderer(Object.class, new GestionColumnas());
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,7 +150,22 @@ public class JpCustomer extends javax.swing.JPanel {
         btnNuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoCliente.setText("Nuevo");
         btnNuevoCliente.setContentAreaFilled(false);
+        btnNuevoCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNuevoCliente.setOpaque(true);
+        btnNuevoCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnNuevoClienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnNuevoClienteMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnNuevoClienteMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnNuevoClienteMouseReleased(evt);
+            }
+        });
         btnNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoClienteActionPerformed(evt);
@@ -160,7 +177,22 @@ public class JpCustomer extends javax.swing.JPanel {
         btnActualizarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnActualizarCliente.setText("Actualizar");
         btnActualizarCliente.setContentAreaFilled(false);
+        btnActualizarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnActualizarCliente.setOpaque(true);
+        btnActualizarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarClienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarClienteMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnActualizarClienteMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnActualizarClienteMouseReleased(evt);
+            }
+        });
         btnActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarClienteActionPerformed(evt);
@@ -172,7 +204,22 @@ public class JpCustomer extends javax.swing.JPanel {
         btnEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btnEliminarCliente.setText("Eliminar");
         btnEliminarCliente.setContentAreaFilled(false);
+        btnEliminarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminarCliente.setOpaque(true);
+        btnEliminarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarClienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarClienteMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEliminarClienteMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnEliminarClienteMouseReleased(evt);
+            }
+        });
         btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarClienteActionPerformed(evt);
@@ -184,7 +231,22 @@ public class JpCustomer extends javax.swing.JPanel {
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
         btnBusqueda.setText("Buscar");
         btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBusqueda.setOpaque(true);
+        btnBusqueda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBusquedaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBusquedaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnBusquedaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnBusquedaMouseReleased(evt);
+            }
+        });
         btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBusquedaActionPerformed(evt);
@@ -286,6 +348,70 @@ public class JpCustomer extends javax.swing.JPanel {
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
         cargaBusqueda();
     }//GEN-LAST:event_btnBusquedaActionPerformed
+
+    private void btnBusquedaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseEntered
+        btnBusqueda.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnBusquedaMouseEntered
+
+    private void btnBusquedaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseExited
+        btnBusqueda.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnBusquedaMouseExited
+
+    private void btnBusquedaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMousePressed
+        btnBusqueda.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnBusquedaMousePressed
+
+    private void btnBusquedaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseReleased
+        btnBusqueda.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnBusquedaMouseReleased
+
+    private void btnNuevoClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoClienteMouseEntered
+        btnNuevoCliente.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnNuevoClienteMouseEntered
+
+    private void btnNuevoClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoClienteMouseExited
+        btnNuevoCliente.setBackground(new Color(0, 153, 51));
+    }//GEN-LAST:event_btnNuevoClienteMouseExited
+
+    private void btnNuevoClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoClienteMousePressed
+        btnNuevoCliente.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnNuevoClienteMousePressed
+
+    private void btnNuevoClienteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoClienteMouseReleased
+        btnNuevoCliente.setBackground(new Color(0, 153, 51));
+    }//GEN-LAST:event_btnNuevoClienteMouseReleased
+
+    private void btnActualizarClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarClienteMouseEntered
+        btnActualizarCliente.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnActualizarClienteMouseEntered
+
+    private void btnActualizarClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarClienteMouseExited
+        btnActualizarCliente.setBackground(new Color(238, 108, 77));
+    }//GEN-LAST:event_btnActualizarClienteMouseExited
+
+    private void btnActualizarClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarClienteMousePressed
+        btnActualizarCliente.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnActualizarClienteMousePressed
+
+    private void btnActualizarClienteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarClienteMouseReleased
+        btnActualizarCliente.setBackground(new Color(238, 108, 77));
+    }//GEN-LAST:event_btnActualizarClienteMouseReleased
+
+    private void btnEliminarClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarClienteMouseEntered
+        btnEliminarCliente.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnEliminarClienteMouseEntered
+
+    private void btnEliminarClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarClienteMouseExited
+        btnEliminarCliente.setBackground(new Color(255,51,51));
+    }//GEN-LAST:event_btnEliminarClienteMouseExited
+
+    private void btnEliminarClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarClienteMousePressed
+        btnEliminarCliente.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnEliminarClienteMousePressed
+
+    private void btnEliminarClienteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarClienteMouseReleased
+         btnEliminarCliente.setBackground(new Color(255,51,51));
+    }//GEN-LAST:event_btnEliminarClienteMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

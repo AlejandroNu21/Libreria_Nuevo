@@ -9,6 +9,7 @@ import Beans.Editorials;
 import Entidades.DatosEscritor;
 import Entidades.Editorial;
 import Entidades.Escritor;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -144,7 +145,22 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/back.png"))); // NOI18N
         btnRegresar.setText("Regresar");
         btnRegresar.setContentAreaFilled(false);
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegresar.setOpaque(true);
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnRegresarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnRegresarMouseReleased(evt);
+            }
+        });
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
@@ -170,7 +186,22 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         btnIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/floppy-disk.png"))); // NOI18N
         btnIngresar.setText("Ingresar");
         btnIngresar.setContentAreaFilled(false);
+        btnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIngresar.setOpaque(true);
+        btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnIngresarMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseReleased(evt);
+            }
+        });
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarActionPerformed(evt);
@@ -187,7 +218,22 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         btnUDL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnUDL.setText("Actualizar");
         btnUDL.setContentAreaFilled(false);
+        btnUDL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUDL.setOpaque(true);
+        btnUDL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUDLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnUDLMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnUDLMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnUDLMouseReleased(evt);
+            }
+        });
         btnUDL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUDLActionPerformed(evt);
@@ -200,7 +246,22 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         BtnEDL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash.png"))); // NOI18N
         BtnEDL.setText("Eliminar");
         BtnEDL.setContentAreaFilled(false);
+        BtnEDL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnEDL.setOpaque(true);
+        BtnEDL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnEDLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnEDLMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BtnEDLMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                BtnEDLMouseReleased(evt);
+            }
+        });
         BtnEDL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnEDLActionPerformed(evt);
@@ -434,6 +495,70 @@ public class JpDatosEscritor extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_BtnEDLActionPerformed
+
+    private void btnIngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseEntered
+        btnIngresar.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnIngresarMouseEntered
+
+    private void btnIngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseExited
+        btnIngresar.setBackground(new Color(0,153,51));
+    }//GEN-LAST:event_btnIngresarMouseExited
+
+    private void btnIngresarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMousePressed
+        btnIngresar.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnIngresarMousePressed
+
+    private void btnIngresarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseReleased
+        btnIngresar.setBackground(new Color(0,153,51));
+    }//GEN-LAST:event_btnIngresarMouseReleased
+
+    private void btnUDLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUDLMouseEntered
+        btnUDL.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnUDLMouseEntered
+
+    private void btnUDLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUDLMouseExited
+        btnUDL.setBackground(new Color(238,108,77));
+    }//GEN-LAST:event_btnUDLMouseExited
+
+    private void btnUDLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUDLMousePressed
+        btnUDL.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnUDLMousePressed
+
+    private void btnUDLMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUDLMouseReleased
+         btnUDL.setBackground(new Color(238,108,77));
+    }//GEN-LAST:event_btnUDLMouseReleased
+
+    private void BtnEDLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEDLMouseEntered
+        BtnEDL.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_BtnEDLMouseEntered
+
+    private void BtnEDLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEDLMouseExited
+         BtnEDL.setBackground(new Color(255,51,51));
+    }//GEN-LAST:event_BtnEDLMouseExited
+
+    private void BtnEDLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEDLMousePressed
+        BtnEDL.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_BtnEDLMousePressed
+
+    private void BtnEDLMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnEDLMouseReleased
+        BtnEDL.setBackground(new Color(255,51,51));
+    }//GEN-LAST:event_BtnEDLMouseReleased
+
+    private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
+         btnRegresar.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnRegresarMouseEntered
+
+    private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
+        btnRegresar.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnRegresarMouseExited
+
+    private void btnRegresarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMousePressed
+        btnRegresar.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnRegresarMousePressed
+
+    private void btnRegresarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseReleased
+        btnRegresar.setBackground(new Color(61,90,128));
+    }//GEN-LAST:event_btnRegresarMouseReleased
 
     public boolean isSelect = false;
 

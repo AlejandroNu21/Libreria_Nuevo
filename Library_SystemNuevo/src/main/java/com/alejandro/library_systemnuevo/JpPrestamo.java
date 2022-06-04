@@ -8,6 +8,7 @@ import Beans.Prestamos;
 import Entidades.Enums.prestamoType;
 import Entidades.Prestamo;
 import ViewModel.PrestamoVM;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -167,7 +168,22 @@ public class JpPrestamo extends javax.swing.JPanel {
         btnActualizarPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Update.png"))); // NOI18N
         btnActualizarPrestamo.setText("Actualizar");
         btnActualizarPrestamo.setContentAreaFilled(false);
+        btnActualizarPrestamo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnActualizarPrestamo.setOpaque(true);
+        btnActualizarPrestamo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnActualizarPrestamoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnActualizarPrestamoMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnActualizarPrestamoMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnActualizarPrestamoMouseReleased(evt);
+            }
+        });
         btnActualizarPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarPrestamoActionPerformed(evt);
@@ -179,7 +195,22 @@ public class JpPrestamo extends javax.swing.JPanel {
         btnEliminarPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trash (1).png"))); // NOI18N
         btnEliminarPrestamo.setText("Eliminar");
         btnEliminarPrestamo.setContentAreaFilled(false);
+        btnEliminarPrestamo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminarPrestamo.setOpaque(true);
+        btnEliminarPrestamo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarPrestamoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarPrestamoMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEliminarPrestamoMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnEliminarPrestamoMouseReleased(evt);
+            }
+        });
         btnEliminarPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarPrestamoActionPerformed(evt);
@@ -191,7 +222,22 @@ public class JpPrestamo extends javax.swing.JPanel {
         btnNuevoPrestamo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new-file.png"))); // NOI18N
         btnNuevoPrestamo.setText("Nuevo prestamo");
         btnNuevoPrestamo.setContentAreaFilled(false);
+        btnNuevoPrestamo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNuevoPrestamo.setOpaque(true);
+        btnNuevoPrestamo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnNuevoPrestamoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnNuevoPrestamoMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnNuevoPrestamoMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnNuevoPrestamoMouseReleased(evt);
+            }
+        });
         btnNuevoPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoPrestamoActionPerformed(evt);
@@ -302,6 +348,54 @@ public class JpPrestamo extends javax.swing.JPanel {
 
         carga2(cmbEdo.getSelectedIndex());
     }//GEN-LAST:event_cmbEdoActionPerformed
+
+    private void btnNuevoPrestamoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoPrestamoMouseEntered
+        btnNuevoPrestamo.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnNuevoPrestamoMouseEntered
+
+    private void btnNuevoPrestamoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoPrestamoMouseExited
+        btnNuevoPrestamo.setBackground(new Color(0, 153, 51));
+    }//GEN-LAST:event_btnNuevoPrestamoMouseExited
+
+    private void btnNuevoPrestamoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoPrestamoMousePressed
+        btnNuevoPrestamo.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnNuevoPrestamoMousePressed
+
+    private void btnNuevoPrestamoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoPrestamoMouseReleased
+        btnNuevoPrestamo.setBackground(new Color(0, 153, 51));
+    }//GEN-LAST:event_btnNuevoPrestamoMouseReleased
+
+    private void btnActualizarPrestamoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarPrestamoMouseEntered
+        btnActualizarPrestamo.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnActualizarPrestamoMouseEntered
+
+    private void btnActualizarPrestamoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarPrestamoMouseExited
+        btnActualizarPrestamo.setBackground(new Color(238, 108, 77));
+    }//GEN-LAST:event_btnActualizarPrestamoMouseExited
+
+    private void btnActualizarPrestamoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarPrestamoMousePressed
+        btnActualizarPrestamo.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnActualizarPrestamoMousePressed
+
+    private void btnActualizarPrestamoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarPrestamoMouseReleased
+        btnActualizarPrestamo.setBackground(new Color(238, 108, 77));
+    }//GEN-LAST:event_btnActualizarPrestamoMouseReleased
+
+    private void btnEliminarPrestamoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoMouseEntered
+        btnEliminarPrestamo.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnEliminarPrestamoMouseEntered
+
+    private void btnEliminarPrestamoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoMouseExited
+        btnEliminarPrestamo.setBackground(new Color(255, 51, 51));
+    }//GEN-LAST:event_btnEliminarPrestamoMouseExited
+
+    private void btnEliminarPrestamoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoMousePressed
+        btnEliminarPrestamo.setBackground(new Color(75, 163, 252));
+    }//GEN-LAST:event_btnEliminarPrestamoMousePressed
+
+    private void btnEliminarPrestamoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarPrestamoMouseReleased
+        btnEliminarPrestamo.setBackground(new Color(255, 51, 51));
+    }//GEN-LAST:event_btnEliminarPrestamoMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

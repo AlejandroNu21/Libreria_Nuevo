@@ -87,6 +87,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnLibro.setBorder(null);
         btnLibro.setBorderPainted(false);
         btnLibro.setContentAreaFilled(false);
+        btnLibro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLibro.setFocusPainted(false);
         btnLibro.setFocusable(false);
         btnLibro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -126,6 +127,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnCompra.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnCompra.setBorderPainted(false);
         btnCompra.setContentAreaFilled(false);
+        btnCompra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCompra.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnCompra.setOpaque(true);
         btnCompra.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -156,6 +158,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnEditoriales.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnEditoriales.setBorderPainted(false);
         btnEditoriales.setContentAreaFilled(false);
+        btnEditoriales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEditoriales.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnEditoriales.setOpaque(true);
         btnEditoriales.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,6 +189,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnClientes.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnClientes.setBorderPainted(false);
         btnClientes.setContentAreaFilled(false);
+        btnClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnClientes.setOpaque(true);
         btnClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -216,6 +220,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnVentas.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnVentas.setBorderPainted(false);
         btnVentas.setContentAreaFilled(false);
+        btnVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVentas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnVentas.setOpaque(true);
         btnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,6 +251,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnPrestamo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnPrestamo.setBorderPainted(false);
         btnPrestamo.setContentAreaFilled(false);
+        btnPrestamo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPrestamo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnPrestamo.setOpaque(true);
         btnPrestamo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -276,6 +282,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnLector.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnLector.setBorderPainted(false);
         btnLector.setContentAreaFilled(false);
+        btnLector.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLector.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnLector.setOpaque(true);
         btnLector.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -306,6 +313,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnEscritor1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnEscritor1.setBorderPainted(false);
         btnEscritor1.setContentAreaFilled(false);
+        btnEscritor1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEscritor1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnEscritor1.setOpaque(true);
         btnEscritor1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -336,6 +344,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnUsuarios.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         btnUsuarios.setBorderPainted(false);
         btnUsuarios.setContentAreaFilled(false);
+        btnUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnUsuarios.setOpaque(true);
         btnUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
