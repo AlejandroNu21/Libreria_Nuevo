@@ -359,6 +359,11 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
 
         if (c < '0' || c > '9')
             evt.consume();
+        
+        if(txtEdadCliente.getText().length() >= 3){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_txtEdadClienteKeyTyped
 
     private void txtDireccionClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionClienteActionPerformed

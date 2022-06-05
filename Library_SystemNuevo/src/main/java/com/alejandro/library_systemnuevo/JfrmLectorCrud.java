@@ -263,6 +263,11 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEdadLectorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadLectorKeyTyped
+         char c = evt.getKeyChar();
+
+        if (c < '0' || c > '9')
+            evt.consume();
+        
         if(txtEdadLector.getText().length() >= 3){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
