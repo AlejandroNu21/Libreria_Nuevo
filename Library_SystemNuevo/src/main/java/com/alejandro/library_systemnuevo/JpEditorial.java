@@ -4,24 +4,16 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import Beans.Editorials;
+import DAO.EditorialsDao;
 import Entidades.Editorial;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.event.MouseListener;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableCellRenderer;
 import utilidades.GestionColumnas;
 import utilidades.GestionEncabezadoTabla;
 
@@ -47,7 +39,7 @@ public class JpEditorial extends javax.swing.JPanel {
         Double numero[] = new Double[5];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        Editorials es = new Editorials();
+        EditorialsDao es = new EditorialsDao();
         ArrayList<Editorial> listar = es.ListaEditorial();
 
         Iterator iterador = listar.iterator();
@@ -84,7 +76,7 @@ public class JpEditorial extends javax.swing.JPanel {
         Double numero[] = new Double[5];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        Editorials es = new Editorials();
+        EditorialsDao es = new EditorialsDao();
         ArrayList<Editorial> listar = es.BusquedaEditorial(txtBusqueda.getText());
 
         Iterator iterador = listar.iterator();
@@ -151,6 +143,8 @@ public class JpEditorial extends javax.swing.JPanel {
         TblEditorial.setSelectionBackground(new java.awt.Color(161, 220, 173));
         jScrollPane1.setViewportView(TblEditorial);
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(41, 50, 65));
         jLabel1.setText("GESTIÓN DE EDITORIALES");
 
         btnNuevaEditorial.setBackground(new java.awt.Color(0, 153, 51));
@@ -278,9 +272,9 @@ public class JpEditorial extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(109, 109, 109)
-                                .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(55, 55, 55)
+                                .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
                                 .addComponent(btnBusqueda)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -292,17 +286,13 @@ public class JpEditorial extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(0, 29, Short.MAX_VALUE)
-                            .addComponent(jLabel1))
-                        .addComponent(btnNuevaEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNuevaEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -340,13 +330,17 @@ public class JpEditorial extends javax.swing.JPanel {
     private void btmBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmBorrarActionPerformed
         if (TblEditorial.getSelectedRowCount()>0) {
              Editorial es = new Editorial();
-            Editorials esDAO = new Editorials();
+            EditorialsDao esDAO = new EditorialsDao();
             int selectedRow =TblEditorial.getSelectedRow();
             es.setIdEditorial(Integer.parseInt(TblEditorial.getValueAt(selectedRow, 0).toString()));
-
+            int response = JOptionPane.showConfirmDialog(null,"¿Desea eliminar el cliente?","Eliminar",JOptionPane.OK_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
+            if(response==JOptionPane.YES_OPTION){
              esDAO.DeleteEditorial(es);
              carga();
-                //isSelect = false;
+            }if(response==JOptionPane.NO_OPTION){
+            repaint();
+                         
+                         }
             } else {
                 JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
             }

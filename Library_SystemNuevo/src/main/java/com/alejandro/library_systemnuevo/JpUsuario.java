@@ -4,15 +4,14 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import Beans.Editorials;
-import Beans.Login;
-import Entidades.Editorial;
-import Entidades.Enums.rolType;
-import Entidades.user;
+
+import DAO.*;
+import Entidades.*;
+import Entidades.Enums.*;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import utilidades.GestionColumnas;
@@ -55,31 +54,27 @@ public class JpUsuario extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_Usuario = new javax.swing.JTable();
         btnEliminar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setText("Registro de Usuario");
 
         jLabel2.setBackground(new java.awt.Color(0, 153, 153));
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("Usuario:");
 
         jLabel3.setBackground(new java.awt.Color(0, 153, 153));
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3.setText("Contraseña:");
 
         jLabel5.setBackground(new java.awt.Color(0, 153, 153));
         jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 153, 153));
         jLabel5.setText("Verificar Contraseña:");
 
         jLabel6.setBackground(new java.awt.Color(0, 153, 153));
         jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
         jLabel6.setText("Seleccionar Rol:");
 
         cmbRol.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +83,7 @@ public class JpUsuario extends javax.swing.JPanel {
             }
         });
 
-        btnRegistrar.setBackground(new java.awt.Color(0, 102, 102));
+        btnRegistrar.setBackground(new java.awt.Color(41, 50, 65));
         btnRegistrar.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user.png"))); // NOI18N
@@ -156,11 +151,15 @@ public class JpUsuario extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(41, 50, 65));
+        jLabel1.setText("GESTION DE USUARIOS");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -174,29 +173,35 @@ public class JpUsuario extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cmbRol, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jLabel4)))
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(755, 755, 755))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(44, 44, 44)
+                        .addGap(15, 15, 15)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -213,18 +218,16 @@ public class JpUsuario extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmbRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     public void carga() {
         String titulos[] = {"Id", "Usuario", "Contraseña", "Rol"};
-        //Ejemplosdearreglos
-        Double numero[] = new Double[5];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        Login es = new Login();
+        LoginDAO es = new LoginDAO();
         ArrayList<user> listar = es.listaUser();
 
         Iterator iterador = listar.iterator();
@@ -234,7 +237,7 @@ public class JpUsuario extends javax.swing.JPanel {
             //CASTEAR
             user estBucle = (user) iterador.next();
             fila[0] = estBucle.getIdUsuario();
-            fila[1] = estBucle.getUsuario();
+            fila[1] = estBucle.getNombreUsuario();
             fila[2] = estBucle.getContrasenia();
             fila[3] = estBucle.getRol();
             df.addRow(fila);
@@ -271,7 +274,7 @@ public class JpUsuario extends javax.swing.JPanel {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         user us = new user();
-        Login lgDAO = new Login();
+        LoginDAO lgDAO = new LoginDAO();
 
         if (txtUsuario.getText().equals("") || String.valueOf(txtPassword.getPassword()).equals("")
                 || String.valueOf(txtPassword2.getPassword()).equals("") || cmbRol.getSelectedIndex() == -1) {
@@ -280,9 +283,8 @@ public class JpUsuario extends javax.swing.JPanel {
             if (!(String.valueOf(txtPassword2.getPassword()).equals(String.valueOf(txtPassword.getPassword())))) {
                 JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                us.setUsuario(txtUsuario.getText());
+                us.setNombreUsuario(txtUsuario.getText());
                 us.setContrasenia(String.valueOf(txtPassword.getPassword()));
-                //String password2 = String.valueOf(txtPassword2.getPassword());
                 us.setRol(rolType.values()[cmbRol.getSelectedIndex()]);
 
                 lgDAO.AddUsuario(us);
@@ -295,14 +297,19 @@ public class JpUsuario extends javax.swing.JPanel {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if (tbl_Usuario.getSelectedRowCount() > 0) {
             user us = new user();
-            Login lgDAO = new Login();
+            LoginDAO lgDAO = new LoginDAO();
 
             int selectedRow = tbl_Usuario.getSelectedRow();
             if (selectedRow != 0) {
                 us.setIdUsuario(Integer.parseInt(tbl_Usuario.getValueAt(selectedRow, 0).toString()));
-
+int response = JOptionPane.showConfirmDialog(null,"¿Desea eliminar el cliente?","Eliminar",JOptionPane.OK_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
+            if(response==JOptionPane.YES_OPTION){
                 lgDAO.DeleteUser(us);
                 carga();
+                }if(response==JOptionPane.NO_OPTION){
+            repaint();
+                         
+                         }
             } else {
                 JOptionPane.showMessageDialog(null, "El usuario seleccionado no se puede eliminar");
             }
@@ -346,6 +353,7 @@ public class JpUsuario extends javax.swing.JPanel {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox cmbRol;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

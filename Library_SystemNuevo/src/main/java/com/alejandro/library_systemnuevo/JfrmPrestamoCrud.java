@@ -4,9 +4,9 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import Beans.Lectores;
-import Beans.Libros;
-import Beans.Prestamos;
+import DAO.LectoresDAO;
+import DAO.LibrosDAO;
+import DAO.PrestamosDAO;
 import Entidades.Enums.prestamoType;
 import Entidades.Prestamo;
 import java.awt.Color;
@@ -278,7 +278,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         Prestamo pr = new Prestamo();
-        Prestamos PrDao = new Prestamos();
+        PrestamosDAO PrDao = new PrestamosDAO();
 
         if (CmbFL.getSelectedIndex() == -1
                 || CmbFLib.getSelectedIndex() == -1
@@ -290,7 +290,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
                 pr.setIdLibro(IdLibro[CmbFLib.getSelectedIndex()]);
                 pr.setFecha_Prestamo(JDCFprestamo.getDate());
                 pr.setFecha_Devolucion(JDCFDev.getDate());
-                pr.setDevuelto(prestamoType.values()[cmbDevuelto.getSelectedIndex()]);
+                pr.setReembolso_prestamo(prestamoType.values()[cmbDevuelto.getSelectedIndex()]);
 
                 PrDao.AddPrestamo(pr);
 
@@ -301,7 +301,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
                 pr.setIdLibro(IdLibro[CmbFLib.getSelectedIndex()]);
                 pr.setFecha_Prestamo(JDCFprestamo.getDate());
                 pr.setFecha_Devolucion(JDCFDev.getDate());
-                pr.setDevuelto(prestamoType.values()[cmbDevuelto.getSelectedIndex()]);
+                pr.setReembolso_prestamo(prestamoType.values()[cmbDevuelto.getSelectedIndex()]);
 
                 PrDao.UpdatePrestamo(pr);
 
@@ -317,7 +317,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
     int IdLector[];
     private void FiltroLector(String Busqueda){
         CmbFL.removeAllItems();
-    Lectores lcFiltro = new Lectores();
+    LectoresDAO lcFiltro = new LectoresDAO();
     IdLector = new int [lcFiltro.FiltroLector(Busqueda).size()];
     
     int Indice = 0;
@@ -338,7 +338,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
         int IdLibro[];
     private void FiltroLibro(String Busqueda){
         CmbFLib.removeAllItems();
-    Libros libFiltro = new Libros();
+    LibrosDAO libFiltro = new LibrosDAO();
     IdLibro = new int [libFiltro.FiltroLibro(Busqueda).size()];
     
     int Indice = 0;

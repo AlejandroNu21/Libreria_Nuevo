@@ -12,26 +12,27 @@ import Entidades.Enums.rolType;
  */
 public class user {
     private int idUsuario;
-    private String Usuario;
+    private String NombreUsuario;
     private String Contrasenia;
     private rolType Rol;
 
     public user() {
     }
 
-    public user(String Usuario, String Contrasenia, rolType Rol) {
-        this.Usuario = Usuario;
+    public user(String NombreUsuario, String Contrasenia, rolType Rol) {
+        this.NombreUsuario = NombreUsuario;
         this.Contrasenia = Contrasenia;
         this.Rol = Rol;
     }
 
-    public user(int idUsuario, String Usuario, String Contrasenia, rolType Rol) {
+    public user(int idUsuario, String NombreUsuario, String Contrasenia, rolType Rol) {
         this.idUsuario = idUsuario;
-        this.Usuario = Usuario;
+        this.NombreUsuario = NombreUsuario;
         this.Contrasenia = Contrasenia;
         this.Rol = Rol;
     }
 
+    
     
     public int getIdUsuario() {
         return idUsuario;
@@ -41,12 +42,12 @@ public class user {
         this.idUsuario = idUsuario;
     }
 
-    public String getUsuario() {
-        return Usuario;
+    public String getNombreUsuario() {
+        return NombreUsuario;
     }
 
-    public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
+    public void setNombreUsuario(String NombreUsuario) {
+        this.NombreUsuario = NombreUsuario;
     }
 
     public String getContrasenia() {
@@ -66,5 +67,4 @@ public class user {
     }
 
 
-    
 }

@@ -19,7 +19,7 @@ public class ConexionAMYSQL {
     public Connection getConecction (){
     try {
         
-        String url = "jdbc:mysql://localhost:3306/libreriabd";
+        String url = "jdbc:mysql://localhost:3306/libreria_db";
         String user = "Vkaiido";
         String password ="root";
         

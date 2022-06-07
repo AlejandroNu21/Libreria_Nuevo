@@ -4,7 +4,7 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import Beans.Escritores;
+import DAO.EscritoresDAO;
 import Entidades.Escritor;
 import Modelo.Imagenes;
 import com.Library.BD.ConexionAMYSQL;
@@ -41,7 +41,7 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
     public JfrmEscritorCrud() {
         initComponents();
         //mostrarImagen();
-        
+
         setLocationRelativeTo(null);
 
     }
@@ -76,6 +76,10 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
         lblCerrar = new javax.swing.JLabel();
         lblesc = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel65 = new javax.swing.JLabel();
+        jdcFN = new com.toedter.calendar.JDateChooser();
+        jLabel67 = new javax.swing.JLabel();
+        txtBiog = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(648, 355));
@@ -212,6 +216,12 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
             }
         });
 
+        jLabel65.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel65.setText("Fecha de Nacimiento");
+
+        jLabel67.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel67.setText("Biografia");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -232,30 +242,37 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtIdEscritor1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
                                     .addComponent(txtCodigoEscritor)
-                                    .addComponent(txtPaisEscritor))
+                                    .addComponent(txtPaisEscritor, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addComponent(txtNombreEscritor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtApellidoEscritor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel67)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtBiog, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel65)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jdcFN, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(47, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 47, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel66)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnSeleccionarAvatarEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(22, 22, 22))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(130, 130, 130))))
+                                .addGap(22, 22, 22))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(130, 130, 130))))))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -269,10 +286,10 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel62)
                             .addComponent(txtIdEscritor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -292,13 +309,22 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtPaisEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel64))
-                        .addGap(18, 18, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel65, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jdcFN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSeleccionarAvatarEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel66)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel66)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel67)
+                                .addComponent(txtBiog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -318,12 +344,12 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCodigoEscritorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoEscritorKeyTyped
-        if(txtCodigoEscritor.getText().length() >= 8){
+        if (txtCodigoEscritor.getText().length() >= 8) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtCodigoEscritorKeyTyped
- 
+
     public void limpiar() {
         txtIdEscritor1.setText("");
         txtCodigoEscritor.setText("");
@@ -331,31 +357,30 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
         txtApellidoEscritor.setText("");
         txtPaisEscritor.setText("");
         txtCodigoEscritor.requestFocus();
+        txtBiog.setText("");
     }
-    
-    
-   public int Id = 0;
-   public byte[] AvatarE=null;
-   
-   public void mostrarImagen(){
-       Escritor escritorEnt = new Escritor();
-       
-   //if(escritorEnt.getAvatarEscritor()!=null){
-   PreparedStatement ps;
+
+    public int Id = 0;
+    public byte[] AvatarE = null;
+
+    public void mostrarImagen() {
+        Escritor escritorEnt = new Escritor();
+
+        PreparedStatement ps;
         ResultSet rs;
 
         try {
-            
+
             ConexionAMYSQL con = new ConexionAMYSQL();
             Connection conexion = con.getConecction();
-            ps = conexion.prepareStatement("SELECT AvatarEscritor FROM escritor WHERE idEscritor = ?");
+            ps = conexion.prepareStatement("SELECT foto_escritor FROM escritores WHERE id_escritor = ?");
             ps.setInt(1, Id);
             rs = ps.executeQuery();
 
             BufferedImage buffing = null;
             byte[] image = null;
             while (rs.next()) {
-                image = rs.getBytes("AvatarEscritor");
+                image = rs.getBytes("foto_escritor");
                 InputStream img = rs.getBinaryStream(1);
                 try {
                     buffing = ImageIO.read(img);
@@ -367,19 +392,14 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                 lblImagen1.repaint();
             }
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null,"error: "+ ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
         }
-   //}
-   
-   
-   }
-   
-   //public void mostrarImagen(){
-   
-   //}
-    
+
+    }
+
+
     private void btnSeleccionarAvatarEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarAvatarEscritorActionPerformed
-JFileChooser fc = new JFileChooser();
+        JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         fc.setFileFilter(filtro);
@@ -394,25 +414,25 @@ JFileChooser fc = new JFileChooser();
             String url = archivo.getAbsolutePath();
             try {
                 FileInputStream fis = new FileInputStream(archivo);
-                
+
                 try {
-                        ConexionAMYSQL con = new ConexionAMYSQL();
-                        Connection conexion = con.getConecction();
-                    ps = conexion.prepareStatement("update escritor set AvatarEscritor = ? where idEscritor=?;");
+                    ConexionAMYSQL con = new ConexionAMYSQL();
+                    Connection conexion = con.getConecction();
+                    ps = conexion.prepareStatement("update escritores set foto_escritor = ? where id_escritor=?;");
                     ps.setInt(2, Id);
                     ps.setBinaryStream(1, fis, (int) archivo.length());
                     ps.execute();
                     mostrarImagen();
 
-                    JOptionPane.showMessageDialog(null, "La imagen fue guardada");
+                    JOptionPane.showMessageDialog(null, "La imagen fue guardada con exito");
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage());
                 }
             } catch (FileNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
 
-            }         
-            
+            }
+
             Image mImagen = new ImageIcon(url).getImage();
             ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen1.getWidth(), lblImagen1.getHeight(), Image.SCALE_SMOOTH));
             lblImagen1.setIcon(mIcono);
@@ -420,9 +440,9 @@ JFileChooser fc = new JFileChooser();
     }//GEN-LAST:event_btnSeleccionarAvatarEscritorActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-         
+
         Escritor es = new Escritor();
-        Escritores esDAO = new Escritores();
+        EscritoresDAO esDAO = new EscritoresDAO();
 
         if (txtCodigoEscritor.getText().equals("") || txtNombreEscritor.getText().equals("")
                 || txtApellidoEscritor.getText().equals("") || txtPaisEscritor.getText().equals("")) {
@@ -435,6 +455,8 @@ JFileChooser fc = new JFileChooser();
                 es.setNombre_Escritor(txtNombreEscritor.getText());
                 es.setApellido_Escritor(txtApellidoEscritor.getText());
                 es.setPais_Escritor(txtPaisEscritor.getText());
+                es.setFecha_Nacimiento(jdcFN.getDate());
+                es.setBiografia(txtBiog.getText());
 
                 esDAO.AddEscritor(es);
                 limpiar();
@@ -445,6 +467,8 @@ JFileChooser fc = new JFileChooser();
                 es.setNombre_Escritor(txtNombreEscritor.getText());
                 es.setApellido_Escritor(txtApellidoEscritor.getText());
                 es.setPais_Escritor(txtPaisEscritor.getText());
+                es.setFecha_Nacimiento(jdcFN.getDate());
+                es.setBiografia(txtBiog.getText());
 
                 esDAO.UpdateEscritor(es);
 
@@ -464,19 +488,19 @@ JFileChooser fc = new JFileChooser();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseEntered
-         btnGuardar.setBackground(new Color(75, 163, 252));
+        btnGuardar.setBackground(new Color(75, 163, 252));
     }//GEN-LAST:event_btnGuardarMouseEntered
 
     private void btnGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseExited
-        btnGuardar.setBackground(new Color(61,90,128));
+        btnGuardar.setBackground(new Color(61, 90, 128));
     }//GEN-LAST:event_btnGuardarMouseExited
 
     private void btnGuardarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMousePressed
-         btnGuardar.setBackground(new Color(41, 50, 65));
+        btnGuardar.setBackground(new Color(41, 50, 65));
     }//GEN-LAST:event_btnGuardarMousePressed
 
     private void btnGuardarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseReleased
-         btnGuardar.setBackground(new Color(61,90,128));
+        btnGuardar.setBackground(new Color(61, 90, 128));
     }//GEN-LAST:event_btnGuardarMouseReleased
 
     /**
@@ -514,7 +538,7 @@ JFileChooser fc = new JFileChooser();
             }
         });
     }
-public JpEscritor jpE ;
+    public JpEscritor jpE;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
@@ -527,13 +551,17 @@ public JpEscritor jpE ;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    public com.toedter.calendar.JDateChooser jdcFN;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblImagen1;
     public javax.swing.JLabel lblesc;
     public javax.swing.JTextField txtApellidoEscritor;
+    public javax.swing.JTextField txtBiog;
     public javax.swing.JTextField txtCodigoEscritor;
     public javax.swing.JTextField txtIdEscritor1;
     public javax.swing.JTextField txtNombreEscritor;

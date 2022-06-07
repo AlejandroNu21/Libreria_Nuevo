@@ -4,39 +4,19 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import Beans.Editorials;
-import Beans.Escritores;
-import Beans.Lectores;
-import Beans.Libros;
-import Entidades.Enums.categoryType;
-import Entidades.Escritor;
-import Entidades.Lector;
-import Entidades.Libro;
-import java.awt.Image;
-import java.util.ArrayList;
-import java.util.Iterator;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
+import DAO.*;
+import Entidades.*;
+import javax.swing.*;
 import Entidades.Enums.*;
 import Modelo.Imagenes;
 import com.Library.BD.ConexionAMYSQL;
-import java.awt.Color;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.*;
+import java.sql.*;
+import java.util.logging.*;
 import javax.imageio.ImageIO;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -93,6 +73,10 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         lblCerrar = new javax.swing.JLabel();
         lblLib = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        txtCant = new javax.swing.JTextField();
+        txtdesc = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("NUEVO LIBRO");
@@ -248,6 +232,12 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel12.setText("Cantidad");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel13.setText("Descripcion");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -279,19 +269,25 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(txtCodigoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel11))
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtClasificacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CmbCat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CmbGen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CmbSub, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtIdLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CmbCat, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CmbGen, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CmbSub, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtdesc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -351,7 +347,15 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)))
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(txtdesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel1)
@@ -365,7 +369,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                                 .addComponent(jLabel17)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -398,14 +402,14 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
             
             ConexionAMYSQL con = new ConexionAMYSQL();
             Connection conexion = con.getConecction();
-            ps = conexion.prepareStatement("SELECT PortadaLibro FROM libro WHERE idLibro = ?");
+            ps = conexion.prepareStatement("SELECT portada_libro FROM libros WHERE id_libro = ?");
             ps.setInt(1, IdL);
             rs = ps.executeQuery();
 
             BufferedImage buffing = null;
             byte[] imagelb = null;
             while (rs.next()) {
-                imagelb = rs.getBytes("PortadaLibro");
+                imagelb = rs.getBytes("portada_libro");
                 InputStream img = rs.getBinaryStream(1);
                 try {
                     buffing = ImageIO.read(img);
@@ -445,7 +449,7 @@ JFileChooser fc = new JFileChooser();
                 try {
                         ConexionAMYSQL con = new ConexionAMYSQL();
                         Connection conexion = con.getConecction();
-                    ps = conexion.prepareStatement("update libro set PortadaLibro = ? where idLibro=?");
+                    ps = conexion.prepareStatement("update libros set portada_libro = ? where id_libro=?");
                     ps.setInt(2, IdL);
                     ps.setBinaryStream(1, fisl, (int) archivo.length());
                     ps.execute();
@@ -474,6 +478,8 @@ void Limpiar(){
     CmbEdi.removeAllItems();
     txtTitulo.setText("");
     txtClasificacion.setText("");
+    txtCant.setText("");
+    txtdesc.setText("");
     CmbEsc.removeAllItems();
     CmbCat.setSelectedIndex(0);
     CmbGen.setSelectedIndex(0);
@@ -495,24 +501,25 @@ void CargaCmb() {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
         Libro lib = new Libro();
-        Libros lbDAO = new Libros();
+        LibrosDAO lbDAO = new LibrosDAO();
 
-        if (txtCodigoLibro.getText().equals("") || CmbEdi.getSelectedIndex()==-1
-                || txtTitulo.getText().equals("") || CmbEsc.getSelectedIndex()==-1
+        if (txtCodigoLibro.getText().equals("") || CmbEdi.getSelectedIndex() == -1
+                || txtTitulo.getText().equals("") || CmbEsc.getSelectedIndex() == -1
                 || txtClasificacion.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
         } else {
             if (txtIdLibro.getText().equals("")) {
 
                 lib.setCodigo_Libro(txtCodigoLibro.getText());
-                lib.setIdEditorial(IdEditorial[CmbEdi.getSelectedIndex()]);
                 lib.setTitulo(txtTitulo.getText());
-                lib.setIdEscritor(IdEscritor[CmbEsc.getSelectedIndex()]);
+                lib.setCantidad(Integer.parseInt( txtCant.getText()));
+                lib.setDescripcion(txtdesc.getText());
                 lib.setCategoria(categoryType.values()[CmbCat.getSelectedIndex()]);
                 lib.setGenero(generoType.values()[CmbGen.getSelectedIndex()]);
                 lib.setSubGenero(subgeneroType.values()[CmbSub.getSelectedIndex()]);
                 lib.setClasificacion(txtClasificacion.getText());
-
+                lib.setIdEditorial(IdEditorial[CmbEdi.getSelectedIndex()]);
+                lib.setIdEscritor(IdEscritor[CmbEsc.getSelectedIndex()]);
                 lbDAO.AddLibro(lib);
                 Limpiar();
                 
@@ -521,6 +528,8 @@ void CargaCmb() {
                 
                 lib.setIdLibro(Integer.parseInt(txtIdLibro.getText()));
                 lib.setCodigo_Libro(txtCodigoLibro.getText());
+                lib.setCantidad(Integer.parseInt( txtCant.getText()));
+                lib.setDescripcion(txtdesc.getText());
                 lib.setIdEditorial(IdEditorial[CmbEdi.getSelectedIndex()]);
                 lib.setTitulo(txtTitulo.getText());
                 lib.setIdEscritor(IdEscritor[CmbEsc.getSelectedIndex()]);
@@ -542,7 +551,7 @@ void CargaCmb() {
     int IdEditorial[];
     private void FiltroEditorial(String Busqueda){
         CmbEdi.removeAllItems();
-    Editorials editFiltro = new Editorials();
+    EditorialsDao editFiltro = new EditorialsDao();
     IdEditorial = new int [editFiltro.FiltroEditorial(Busqueda).size()];
     
     int Indice = 0;
@@ -557,7 +566,7 @@ void CargaCmb() {
     int IdEscritor[];
     private void FiltroEscritor(String Busqueda){
         CmbEsc.removeAllItems();
-    Escritores escFiltro = new Escritores();
+    EscritoresDAO escFiltro = new EscritoresDAO();
     IdEscritor = new int [escFiltro.FiltroEscritor(Busqueda).size()];
     
     int Indice = 0;
@@ -655,6 +664,8 @@ void CargaCmb() {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -669,9 +680,11 @@ void CargaCmb() {
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblImagen;
     public javax.swing.JLabel lblLib;
+    public javax.swing.JTextField txtCant;
     public javax.swing.JTextField txtClasificacion;
     public javax.swing.JTextField txtCodigoLibro;
     public javax.swing.JTextField txtIdLibro;
     public javax.swing.JTextField txtTitulo;
+    public javax.swing.JTextField txtdesc;
     // End of variables declaration//GEN-END:variables
 }

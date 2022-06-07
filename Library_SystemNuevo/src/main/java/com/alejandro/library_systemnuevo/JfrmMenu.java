@@ -4,14 +4,13 @@
  */
 package com.alejandro.library_systemnuevo;
 
+import Entidades.Enums.rolType;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Toolkit;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+
 
 /**
  *
@@ -22,10 +21,12 @@ public class JfrmMenu extends javax.swing.JFrame {
     /**
      * Creates new form JfrmSystemMenu
      */
-    public JfrmMenu() {
+    public JfrmMenu(rolType rol) {
         initComponents();
         this.setLocationRelativeTo(null);
-
+        userComponent(rol);
+        currentPanel = null;
+        showJPanel(new JpVentas());
         lblBanner.setIcon(new ImageIcon(imagenBanner.getImage().getScaledInstance(lblBanner.getWidth(), lblBanner.getHeight(), Image.SCALE_SMOOTH)));
         lblBanner.setBackground(btnLibro.getBackground());
 
@@ -41,6 +42,17 @@ public class JfrmMenu extends javax.swing.JFrame {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpeg"));
 
         return retValue;
+    }
+    
+    
+    private void userComponent(rolType rol){
+    
+        if(rol==rolType.USUARIO){
+        btnUsuarios.setEnabled(false);
+        btnCompra.setEnabled(false);
+        
+        }
+    
     }
 
     /**
@@ -67,6 +79,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         lblCerrar = new javax.swing.JLabel();
         lblResizable = new javax.swing.JLabel();
         lblMinimize = new javax.swing.JLabel();
+        lblCS = new javax.swing.JLabel();
         JpMain = new javax.swing.JPanel();
         JPBanner = new javax.swing.JPanel();
         lblBanner = new javax.swing.JLabel();
@@ -399,6 +412,13 @@ public class JfrmMenu extends javax.swing.JFrame {
             }
         });
 
+        lblCS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/log_out.png"))); // NOI18N
+        lblCS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCSMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -409,7 +429,8 @@ public class JfrmMenu extends javax.swing.JFrame {
                 .addComponent(lblResizable, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(lblMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCS, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,6 +440,7 @@ public class JfrmMenu extends javax.swing.JFrame {
                     .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblResizable, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(lblCS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -442,7 +464,7 @@ public class JfrmMenu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -466,6 +488,7 @@ public class JfrmMenu extends javax.swing.JFrame {
 
         JpMain.setBackground(new java.awt.Color(255, 255, 255));
         JpMain.setPreferredSize(new java.awt.Dimension(1050, 540));
+        JpMain.setRequestFocusEnabled(false);
         JpMain.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 JpMainComponentResized(evt);
@@ -561,7 +584,7 @@ public class JfrmMenu extends javax.swing.JFrame {
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
 
         currentPanel = null;
-        showJPanel(new JpCustomer());
+        showJPanel(new JpClientes());
     }//GEN-LAST:event_btnClientesActionPerformed
 
 
@@ -597,7 +620,7 @@ public class JfrmMenu extends javax.swing.JFrame {
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
         currentPanel = null;
-        showJPanel(new JpVentas1());
+        showJPanel(new JpVentas());
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnEditorialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditorialesActionPerformed
@@ -607,7 +630,7 @@ public class JfrmMenu extends javax.swing.JFrame {
 
     private void btnCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraActionPerformed
         currentPanel = null;
-        showJPanel(new JpCompras1());
+        showJPanel(new JpCompra());
     }//GEN-LAST:event_btnCompraActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
@@ -804,10 +827,17 @@ public class JfrmMenu extends javax.swing.JFrame {
         btnUsuarios.setBackground(new Color(75, 163, 252));
     }//GEN-LAST:event_btnUsuariosMouseReleased
 
+    private void lblCSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCSMouseClicked
+  
+        this.dispose();
+        FrmLogin abrir = new FrmLogin();
+            abrir.setVisible(true);
+    }//GEN-LAST:event_lblCSMouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(rolType rol) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -835,7 +865,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JfrmMenu().setVisible(true);
+                new JfrmMenu(rol).setVisible(true);
             }
         });
     }
@@ -855,6 +885,7 @@ public class JfrmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblBanner;
+    private javax.swing.JLabel lblCS;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblMinimize;

@@ -10,98 +10,102 @@ package Entidades;
  */
 public class clientes {
     
-    private int idCliente;
-    private String CodigoCliente;
-    private String NombreCliente;
-    private String ApellidoCliente;
-    private String Edad;
-    private String Direccion;
-    private String Telefono;
+    int id_cliente;
+    String documento_cliente;
+    String nombre_cliente;
+    String apellido_cliente;
+    int edad_cliente;
+    String direccion_cliente;
+    String telefono_cliente;
 
+    String nombreCompleto;
+
+  
+    
     public clientes() {
     }
 
-    public clientes(int idCliente) {
-        this.idCliente = idCliente;
+    public clientes(String documento_cliente, String nombre_cliente, String apellido_cliente, int edad_cliente, String direccion_cliente, String telefono_cliente) {
+        this.documento_cliente = documento_cliente;
+        this.nombre_cliente = nombre_cliente;
+        this.apellido_cliente = apellido_cliente;
+        this.edad_cliente = edad_cliente;
+        this.direccion_cliente = direccion_cliente;
+        this.telefono_cliente = telefono_cliente;
     }
 
-    public clientes(String CodigoCliente, String NombreCliente, String ApellidoCliente, String Edad, String Direccion, String Telefono) {
-        this.CodigoCliente = CodigoCliente;
-        this.NombreCliente = NombreCliente;
-        this.ApellidoCliente = ApellidoCliente;
-        this.Edad = Edad;
-        this.Direccion = Direccion;
-        this.Telefono = Telefono;
-    }
-
-    public clientes(int idCliente, String CodigoCliente, String NombreCliente, String ApellidoCliente, String Edad, String Direccion, String Telefono) {
-        this.idCliente = idCliente;
-        this.CodigoCliente = CodigoCliente;
-        this.NombreCliente = NombreCliente;
-        this.ApellidoCliente = ApellidoCliente;
-        this.Edad = Edad;
-        this.Direccion = Direccion;
-        this.Telefono = Telefono;
+    public clientes(int id_cliente, String documento_cliente, String nombre_cliente, String apellido_cliente, int edad_cliente, String direccion_cliente, String telefono_cliente) {
+        this.id_cliente = id_cliente;
+        this.documento_cliente = documento_cliente;
+        this.nombre_cliente = nombre_cliente;
+        this.apellido_cliente = apellido_cliente;
+        this.edad_cliente = edad_cliente;
+        this.direccion_cliente = direccion_cliente;
+        this.telefono_cliente = telefono_cliente;
     }
     
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }
+
+    public String getDocumento_cliente() {
+        return documento_cliente;
+    }
+
+    public void setDocumento_cliente(String documento_cliente) {
+        this.documento_cliente = documento_cliente;
+    }
+
+    public String getNombre_cliente() {
+        return nombre_cliente;
+    }
+
+    public void setNombre_cliente(String nombre_cliente) {
+        this.nombre_cliente = nombre_cliente;
+    }
+
+    public String getApellido_cliente() {
+        return apellido_cliente;
+    }
+
+    public void setApellido_cliente(String apellido_cliente) {
+        this.apellido_cliente = apellido_cliente;
+    }
+
+    public int getEdad_cliente() {
+        return edad_cliente;
+    }
+
+    public void setEdad_cliente(int edad_cliente) {
+        this.edad_cliente = edad_cliente;
+    }
+
+    public String getDireccion_cliente() {
+        return direccion_cliente;
+    }
+
+    public void setDireccion_cliente(String direccion_cliente) {
+        this.direccion_cliente = direccion_cliente;
+    }
+
+    public String getTelefono_cliente() {
+        return telefono_cliente;
+    }
+
+    public void setTelefono_cliente(String telefono_cliente) {
+        this.telefono_cliente = telefono_cliente;
+    }
+
+      public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
     
-
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public String getCodigoCliente() {
-        return CodigoCliente;
-    }
-
-    public void setCodigoCliente(String CodigoCliente) {
-        this.CodigoCliente = CodigoCliente;
-    }
-
-    public String getNombreCliente() {
-        return NombreCliente;
-    }
-
-    public void setNombreCliente(String NombreCliente) {
-        this.NombreCliente = NombreCliente;
-    }
-
-    public String getApellidoCliente() {
-        return ApellidoCliente;
-    }
-
-    public void setApellidoCliente(String ApellidoCliente) {
-        this.ApellidoCliente = ApellidoCliente;
-    }
-
-    public String getEdad() {
-        return Edad;
-    }
-
-    public void setEdad(String Edad) {
-        this.Edad = Edad;
-    }
-
-    public String getDireccion() {
-        return Direccion;
-    }
-
-    public void setDireccion(String Direccion) {
-        this.Direccion = Direccion;
-    }
-
-    public String getTelefono() {
-        return Telefono;
-    }
-
-    public void setTelefono(String Telefono) {
-        this.Telefono = Telefono;
-    }
-
-    
-
 }

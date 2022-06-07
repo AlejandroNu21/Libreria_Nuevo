@@ -13,22 +13,26 @@ import Entidades.Enums.subgeneroType;
  * @author Vkaiido
  */
 public class LibroVM {
-    private int idLibro; 
+    private int idLibro;
     private String Codigo_Libro;
     private String Nombre_Editorial;
     private String Titulo;
     private String Nombre_Escritor;
-    private categoryType  Categoria;
+    private int Cantidad;
+    private String Descripcion;
+    private categoryType Categoria;
     private generoType Genero;
     private subgeneroType SubGenero;
     private String Clasificacion;
 
-    public LibroVM(int idLibro, String Codigo_Libro, String Nombre_Editorial, String Titulo, String Nombre_Escritor, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion) {
+    public LibroVM(int idLibro, String Codigo_Libro, String Nombre_Editorial, String Titulo, String Nombre_Escritor, int Cantidad, String Descripcion, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion) {
         this.idLibro = idLibro;
         this.Codigo_Libro = Codigo_Libro;
         this.Nombre_Editorial = Nombre_Editorial;
         this.Titulo = Titulo;
         this.Nombre_Escritor = Nombre_Escritor;
+        this.Cantidad = Cantidad;
+        this.Descripcion = Descripcion;
         this.Categoria = Categoria;
         this.Genero = Genero;
         this.SubGenero = SubGenero;
@@ -78,6 +82,23 @@ public class LibroVM {
         this.Nombre_Escritor = Nombre_Escritor;
     }
 
+
+    public int getCantidad() {
+        return Cantidad;
+    }
+
+    public void setCantidad(int Cantidad) {
+        this.Cantidad = Cantidad;
+    }
+
+    public String getDescripcion() {
+        return Descripcion;
+    }
+
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
+    }
+
     public categoryType getCategoria() {
         return Categoria;
     }
@@ -109,7 +130,7 @@ public class LibroVM {
     public void setClasificacion(String Clasificacion) {
         this.Clasificacion = Clasificacion;
     }
-    
-    
+
+
     
 }

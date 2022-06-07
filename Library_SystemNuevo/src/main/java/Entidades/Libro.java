@@ -13,6 +13,8 @@ public class Libro {
     int idEditorial;
     String Titulo;
     int idEscritor;
+    int Cantidad;
+    String Descripcion;
     categoryType  Categoria;
     generoType Genero;
     subgeneroType SubGenero;
@@ -22,11 +24,13 @@ public class Libro {
     public Libro() {
     }
 
-    public Libro(String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion, byte[] PortadaLibro) {
+    public Libro(String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, int Cantidad, String Descripcion, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion, byte[] PortadaLibro) {
         this.Codigo_Libro = Codigo_Libro;
         this.idEditorial = idEditorial;
         this.Titulo = Titulo;
         this.idEscritor = idEscritor;
+        this.Cantidad = Cantidad;
+        this.Descripcion = Descripcion;
         this.Categoria = Categoria;
         this.Genero = Genero;
         this.SubGenero = SubGenero;
@@ -34,12 +38,14 @@ public class Libro {
         this.PortadaLibro = PortadaLibro;
     }
 
-    public Libro(int idLibro, String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion, byte[] PortadaLibro) {
+    public Libro(int idLibro, String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, int Cantidad, String Descripcion, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion, byte[] PortadaLibro) {
         this.idLibro = idLibro;
         this.Codigo_Libro = Codigo_Libro;
         this.idEditorial = idEditorial;
         this.Titulo = Titulo;
         this.idEscritor = idEscritor;
+        this.Cantidad = Cantidad;
+        this.Descripcion = Descripcion;
         this.Categoria = Categoria;
         this.Genero = Genero;
         this.SubGenero = SubGenero;
@@ -89,6 +95,22 @@ public class Libro {
         this.idEscritor = idEscritor;
     }
 
+    public int getCantidad() {
+        return Cantidad;
+    }
+
+    public void setCantidad(int Cantidad) {
+        this.Cantidad = Cantidad;
+    }
+
+    public String getDescripcion() {
+        return Descripcion;
+    }
+
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
+    }
+
     public categoryType getCategoria() {
         return Categoria;
     }
@@ -129,6 +151,7 @@ public class Libro {
         this.PortadaLibro = PortadaLibro;
     }
 
+    
 
     
 }

@@ -17,16 +17,29 @@ public class PrestamoVM {
     private String Titulo;
     private Date Fecha_Prestamo;
     private Date Fecha_Devolucion;
-    private prestamoType Devuelto;
+    private prestamoType Reembolso_prestamo;
 
-    public PrestamoVM(int idPrestamo, String Nombre_Lector, String Titulo, Date Fecha_Prestamo, Date Fecha_Devolucion, prestamoType Devuelto) {
+    public PrestamoVM() {
+    }
+
+    public PrestamoVM(String Nombre_Lector, String Titulo, Date Fecha_Prestamo, Date Fecha_Devolucion, prestamoType Reembolso_prestamo) {
+        this.Nombre_Lector = Nombre_Lector;
+        this.Titulo = Titulo;
+        this.Fecha_Prestamo = Fecha_Prestamo;
+        this.Fecha_Devolucion = Fecha_Devolucion;
+        this.Reembolso_prestamo = Reembolso_prestamo;
+    }
+
+    public PrestamoVM(int idPrestamo, String Nombre_Lector, String Titulo, Date Fecha_Prestamo, Date Fecha_Devolucion, prestamoType Reembolso_prestamo) {
         this.idPrestamo = idPrestamo;
         this.Nombre_Lector = Nombre_Lector;
         this.Titulo = Titulo;
         this.Fecha_Prestamo = Fecha_Prestamo;
         this.Fecha_Devolucion = Fecha_Devolucion;
-        this.Devuelto = Devuelto;
+        this.Reembolso_prestamo = Reembolso_prestamo;
     }
+
+    
     
     
     public int getIdPrestamo() {
@@ -69,14 +82,15 @@ public class PrestamoVM {
         this.Fecha_Devolucion = Fecha_Devolucion;
     }
 
-    public prestamoType getDevuelto() {
-        return Devuelto;
+    public prestamoType getReembolso_prestamo() {
+        return Reembolso_prestamo;
     }
 
-    public void setDevuelto(prestamoType Devuelto) {
-        this.Devuelto = Devuelto;
+    public void setReembolso_prestamo(prestamoType Reembolso_prestamo) {
+        this.Reembolso_prestamo = Reembolso_prestamo;
     }
-    
+
+ 
     
     
     

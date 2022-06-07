@@ -4,17 +4,12 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import Beans.Libros;
-import Entidades.Libro;
+import DAO.*;
 import ViewModel.LibroVM;
-import java.awt.Color;
-import java.awt.Image;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import utilidades.GestionColumnas;
@@ -30,24 +25,22 @@ public class JpLibro extends javax.swing.JPanel {
      * Creates new form JpBook
      */
     public JpLibro(JfrmMenu main) {
-        
+
         initComponents();
         carga();
         mainForm = main;
     }
-    
 
     public void carga() {
-        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion"};
-        //Ejemplosdearreglos
-        Double numero[] = new Double[9];
+        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion", "Cantidad", "Descripcion"};
+        Double numero[] = new Double[11];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        Libros es = new Libros();
+        LibrosDAO es = new LibrosDAO();
         ArrayList<LibroVM> listar = es.ListaLibro();
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[9];
+        Object fila[] = new Object[11];
 
         while (iterador.hasNext()) {
             //CASTEAR
@@ -61,12 +54,13 @@ public class JpLibro extends javax.swing.JPanel {
             fila[6] = estBucle.getGenero().name();
             fila[7] = estBucle.getSubGenero().name();
             fila[8] = estBucle.getClasificacion();
+            fila[9] = estBucle.getCantidad();
+            fila[10] = estBucle.getDescripcion();
             df.addRow(fila);
         }
         Tbl_Libro.setModel(df);
-        
-                
-                Tbl_Libro.getTableHeader().setReorderingAllowed(false);
+
+        Tbl_Libro.getTableHeader().setReorderingAllowed(false);
         Tbl_Libro.setRowHeight(30);
         Tbl_Libro.setGridColor(new java.awt.Color(0, 0, 0));
 
@@ -78,22 +72,22 @@ public class JpLibro extends javax.swing.JPanel {
         Tbl_Libro.setDefaultRenderer(Object.class, new GestionColumnas());
     }
 
-        public void cargaBusqueda() {
-        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion"};
-        //Ejemplosdearreglos
-        Double numero[] = new Double[9];
+    public void cargaBusqueda() {
+        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion", "Cantidad", "Descripcion"};
+
+        Double numero[] = new Double[12];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        Libros es = new Libros();
+        LibrosDAO es = new LibrosDAO();
         ArrayList<LibroVM> listar = es.busquedaLibros(txtBusquedalibro.getText());
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[9];
+        Object fila[] = new Object[12];
 
         while (iterador.hasNext()) {
-            //CASTEAR
+
             LibroVM estBucle = (LibroVM) iterador.next();
-            
+
             fila[0] = estBucle.getIdLibro();
             fila[1] = estBucle.getCodigo_Libro();
             fila[2] = estBucle.getNombre_Editorial();
@@ -103,12 +97,13 @@ public class JpLibro extends javax.swing.JPanel {
             fila[6] = estBucle.getGenero().name();
             fila[7] = estBucle.getSubGenero().name();
             fila[8] = estBucle.getClasificacion();
+            fila[9] = estBucle.getCantidad();
+            fila[10] = estBucle.getDescripcion();
             df.addRow(fila);
         }
         Tbl_Libro.setModel(df);
-        
-        
-                Tbl_Libro.getTableHeader().setReorderingAllowed(false);
+
+        Tbl_Libro.getTableHeader().setReorderingAllowed(false);
         Tbl_Libro.setRowHeight(30);
         Tbl_Libro.setGridColor(new java.awt.Color(0, 0, 0));
 
@@ -118,8 +113,9 @@ public class JpLibro extends javax.swing.JPanel {
         Tbl_Libro.setTableHeader(jtableHeader);
 
         Tbl_Libro.setDefaultRenderer(Object.class, new GestionColumnas());
-        
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -135,7 +131,6 @@ public class JpLibro extends javax.swing.JPanel {
         Tbl_Libro = new javax.swing.JTable();
         btnNuevoLibro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnDatosLibro = new javax.swing.JButton();
         txtBusquedalibro = new javax.swing.JTextField();
         btnBusqueda = new javax.swing.JButton();
 
@@ -241,35 +236,9 @@ public class JpLibro extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(41, 50, 65));
         jLabel1.setText("GESTIÓN DE LIBROS");
-
-        btnDatosLibro.setBackground(new java.awt.Color(61, 90, 128));
-        btnDatosLibro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnDatosLibro.setForeground(new java.awt.Color(255, 255, 255));
-        btnDatosLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/profiles.png"))); // NOI18N
-        btnDatosLibro.setText("Datos del libro");
-        btnDatosLibro.setContentAreaFilled(false);
-        btnDatosLibro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnDatosLibro.setOpaque(true);
-        btnDatosLibro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDatosLibroMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDatosLibroMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnDatosLibroMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnDatosLibroMouseReleased(evt);
-            }
-        });
-        btnDatosLibro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDatosLibroActionPerformed(evt);
-            }
-        });
 
         btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
         btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
@@ -305,40 +274,37 @@ public class JpLibro extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBusquedalibro, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(btnBusqueda)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnNuevoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDatosLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 542, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1008, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtBusquedalibro, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(btnBusqueda)
+                        .addGap(56, 56, 56)
+                        .addComponent(btnNuevoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnNuevoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)
-                        .addComponent(txtBusquedalibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevoLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtBusquedalibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDatosLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -346,10 +312,10 @@ public class JpLibro extends javax.swing.JPanel {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         if (Tbl_Libro.getSelectedRowCount() > 0) {
             JfrmLibroCrud frm = new JfrmLibroCrud();
-            
+
             int selectedRow = Tbl_Libro.getSelectedRow();
             frm.txtIdLibro.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 0)));
-            frm.IdL= Integer.parseInt(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 0)));
+            frm.IdL = Integer.parseInt(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 0)));
             frm.txtCodigoLibro.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 1)));
             frm.CmbEdi.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 2)));
             frm.txtTitulo.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 3)));
@@ -358,6 +324,8 @@ public class JpLibro extends javax.swing.JPanel {
             frm.CmbGen.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 6)));
             frm.CmbSub.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 7)));
             frm.txtClasificacion.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 8)));
+            frm.txtCant.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 9)));
+            frm.txtdesc.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 10)));
             frm.lblLib.setText("Actualizar Libro");
             frm.jpL = this;
             frm.setVisible(true);
@@ -373,49 +341,32 @@ public class JpLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnNuevoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoLibroActionPerformed
-        
+
         JfrmLibroCrud frm = new JfrmLibroCrud();
         frm.jpL = this;
         frm.setVisible(true);
     }//GEN-LAST:event_btnNuevoLibroActionPerformed
 
     JfrmMenu mainForm;
-    
-    private void btnDatosLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosLibroActionPerformed
-        if (Tbl_Libro.getSelectedRowCount() > 0) {
-            mainForm.currentPanel = null;
-            JpDatosLibro jp = new JpDatosLibro(mainForm);
-            
-            int selectedRow = Tbl_Libro.getSelectedRow();
-            jp.txtIdLibro1.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 0)));
-            
-            
-            mainForm.showJPanel(jp);
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
-        }
-        
-        
-    }//GEN-LAST:event_btnDatosLibroActionPerformed
 
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
         cargaBusqueda();
     }//GEN-LAST:event_btnBusquedaActionPerformed
 
     private void btnBusquedaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseEntered
-         btnBusqueda.setBackground(new Color(75, 163, 252));
+        btnBusqueda.setBackground(new Color(75, 163, 252));
     }//GEN-LAST:event_btnBusquedaMouseEntered
 
     private void btnBusquedaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseExited
-         btnBusqueda.setBackground(new Color(41, 50, 65));
+        btnBusqueda.setBackground(new Color(41, 50, 65));
     }//GEN-LAST:event_btnBusquedaMouseExited
 
     private void btnBusquedaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMousePressed
-         btnBusqueda.setBackground(new Color(75, 163, 252));
+        btnBusqueda.setBackground(new Color(75, 163, 252));
     }//GEN-LAST:event_btnBusquedaMousePressed
 
     private void btnBusquedaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseReleased
-         btnBusqueda.setBackground(new Color(41, 50, 65));
+        btnBusqueda.setBackground(new Color(41, 50, 65));
     }//GEN-LAST:event_btnBusquedaMouseReleased
 
     private void btnNuevoLibroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoLibroMouseEntered
@@ -434,28 +385,12 @@ public class JpLibro extends javax.swing.JPanel {
         btnBusqueda.setBackground(new Color(0, 153, 51));
     }//GEN-LAST:event_btnNuevoLibroMouseReleased
 
-    private void btnDatosLibroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosLibroMouseEntered
-         btnDatosLibro.setBackground(new Color(75, 163, 252));
-    }//GEN-LAST:event_btnDatosLibroMouseEntered
-
-    private void btnDatosLibroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosLibroMouseExited
-         btnDatosLibro.setBackground(new Color(61,90,128));
-    }//GEN-LAST:event_btnDatosLibroMouseExited
-
-    private void btnDatosLibroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosLibroMousePressed
-         btnDatosLibro.setBackground(new Color(41, 50, 65));
-    }//GEN-LAST:event_btnDatosLibroMousePressed
-
-    private void btnDatosLibroMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosLibroMouseReleased
-         btnDatosLibro.setBackground(new Color(61,90,128));
-    }//GEN-LAST:event_btnDatosLibroMouseReleased
-
     private void btnActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseEntered
         btnActualizar.setBackground(new Color(75, 163, 252));
     }//GEN-LAST:event_btnActualizarMouseEntered
 
     private void btnActualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseExited
-         btnActualizar.setBackground(new Color(238,108,77));
+        btnActualizar.setBackground(new Color(238, 108, 77));
     }//GEN-LAST:event_btnActualizarMouseExited
 
     private void btnActualizarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMousePressed
@@ -463,7 +398,7 @@ public class JpLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnActualizarMousePressed
 
     private void btnActualizarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseReleased
-        btnActualizar.setBackground(new Color(238,108,77));
+        btnActualizar.setBackground(new Color(238, 108, 77));
     }//GEN-LAST:event_btnActualizarMouseReleased
 
     private void btnEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseEntered
@@ -471,7 +406,7 @@ public class JpLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarMouseEntered
 
     private void btnEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseExited
-         btnEliminar.setBackground(new Color(255,51,51));
+        btnEliminar.setBackground(new Color(255, 51, 51));
     }//GEN-LAST:event_btnEliminarMouseExited
 
     private void btnEliminarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMousePressed
@@ -479,7 +414,7 @@ public class JpLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarMousePressed
 
     private void btnEliminarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseReleased
-        btnEliminar.setBackground(new Color(255,51,51));
+        btnEliminar.setBackground(new Color(255, 51, 51));
     }//GEN-LAST:event_btnEliminarMouseReleased
 
 
@@ -487,7 +422,6 @@ public class JpLibro extends javax.swing.JPanel {
     public javax.swing.JTable Tbl_Libro;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBusqueda;
-    private javax.swing.JButton btnDatosLibro;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnNuevoLibro;
     private javax.swing.JLabel jLabel1;

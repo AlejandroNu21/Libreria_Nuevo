@@ -4,7 +4,7 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import Beans.Editorials;
+import DAO.EditorialsDao;
 import Entidades.Editorial;
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -45,7 +45,7 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         txtTelefonoEditorial = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        pnlEditorial = new javax.swing.JPanel();
         lblCerrar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblInCl = new javax.swing.JLabel();
@@ -122,7 +122,17 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(41, 50, 65));
+        pnlEditorial.setBackground(new java.awt.Color(41, 50, 65));
+        pnlEditorial.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                pnlEditorialMouseDragged(evt);
+            }
+        });
+        pnlEditorial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pnlEditorialMousePressed(evt);
+            }
+        });
 
         lblCerrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblCerrar.setForeground(new java.awt.Color(255, 0, 0));
@@ -141,11 +151,11 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
         lblInCl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInCl.setText("Insertar Editorial");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlEditorialLayout = new javax.swing.GroupLayout(pnlEditorial);
+        pnlEditorial.setLayout(pnlEditorialLayout);
+        pnlEditorialLayout.setHorizontalGroup(
+            pnlEditorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEditorialLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -154,12 +164,12 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
                 .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlEditorialLayout.setVerticalGroup(
+            pnlEditorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(pnlEditorialLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlEditorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblInCl, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -189,12 +199,12 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
                             .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel32))
                 .addContainerGap(39, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlEditorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
@@ -265,7 +275,7 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
                 Editorial es = new Editorial();
-            Editorials esDAO = new Editorials();
+            EditorialsDao esDAO = new EditorialsDao();
             
         if (txtCodigoEditorial.getText().equals("") || txtNombreEditorial.getText().equals("")
             || txtDireccionEditorial.getText().equals("") || txtTelefonoEditorial.getText().equals("")) {
@@ -322,6 +332,20 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
     private void btnAgregarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseReleased
        btnAgregar.setBackground(new Color(61,90,128));
     }//GEN-LAST:event_btnAgregarMouseReleased
+int x;
+int y;
+    private void pnlEditorialMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEditorialMousePressed
+                x= evt.getX();
+        y=evt.getY();
+    }//GEN-LAST:event_pnlEditorialMousePressed
+
+    private void pnlEditorialMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlEditorialMouseDragged
+        int xx;
+        int yy;
+        xx=evt.getXOnScreen();
+        yy=evt.getYOnScreen();
+        this.setLocation(xx-x, yy-y);
+    }//GEN-LAST:event_pnlEditorialMouseDragged
 
     /**
      * @param args the command line arguments
@@ -368,9 +392,9 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblCerrar;
     public javax.swing.JLabel lblInCl;
+    private javax.swing.JPanel pnlEditorial;
     public javax.swing.JTextField txtCodigoEditorial;
     public javax.swing.JTextField txtDireccionEditorial;
     public javax.swing.JTextField txtIdEditorial1;

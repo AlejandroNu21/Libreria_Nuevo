@@ -4,7 +4,7 @@
  */
 package Entidades;
 
-import Entidades.Enums.formadePagoType;
+//import Entidades.Enums.formadePagoType;
 import java.util.Date;
 
 /**
@@ -12,95 +12,73 @@ import java.util.Date;
  * @author Vkaiido
  */
 public class venttas {
-      int idVentas;
-     int idLibro;
-     int idCliente;
-     Date Fecha_Venta;
-    formadePagoType forma_pago;
-    int CantidadLibro;
-    double Total;
+ private int id_ventas;
+ private Date fecha_venta;
+ private String tipo_comprobante;
+private String numero_comprobante;
+private int id_cliente_fk;
 
     public venttas() {
     }
 
-    public venttas(int idLibro, int idCliente, Date Fecha_Venta, formadePagoType forma_pago, int CantidadLibro, double Total) {
-        this.idLibro = idLibro;
-        this.idCliente = idCliente;
-        this.Fecha_Venta = Fecha_Venta;
-        this.forma_pago = forma_pago;
-        this.CantidadLibro = CantidadLibro;
-        this.Total = Total;
+    public venttas(Date fecha_venta, String tipo_comprobante, String numero_comprobante, int id_cliente_fk) {
+        this.fecha_venta = fecha_venta;
+        this.tipo_comprobante = tipo_comprobante;
+        this.numero_comprobante = numero_comprobante;
+        this.id_cliente_fk = id_cliente_fk;
     }
 
-    public venttas(int idVentas, int idLibro, int idCliente, Date Fecha_Venta, formadePagoType forma_pago, int CantidadLibro, double Total) {
-        this.idVentas = idVentas;
-        this.idLibro = idLibro;
-        this.idCliente = idCliente;
-        this.Fecha_Venta = Fecha_Venta;
-        this.forma_pago = forma_pago;
-        this.CantidadLibro = CantidadLibro;
-        this.Total = Total;
+    public venttas(int id_ventas, Date fecha_venta, String tipo_comprobante, String numero_comprobante, int id_cliente_fk) {
+        this.id_ventas = id_ventas;
+        this.fecha_venta = fecha_venta;
+        this.tipo_comprobante = tipo_comprobante;
+        this.numero_comprobante = numero_comprobante;
+        this.id_cliente_fk = id_cliente_fk;
     }
 
+
+
+    public int getId_ventas() {
+        return id_ventas;
+    }
+
+    public void setId_ventas(int id_ventas) {
+        this.id_ventas = id_ventas;
+    }
+
+    public Date getFecha_venta() {
+        return fecha_venta;
+    }
+
+    public void setFecha_venta(Date fecha_venta) {
+        this.fecha_venta = fecha_venta;
+    }
+
+    public String getTipo_comprobante() {
+        return tipo_comprobante;
+    }
+
+    public void setTipo_comprobante(String tipo_comprobante) {
+        this.tipo_comprobante = tipo_comprobante;
+    }
+
+    public String getNumero_comprobante() {
+        return numero_comprobante;
+    }
+
+    public void setNumero_comprobante(String numero_comprobante) {
+        this.numero_comprobante = numero_comprobante;
+    }
+
+    public int getId_cliente_fk() {
+        return id_cliente_fk;
+    }
+
+    public void setId_cliente_fk(int id_cliente_fk) {
+        this.id_cliente_fk = id_cliente_fk;
+    }
     
-    
-    
-    public int getIdVentas() {
-        return idVentas;
-    }
 
-    public void setIdVentas(int idVentas) {
-        this.idVentas = idVentas;
-    }
 
-    public int getIdLibro() {
-        return idLibro;
-    }
 
-    public void setIdLibro(int idLibro) {
-        this.idLibro = idLibro;
-    }
-
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public Date getFecha_Venta() {
-        return Fecha_Venta;
-    }
-
-    public void setFecha_Venta(Date Fecha_Venta) {
-        this.Fecha_Venta = Fecha_Venta;
-    }
-
-    public formadePagoType getForma_pago() {
-        return forma_pago;
-    }
-
-    public void setForma_pago(formadePagoType forma_pago) {
-        this.forma_pago = forma_pago;
-    }
-
-    public int getCantidadLibro() {
-        return CantidadLibro;
-    }
-
-    public void setCantidadLibro(int CantidadLibro) {
-        this.CantidadLibro = CantidadLibro;
-    }
-
-    public double getTotal() {
-        return Total;
-    }
-
-    public void setTotal(double Total) {
-        this.Total = Total;
-    }
-
-   
-    
 }

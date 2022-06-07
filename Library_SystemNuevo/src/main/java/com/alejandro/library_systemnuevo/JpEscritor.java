@@ -4,13 +4,13 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import Beans.Escritores;
-import javax.swing.JPanel;
+import DAO.EscritoresDAO;
+import javax.swing.*;
 import Entidades.Escritor;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import utilidades.GestionColumnas;
@@ -32,16 +32,16 @@ public class JpEscritor extends javax.swing.JPanel {
     }
 
     public void carga() {
-        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Pais"};
-        //Ejemplosdearreglos
-        Double numero[] = new Double[5];
+        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Pais","Fecha_Nacimiento","Biografia"};
+        
+//        Double numero[] = new Double[8];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        Escritores es = new Escritores();
+        EscritoresDAO es = new EscritoresDAO();
         ArrayList<Escritor> listar = es.ListaEscritor();
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[5];
+        Object fila[] = new Object[8];
 
         while (iterador.hasNext()) {
             //CASTEAR
@@ -51,6 +51,8 @@ public class JpEscritor extends javax.swing.JPanel {
             fila[2] = estBucle.getNombre_Escritor();
             fila[3] = estBucle.getApellido_Escritor();
             fila[4] = estBucle.getPais_Escritor();
+            fila[5] = estBucle.getFecha_Nacimiento();
+            fila[6] = estBucle.getBiografia();
             df.addRow(fila);
         }
         TblEscritor.setModel(df);
@@ -69,16 +71,16 @@ public class JpEscritor extends javax.swing.JPanel {
     }
 
     public void cargaBusq() {
-        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Pais"};
-        //Ejemplosdearreglos
-        Double numero[] = new Double[5];
+        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Pais","Fecha_Nacimiento","Biografia"};
+
+//        Double numero[] = new Double[8];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        Escritores es = new Escritores();
+        EscritoresDAO es = new EscritoresDAO();
         ArrayList<Escritor> listar = es.BusquedaEscritor(txtBusqEs.getText());
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[5];
+        Object fila[] = new Object[8];
 
         while (iterador.hasNext()) {
             //CASTEAR
@@ -88,6 +90,9 @@ public class JpEscritor extends javax.swing.JPanel {
             fila[2] = estBucle.getNombre_Escritor();
             fila[3] = estBucle.getApellido_Escritor();
             fila[4] = estBucle.getPais_Escritor();
+            fila[5] = estBucle.getFecha_Nacimiento();
+            fila[6] = estBucle.getBiografia();
+
             df.addRow(fila);
         }
         TblEscritor.setModel(df);
@@ -120,13 +125,14 @@ public class JpEscritor extends javax.swing.JPanel {
         TblEscritor = new javax.swing.JTable();
         btnUpdate = new javax.swing.JButton();
         btnEliminar1 = new javax.swing.JButton();
-        btnDatosEscritor = new javax.swing.JButton();
         txtBusqEs = new javax.swing.JTextField();
         btnBusqueda = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1050, 540));
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(41, 50, 65));
         jLabel1.setText("GESTIÓN DE ESCRITORES");
 
         btnNuevoEscritor.setBackground(new java.awt.Color(0, 153, 51));
@@ -238,33 +244,6 @@ public class JpEscritor extends javax.swing.JPanel {
             }
         });
 
-        btnDatosEscritor.setBackground(new java.awt.Color(61, 90, 128));
-        btnDatosEscritor.setForeground(new java.awt.Color(255, 255, 255));
-        btnDatosEscritor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/profiles.png"))); // NOI18N
-        btnDatosEscritor.setText("Datos de escritor");
-        btnDatosEscritor.setContentAreaFilled(false);
-        btnDatosEscritor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnDatosEscritor.setOpaque(true);
-        btnDatosEscritor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDatosEscritorMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDatosEscritorMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnDatosEscritorMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnDatosEscritorMouseReleased(evt);
-            }
-        });
-        btnDatosEscritor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDatosEscritorActionPerformed(evt);
-            }
-        });
-
         btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
         btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
@@ -301,16 +280,15 @@ public class JpEscritor extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(29, 29, 29)
+                        .addGap(170, 170, 170)
                         .addComponent(txtBusqEs, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(btnBusqueda)
-                        .addGap(200, 200, 200)
+                        .addGap(52, 52, 52)
                         .addComponent(btnNuevoEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1006, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDatosEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -319,23 +297,18 @@ public class JpEscritor extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnNuevoEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtBusqEs, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevoEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBusqEs, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDatosEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -347,73 +320,39 @@ public class JpEscritor extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNuevoEscritorActionPerformed
 
     private void TblEscritorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblEscritorMouseClicked
-        /*        isSelect = true;
-        try {
-            new JfrmEscritorCrud()
-            txtIdEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 0).toString());
-            txtCodigoEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 1).toString());
-            txtNombreEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 2).toString());
-            txtApellidoEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 3).toString());
-            txtPaisEscritor.setText(TblEscritor.getValueAt(TblEscritor.getSelectedRow(), 4).toString());
 
-        } catch (Exception ex) {
-        }*/
     }//GEN-LAST:event_TblEscritorMouseClicked
 
     private void TblEscritorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TblEscritorKeyReleased
-//        if ((evt.getKeyCode() == KeyEvent.VK_DOWN) || (evt.getKeyCode() == KeyEvent.VK_UP)) {
-//
-//            isSelect = true;
-//            try {
-//                int filaSeleccionada = this.TblEscritor.getSelectedRow();
-//                Id = Integer.parseInt(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
-//                this.txtIdEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 0).toString());
-//                this.txtCodigoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 1).toString());
-//                this.txtNombreEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 2).toString());
-//                this.txtApellidoEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 3).toString());
-//                this.txtPaisEscritor.setText(TblEscritor.getValueAt(filaSeleccionada, 4).toString());
-//            } catch (Exception e) {
-//                JOptionPane.showMessageDialog(null, "Error al leer la tabla", "Error", JOptionPane.WARNING_MESSAGE);
-//            }
-//
-//        }
+
     }//GEN-LAST:event_TblEscritorKeyReleased
 
     private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
         if (TblEscritor.getSelectedRowCount() > 0) {
             Escritor es = new Escritor();
-            Escritores esDAO = new Escritores();
+            EscritoresDAO esDAO = new EscritoresDAO();
             int selectedRow = TblEscritor.getSelectedRow();
             es.setIdEscritor(Integer.parseInt(TblEscritor.getValueAt(selectedRow, 0).toString()));
+            
+            int response = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el escritor?", "Eliminar", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
+                esDAO.DeleteEscritor(es);
+                carga();
+            }
+            if (response == JOptionPane.NO_OPTION) {
+                repaint();
 
-            esDAO.DeleteEscritor(es);
-            carga();
-            //isSelect = false;
+            }
+
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
         }
     }//GEN-LAST:event_btnEliminar1ActionPerformed
     public JfrmMenu mainForm;
-    private void btnDatosEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosEscritorActionPerformed
-        if (TblEscritor.getSelectedRowCount() > 0) {
-            mainForm.currentPanel = null;
-            JpDatosEscritor jp = new JpDatosEscritor(mainForm);
-
-            int selectedRow = TblEscritor.getSelectedRow();
-            jp.txtId.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
-
-            mainForm.showJPanel(jp);
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
-        }
-
-        // }
-    }//GEN-LAST:event_btnDatosEscritorActionPerformed
-
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         if (TblEscritor.getSelectedRowCount() > 0) {
 
-            //Escritores esc = new Escritores();
+            
             JfrmEscritorCrud frmOp = new JfrmEscritorCrud();
             int selectedRow = TblEscritor.getSelectedRow();
             frmOp.txtIdEscritor1.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 0)));
@@ -422,6 +361,8 @@ public class JpEscritor extends javax.swing.JPanel {
             frmOp.txtNombreEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 2)));
             frmOp.txtApellidoEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 3)));
             frmOp.txtPaisEscritor.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 4)));
+            frmOp.jdcFN.setDate((Date) TblEscritor.getValueAt(selectedRow, 5));
+            frmOp.txtBiog.setText(String.valueOf(TblEscritor.getValueAt(selectedRow, 6)));
             frmOp.jpE = this;
             frmOp.lblesc.setText("Actualizar Escritor");
             //frmOp.mostrarImagen();
@@ -470,22 +411,6 @@ public class JpEscritor extends javax.swing.JPanel {
         btnNuevoEscritor.setBackground(new Color(0, 153, 51));
     }//GEN-LAST:event_btnNuevoEscritorMouseReleased
 
-    private void btnDatosEscritorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosEscritorMouseEntered
-        btnDatosEscritor.setBackground(new Color(75, 163, 252));
-    }//GEN-LAST:event_btnDatosEscritorMouseEntered
-
-    private void btnDatosEscritorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosEscritorMouseExited
-       btnDatosEscritor.setBackground(new Color(61,90,128));
-    }//GEN-LAST:event_btnDatosEscritorMouseExited
-
-    private void btnDatosEscritorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosEscritorMousePressed
-        btnDatosEscritor.setBackground(new Color(75, 163, 252));
-    }//GEN-LAST:event_btnDatosEscritorMousePressed
-
-    private void btnDatosEscritorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDatosEscritorMouseReleased
-        btnDatosEscritor.setBackground(new Color(61,90,128));
-    }//GEN-LAST:event_btnDatosEscritorMouseReleased
-
     private void btnUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseEntered
          btnUpdate.setBackground(new Color(75, 163, 252));
     }//GEN-LAST:event_btnUpdateMouseEntered
@@ -522,7 +447,6 @@ public class JpEscritor extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblEscritor;
     private javax.swing.JButton btnBusqueda;
-    private javax.swing.JButton btnDatosEscritor;
     private javax.swing.JButton btnEliminar1;
     private javax.swing.JButton btnNuevoEscritor;
     private javax.swing.JButton btnUpdate;

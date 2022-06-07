@@ -4,7 +4,7 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import Beans.Lectores;
+import DAO.LectoresDAO;
 import Entidades.Lector;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class JpLector extends javax.swing.JPanel {
         Double numero[] = new Double[7];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        Lectores es = new Lectores();
+        LectoresDAO es = new LectoresDAO();
         ArrayList<Lector> listar = es.ListaLector();
 
         Iterator iterador = listar.iterator();
@@ -74,7 +74,7 @@ public class JpLector extends javax.swing.JPanel {
         Double numero[] = new Double[7];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        Lectores es = new Lectores();
+        LectoresDAO es = new LectoresDAO();
         ArrayList<Lector> listar = es.BusquedaLector(txtxBusq.getText());
 
         Iterator iterador = listar.iterator();
@@ -127,6 +127,8 @@ public class JpLector extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(41, 50, 65));
         jLabel1.setText("GESTIÓN DE LECTORES");
 
         btnNuevoLector.setBackground(new java.awt.Color(0, 153, 51));
@@ -270,12 +272,12 @@ public class JpLector extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(192, 192, 192)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtxBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
                                 .addComponent(btnBusqueda)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(52, 52, 52)
                                 .addComponent(btnNuevoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE))))
                 .addGap(20, 20, 20))
@@ -284,14 +286,13 @@ public class JpLector extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnNuevoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBusqueda)
-                        .addComponent(txtxBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtxBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusqueda)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,12 +310,18 @@ public class JpLector extends javax.swing.JPanel {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if (TblLector.getSelectedRowCount() > 0) {
             Lector es = new Lector();
-            Lectores esDAO = new Lectores();
+            LectoresDAO esDAO = new LectoresDAO();
             int selectedRow = TblLector.getSelectedRow();
             es.setIdLector(Integer.parseInt(TblLector.getValueAt(selectedRow, 0).toString()));
-
+ int response = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el lector?", "Eliminar", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
             esDAO.DeleteLector(es);
             carga();
+            }
+            if (response == JOptionPane.NO_OPTION) {
+                repaint();
+
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
         }

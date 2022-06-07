@@ -4,7 +4,7 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import Beans.Lectores;
+import DAO.LectoresDAO;
 import Entidades.Lector;
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -188,7 +188,7 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel52)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,8 +208,8 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
                     .addComponent(txtCodigoLector)
                     .addComponent(txtIdLector, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                     .addComponent(txtEdadLector, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+                .addGap(50, 50, 50))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,11 +263,6 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEdadLectorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadLectorKeyTyped
-         char c = evt.getKeyChar();
-
-        if (c < '0' || c > '9')
-            evt.consume();
-        
         if(txtEdadLector.getText().length() >= 3){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
@@ -296,7 +291,7 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
 
     private void btnAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar2ActionPerformed
         Lector es = new Lector();
-        Lectores esDAO = new Lectores();
+        LectoresDAO esDAO = new LectoresDAO();
 
         if (txtCodigoLector.getText().equals("") || txtNombreLector.getText().equals("")
                 || txtApellidoLector.getText().equals("") || txtEdadLector.getText().equals("")
