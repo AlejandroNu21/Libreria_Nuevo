@@ -83,7 +83,7 @@ public class JpUsuario extends javax.swing.JPanel {
             }
         });
 
-        btnRegistrar.setBackground(new java.awt.Color(41, 50, 65));
+        btnRegistrar.setBackground(new java.awt.Color(0, 102, 102));
         btnRegistrar.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user.png"))); // NOI18N
@@ -122,6 +122,7 @@ public class JpUsuario extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl_Usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(tbl_Usuario);
 
         btnEliminar.setBackground(new java.awt.Color(255, 51, 51));
@@ -325,11 +326,11 @@ int response = JOptionPane.showConfirmDialog(null,"¿Desea eliminar el cliente?"
     }//GEN-LAST:event_btnRegistrarMouseExited
 
     private void btnRegistrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMousePressed
-        btnRegistrar.setBackground(new Color(0,102,102));
+        btnRegistrar.setBackground(new Color(75, 163, 252));
     }//GEN-LAST:event_btnRegistrarMousePressed
 
     private void btnRegistrarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseReleased
-        btnRegistrar.setBackground(new Color(61,90,128));
+        btnRegistrar.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_btnRegistrarMouseReleased
 
     private void btnEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseEntered

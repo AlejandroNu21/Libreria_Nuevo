@@ -4,13 +4,17 @@
  */
 package com.alejandro.library_systemnuevo;
 
-
 import DAO.*;
 import Entidades.*;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import utilidades.GestionColumnas;
+import utilidades.GestionEncabezadoTabla;
 
 /**
  *
@@ -99,7 +103,26 @@ public class JpCompra extends javax.swing.JPanel {
             }
         });
 
+        btnME.setBackground(new java.awt.Color(41, 50, 65));
+        btnME.setForeground(new java.awt.Color(255, 255, 255));
         btnME.setText("Buscar");
+        btnME.setContentAreaFilled(false);
+        btnME.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnME.setOpaque(true);
+        btnME.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMEMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMEMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnMEMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnMEMouseReleased(evt);
+            }
+        });
         btnME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMEActionPerformed(evt);
@@ -116,7 +139,26 @@ public class JpCompra extends javax.swing.JPanel {
 
         cmbLibro.setEditable(true);
 
+        btnML.setBackground(new java.awt.Color(41, 50, 65));
+        btnML.setForeground(new java.awt.Color(255, 255, 255));
         btnML.setText("Buscar");
+        btnML.setContentAreaFilled(false);
+        btnML.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnML.setOpaque(true);
+        btnML.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMLMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnMLMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnMLMouseReleased(evt);
+            }
+        });
         btnML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMLActionPerformed(evt);
@@ -150,6 +192,12 @@ public class JpCompra extends javax.swing.JPanel {
         txtCCliente6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         txtCCliente6.setText("PRECIO VENTA");
         txtCCliente6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        txtPV.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPVKeyTyped(evt);
+            }
+        });
 
         txtCCliente7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         txtCCliente7.setText("FECHA:");
@@ -314,6 +362,11 @@ public class JpCompra extends javax.swing.JPanel {
             }
         });
         tblCompra.setPreferredSize(new java.awt.Dimension(1030, 240));
+        tblCompra.addHierarchyListener(new java.awt.event.HierarchyListener() {
+            public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
+                tblCompraHierarchyChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblCompra);
 
         BtnCancelar.setBackground(new java.awt.Color(255, 51, 51));
@@ -321,6 +374,7 @@ public class JpCompra extends javax.swing.JPanel {
         BtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/error.png"))); // NOI18N
         BtnCancelar.setText("Cancelar Compra");
         BtnCancelar.setContentAreaFilled(false);
+        BtnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnCancelar.setOpaque(true);
         BtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -333,6 +387,7 @@ public class JpCompra extends javax.swing.JPanel {
         btnAgregarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cashier-machine.png"))); // NOI18N
         btnAgregarCompra.setText("Agregar Compra");
         btnAgregarCompra.setContentAreaFilled(false);
+        btnAgregarCompra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregarCompra.setOpaque(true);
         btnAgregarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -358,6 +413,7 @@ public class JpCompra extends javax.swing.JPanel {
         btnADD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/addlbr.png"))); // NOI18N
         btnADD.setText("Agregar Libro");
         btnADD.setContentAreaFilled(false);
+        btnADD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnADD.setOpaque(true);
         btnADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,6 +426,7 @@ public class JpCompra extends javax.swing.JPanel {
         BtnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/delLib.png"))); // NOI18N
         BtnBorrar.setText("Eliminar Libro");
         BtnBorrar.setContentAreaFilled(false);
+        BtnBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnBorrar.setOpaque(true);
         BtnBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -446,7 +503,7 @@ public class JpCompra extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1062, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -599,12 +656,24 @@ public class JpCompra extends javax.swing.JPanel {
         if (evt.getKeyChar() == '.' && txtPrecio.getText().contains(".")) {
             evt.consume();
         }
+
+        char TPresionada = evt.getKeyChar();
+
+        if (TPresionada == KeyEvent.VK_ENTER) {
+            btnADD.doClick();
+        }
     }//GEN-LAST:event_txtPrecioKeyTyped
 
     private void txtCantKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantKeyTyped
         char caracter = evt.getKeyChar();
         if (caracter < '0' || caracter > '9') {
             evt.consume();
+        }
+
+        char TPresionada = evt.getKeyChar();
+
+        if (TPresionada == KeyEvent.VK_ENTER) {
+            btnADD.doClick();
         }
     }//GEN-LAST:event_txtCantKeyTyped
 
@@ -669,6 +738,65 @@ public class JpCompra extends javax.swing.JPanel {
         }
         limpiar();
     }//GEN-LAST:event_BtnCancelarActionPerformed
+
+    private void tblCompraHierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_tblCompraHierarchyChanged
+        tblCompra.getTableHeader().setReorderingAllowed(false);
+        tblCompra.setRowHeight(30);
+        tblCompra.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = tblCompra.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        tblCompra.setTableHeader(jtableHeader);
+
+        tblCompra.setDefaultRenderer(Object.class, new GestionColumnas());
+    }//GEN-LAST:event_tblCompraHierarchyChanged
+
+    private void btnMEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMouseEntered
+        btnME.setBackground(new Color(240, 240, 240));
+        btnME.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_btnMEMouseEntered
+
+    private void btnMEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMouseExited
+        btnME.setBackground(new Color(41, 50, 65));
+        btnME.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMEMouseExited
+
+    private void btnMEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMousePressed
+        btnME.setBackground(new Color(240, 240, 240));
+        btnME.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMEMousePressed
+
+    private void btnMEMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMouseReleased
+        btnME.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnMEMouseReleased
+
+    private void btnMLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseEntered
+        btnML.setBackground(new Color(240, 240, 240));
+        btnML.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_btnMLMouseEntered
+
+    private void btnMLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseExited
+        btnML.setBackground(new Color(41, 50, 65));
+        btnML.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMLMouseExited
+
+    private void btnMLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMousePressed
+        btnML.setBackground(new Color(240, 240, 240));
+        btnML.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMLMousePressed
+
+    private void btnMLMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseReleased
+        btnML.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnMLMouseReleased
+
+    private void txtPVKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPVKeyTyped
+        char TPresionada = evt.getKeyChar();
+
+        if (TPresionada == KeyEvent.VK_ENTER) {
+            btnADD.doClick();
+        }
+    }//GEN-LAST:event_txtPVKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

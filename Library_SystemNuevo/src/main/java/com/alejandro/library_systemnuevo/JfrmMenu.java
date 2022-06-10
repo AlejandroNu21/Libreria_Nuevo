@@ -413,6 +413,7 @@ public class JfrmMenu extends javax.swing.JFrame {
         });
 
         lblCS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/log_out.png"))); // NOI18N
+        lblCS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblCS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCSMouseClicked(evt);

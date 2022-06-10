@@ -9,6 +9,7 @@ import Entidades.user;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -25,19 +26,19 @@ public class FrmLogin extends javax.swing.JFrame {
         initComponents();
         setIconImage(getIconImage());
         this.setLocationRelativeTo(null);
-       jLabel1.setIcon(new ImageIcon(imagenBG.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH)));
+        jLabel1.setIcon(new ImageIcon(imagenBG.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH)));
     }
-    
-    
-        final ImageIcon imagenBG = new ImageIcon(getClass().getResource("/Imagenes/fondo.png"));
+
+    final ImageIcon imagenBG = new ImageIcon(getClass().getResource("/Imagenes/fondo.png"));
+
     @Override
-    public Image getIconImage () {
-        
+    public Image getIconImage() {
+
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.jpeg"));
-        
+
         return retValue;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,6 +83,18 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel3.setText("Contraseña:");
 
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
+        });
+
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyTyped(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(41, 50, 65));
         jLabel4.setText("Inicio de Sesión");
@@ -117,6 +130,18 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel6MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel6MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel6MouseReleased(evt);
             }
         });
 
@@ -267,79 +292,76 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarLoginActionPerformed
-                if (txtUsuario.getText().equals("") || String.valueOf(txtPassword.getPassword()).equals("")) {
+        if (txtUsuario.getText().equals("") || String.valueOf(txtPassword.getPassword()).equals("")) {
             JOptionPane.showMessageDialog(null, "Llena todos los campos");
         } else {
-         user us = new user();
-         LoginDAO users = new LoginDAO();
-                    
-        String nombreUsuario=(txtUsuario.getText());          
-        String contraseña = "";
+            user us = new user();
+            LoginDAO users = new LoginDAO();
 
-        for (char caracter : txtPassword.getPassword()) {
-            contraseña += caracter;
+            String nombreUsuario = (txtUsuario.getText());
+            String contraseña = "";
 
+            for (char caracter : txtPassword.getPassword()) {
+                contraseña += caracter;
+
+            }
+
+            us.setNombreUsuario(nombreUsuario);
+            us.setContrasenia(contraseña);
+
+            if (users.Logu(us)) {
+                this.dispose();
+                JfrmMenu.main(users.rolUsuario(nombreUsuario));
+
+            }
         }
-
-       
-        us.setNombreUsuario(nombreUsuario);
-        us.setContrasenia(contraseña);
-
-        
-        if (users.Logu(us)) {
-            this.dispose();
-            JfrmMenu.main(users.rolUsuario(nombreUsuario));
-            
-
-        }
-                }
     }//GEN-LAST:event_btnIngresarLoginActionPerformed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-       if(java.awt.Desktop.isDesktopSupported()){
-           java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-           if(desktop.isSupported(java.awt.Desktop.Action.BROWSE)){
-               try{
-                   java.net.URI uri=new java.net.URI("https://www.youtube.com/");
-                   desktop.browse(uri);
-               }catch(Exception e){
-                   
-               }
-           }
-       }
+        if (java.awt.Desktop.isDesktopSupported()) {
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+            if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+                try {
+                    java.net.URI uri = new java.net.URI("https://www.youtube.com/");
+                    desktop.browse(uri);
+                } catch (Exception e) {
+
+                }
+            }
+        }
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        if(java.awt.Desktop.isDesktopSupported()){
-           java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-           if(desktop.isSupported(java.awt.Desktop.Action.BROWSE)){
-               try{
-                   java.net.URI uri=new java.net.URI("https://m.facebook.com/La-casa-del-libro22-110979291615552/");
-                   desktop.browse(uri);
-               }catch(Exception e){
-                   
-               }
-           }
-       }
+        if (java.awt.Desktop.isDesktopSupported()) {
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+            if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+                try {
+                    java.net.URI uri = new java.net.URI("https://m.facebook.com/La-casa-del-libro22-110979291615552/");
+                    desktop.browse(uri);
+                } catch (Exception e) {
+
+                }
+            }
+        }
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-       if(java.awt.Desktop.isDesktopSupported()){
-           java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-           if(desktop.isSupported(java.awt.Desktop.Action.BROWSE)){
-               try{
-                   java.net.URI uri=new java.net.URI("https://www.youtube.com/");
-                   desktop.browse(uri);
-               }catch(Exception e){
-                   
-               }
-           }
-       }
+        if (java.awt.Desktop.isDesktopSupported()) {
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+            if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+                try {
+                    java.net.URI uri = new java.net.URI("https://www.youtube.com/");
+                    desktop.browse(uri);
+                } catch (Exception e) {
+
+                }
+            }
+        }
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         JfrmInformacion info = new JfrmInformacion();
-        info.setVisible(true);        
+        info.setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void btnIngresarLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarLoginMouseEntered
@@ -347,7 +369,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarLoginMouseEntered
 
     private void btnIngresarLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarLoginMouseExited
-        btnIngresarLogin.setBackground(new Color(0,102,102));
+        btnIngresarLogin.setBackground(new Color(41, 50, 65));
     }//GEN-LAST:event_btnIngresarLoginMouseExited
 
     private void btnIngresarLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarLoginMousePressed
@@ -355,7 +377,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarLoginMousePressed
 
     private void btnIngresarLoginMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarLoginMouseReleased
-        btnIngresarLogin.setBackground(new Color(0,102,102));
+        btnIngresarLogin.setBackground(new Color(41, 50, 65));
     }//GEN-LAST:event_btnIngresarLoginMouseReleased
 
     private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
@@ -365,6 +387,38 @@ public class FrmLogin extends javax.swing.JFrame {
     private void lblMinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinimizeMouseClicked
         this.setState(1);
     }//GEN-LAST:event_lblMinimizeMouseClicked
+
+    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
+
+    }//GEN-LAST:event_jLabel6MouseEntered
+
+    private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
+
+    }//GEN-LAST:event_jLabel6MouseExited
+
+    private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
+
+    }//GEN-LAST:event_jLabel6MousePressed
+
+    private void jLabel6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseReleased
+
+    }//GEN-LAST:event_jLabel6MouseReleased
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+        char TPresionada = evt.getKeyChar();
+
+        if (TPresionada == KeyEvent.VK_ENTER) {
+            btnIngresarLogin.doClick();
+        }
+    }//GEN-LAST:event_txtUsuarioKeyTyped
+
+    private void txtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyTyped
+        char TPresionada = evt.getKeyChar();
+
+        if (TPresionada == KeyEvent.VK_ENTER) {
+            btnIngresarLogin.doClick();
+        }
+    }//GEN-LAST:event_txtPasswordKeyTyped
 
     /**
      * @param args the command line arguments

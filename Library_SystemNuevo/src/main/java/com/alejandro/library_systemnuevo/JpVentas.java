@@ -6,11 +6,16 @@ package com.alejandro.library_systemnuevo;
 
 import DAO.*;
 import Entidades.*;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 //import java.text.DecimalFormat;
 //import java.time.LocalDateTime;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import utilidades.GestionColumnas;
+import utilidades.GestionEncabezadoTabla;
 
 /**
  *
@@ -24,10 +29,25 @@ public class JpVentas extends javax.swing.JPanel {
     int IdCliente[];
     int IdLibro[];
     Libro lb = new Libro();
-    
+
     /**
      * Creates new form JPVentas
      */
+    public void cargar() {
+
+        tblVenta.getTableHeader().setReorderingAllowed(false);
+        tblVenta.setRowHeight(30);
+        tblVenta.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = tblVenta.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        tblVenta.setTableHeader(jtableHeader);
+
+        tblVenta.setDefaultRenderer(Object.class, new GestionColumnas());
+
+    }
+
     public JpVentas() {
         initComponents();
         txtNumeroDoc.setText("21112000");
@@ -45,20 +65,19 @@ public class JpVentas extends javax.swing.JPanel {
         txtIDVENTA.setText(String.valueOf(ID + 1));
 
     }
-    
-    private void limpiar(){
-    txtCliente.setText("");
-    txtPrecio.setText("");
-    txtCant.setText("");
-    txtStock.setText("");
-    txtImpuesto.setText("");
-    txtTotal.setText("");
-    cmbDui.setSelectedIndex(-1);
-    cmbLibro.setSelectedIndex(-1);
-    txtLibro.setText("");
-        
+
+    private void limpiar() {
+        txtCliente.setText("");
+        txtPrecio.setText("");
+        txtCant.setText("");
+        txtStock.setText("");
+        txtImpuesto.setText("");
+        txtTotal.setText("");
+        cmbDui.setSelectedIndex(-1);
+        cmbLibro.setSelectedIndex(-1);
+        txtLibro.setText("");
+
     }
-    
 
     private void FiltroLibro(String Busqueda) {
         cmbLibro.removeAllItems();
@@ -73,8 +92,7 @@ public class JpVentas extends javax.swing.JPanel {
             txtStock.setText(String.valueOf(libro.getCantidad()));
             Indice++;
         }
-        
-        
+
     }
 
     //BuscarClientes
@@ -91,7 +109,6 @@ public class JpVentas extends javax.swing.JPanel {
             Indice++;
         }
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -226,7 +243,26 @@ public class JpVentas extends javax.swing.JPanel {
             }
         });
 
+        btnMC.setBackground(new java.awt.Color(41, 50, 65));
+        btnMC.setForeground(new java.awt.Color(255, 255, 255));
         btnMC.setText("Buscar");
+        btnMC.setContentAreaFilled(false);
+        btnMC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMC.setOpaque(true);
+        btnMC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMCMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMCMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnMCMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnMCMouseReleased(evt);
+            }
+        });
         btnMC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMCActionPerformed(evt);
@@ -248,7 +284,26 @@ public class JpVentas extends javax.swing.JPanel {
 
         cmbLibro.setEditable(true);
 
+        btnML.setBackground(new java.awt.Color(41, 50, 65));
+        btnML.setForeground(new java.awt.Color(255, 255, 255));
         btnML.setText("Buscar");
+        btnML.setContentAreaFilled(false);
+        btnML.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnML.setOpaque(true);
+        btnML.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMLMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnMLMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnMLMouseReleased(evt);
+            }
+        });
         btnML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMLActionPerformed(evt);
@@ -388,6 +443,16 @@ public class JpVentas extends javax.swing.JPanel {
             }
         });
         tblVenta.setPreferredSize(new java.awt.Dimension(1030, 240));
+        tblVenta.addHierarchyListener(new java.awt.event.HierarchyListener() {
+            public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
+                tblVentaHierarchyChanged(evt);
+            }
+        });
+        tblVenta.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                tblVentaComponentShown(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblVenta);
 
         BtnCancelar.setBackground(new java.awt.Color(255, 51, 51));
@@ -395,6 +460,7 @@ public class JpVentas extends javax.swing.JPanel {
         BtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/error.png"))); // NOI18N
         BtnCancelar.setText("Cancelar Venta");
         BtnCancelar.setContentAreaFilled(false);
+        BtnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnCancelar.setOpaque(true);
         BtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -407,6 +473,7 @@ public class JpVentas extends javax.swing.JPanel {
         btnAgregarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cashier-machine.png"))); // NOI18N
         btnAgregarVenta.setText("Agregar Venta");
         btnAgregarVenta.setContentAreaFilled(false);
+        btnAgregarVenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregarVenta.setOpaque(true);
         btnAgregarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -432,10 +499,30 @@ public class JpVentas extends javax.swing.JPanel {
         btnADD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/addlbr.png"))); // NOI18N
         btnADD.setText("Agregar Libro");
         btnADD.setContentAreaFilled(false);
+        btnADD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnADD.setOpaque(true);
+        btnADD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnADDMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnADDMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnADDMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnADDMouseReleased(evt);
+            }
+        });
         btnADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnADDActionPerformed(evt);
+            }
+        });
+        btnADD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                btnADDKeyTyped(evt);
             }
         });
 
@@ -444,6 +531,7 @@ public class JpVentas extends javax.swing.JPanel {
         BtnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/delLib.png"))); // NOI18N
         BtnBorrar.setText("Eliminar Libro");
         BtnBorrar.setContentAreaFilled(false);
+        BtnBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnBorrar.setOpaque(true);
         BtnBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -573,6 +661,12 @@ public class JpVentas extends javax.swing.JPanel {
         if (caracter < '0' || caracter > '9') {
             evt.consume();
         }
+
+        char TPresionada = evt.getKeyChar();
+
+        if (TPresionada == KeyEvent.VK_ENTER) {
+            btnADD.doClick();
+        }
     }//GEN-LAST:event_txtCantKeyTyped
 
     private double redondear(double num) {
@@ -613,11 +707,11 @@ public class JpVentas extends javax.swing.JPanel {
             double totallb = cantidad * precio;
             rowData[4] = String.valueOf(redondear(totallb * 0.13));
             rowData[5] = String.valueOf(redondear(totallb));
-            
+
             model.addRow(rowData);
 
             calcularTotal();
-            
+
         } else {
             JOptionPane.showMessageDialog(null, "El articulo seleccionado no tiene existencias");
         }
@@ -636,6 +730,12 @@ public class JpVentas extends javax.swing.JPanel {
 
         if (evt.getKeyChar() == '.' && txtPrecio.getText().contains(".")) {
             evt.consume();
+        }
+
+        char TPresionada = evt.getKeyChar();
+
+        if (TPresionada == KeyEvent.VK_ENTER) {
+            btnADD.doClick();
         }
     }//GEN-LAST:event_txtPrecioKeyTyped
 
@@ -669,7 +769,7 @@ public class JpVentas extends javax.swing.JPanel {
             ventasDao.addDetalleVenta(dtv);
 
         }
-        
+
     }
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed
         guardarVenta();
@@ -681,8 +781,8 @@ public class JpVentas extends javax.swing.JPanel {
 
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
         tblVenta.selectAll();
-       int filas [] = tblVenta.getSelectedRows();
-       int indice = filas.length-1;
+        int filas[] = tblVenta.getSelectedRows();
+        int indice = filas.length - 1;
         for (int i = 0; i < filas.length; i++) {
             model.removeRow(indice);
             indice--;
@@ -695,11 +795,86 @@ public class JpVentas extends javax.swing.JPanel {
     }//GEN-LAST:event_txtIDVENTAKeyTyped
 
     private void txtClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClienteKeyTyped
-if(txtNumeroDoc.getText().length() >= 1)
-{
-    evt.consume();
-}
+        if (txtNumeroDoc.getText().length() >= 1) {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtClienteKeyTyped
+
+    private void tblVentaComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tblVentaComponentShown
+
+    }//GEN-LAST:event_tblVentaComponentShown
+
+    private void tblVentaHierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_tblVentaHierarchyChanged
+        tblVenta.getTableHeader().setReorderingAllowed(false);
+        tblVenta.setRowHeight(30);
+        tblVenta.setGridColor(new java.awt.Color(0, 0, 0));
+
+        //PERSONALIZAR ENCABEZADO
+        JTableHeader jtableHeader = tblVenta.getTableHeader();
+        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+        tblVenta.setTableHeader(jtableHeader);
+
+        tblVenta.setDefaultRenderer(Object.class, new GestionColumnas());
+    }//GEN-LAST:event_tblVentaHierarchyChanged
+
+    private void btnMCMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMCMouseEntered
+        btnMC.setBackground(new Color(240, 240, 240));
+        btnMC.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_btnMCMouseEntered
+
+    private void btnMCMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMCMouseExited
+        btnMC.setBackground(new Color(41, 50, 65));
+        btnMC.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMCMouseExited
+
+    private void btnMCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMCMousePressed
+        btnMC.setBackground(new Color(240, 240, 240));
+        btnMC.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMCMousePressed
+
+    private void btnMCMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMCMouseReleased
+        btnMC.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnMCMouseReleased
+
+    private void btnMLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseEntered
+        //Abajo
+        btnML.setBackground(new Color(240, 240, 240));
+        btnML.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_btnMLMouseEntered
+
+    private void btnMLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseExited
+        btnML.setBackground(new Color(41, 50, 65));
+        btnML.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMLMouseExited
+
+    private void btnMLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMousePressed
+        btnML.setBackground(new Color(240, 240, 240));
+        btnML.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMLMousePressed
+
+    private void btnMLMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseReleased
+        btnML.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnMLMouseReleased
+
+    private void btnADDMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnADDMouseEntered
+
+    }//GEN-LAST:event_btnADDMouseEntered
+
+    private void btnADDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnADDMouseExited
+
+    }//GEN-LAST:event_btnADDMouseExited
+
+    private void btnADDMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnADDMousePressed
+
+    }//GEN-LAST:event_btnADDMousePressed
+
+    private void btnADDMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnADDMouseReleased
+
+    }//GEN-LAST:event_btnADDMouseReleased
+
+    private void btnADDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnADDKeyTyped
+
+    }//GEN-LAST:event_btnADDKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
