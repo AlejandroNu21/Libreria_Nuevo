@@ -303,7 +303,7 @@ public class JpUsuario extends javax.swing.JPanel {
             int selectedRow = tbl_Usuario.getSelectedRow();
             if (selectedRow != 0) {
                 us.setIdUsuario(Integer.parseInt(tbl_Usuario.getValueAt(selectedRow, 0).toString()));
-int response = JOptionPane.showConfirmDialog(null,"¿Desea eliminar el cliente?","Eliminar",JOptionPane.OK_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
+int response = JOptionPane.showConfirmDialog(null,"¿Desea eliminar el usuario?","Eliminar",JOptionPane.OK_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
             if(response==JOptionPane.YES_OPTION){
                 lgDAO.DeleteUser(us);
                 carga();

@@ -588,8 +588,8 @@ public class JpCompra extends javax.swing.JPanel {
         txtTotal.setText(String.valueOf(redondear(total)));
     }
 
-    private void guardarVenta() {
-        //int idVenta=0;
+    private void guardarCompra() {
+        
         Compras compras = new Compras();
         ComprasDAO comprasDAO = new ComprasDAO();
 
@@ -678,10 +678,17 @@ public class JpCompra extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCantKeyTyped
 
     private void btnAgregarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCompraActionPerformed
-        guardarVenta();
+        
+        if(IdEditorial!=null && IdLibro!=null){
+        
+        guardarCompra();
         guardarDetalle();
         JOptionPane.showMessageDialog(null, "Detalle de compras agregadas");
         limpiar();
+        }else{
+        JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        }
+
     }//GEN-LAST:event_btnAgregarCompraActionPerformed
 
     private void txtImpuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImpuestoActionPerformed
@@ -690,6 +697,12 @@ public class JpCompra extends javax.swing.JPanel {
 
 
     private void btnADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADDActionPerformed
+        
+        if (txtPrecio.getText().equals("") || txtCant.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+
+        }else{
+        
         if (txtPV.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "El articulo seleccionado no tiene precio de venta");
 
@@ -719,7 +732,7 @@ public class JpCompra extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "No puede vender el producto a 0 dolares");
             }
 
-        }
+        }}
 
     }//GEN-LAST:event_btnADDActionPerformed
 

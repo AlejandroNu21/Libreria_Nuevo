@@ -333,7 +333,7 @@ public class JpEditorial extends javax.swing.JPanel {
             EditorialsDao esDAO = new EditorialsDao();
             int selectedRow =TblEditorial.getSelectedRow();
             es.setIdEditorial(Integer.parseInt(TblEditorial.getValueAt(selectedRow, 0).toString()));
-            int response = JOptionPane.showConfirmDialog(null,"¿Desea eliminar el cliente?","Eliminar",JOptionPane.OK_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
+            int response = JOptionPane.showConfirmDialog(null,"¿Desea eliminar la editorial?","Eliminar",JOptionPane.OK_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE);
             if(response==JOptionPane.YES_OPTION){
              esDAO.DeleteEditorial(es);
              carga();

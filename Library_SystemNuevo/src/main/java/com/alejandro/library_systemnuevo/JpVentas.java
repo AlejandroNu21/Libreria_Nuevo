@@ -693,7 +693,11 @@ public class JpVentas extends javax.swing.JPanel {
 
     private void btnADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADDActionPerformed
 
-        if (Integer.parseInt(txtStock.getText()) > 0) {
+        if (txtPrecio.getText().equals("") || txtCant.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+
+        }else{
+                    if (Integer.parseInt(txtStock.getText()) > 0) {
             model = (DefaultTableModel) tblVenta.getModel();
             String rowData[] = new String[6];
             //rowData[0] = cmbLibro.getSelectedItem().toString();
@@ -714,6 +718,7 @@ public class JpVentas extends javax.swing.JPanel {
 
         } else {
             JOptionPane.showMessageDialog(null, "El articulo seleccionado no tiene existencias");
+        }
         }
 
 
@@ -772,10 +777,15 @@ public class JpVentas extends javax.swing.JPanel {
 
     }
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed
+        
+        if(IdCliente!=null && IdLibro!=null){
         guardarVenta();
         guardarDetalle();
         JOptionPane.showMessageDialog(null, "Detalle de ventas agregadas");
         limpiar();
+        }else{
+        JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        }
 
     }//GEN-LAST:event_btnAgregarVentaActionPerformed
 

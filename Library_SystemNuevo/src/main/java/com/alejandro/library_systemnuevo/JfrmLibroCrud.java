@@ -112,6 +112,12 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel4.setText("Codigo Libro");
 
+        txtCodigoLibro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoLibroKeyTyped(evt);
+            }
+        });
+
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel5.setText("Editorial");
 
@@ -611,6 +617,13 @@ void CargaCmb() {
     private void btnGuardarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseReleased
           btnGuardar.setBackground(new Color(61,90,128));
     }//GEN-LAST:event_btnGuardarMouseReleased
+
+    private void txtCodigoLibroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoLibroKeyTyped
+                if(txtCodigoLibro.getText().length() >= 8){
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtCodigoLibroKeyTyped
 
     /**
      * @param args the command line arguments

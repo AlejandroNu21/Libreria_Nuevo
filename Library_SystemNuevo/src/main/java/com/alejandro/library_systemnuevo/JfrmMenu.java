@@ -830,10 +830,17 @@ public class JfrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuariosMouseReleased
 
     private void lblCSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCSMouseClicked
-  
-        this.dispose();
-        FrmLogin abrir = new FrmLogin();
+        int response = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea cerrar sesión?", "Eliminar", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            this.dispose();
+            FrmLogin abrir = new FrmLogin();
             abrir.setVisible(true);
+        }
+        if (response == JOptionPane.NO_OPTION) {
+            repaint();
+
+        }
+
     }//GEN-LAST:event_lblCSMouseClicked
 
     /**
