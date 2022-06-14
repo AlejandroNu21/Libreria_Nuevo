@@ -9,6 +9,6 @@ package Entidades.Enums;
  * @author Vkaiido
  */
 public enum subgeneroType {
-
-    NOVELA, POESIA, ENSAYO
+//ENUM('Terror', 'Poesia', 'Ensayo', 'CienciaFiccion', 'Novelas', 'Policiales')
+    TERROR, POESIA, ENSAYO, CIENCIAFICCION, NOVELAS, POLICIALES
 }

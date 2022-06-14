@@ -40,7 +40,7 @@ public class EscritoresDAO {
                 ed.setApellido_Escritor(resultado.getString("apellido_escritor"));
                 ed.setPais_Escritor(resultado.getString("pais_escritor"));
                 ed.setFecha_Nacimiento(resultado.getDate("fecha_nacimiento_escritor"));
-                ed.setBiografia(resultado.getString("pais_escritor"));
+                ed.setBiografia(resultado.getString("biografia_escritor"));
                 ed.setAvatarEscritor(resultado.getBytes("foto_escritor"));
                 lista.add(ed);
             }
@@ -140,7 +140,7 @@ public class EscritoresDAO {
             cb.setString(3, escritor.getApellido_Escritor());
             cb.setString(4, escritor.getPais_Escritor());
             cb.setDate(5, new java.sql.Date(escritor.getFecha_Nacimiento().getTime()));
-            cb.setString(6, escritor.getPais_Escritor());
+            cb.setString(6, escritor.getBiografia());
             cb.execute();
 
             JOptionPane.showMessageDialog(null, "Escritor Actualizado");

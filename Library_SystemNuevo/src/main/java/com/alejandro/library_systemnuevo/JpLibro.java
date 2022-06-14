@@ -5,6 +5,7 @@
 package com.alejandro.library_systemnuevo;
 
 import DAO.*;
+import Entidades.Libro;
 import ViewModel.LibroVM;
 import java.awt.*;
 import java.util.ArrayList;
@@ -338,7 +339,23 @@ public class JpLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+         if (Tbl_Libro.getSelectedRowCount() > 0) {
+            Libro ls = new Libro();
+            LibrosDAO lbDAO = new LibrosDAO();
+            int selectedRow = Tbl_Libro.getSelectedRow();
+            ls.setIdLibro(Integer.parseInt(Tbl_Libro.getValueAt(selectedRow, 0).toString()));
+ int response = JOptionPane.showConfirmDialog(null, "¿Desea eliminar este libro?", "Eliminar", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (response == JOptionPane.YES_OPTION) {
+            lbDAO.DeleteLibro(ls);
+            carga();
+            }
+            if (response == JOptionPane.NO_OPTION) {
+                repaint();
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnNuevoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoLibroActionPerformed

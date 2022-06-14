@@ -169,7 +169,7 @@ return count;
         rs = cb.executeQuery();
         if(rs.next()){
         id = rs.getInt(1);
-            System.out.println(id);
+            //System.out.println(id);
         }
         }catch(SQLException ex){
         JOptionPane.showMessageDialog(null, "error" + ex);

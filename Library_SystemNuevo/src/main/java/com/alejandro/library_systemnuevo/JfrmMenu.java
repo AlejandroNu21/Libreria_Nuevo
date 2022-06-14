@@ -50,7 +50,8 @@ public class JfrmMenu extends javax.swing.JFrame {
         if(rol==rolType.USUARIO){
         btnUsuarios.setEnabled(false);
         btnCompra.setEnabled(false);
-        
+        btnEditoriales.setEnabled(false);
+        btnEscritor1.setEnabled(false);
         }
     
     }

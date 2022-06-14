@@ -275,7 +275,7 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
         if (c < '0' || c > '9')
             evt.consume();
 
-        if(txtTelefonoLector.getText().length() >= 8){
+        if(txtTelefonoLector.getText().length() >= 15){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }

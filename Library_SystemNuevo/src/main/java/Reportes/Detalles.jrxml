@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="98457490-16db-46c4-8061-9b17a880d8d7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="venta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select pR.id_venta, 
+cl.documento_cliente,
+cl.nombre_cliente,
+cl.direccion_cliente,
+li.titulo_libro, 
+pR.fecha_venta,
+cantidad_venta, 
+precio_venta, 
+impuesto_venta, 
+(cantidad_venta*precio_venta) as total_venta
+from detalle_ventas inner join ventas as pR on detalle_ventas.id_venta_fk=pR.id_venta
+inner join libros as li on detalle_ventas.id_libro_fk = li.id_libro
+inner join clientes as cl on pR.id_cliente_fk = cl.id_cliente
+where pR.id_venta = $P{venta}]]>
+	</queryString>
+	<field name="id_venta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="documento_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccion_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="titulo_libro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_venta" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidad_venta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio_venta" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="impuesto_venta" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_venta" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="397" y="1" width="69" height="24" uuid="450c2b54-8ae6-4165-9e77-eb862b05de99"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-21" y="1" width="78" height="24" uuid="df8f1c3a-1137-45c1-a359-e9a0141e39ec"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="466" y="1" width="66" height="24" uuid="0900388d-d5e8-4584-b0ab-44a507efc220"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="57" y="1" width="245" height="24" uuid="8109e01c-83b8-424a-9dd2-712b23b856f7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="302" y="1" width="95" height="24" uuid="bf8e2f17-b7d1-452d-848f-c29adb946dfb"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="5" width="47" height="20" uuid="af5b9809-dbf3-41b1-833e-cd96b671aac2"/>
+				<textFieldExpression><![CDATA[$F{cantidad_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="5" width="173" height="20" uuid="29bf1422-dfd7-4988-b5f2-f5062668d967"/>
+				<textFieldExpression><![CDATA[$F{titulo_libro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="4" width="82" height="20" uuid="ef217fe3-e683-452d-8207-4ccc990263f9"/>
+				<textFieldExpression><![CDATA[$F{precio_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="4" width="52" height="20" uuid="973cfdf8-90d7-4c97-9c70-e123ce562f46"/>
+				<textFieldExpression><![CDATA[$F{impuesto_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="488" y="5" width="44" height="20" uuid="c534c2da-3ede-4697-81b7-1bc4d985ab5e"/>
+				<textFieldExpression><![CDATA[$F{total_venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

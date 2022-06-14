@@ -316,10 +316,10 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
     }
 
     private void txtEdadClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadClienteKeyTyped
-        char c = evt.getKeyChar();
-
-        if (c < '0' || c > '9')
+        if(txtEdadCliente.getText().length() >= 3){
             evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
     }//GEN-LAST:event_txtEdadClienteKeyTyped
 
     private void txtDireccionClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionClienteActionPerformed
@@ -333,7 +333,7 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
             evt.consume();
         }
 
-        if (txtTelefonoCliente.getText().length() >= 8) {
+        if (txtTelefonoCliente.getText().length() >= 15) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }

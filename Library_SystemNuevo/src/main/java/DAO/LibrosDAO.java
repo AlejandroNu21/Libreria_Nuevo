@@ -257,7 +257,21 @@ public class LibrosDAO {
 
     }
         
-        
+         public void DeleteLibro(Libro libb) {
+
+        try {
+            conexion = con.getConecction();
+            CallableStatement cb = conexion.prepareCall("delete from libros as a where a.id_libro=?;");
+            cb.setInt(1, libb.getIdLibro());
+            cb.execute();
+
+            JOptionPane.showMessageDialog(null, "Libro eliminado correctamente");
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error" + ex);
+        }
+    }
         
 
 }

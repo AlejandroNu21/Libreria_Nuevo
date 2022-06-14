@@ -263,8 +263,10 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
 
     
     void limpiar(){
-    
-    
+        txtIdPrestamo.setText("");
+    CmbFL.removeAllItems();
+    CmbFLib.removeAllItems();
+    cmbDevuelto.setSelectedIndex(0);
     }
     
     void CargaCmb() {
@@ -291,7 +293,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
                 pr.setFecha_Prestamo(JDCFprestamo.getDate());
                 pr.setFecha_Devolucion(JDCFDev.getDate());
                 pr.setReembolso_prestamo(prestamoType.values()[cmbDevuelto.getSelectedIndex()]);
-
+                limpiar();
                 PrDao.AddPrestamo(pr);
 
             } else {

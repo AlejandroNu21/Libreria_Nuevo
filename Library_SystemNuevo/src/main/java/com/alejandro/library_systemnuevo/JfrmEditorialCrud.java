@@ -267,7 +267,7 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
         if (c < '0' || c > '9')
             evt.consume();
         
-        if(txtTelefonoEditorial.getText().length() >= 8){
+        if(txtTelefonoEditorial.getText().length() >= 15){
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }

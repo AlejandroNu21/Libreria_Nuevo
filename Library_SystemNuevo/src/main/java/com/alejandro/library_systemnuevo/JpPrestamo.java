@@ -318,7 +318,9 @@ public class JpPrestamo extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarPrestamoActionPerformed
 
     private void btnNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoPrestamoActionPerformed
-        new JfrmPrestamoCrud().setVisible(true);
+        JfrmPrestamoCrud frm = new JfrmPrestamoCrud();
+        frm.jpP = this;
+            frm.setVisible(true);
     }//GEN-LAST:event_btnNuevoPrestamoActionPerformed
 
 

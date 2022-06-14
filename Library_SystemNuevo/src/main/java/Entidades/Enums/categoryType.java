@@ -10,5 +10,6 @@ package Entidades.Enums;
  */
 public enum categoryType {
 
+
     CIENTIFICOS, LITERATURA, BIOGRAFIA
 }

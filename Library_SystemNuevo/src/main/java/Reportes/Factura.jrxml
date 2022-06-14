@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="33ad5985-fbf5-493a-96f2-bc9a7415fc86">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select pR.id_venta, 
+cl.documento_cliente,
+cl.nombre_cliente,
+cl.direccion_cliente,
+li.titulo_libro, 
+pR.fecha_venta,
+cantidad_venta, 
+precio_venta, 
+impuesto_venta, 
+(cantidad_venta*precio_venta) as total_venta
+from detalle_ventas inner join ventas as pR on detalle_ventas.id_venta_fk=pR.id_venta
+inner join libros as li on detalle_ventas.id_libro_fk = li.id_libro
+inner join clientes as cl on pR.id_cliente_fk = cl.id_cliente]]>
+	</queryString>
+	<field name="id_venta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="documento_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="titulo_libro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidad_venta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio_venta" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="impuesto_venta" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_venta" class="java.math.BigDecimal"/>
+	<field name="field1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="156" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="325" height="144" uuid="d11672ae-dc3a-4d67-9aa8-76194fda9d2b"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="337" y="0" width="235" height="144" uuid="b3b94d98-570c-481e-a425-f7213c6138f3"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="102" y="31" width="188" height="27" uuid="13f0de8c-f539-4d35-b2ab-41bab08c6a56"/>
+				<textElement>
+					<font fontName="Roboto" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LA CASA DEL LIBRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="58" width="177" height="20" uuid="c81dd40a-bf2c-4bd4-8a27-719bd1e4ee59"/>
+				<textElement>
+					<font size="10" isItalic="true"/>
+				</textElement>
+				<text><![CDATA["Un nuevo libro, una nueva aventura"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="79" width="188" height="20" uuid="48151e5f-9ab6-4819-ba31-9b00f68bdf46"/>
+				<text><![CDATA[Tel: 2352-9297]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="99" width="188" height="20" uuid="87d39f55-bfaa-44c1-a7b6-e7444e8fcc9e"/>
+				<text><![CDATA[Dirección: Reubicación 2, Polígono 9]]></text>
+			</staticText>
+			<image>
+				<reportElement x="13" y="31" width="89" height="85" uuid="4a3b4619-8875-4819-8c00-8790a5da1738"/>
+				<imageExpression><![CDATA["C:\\Users\\Vkaiido\\Desktop\\Componentes\\La casa del libro.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="398" y="79" width="111" height="38" uuid="6f184057-4628-4c6b-aac6-899c02b3bf5c"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[NIC: 21112000]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="34" width="171" height="44" uuid="8bec4b0f-2265-4ec1-bd18-2ea232a71e0c"/>
+				<textElement>
+					<font size="34" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="65" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="11" width="572" height="20" uuid="2aa8971f-e453-4272-a937-70a6abf8c1da"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="31" width="572" height="20" uuid="a288d08d-4e3a-4598-92b2-b52743bcc6c9"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="2" y="11" width="100" height="20" uuid="2e05ed1e-1ecb-45f7-a1ce-0227da6c0de7"/>
+				<text><![CDATA[NOMBRE CLIENTE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="36" width="100" height="20" uuid="256d5474-662f-4202-8407-c357b0b6494d"/>
+				<text><![CDATA[FECHA DE VENTA]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
