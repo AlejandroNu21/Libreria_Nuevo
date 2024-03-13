@@ -28,6 +28,7 @@ public class JpVentas extends javax.swing.JPanel {
     Date fecha = new Date();
     int IdCliente[];
     int IdLibro[];
+    int librofk;
     Libro lb = new Libro();
 
     /**
@@ -90,6 +91,7 @@ public class JpVentas extends javax.swing.JPanel {
             txtLibro.setText(libro.getTitulo());
             IdLibro[Indice] = libro.getIdLibro();
             txtStock.setText(String.valueOf(libro.getCantidad()));
+            librofk=libro.getIdLibro();
             Indice++;
         }
 
@@ -431,11 +433,11 @@ public class JpVentas extends javax.swing.JPanel {
 
             },
             new String [] {
-                "DuiCliente", "Libro", "Cantidad", "Precio", "impuesto", "Total"
+                "DuiCliente", "Libro", "Cantidad", "Precio", "impuesto", "Total", "idLibro"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -612,7 +614,7 @@ public class JpVentas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1044, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1056, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -699,7 +701,7 @@ public class JpVentas extends javax.swing.JPanel {
         }else{
                     if (Integer.parseInt(txtStock.getText()) > 0) {
             model = (DefaultTableModel) tblVenta.getModel();
-            String rowData[] = new String[6];
+            String rowData[] = new String[7];
             //rowData[0] = cmbLibro.getSelectedItem().toString();
             rowData[0] = txtCliente.getText();
 
@@ -711,6 +713,7 @@ public class JpVentas extends javax.swing.JPanel {
             double totallb = cantidad * precio;
             rowData[4] = String.valueOf(redondear(totallb * 0.13));
             rowData[5] = String.valueOf(redondear(totallb));
+            rowData[6] = String.valueOf(librofk);
 
             model.addRow(rowData);
 
@@ -765,8 +768,11 @@ public class JpVentas extends javax.swing.JPanel {
         int IDVENTA = Integer.parseInt(txtIDVENTA.getText());
         for (int i = 0; i < tblVenta.getRowCount(); i++) {
             dtv.setIdVenta(IDVENTA);
-            dtv.setIdlibro(IdLibro[cmbLibro.getSelectedIndex()]);
+            
+            //dtv.setIdlibro(IdLibro[cmbLibro.getSelectedIndex()]);
+            //dtv.setIdlibro(librofk);
             dtv.setCantidadVenta(Integer.parseInt(tblVenta.getValueAt(i, 2).toString()));
+            dtv.setIdlibro(Integer.parseInt(tblVenta.getValueAt(i, 6).toString()));
             dtv.setPrecioVenta(Double.parseDouble(tblVenta.getValueAt(i, 3).toString()));
             dtv.setDecuentoVenta(0);
             dtv.setImpuestoVenta(Double.parseDouble(tblVenta.getValueAt(i, 4).toString()));
@@ -776,6 +782,12 @@ public class JpVentas extends javax.swing.JPanel {
         }
 
     }
+      private void actStock(){
+          for (int i = 0; i < tblVenta.getRowCount(); i++) {
+              
+          }
+      }
+    
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed
         
         if(IdCliente!=null && IdLibro!=null){
@@ -789,6 +801,8 @@ public class JpVentas extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnAgregarVentaActionPerformed
 
+  
+    
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
         tblVenta.selectAll();
         int filas[] = tblVenta.getSelectedRows();

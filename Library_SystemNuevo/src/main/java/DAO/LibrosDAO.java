@@ -54,7 +54,6 @@ public class LibrosDAO {
 
         return lista;
     }*/
-
     public ArrayList<LibroVM> ListaLibro() {
         ArrayList<LibroVM> lista = null;
         CallableStatement cb = null;
@@ -63,50 +62,46 @@ public class LibrosDAO {
             conexion = con.getConecction();
             lista = new ArrayList<LibroVM>();
 
-             cb = conexion.prepareCall("{call sp_ij_libros}");
+            cb = conexion.prepareCall("{call sp_ij_libros}");
             resultado = cb.executeQuery();
 
             while (resultado.next()) {
                 //LibroVM li = new LibroVM();
                 lista.add(new LibroVM(
-                resultado.getInt("id_libro"),
+                        resultado.getInt("id_libro"),
                         resultado.getString("codigo_libro"),
                         resultado.getString("nombre_editorial"),
                         resultado.getString("titulo_libro"),
                         resultado.getString("nombre_escritor"),
                         resultado.getInt("cantidad_libro"),
                         resultado.getString("descripcion_libro"),
-                        categoryType.values()[resultado.getInt("Categoria")-1],
-                        generoType.values()[resultado.getInt("Genero")-1],
-                        subgeneroType.values()[resultado.getInt("Subgenero")-1],
-                        resultado.getString("clasificacion_libro") ));    
-                
-                
+                        categoryType.values()[resultado.getInt("Categoria") - 1],
+                        generoType.values()[resultado.getInt("Genero") - 1],
+                        subgeneroType.values()[resultado.getInt("Subgenero") - 1],
+                        resultado.getString("clasificacion_libro")));
+
             }
-                
-                
+
         } catch (Exception e) {
             System.out.println("Error al mostrar los datos del Libro" + e);
-            
-        }finally{
-        try{
-        resultado.close();
+
+        } finally {
+            try {
+                resultado.close();
                 cb.close();
                 conexion.close();
-        }catch(Exception e){
-            System.out.println("Error, no se han cerrado las conexiones correctamenbte" + e);
-        }
-        
+            } catch (Exception e) {
+                System.out.println("Error, no se han cerrado las conexiones correctamenbte" + e);
+            }
+
         }
 
         return lista;
-        
+
     }
-    
-    
+
     //Filtro
-    
-        public ArrayList<Libro> FiltroLibro(String Busqueda) {
+    public ArrayList<Libro> FiltroLibro(String Busqueda) {
         ArrayList<Libro> lista = null;
         try {
             lista = new ArrayList<Libro>();
@@ -130,11 +125,8 @@ public class LibrosDAO {
 
         return lista;
     }
-        
-            
 
-        
-            public ArrayList<LibroVM> busquedaLibros(String Busqueda) {
+    public ArrayList<LibroVM> busquedaLibros(String Busqueda) {
         ArrayList<LibroVM> lista = null;
         CallableStatement cb = null;
         ResultSet resultado = null;
@@ -142,52 +134,49 @@ public class LibrosDAO {
             conexion = con.getConecction();
             lista = new ArrayList<LibroVM>();
 
-             cb = conexion.prepareCall("{call sp_b_libros(?)}");
-             cb.setString(1, Busqueda);
+            cb = conexion.prepareCall("{call sp_b_libros(?)}");
+            cb.setString(1, Busqueda);
             resultado = cb.executeQuery();
 
             while (resultado.next()) {
                 //LibroVM li = new LibroVM();
                 lista.add(new LibroVM(
-                resultado.getInt("id_libro"),
+                        resultado.getInt("id_libro"),
                         resultado.getString("codigo_libro"),
                         resultado.getString("nombre_editorial"),
                         resultado.getString("titulo_libro"),
                         resultado.getString("nombre_escritor"),
                         resultado.getInt("cantidad_libro"),
                         resultado.getString("descripcion_libro"),
-                        categoryType.values()[resultado.getInt("Categoria")-1],
-                        generoType.values()[resultado.getInt("Genero")-1],
-                        subgeneroType.values()[resultado.getInt("Subgenero")-1],
-                        resultado.getString("clasificacion_libro") ));    
-                
+                        categoryType.values()[resultado.getInt("Categoria") - 1],
+                        generoType.values()[resultado.getInt("Genero") - 1],
+                        subgeneroType.values()[resultado.getInt("Subgenero") - 1],
+                        resultado.getString("clasificacion_libro")));
+
             }
-                
-                
+
         } catch (Exception e) {
             System.out.println("Error al mostrar los datos del Libro" + e);
-            
-        }finally{
-        try{
-        resultado.close();
+
+        } finally {
+            try {
+                resultado.close();
                 cb.close();
                 conexion.close();
-        }catch(Exception e){
-            System.out.println("Error, no se han cerrado las conexiones correctamente" + e);
-        }
-        
+            } catch (Exception e) {
+                System.out.println("Error, no se han cerrado las conexiones correctamente" + e);
+            }
+
         }
 
         return lista;
-        
+
     }
-            
-            
 
     //ADD
     public void AddLibro(Libro lib) {
         CallableStatement cb = null;
-        
+
         try {
             conexion = con.getConecction();
             cb = conexion.prepareCall("{call sp_i_libros(?,?,?,?,?,?,?,?,?,?)}");
@@ -203,24 +192,23 @@ public class LibrosDAO {
             cb.setInt("p_id_escritor", lib.getIdEscritor());
             cb.execute();
             JOptionPane.showMessageDialog(null, "Libro Agregado");
-           
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "error" + ex);
-                }finally{
-        try{
+        } finally {
+            try {
                 cb.close();
                 conexion.close();
-        }catch(Exception e){
-            System.out.println("Error, no se han guardado las conexiones correctamenbte" + e);
-        }
-        
+            } catch (Exception e) {
+                System.out.println("Error, no se han guardado las conexiones correctamenbte" + e);
+            }
+
         }
 
     }
-        //Actualizar
-    
-        public void UpdateBook(Libro lib) {
+    //Actualizar
+
+    public void UpdateBook(Libro lib) {
         CallableStatement cb = null;
         try {
             conexion = con.getConecction();
@@ -239,25 +227,22 @@ public class LibrosDAO {
             cb.execute();
 
             JOptionPane.showMessageDialog(null, "Libro actualizado con exito");
-           
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "error" + ex);
-                }finally{
-        try{
+        } finally {
+            try {
                 cb.close();
                 conexion.close();
-        }catch(Exception e){
-            System.out.println("Error, no se han guardado las conexiones correctamenbte" + e);
-        }
-        
-        }
-        
+            } catch (Exception e) {
+                System.out.println("Error, no se han guardado las conexiones correctamenbte" + e);
+            }
 
+        }
 
     }
-        
-         public void DeleteLibro(Libro libb) {
+
+    public void DeleteLibro(Libro libb) {
 
         try {
             conexion = con.getConecction();
@@ -266,12 +251,26 @@ public class LibrosDAO {
             cb.execute();
 
             JOptionPane.showMessageDialog(null, "Libro eliminado correctamente");
-            
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "error" + ex);
         }
     }
+    
+    public boolean ActualizarStock(int cant, String cod){
+        try {
+            conexion = con.getConecction();
+            CallableStatement cb = conexion.prepareCall("update from libros set cantidad_libro=? where id_libro=?;");
+            cb.setInt(1, cant);
+            cb.setString(2, cod);
+            cb.execute();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+             return false;
+        }
         
+       
+        }
 
 }
