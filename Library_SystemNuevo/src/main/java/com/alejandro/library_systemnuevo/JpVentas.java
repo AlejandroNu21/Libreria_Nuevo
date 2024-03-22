@@ -91,6 +91,7 @@ public class JpVentas extends javax.swing.JPanel {
             txtLibro.setText(libro.getTitulo());
             IdLibro[Indice] = libro.getIdLibro();
             txtStock.setText(String.valueOf(libro.getCantidad()));
+            //txtPrecio.setText(String.valueOf(libro.getPre));
             librofk=libro.getIdLibro();
             Indice++;
         }
@@ -433,11 +434,11 @@ public class JpVentas extends javax.swing.JPanel {
 
             },
             new String [] {
-                "DuiCliente", "Libro", "Cantidad", "Precio", "impuesto", "Total", "idLibro"
+                "Id_Libro", "Libro", "Cantidad", "Precio", "impuesto", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -701,9 +702,9 @@ public class JpVentas extends javax.swing.JPanel {
         }else{
                     if (Integer.parseInt(txtStock.getText()) > 0) {
             model = (DefaultTableModel) tblVenta.getModel();
-            String rowData[] = new String[7];
+            String rowData[] = new String[6];
             //rowData[0] = cmbLibro.getSelectedItem().toString();
-            rowData[0] = txtCliente.getText();
+            rowData[0] = String.valueOf(librofk);
 
             rowData[1] = txtLibro.getText();
             rowData[2] = txtCant.getText();
@@ -713,7 +714,7 @@ public class JpVentas extends javax.swing.JPanel {
             double totallb = cantidad * precio;
             rowData[4] = String.valueOf(redondear(totallb * 0.13));
             rowData[5] = String.valueOf(redondear(totallb));
-            rowData[6] = String.valueOf(librofk);
+            
 
             model.addRow(rowData);
 
@@ -771,8 +772,9 @@ public class JpVentas extends javax.swing.JPanel {
             
             //dtv.setIdlibro(IdLibro[cmbLibro.getSelectedIndex()]);
             //dtv.setIdlibro(librofk);
+            dtv.setIdlibro(Integer.parseInt(tblVenta.getValueAt(i, 0).toString()));
             dtv.setCantidadVenta(Integer.parseInt(tblVenta.getValueAt(i, 2).toString()));
-            dtv.setIdlibro(Integer.parseInt(tblVenta.getValueAt(i, 6).toString()));
+            
             dtv.setPrecioVenta(Double.parseDouble(tblVenta.getValueAt(i, 3).toString()));
             dtv.setDecuentoVenta(0);
             dtv.setImpuestoVenta(Double.parseDouble(tblVenta.getValueAt(i, 4).toString()));
@@ -782,35 +784,34 @@ public class JpVentas extends javax.swing.JPanel {
         }
 
     }
-      private void actStock(){
-          for (int i = 0; i < tblVenta.getRowCount(); i++) {
-              
-          }
-      }
+
     
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed
         
         if(IdCliente!=null && IdLibro!=null){
         guardarVenta();
         guardarDetalle();
-        JOptionPane.showMessageDialog(null, "Detalle de ventas agregadas");
+        //JOptionPane.showMessageDialog(null, "Detalle de ventas agregadas");
         limpiar();
+        clearTable();
         }else{
         JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
 
     }//GEN-LAST:event_btnAgregarVentaActionPerformed
-
-  
-    
-    private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
-        tblVenta.selectAll();
+public void clearTable(){
+    tblVenta.selectAll();
         int filas[] = tblVenta.getSelectedRows();
         int indice = filas.length - 1;
         for (int i = 0; i < filas.length; i++) {
             model.removeRow(indice);
             indice--;
         }
+}
+  
+    
+    private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
+        clearTable();
         limpiar();
     }//GEN-LAST:event_BtnCancelarActionPerformed
 

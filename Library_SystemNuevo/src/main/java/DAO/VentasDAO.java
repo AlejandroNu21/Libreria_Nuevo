@@ -48,7 +48,7 @@ public class VentasDAO {
             }
 
         } catch (Exception e) {
-            System.out.println("Error man" + e);
+            System.out.println("Error" + e);
         }
 
         return lista;

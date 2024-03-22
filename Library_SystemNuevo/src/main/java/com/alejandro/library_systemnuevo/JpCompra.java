@@ -27,6 +27,7 @@ public class JpCompra extends javax.swing.JPanel {
     Date fecha = new Date();
     int IdEditorial[];
     int IdLibro[];
+    int librofk;
 
     /**
      * Creates new form JpCompra
@@ -247,7 +248,7 @@ public class JpCompra extends javax.swing.JPanel {
                         .addGap(50, 50, 50)
                         .addComponent(txtCCliente7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jdcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)))
+                        .addComponent(jdcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
@@ -350,7 +351,7 @@ public class JpCompra extends javax.swing.JPanel {
 
             },
             new String [] {
-                "CodigoEditorial", "Libro", "Cantidad", "Precio", "impuesto", "Total"
+                "Id_Libro", "Libro", "Cantidad", "Precio", "impuesto", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -503,7 +504,7 @@ public class JpCompra extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1064, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -534,6 +535,7 @@ public class JpCompra extends javax.swing.JPanel {
             cmbLibro.addItem(libro.getCodigo_Libro());
             txtLibro.setText(libro.getTitulo());
             IdLibro[Indice] = libro.getIdLibro();
+            librofk = libro.getIdLibro();
             Indice++;
         }
     }
@@ -589,7 +591,7 @@ public class JpCompra extends javax.swing.JPanel {
     }
 
     private void guardarCompra() {
-        
+
         Compras compras = new Compras();
         ComprasDAO comprasDAO = new ComprasDAO();
 
@@ -609,7 +611,7 @@ public class JpCompra extends javax.swing.JPanel {
         int IDCOMPRA = Integer.parseInt(txtIDCOMPRA.getText());
         for (int i = 0; i < tblCompra.getRowCount(); i++) {
             dtc.setIdCompra(IDCOMPRA);
-            dtc.setIdlibro(IdLibro[cmbLibro.getSelectedIndex()]);
+            dtc.setIdlibro(Integer.parseInt(tblCompra.getValueAt(i, 0).toString()));
             dtc.setCantidadCompra(Integer.parseInt(tblCompra.getValueAt(i, 2).toString()));
             dtc.setPrecioCompra(Double.parseDouble(tblCompra.getValueAt(i, 3).toString()));
             dtc.setPrecioVenta(Double.parseDouble(txtPV.getText()));
@@ -678,15 +680,16 @@ public class JpCompra extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCantKeyTyped
 
     private void btnAgregarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCompraActionPerformed
-        
-        if(IdEditorial!=null && IdLibro!=null){
-        
-        guardarCompra();
-        guardarDetalle();
-        JOptionPane.showMessageDialog(null, "Detalle de compras agregadas");
-        limpiar();
-        }else{
-        JOptionPane.showMessageDialog(null, "Llene todos los campos");
+
+        if (IdEditorial != null && IdLibro != null) {
+
+            guardarCompra();
+            guardarDetalle();
+            //JOptionPane.showMessageDialog(null, "Detalle de compras agregadas");
+            limpiar();
+            clearTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
 
     }//GEN-LAST:event_btnAgregarCompraActionPerformed
@@ -697,58 +700,60 @@ public class JpCompra extends javax.swing.JPanel {
 
 
     private void btnADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADDActionPerformed
-        
+
         if (txtPrecio.getText().equals("") || txtCant.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
 
-        }else{
-        
-        if (txtPV.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "El articulo seleccionado no tiene precio de venta");
-
         } else {
-            if (Double.parseDouble(txtPV.getText()) > 0) {
 
-                model = (DefaultTableModel) tblCompra.getModel();
-                String rowData[] = new String[6];
-                //rowData[0] = cmbLibro.getSelectedItem().toString();
-                rowData[0] = txtCodigoEdit.getText();
+            if (txtPV.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "El articulo seleccionado no tiene precio de venta");
 
-                rowData[1] = txtLibro.getText();
-                rowData[2] = txtCant.getText();
-                rowData[3] = txtPrecio.getText();
-                int cantidad = Integer.parseInt(txtCant.getText());
-                double precio = Double.parseDouble(txtPrecio.getText());
-                double totallb = cantidad * precio;
-                rowData[4] = String.valueOf(redondear(totallb * 0.13));
-                rowData[5] = String.valueOf(redondear(totallb));
-                /*rowData[4] = txtFechaVenta.getText();*/
-                model.addRow(rowData);
-                //tblVenta.getColumnModel().getColumn(0)
-
-                calcularTotal();
             } else {
+                if (Double.parseDouble(txtPV.getText()) > 0) {
 
-                JOptionPane.showMessageDialog(null, "No puede vender el producto a 0 dolares");
+                    model = (DefaultTableModel) tblCompra.getModel();
+                    String rowData[] = new String[6];
+                    //rowData[0] = cmbLibro.getSelectedItem().toString();
+
+                    rowData[0] = String.valueOf(librofk);
+                    rowData[1] = txtLibro.getText();
+                    rowData[2] = txtCant.getText();
+                    rowData[3] = txtPrecio.getText();
+                    int cantidad = Integer.parseInt(txtCant.getText());
+                    double precio = Double.parseDouble(txtPrecio.getText());
+                    double totallb = cantidad * precio;
+                    rowData[4] = String.valueOf(redondear(totallb * 0.13));
+                    rowData[5] = String.valueOf(redondear(totallb));
+                    /*rowData[4] = txtFechaVenta.getText();*/
+                    model.addRow(rowData);
+                    //tblVenta.getColumnModel().getColumn(0)
+
+                    calcularTotal();
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "No puede vender el producto a 0 dolares");
+                }
+
             }
-
-        }}
+        }
 
     }//GEN-LAST:event_btnADDActionPerformed
-
+private void clearTable(){
+tblCompra.selectAll();
+        int filas[] = tblCompra.getSelectedRows();
+        int indice = filas.length - 1;
+        for (int i = 0; i < filas.length; i++) {
+            model.removeRow(indice);
+            indice--;
+        }}
 
     private void BtnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBorrarActionPerformed
         eliminar();
     }//GEN-LAST:event_BtnBorrarActionPerformed
 
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
-        tblCompra.selectAll();
-        int filas[] = tblCompra.getSelectedRows();
-        int indice = filas.length - 1;
-        for (int i = 0; i < filas.length; i++) {
-            model.removeRow(indice);
-            indice--;
-        }
+        clearTable();
         limpiar();
     }//GEN-LAST:event_BtnCancelarActionPerformed
 
