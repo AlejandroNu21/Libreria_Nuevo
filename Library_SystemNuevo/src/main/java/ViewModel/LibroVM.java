@@ -19,13 +19,14 @@ public class LibroVM {
     private String Titulo;
     private String Nombre_Escritor;
     private int Cantidad;
+    private double Precio;
     private String Descripcion;
     private categoryType Categoria;
     private generoType Genero;
     private subgeneroType SubGenero;
     private String Clasificacion;
 
-    public LibroVM(int idLibro, String Codigo_Libro, String Nombre_Editorial, String Titulo, String Nombre_Escritor, int Cantidad, String Descripcion, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion) {
+    public LibroVM(int idLibro, String Codigo_Libro, String Nombre_Editorial, String Titulo, String Nombre_Escritor, int Cantidad,double Precio, String Descripcion, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion) {
         this.idLibro = idLibro;
         this.Codigo_Libro = Codigo_Libro;
         this.Nombre_Editorial = Nombre_Editorial;
@@ -33,6 +34,7 @@ public class LibroVM {
         this.Nombre_Escritor = Nombre_Escritor;
         this.Cantidad = Cantidad;
         this.Descripcion = Descripcion;
+        this.Precio=Precio;
         this.Categoria = Categoria;
         this.Genero = Genero;
         this.SubGenero = SubGenero;
@@ -89,6 +91,14 @@ public class LibroVM {
 
     public void setCantidad(int Cantidad) {
         this.Cantidad = Cantidad;
+    }
+    
+       public double getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(double Precio) {
+        this.Precio = Precio;
     }
 
     public String getDescripcion() {

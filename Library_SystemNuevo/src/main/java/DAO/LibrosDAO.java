@@ -74,6 +74,7 @@ public class LibrosDAO {
                         resultado.getString("titulo_libro"),
                         resultado.getString("nombre_escritor"),
                         resultado.getInt("cantidad_libro"),
+                        resultado.getDouble("precio_libro"),
                         resultado.getString("descripcion_libro"),
                         categoryType.values()[resultado.getInt("Categoria") - 1],
                         generoType.values()[resultado.getInt("Genero") - 1],
@@ -116,6 +117,7 @@ public class LibrosDAO {
                 li.setCodigo_Libro(resultado.getString("codigo_libro"));
                 li.setTitulo(resultado.getString("titulo_libro"));
                 li.setCantidad(resultado.getInt("cantidad_libro"));
+                li.setPrecio(resultado.getDouble("precio_libro"));
                 lista.add(li);
             }
 
@@ -147,6 +149,7 @@ public class LibrosDAO {
                         resultado.getString("titulo_libro"),
                         resultado.getString("nombre_escritor"),
                         resultado.getInt("cantidad_libro"),
+                        resultado.getDouble("precio_libro"),
                         resultado.getString("descripcion_libro"),
                         categoryType.values()[resultado.getInt("Categoria") - 1],
                         generoType.values()[resultado.getInt("Genero") - 1],
@@ -184,6 +187,7 @@ public class LibrosDAO {
             cb.setString("p_titulo", lib.getTitulo());
             cb.setString("p_clasificacion", lib.getClasificacion());
             cb.setInt("p_cantidad", lib.getCantidad());
+            //cb.setDouble("p_precio", lib.getPrecio());
             cb.setString("p_descripcion", lib.getDescripcion());
             cb.setInt("p_categoria", lib.getCategoria().ordinal() + 1);
             cb.setInt("p_genero", lib.getGenero().ordinal() + 1);
@@ -212,18 +216,19 @@ public class LibrosDAO {
         CallableStatement cb = null;
         try {
             conexion = con.getConecction();
-            cb = conexion.prepareCall("{call sp_u_libros(?,?,?,?,?,?,?,?,?,?,?)}");
-            cb.setInt(11, lib.getIdLibro());
+            cb = conexion.prepareCall("{call sp_u_libros(?,?,?,?,?,?,?,?,?,?,?,?)}");
+            cb.setInt(12, lib.getIdLibro());
             cb.setString(1, lib.getCodigo_Libro());
             cb.setString(2, lib.getTitulo());
             cb.setString(3, lib.getClasificacion());
             cb.setInt(4, lib.getCantidad());
-            cb.setString(5, lib.getDescripcion());
-            cb.setInt(6, lib.getCategoria().ordinal() + 1);
-            cb.setInt(7, lib.getGenero().ordinal() + 1);
-            cb.setInt(8, lib.getSubGenero().ordinal() + 1);
-            cb.setInt(9, lib.getIdEditorial());
-            cb.setInt(10, lib.getIdEscritor());
+            cb.setDouble(5, lib.getPrecio());
+            cb.setString(6, lib.getDescripcion());
+            cb.setInt(7, lib.getCategoria().ordinal() + 1);
+            cb.setInt(8, lib.getGenero().ordinal() + 1);
+            cb.setInt(9, lib.getSubGenero().ordinal() + 1);
+            cb.setInt(10, lib.getIdEditorial());
+            cb.setInt(11, lib.getIdEscritor());
             cb.execute();
 
             JOptionPane.showMessageDialog(null, "Libro actualizado con exito");
@@ -257,20 +262,20 @@ public class LibrosDAO {
         }
     }
     
-    public boolean ActualizarStock(int cant, String cod){
-        try {
-            conexion = con.getConecction();
-            CallableStatement cb = conexion.prepareCall("update from libros set cantidad_libro=? where id_libro=?;");
-            cb.setInt(1, cant);
-            cb.setString(2, cod);
-            cb.execute();
-            return true;
-        } catch (SQLException e) {
-            System.out.println(e.toString());
-             return false;
-        }
-        
-       
-        }
+//    public boolean ActualizarStock(int cant, String cod){
+//        try {
+//            conexion = con.getConecction();
+//            CallableStatement cb = conexion.prepareCall("update from libros set cantidad_libro=? where id_libro=?;");
+//            cb.setInt(1, cant);
+//            cb.setString(2, cod);
+//            cb.execute();
+//            return true;
+//        } catch (SQLException e) {
+//            System.out.println(e.toString());
+//             return false;
+//        }
+//        
+//       
+//        }
 
 }

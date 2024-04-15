@@ -33,15 +33,15 @@ public class JpLibro extends javax.swing.JPanel {
     }
 
     public void carga() {
-        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion", "Cantidad", "Descripcion"};
-        Double numero[] = new Double[11];
+        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion", "Cantidad","Precio", "Descripcion"};
+        Double numero[] = new Double[12];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
         LibrosDAO es = new LibrosDAO();
         ArrayList<LibroVM> listar = es.ListaLibro();
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[11];
+        Object fila[] = new Object[12];
 
         while (iterador.hasNext()) {
             //CASTEAR
@@ -56,7 +56,8 @@ public class JpLibro extends javax.swing.JPanel {
             fila[7] = estBucle.getSubGenero().name();
             fila[8] = estBucle.getClasificacion();
             fila[9] = estBucle.getCantidad();
-            fila[10] = estBucle.getDescripcion();
+            fila[10] = estBucle.getPrecio();
+            fila[11] = estBucle.getDescripcion();
             df.addRow(fila);
         }
         Tbl_Libro.setModel(df);
@@ -74,7 +75,7 @@ public class JpLibro extends javax.swing.JPanel {
     }
 
     public void cargaBusqueda() {
-        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion", "Cantidad", "Descripcion"};
+        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion", "Cantidad","Precio", "Descripcion"};
 
         Double numero[] = new Double[12];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
@@ -99,7 +100,8 @@ public class JpLibro extends javax.swing.JPanel {
             fila[7] = estBucle.getSubGenero().name();
             fila[8] = estBucle.getClasificacion();
             fila[9] = estBucle.getCantidad();
-            fila[10] = estBucle.getDescripcion();
+            fila[10] = estBucle.getPrecio();
+            fila[11] = estBucle.getDescripcion();
             df.addRow(fila);
         }
         Tbl_Libro.setModel(df);
@@ -327,7 +329,8 @@ public class JpLibro extends javax.swing.JPanel {
             frm.CmbSub.setSelectedItem(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 7)));
             frm.txtClasificacion.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 8)));
             frm.txtCant.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 9)));
-            frm.txtdesc.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 10)));
+            frm.txtprecio.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 10)));
+            frm.txtdesc.setText(String.valueOf(Tbl_Libro.getValueAt(selectedRow, 11)));
             frm.lblLib.setText("Actualizar Libro");
             frm.jpL = this;
             frm.setVisible(true);

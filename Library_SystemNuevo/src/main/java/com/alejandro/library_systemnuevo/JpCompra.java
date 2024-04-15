@@ -70,6 +70,8 @@ public class JpCompra extends javax.swing.JPanel {
         txtPV = new javax.swing.JTextField();
         txtCCliente7 = new javax.swing.JLabel();
         jdcFecha = new com.toedter.calendar.JDateChooser();
+        txtCCliente9 = new javax.swing.JLabel();
+        txtCCliente10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -134,6 +136,11 @@ public class JpCompra extends javax.swing.JPanel {
         txtCCliente1.setText("CODIGO EDITORIAL");
 
         txtCodigoEdit.setEditable(false);
+        txtCodigoEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoEditActionPerformed(evt);
+            }
+        });
 
         txtCCliente2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         txtCCliente2.setText("CODIGO LIBRO");
@@ -191,7 +198,7 @@ public class JpCompra extends javax.swing.JPanel {
         });
 
         txtCCliente6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        txtCCliente6.setText("PRECIO VENTA");
+        txtCCliente6.setText("PRECIO VENTA:");
         txtCCliente6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         txtPV.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -203,6 +210,12 @@ public class JpCompra extends javax.swing.JPanel {
         txtCCliente7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         txtCCliente7.setText("FECHA:");
         txtCCliente7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        txtCCliente9.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        txtCCliente9.setText("$");
+
+        txtCCliente10.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        txtCCliente10.setText("$");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -217,39 +230,42 @@ public class JpCompra extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(cmbEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCCliente9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnME))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(cmbLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnML))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
+                        .addGap(40, 40, 40)
                         .addComponent(txtCCliente5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(txtCCliente6)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCCliente6))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(cmbEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(cmbLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnML))))
+                .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCCliente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCCliente3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCodigoEdit)
-                            .addComponent(txtLibro)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(txtPV, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(txtCCliente7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCCliente10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jdcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
-                .addGap(20, 20, 20))
+                        .addComponent(txtPV, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtCCliente3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCCliente1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 0, 0)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtCCliente7, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jdcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
+                    .addComponent(txtLibro)
+                    .addComponent(txtCodigoEdit))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,7 +293,9 @@ public class JpCompra extends javax.swing.JPanel {
                         .addComponent(txtCCliente6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtCCliente5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCCliente7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCCliente7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCCliente9)
+                        .addComponent(txtCCliente10))
                     .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -308,22 +326,26 @@ public class JpCompra extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(44, 44, 44))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtIDCOMPRA, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addGap(157, 157, 157)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNumeroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(422, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNumeroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIDCOMPRA, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(450, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,11 +373,11 @@ public class JpCompra extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Id_Libro", "Libro", "Cantidad", "Precio", "impuesto", "Total"
+                "Id_Libro", "Libro", "Cantidad", "Precio", "Precio_Venta", "impuesto", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -502,9 +524,9 @@ public class JpCompra extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -578,8 +600,8 @@ public class JpCompra extends javax.swing.JPanel {
         double sumaImpuesto = 0;
         for (int i = 0; i < tblCompra.getRowCount(); i++) {
 
-            double impuesto = Double.parseDouble(tblCompra.getValueAt(i, 4).toString());
-            double total = Double.parseDouble(tblCompra.getValueAt(i, 5).toString());
+            double impuesto = Double.parseDouble(tblCompra.getValueAt(i, 5).toString());
+            double total = Double.parseDouble(tblCompra.getValueAt(i, 6).toString());
             sumaImpuesto += impuesto;
             subtotal += total;
 
@@ -614,8 +636,8 @@ public class JpCompra extends javax.swing.JPanel {
             dtc.setIdlibro(Integer.parseInt(tblCompra.getValueAt(i, 0).toString()));
             dtc.setCantidadCompra(Integer.parseInt(tblCompra.getValueAt(i, 2).toString()));
             dtc.setPrecioCompra(Double.parseDouble(tblCompra.getValueAt(i, 3).toString()));
-            dtc.setPrecioVenta(Double.parseDouble(txtPV.getText()));
-            dtc.setImpuestoCompra(Double.parseDouble(tblCompra.getValueAt(i, 4).toString()));
+            dtc.setPrecioVenta(Double.parseDouble(tblCompra.getValueAt(i, 4).toString()));          
+            dtc.setImpuestoCompra(Double.parseDouble(tblCompra.getValueAt(i, 5).toString()));
 
             comprasDAO.addDetalleCompra(dtc);
 
@@ -637,47 +659,6 @@ public class JpCompra extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No hay Filas en la Tabla");
         }
     }
-
-    private void cmbEditorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEditorialActionPerformed
-        //FiltroCliente(cmbDui.getSelectedItem().toString());
-    }//GEN-LAST:event_cmbEditorialActionPerformed
-
-    private void btnMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMEActionPerformed
-        FiltroEditorial(cmbEditorial.getSelectedItem().toString());
-    }//GEN-LAST:event_btnMEActionPerformed
-
-    private void btnMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMLActionPerformed
-        FiltroLibro(cmbLibro.getSelectedItem().toString());
-    }//GEN-LAST:event_btnMLActionPerformed
-
-    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
-        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '.') {
-            evt.consume();
-        }
-
-        if (evt.getKeyChar() == '.' && txtPrecio.getText().contains(".")) {
-            evt.consume();
-        }
-
-        char TPresionada = evt.getKeyChar();
-
-        if (TPresionada == KeyEvent.VK_ENTER) {
-            btnADD.doClick();
-        }
-    }//GEN-LAST:event_txtPrecioKeyTyped
-
-    private void txtCantKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantKeyTyped
-        char caracter = evt.getKeyChar();
-        if (caracter < '0' || caracter > '9') {
-            evt.consume();
-        }
-
-        char TPresionada = evt.getKeyChar();
-
-        if (TPresionada == KeyEvent.VK_ENTER) {
-            btnADD.doClick();
-        }
-    }//GEN-LAST:event_txtCantKeyTyped
 
     private void btnAgregarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCompraActionPerformed
 
@@ -713,18 +694,20 @@ public class JpCompra extends javax.swing.JPanel {
                 if (Double.parseDouble(txtPV.getText()) > 0) {
 
                     model = (DefaultTableModel) tblCompra.getModel();
-                    String rowData[] = new String[6];
+                    String rowData[] = new String[7];
                     //rowData[0] = cmbLibro.getSelectedItem().toString();
 
                     rowData[0] = String.valueOf(librofk);
                     rowData[1] = txtLibro.getText();
                     rowData[2] = txtCant.getText();
                     rowData[3] = txtPrecio.getText();
+                    rowData[4] = txtPV.getText();
                     int cantidad = Integer.parseInt(txtCant.getText());
                     double precio = Double.parseDouble(txtPrecio.getText());
+                    double precio_Venta = Double.parseDouble(txtPV.getText());
                     double totallb = cantidad * precio;
-                    rowData[4] = String.valueOf(redondear(totallb * 0.13));
-                    rowData[5] = String.valueOf(redondear(totallb));
+                    rowData[5] = String.valueOf(redondear(totallb * 0.13));
+                    rowData[6] = String.valueOf(redondear(totallb));
                     /*rowData[4] = txtFechaVenta.getText();*/
                     model.addRow(rowData);
                     //tblVenta.getColumnModel().getColumn(0)
@@ -770,44 +753,6 @@ tblCompra.selectAll();
         tblCompra.setDefaultRenderer(Object.class, new GestionColumnas());
     }//GEN-LAST:event_tblCompraHierarchyChanged
 
-    private void btnMEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMouseEntered
-        btnME.setBackground(new Color(240, 240, 240));
-        btnME.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_btnMEMouseEntered
-
-    private void btnMEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMouseExited
-        btnME.setBackground(new Color(41, 50, 65));
-        btnME.setForeground(new Color(255, 255, 255));
-    }//GEN-LAST:event_btnMEMouseExited
-
-    private void btnMEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMousePressed
-        btnME.setBackground(new Color(240, 240, 240));
-        btnME.setForeground(new Color(255, 255, 255));
-    }//GEN-LAST:event_btnMEMousePressed
-
-    private void btnMEMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMouseReleased
-        btnME.setBackground(new Color(41, 50, 65));
-    }//GEN-LAST:event_btnMEMouseReleased
-
-    private void btnMLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseEntered
-        btnML.setBackground(new Color(240, 240, 240));
-        btnML.setForeground(new Color(0, 0, 0));
-    }//GEN-LAST:event_btnMLMouseEntered
-
-    private void btnMLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseExited
-        btnML.setBackground(new Color(41, 50, 65));
-        btnML.setForeground(new Color(255, 255, 255));
-    }//GEN-LAST:event_btnMLMouseExited
-
-    private void btnMLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMousePressed
-        btnML.setBackground(new Color(240, 240, 240));
-        btnML.setForeground(new Color(255, 255, 255));
-    }//GEN-LAST:event_btnMLMousePressed
-
-    private void btnMLMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseReleased
-        btnML.setBackground(new Color(41, 50, 65));
-    }//GEN-LAST:event_btnMLMouseReleased
-
     private void txtPVKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPVKeyTyped
         char TPresionada = evt.getKeyChar();
 
@@ -815,6 +760,89 @@ tblCompra.selectAll();
             btnADD.doClick();
         }
     }//GEN-LAST:event_txtPVKeyTyped
+
+    private void txtCantKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantKeyTyped
+        char caracter = evt.getKeyChar();
+        if (caracter < '0' || caracter > '9') {
+            evt.consume();
+        }
+
+        char TPresionada = evt.getKeyChar();
+
+        if (TPresionada == KeyEvent.VK_ENTER) {
+            btnADD.doClick();
+        }
+    }//GEN-LAST:event_txtCantKeyTyped
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '.') {
+            evt.consume();
+        }
+
+        if (evt.getKeyChar() == '.' && txtPrecio.getText().contains(".")) {
+            evt.consume();
+        }
+
+        char TPresionada = evt.getKeyChar();
+
+        if (TPresionada == KeyEvent.VK_ENTER) {
+            btnADD.doClick();
+        }
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
+    private void btnMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMLActionPerformed
+        FiltroLibro(cmbLibro.getSelectedItem().toString());
+    }//GEN-LAST:event_btnMLActionPerformed
+
+    private void btnMLMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseReleased
+        btnML.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnMLMouseReleased
+
+    private void btnMLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMousePressed
+        btnML.setBackground(new Color(240, 240, 240));
+        btnML.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMLMousePressed
+
+    private void btnMLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseExited
+        btnML.setBackground(new Color(41, 50, 65));
+        btnML.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMLMouseExited
+
+    private void btnMLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMLMouseEntered
+        btnML.setBackground(new Color(240, 240, 240));
+        btnML.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_btnMLMouseEntered
+
+    private void txtCodigoEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoEditActionPerformed
+
+    private void btnMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMEActionPerformed
+        FiltroEditorial(cmbEditorial.getSelectedItem().toString());
+    }//GEN-LAST:event_btnMEActionPerformed
+
+    private void btnMEMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMouseReleased
+        btnME.setBackground(new Color(41, 50, 65));
+    }//GEN-LAST:event_btnMEMouseReleased
+
+    private void btnMEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMousePressed
+        btnME.setBackground(new Color(240, 240, 240));
+        btnME.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMEMousePressed
+
+    private void btnMEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMouseExited
+        btnME.setBackground(new Color(41, 50, 65));
+        btnME.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_btnMEMouseExited
+
+    private void btnMEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMEMouseEntered
+        btnME.setBackground(new Color(240, 240, 240));
+        btnME.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_btnMEMouseEntered
+
+    private void cmbEditorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEditorialActionPerformed
+        //FiltroCliente(cmbDui.getSelectedItem().toString());
+    }//GEN-LAST:event_cmbEditorialActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -824,8 +852,8 @@ tblCompra.selectAll();
     private javax.swing.JButton btnAgregarCompra;
     private javax.swing.JButton btnME;
     private javax.swing.JButton btnML;
-    public javax.swing.JComboBox<String> cmbEditorial;
-    public javax.swing.JComboBox<String> cmbLibro;
+    private javax.swing.JComboBox<String> cmbEditorial;
+    private javax.swing.JComboBox<String> cmbLibro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -841,12 +869,14 @@ tblCompra.selectAll();
     private javax.swing.JTable tblCompra;
     private javax.swing.JLabel txtCCliente;
     private javax.swing.JLabel txtCCliente1;
+    private javax.swing.JLabel txtCCliente10;
     private javax.swing.JLabel txtCCliente2;
     private javax.swing.JLabel txtCCliente3;
     private javax.swing.JLabel txtCCliente4;
     private javax.swing.JLabel txtCCliente5;
     private javax.swing.JLabel txtCCliente6;
     private javax.swing.JLabel txtCCliente7;
+    private javax.swing.JLabel txtCCliente9;
     private javax.swing.JTextField txtCant;
     private javax.swing.JTextField txtCodigoEdit;
     private javax.swing.JTextField txtIDCOMPRA;

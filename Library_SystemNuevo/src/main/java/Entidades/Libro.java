@@ -6,30 +6,32 @@ package Entidades;
 
 import Entidades.Enums.*;
 
-
 public class Libro {
-    int idLibro; 
+
+    int idLibro;
     String Codigo_Libro;
     int idEditorial;
     String Titulo;
     int idEscritor;
     int Cantidad;
+    double Precio;
     String Descripcion;
-    categoryType  Categoria;
+    categoryType Categoria;
     generoType Genero;
     subgeneroType SubGenero;
     String Clasificacion;
-    private byte [] PortadaLibro;
+    private byte[] PortadaLibro;
 
     public Libro() {
     }
 
-    public Libro(String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, int Cantidad, String Descripcion, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion, byte[] PortadaLibro) {
+    public Libro(String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, int Cantidad, double Precio, String Descripcion, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion, byte[] PortadaLibro) {
         this.Codigo_Libro = Codigo_Libro;
         this.idEditorial = idEditorial;
         this.Titulo = Titulo;
         this.idEscritor = idEscritor;
         this.Cantidad = Cantidad;
+        this.Precio = Precio;
         this.Descripcion = Descripcion;
         this.Categoria = Categoria;
         this.Genero = Genero;
@@ -38,13 +40,14 @@ public class Libro {
         this.PortadaLibro = PortadaLibro;
     }
 
-    public Libro(int idLibro, String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, int Cantidad, String Descripcion, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion, byte[] PortadaLibro) {
+    public Libro(int idLibro, String Codigo_Libro, int idEditorial, String Titulo, int idEscritor, int Cantidad, double Precio, String Descripcion, categoryType Categoria, generoType Genero, subgeneroType SubGenero, String Clasificacion, byte[] PortadaLibro) {
         this.idLibro = idLibro;
         this.Codigo_Libro = Codigo_Libro;
         this.idEditorial = idEditorial;
         this.Titulo = Titulo;
         this.idEscritor = idEscritor;
         this.Cantidad = Cantidad;
+        this.Precio = Precio;
         this.Descripcion = Descripcion;
         this.Categoria = Categoria;
         this.Genero = Genero;
@@ -53,8 +56,6 @@ public class Libro {
         this.PortadaLibro = PortadaLibro;
     }
 
-    
-    
     public int getIdLibro() {
         return idLibro;
     }
@@ -101,6 +102,14 @@ public class Libro {
 
     public void setCantidad(int Cantidad) {
         this.Cantidad = Cantidad;
+    }
+
+    public double getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(double Precio) {
+        this.Precio = Precio;
     }
 
     public String getDescripcion() {
@@ -151,7 +160,4 @@ public class Libro {
         this.PortadaLibro = PortadaLibro;
     }
 
-    
-
-    
 }
