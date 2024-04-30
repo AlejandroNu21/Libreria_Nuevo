@@ -228,6 +228,17 @@ public class JpClientes extends javax.swing.JPanel {
             }
         });
 
+        txtBusq.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtBusqMousePressed(evt);
+            }
+        });
+        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBusqKeyPressed(evt);
+            }
+        });
+
         btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
         btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
@@ -415,6 +426,14 @@ public class JpClientes extends javax.swing.JPanel {
     private void btnEliminarClienteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarClienteMouseReleased
          btnEliminarCliente.setBackground(new Color(255,51,51));
     }//GEN-LAST:event_btnEliminarClienteMouseReleased
+
+    private void txtBusqMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBusqMousePressed
+        
+    }//GEN-LAST:event_txtBusqMousePressed
+
+    private void txtBusqKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyPressed
+cargaBusqueda();        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusqKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

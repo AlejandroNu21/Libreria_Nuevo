@@ -43,8 +43,10 @@ com\alejandro\library_systemnuevo\JfrmInformacion$1.class
 com\alejandro\library_systemnuevo\JfrmMenu$1.class
 com\alejandro\library_systemnuevo\JpEditorial$8.class
 com\alejandro\library_systemnuevo\JpVentas$16.class
+com\alejandro\library_systemnuevo\JpClientes$10.class
 com\alejandro\library_systemnuevo\JfrmLibroCrud$6.class
 com\alejandro\library_systemnuevo\JpCompra$10.class
+com\alejandro\library_systemnuevo\JpClientes$9.class
 Entidades\Enums\categoryType.class
 com\alejandro\library_systemnuevo\JpLector$6.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud$5.class
@@ -130,6 +132,7 @@ Others\Scroll$InvisibleScrollBarButton.class
 com\Library\BD\ConexionAMYSQL.class
 com\alejandro\library_systemnuevo\JpLector$8.class
 com\alejandro\library_systemnuevo\JpUsuario$4.class
+com\alejandro\library_systemnuevo\JpEscritor$11.class
 com\alejandro\library_systemnuevo\FrmLogin$10.class
 com\alejandro\library_systemnuevo\JpClientes$7.class
 com\alejandro\library_systemnuevo\JpCompra$4.class
@@ -159,6 +162,7 @@ Entidades\detalleVentas.class
 com\alejandro\library_systemnuevo\JpLibro$2.class
 com\alejandro\library_systemnuevo\JpClientes$2.class
 com\alejandro\library_systemnuevo\JfrmEscritorCrud$7.class
+com\alejandro\library_systemnuevo\JpLibro$9.class
 com\alejandro\library_systemnuevo\JpCompra$9.class
 com\alejandro\library_systemnuevo\JpEscritor$7.class
 com\alejandro\library_systemnuevo\JfrmInformacion.class
@@ -197,6 +201,7 @@ DAO\ComprasDAO.class
 com\alejandro\library_systemnuevo\JpEscritor.class
 com\alejandro\library_systemnuevo\JpPrestamo$1.class
 com\alejandro\library_systemnuevo\JfrmEditorialCrud$8.class
+com\alejandro\library_systemnuevo\JpEditorial$9.class
 DAO\PrestamosDAO.class
 com\alejandro\library_systemnuevo\JfrmMenu$25.class
 com\alejandro\library_systemnuevo\JpVentas$12.class
@@ -240,6 +245,7 @@ com\alejandro\library_systemnuevo\JfrmEscritorCrud$4.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud.class
 com\alejandro\library_systemnuevo\JfrmLibroCrud$2.class
 com\alejandro\library_systemnuevo\JfrmLectorCrud$2.class
+com\alejandro\library_systemnuevo\JpLector$9.class
 Others\ComboBox$ComboUI$3.class
 com\alejandro\library_systemnuevo\JpClientes$6.class
 com\alejandro\library_systemnuevo\JfrmMenu$18.class

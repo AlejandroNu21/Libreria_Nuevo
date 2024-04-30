@@ -244,6 +244,12 @@ public class JpEscritor extends javax.swing.JPanel {
             }
         });
 
+        txtBusqEs.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBusqEsKeyPressed(evt);
+            }
+        });
+
         btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
         btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
@@ -376,7 +382,7 @@ public class JpEscritor extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
-        cargaBusq();
+        
     }//GEN-LAST:event_btnBusquedaActionPerformed
 
     private void btnBusquedaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseEntered
@@ -442,6 +448,11 @@ public class JpEscritor extends javax.swing.JPanel {
     private void btnEliminar1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminar1MouseReleased
          btnEliminar1.setBackground(new Color(255,51,51));
     }//GEN-LAST:event_btnEliminar1MouseReleased
+
+    private void txtBusqEsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqEsKeyPressed
+        // TODO add your handling code here:
+        cargaBusq();
+    }//GEN-LAST:event_txtBusqEsKeyPressed
 
     public boolean isSelect = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -244,6 +244,12 @@ public class JpLibro extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(41, 50, 65));
         jLabel1.setText("GESTIÓN DE LIBROS");
 
+        txtBusquedalibro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBusquedalibroKeyPressed(evt);
+            }
+        });
+
         btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
         btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
@@ -371,7 +377,7 @@ public class JpLibro extends javax.swing.JPanel {
     JfrmMenu mainForm;
 
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
-        cargaBusqueda();
+        //cargaBusqueda();
     }//GEN-LAST:event_btnBusquedaActionPerformed
 
     private void btnBusquedaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseEntered
@@ -437,6 +443,10 @@ public class JpLibro extends javax.swing.JPanel {
     private void btnEliminarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseReleased
         btnEliminar.setBackground(new Color(255, 51, 51));
     }//GEN-LAST:event_btnEliminarMouseReleased
+
+    private void txtBusquedalibroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedalibroKeyPressed
+cargaBusqueda();        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusquedalibroKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

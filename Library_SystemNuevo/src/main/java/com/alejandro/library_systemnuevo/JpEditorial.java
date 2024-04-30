@@ -230,6 +230,12 @@ public class JpEditorial extends javax.swing.JPanel {
             }
         });
 
+        txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBusquedaKeyPressed(evt);
+            }
+        });
+
         btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
         btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
         btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
@@ -347,7 +353,7 @@ public class JpEditorial extends javax.swing.JPanel {
     }//GEN-LAST:event_btmBorrarActionPerformed
 
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
-        carga2();
+        
     }//GEN-LAST:event_btnBusquedaActionPerformed
 
     private void btnBusquedaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseEntered
@@ -413,6 +419,10 @@ public class JpEditorial extends javax.swing.JPanel {
     private void btmBorrarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btmBorrarMouseReleased
         btmBorrar.setBackground(new Color(255,51,51));
     }//GEN-LAST:event_btmBorrarMouseReleased
+
+    private void txtBusquedaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyPressed
+        carga2();
+    }//GEN-LAST:event_txtBusquedaKeyPressed
 //public boolean isSelect = false;
 
 
