@@ -38,45 +38,6 @@ public class JpEscritor extends javax.swing.JPanel {
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
         EscritoresDAO es = new EscritoresDAO();
-        ArrayList<Escritor> listar = es.ListaEscritor();
-
-        Iterator iterador = listar.iterator();
-        Object fila[] = new Object[8];
-
-        while (iterador.hasNext()) {
-            //CASTEAR
-            Escritor estBucle = (Escritor) iterador.next();
-            fila[0] = estBucle.getIdEscritor();
-            fila[1] = estBucle.getCodigo_Escritor();
-            fila[2] = estBucle.getNombre_Escritor();
-            fila[3] = estBucle.getApellido_Escritor();
-            fila[4] = estBucle.getPais_Escritor();
-            fila[5] = estBucle.getFecha_Nacimiento();
-            fila[6] = estBucle.getBiografia();
-            df.addRow(fila);
-        }
-        TblEscritor.setModel(df);
-
-        //DISEÑO TABLA
-        TblEscritor.getTableHeader().setReorderingAllowed(false);
-        TblEscritor.setRowHeight(30);
-        TblEscritor.setGridColor(new java.awt.Color(0, 0, 0));
-
-        //PERSONALIZAR ENCABEZADO
-        JTableHeader jtableHeader = TblEscritor.getTableHeader();
-        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
-        TblEscritor.setTableHeader(jtableHeader);
-
-        TblEscritor.setDefaultRenderer(Object.class, new GestionColumnas());
-    }
-
-    public void cargaBusq() {
-        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Pais","Fecha_Nacimiento","Biografia"};
-
-//        Double numero[] = new Double[8];
-        DefaultTableModel df = new DefaultTableModel(null, titulos);
-
-        EscritoresDAO es = new EscritoresDAO();
         ArrayList<Escritor> listar = es.BusquedaEscritor(txtBusqEs.getText());
 
         Iterator iterador = listar.iterator();
@@ -92,7 +53,6 @@ public class JpEscritor extends javax.swing.JPanel {
             fila[4] = estBucle.getPais_Escritor();
             fila[5] = estBucle.getFecha_Nacimiento();
             fila[6] = estBucle.getBiografia();
-
             df.addRow(fila);
         }
         TblEscritor.setModel(df);
@@ -109,6 +69,8 @@ public class JpEscritor extends javax.swing.JPanel {
 
         TblEscritor.setDefaultRenderer(Object.class, new GestionColumnas());
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -451,7 +413,7 @@ public class JpEscritor extends javax.swing.JPanel {
 
     private void txtBusqEsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqEsKeyPressed
         // TODO add your handling code here:
-        cargaBusq();
+        carga();
     }//GEN-LAST:event_txtBusqEsKeyPressed
 
     public boolean isSelect = false;

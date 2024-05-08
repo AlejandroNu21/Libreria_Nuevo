@@ -40,7 +40,7 @@ public class LoginDAO {
          }
          switch(x){
          
-             case 1 : JOptionPane.showMessageDialog(null, "Bienvenido "+usu.getNombreUsuario());
+             case 1 : JOptionPane.showMessageDialog(null, "Bienvenido, "+usu.getNombreUsuario());
              valid = true;
              break;
              

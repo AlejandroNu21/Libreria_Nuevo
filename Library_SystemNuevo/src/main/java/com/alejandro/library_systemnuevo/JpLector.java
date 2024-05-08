@@ -36,45 +36,6 @@ public class JpLector extends javax.swing.JPanel {
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
         LectoresDAO es = new LectoresDAO();
-        ArrayList<Lector> listar = es.ListaLector();
-
-        Iterator iterador = listar.iterator();
-        Object fila[] = new Object[7];
-
-        while (iterador.hasNext()) {
-            //CASTEAR
-            Lector estBucle = (Lector) iterador.next();
-            fila[0] = estBucle.getIdLector();
-            fila[1] = estBucle.getCodigoLector();
-            fila[2] = estBucle.getNombre_Lector();
-            fila[3] = estBucle.getApellido_Lector();
-            fila[4] = estBucle.getEdad();
-            fila[5] = estBucle.getDireccion();
-            fila[6] = estBucle.getTelefono();
-            df.addRow(fila);
-        }
-        TblLector.setModel(df);
-
-        //DISEÑO TABLA
-        TblLector.getTableHeader().setReorderingAllowed(false);
-        TblLector.setRowHeight(30);
-        TblLector.setGridColor(new java.awt.Color(0, 0, 0));
-
-        //PERSONALIZAR ENCABEZADO
-        JTableHeader jtableHeader = TblLector.getTableHeader();
-        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
-        TblLector.setTableHeader(jtableHeader);
-
-        TblLector.setDefaultRenderer(Object.class, new GestionColumnas());
-    }
-
-    public void cargaBusquedaLector() {
-        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
-        //Ejemplosdearreglos
-        Double numero[] = new Double[7];
-        DefaultTableModel df = new DefaultTableModel(null, titulos);
-
-        LectoresDAO es = new LectoresDAO();
         ArrayList<Lector> listar = es.BusquedaLector(txtxBusq.getText());
 
         Iterator iterador = listar.iterator();
@@ -106,6 +67,8 @@ public class JpLector extends javax.swing.JPanel {
 
         TblLector.setDefaultRenderer(Object.class, new GestionColumnas());
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -423,7 +386,7 @@ public class JpLector extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarMouseReleased
 
     private void txtxBusqKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtxBusqKeyPressed
-cargaBusquedaLector();        // TODO add your handling code here:
+carga();        // TODO add your handling code here:
     }//GEN-LAST:event_txtxBusqKeyPressed
 
 

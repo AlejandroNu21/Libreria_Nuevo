@@ -48,8 +48,6 @@ public class FrmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jfrmEscritorCrud1 = new com.alejandro.library_systemnuevo.JfrmEscritorCrud();
-        combobox1 = new Others.ComboBox();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -457,7 +455,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresarLogin;
-    private Others.ComboBox combobox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -470,7 +467,6 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private com.alejandro.library_systemnuevo.JfrmEscritorCrud jfrmEscritorCrud1;
     private javax.swing.JLabel lblCerrar;
     private javax.swing.JLabel lblMinimize;
     private javax.swing.JPasswordField txtPassword;

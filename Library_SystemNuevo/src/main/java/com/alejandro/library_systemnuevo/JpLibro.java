@@ -38,7 +38,7 @@ public class JpLibro extends javax.swing.JPanel {
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
         LibrosDAO es = new LibrosDAO();
-        ArrayList<LibroVM> listar = es.ListaLibro();
+        ArrayList<LibroVM> listar = es.busquedaLibros(txtBusquedalibro.getText());
 
         Iterator iterador = listar.iterator();
         Object fila[] = new Object[12];
@@ -74,50 +74,7 @@ public class JpLibro extends javax.swing.JPanel {
         Tbl_Libro.setDefaultRenderer(Object.class, new GestionColumnas());
     }
 
-    public void cargaBusqueda() {
-        String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor", "Categoria", "Genero", "SubGenero", "Clasificacion", "Cantidad","Precio", "Descripcion"};
-
-        Double numero[] = new Double[12];
-        DefaultTableModel df = new DefaultTableModel(null, titulos);
-
-        LibrosDAO es = new LibrosDAO();
-        ArrayList<LibroVM> listar = es.busquedaLibros(txtBusquedalibro.getText());
-
-        Iterator iterador = listar.iterator();
-        Object fila[] = new Object[12];
-
-        while (iterador.hasNext()) {
-
-            LibroVM estBucle = (LibroVM) iterador.next();
-
-            fila[0] = estBucle.getIdLibro();
-            fila[1] = estBucle.getCodigo_Libro();
-            fila[2] = estBucle.getNombre_Editorial();
-            fila[3] = estBucle.getTitulo();
-            fila[4] = estBucle.getNombre_Escritor();
-            fila[5] = estBucle.getCategoria().name();
-            fila[6] = estBucle.getGenero().name();
-            fila[7] = estBucle.getSubGenero().name();
-            fila[8] = estBucle.getClasificacion();
-            fila[9] = estBucle.getCantidad();
-            fila[10] = estBucle.getPrecio();
-            fila[11] = estBucle.getDescripcion();
-            df.addRow(fila);
-        }
-        Tbl_Libro.setModel(df);
-
-        Tbl_Libro.getTableHeader().setReorderingAllowed(false);
-        Tbl_Libro.setRowHeight(30);
-        Tbl_Libro.setGridColor(new java.awt.Color(0, 0, 0));
-
-        //PERSONALIZAR ENCABEZADO
-        JTableHeader jtableHeader = Tbl_Libro.getTableHeader();
-        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
-        Tbl_Libro.setTableHeader(jtableHeader);
-
-        Tbl_Libro.setDefaultRenderer(Object.class, new GestionColumnas());
-
-    }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -244,6 +201,11 @@ public class JpLibro extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(41, 50, 65));
         jLabel1.setText("GESTIÓN DE LIBROS");
 
+        txtBusquedalibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusquedalibroActionPerformed(evt);
+            }
+        });
         txtBusquedalibro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBusquedalibroKeyPressed(evt);
@@ -445,8 +407,12 @@ public class JpLibro extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarMouseReleased
 
     private void txtBusquedalibroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedalibroKeyPressed
-cargaBusqueda();        // TODO add your handling code here:
+carga();        // TODO add your handling code here:
     }//GEN-LAST:event_txtBusquedalibroKeyPressed
+
+    private void txtBusquedalibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedalibroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusquedalibroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -40,43 +40,6 @@ public class JpEditorial extends javax.swing.JPanel {
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
         EditorialsDao es = new EditorialsDao();
-        ArrayList<Editorial> listar = es.ListaEditorial();
-
-        Iterator iterador = listar.iterator();
-        Object fila[] = new Object[5];
-
-        while (iterador.hasNext()) {
-            //CASTEAR
-            Editorial estBucle = (Editorial) iterador.next();
-            fila[0] = estBucle.getIdEditorial();
-            fila[1] = estBucle.getCodigoEditorial();
-            fila[2] = estBucle.getNombre_Editorial();
-            fila[3] = estBucle.getDireccion_Editorial();
-            fila[4] = estBucle.getTelefono_Editorial();
-            df.addRow(fila);
-        }
-        TblEditorial.setModel(df);
-        
-        
-        TblEditorial.getTableHeader().setReorderingAllowed(false);
-        TblEditorial.setRowHeight(30);
-        TblEditorial.setGridColor(new java.awt.Color(0, 0, 0));
-        
-        //PERSONALIZAR ENCABEZADO
-        JTableHeader jtableHeader = TblEditorial.getTableHeader();
-        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
-        TblEditorial.setTableHeader(jtableHeader);
-        
-        TblEditorial.setDefaultRenderer(Object.class, new GestionColumnas());
-    }
-    
-        public void carga2() {
-        String titulos[] = {"Id", "Codigo", "Nombre", "Direccion", "Telefono"};
-        //Ejemplosdearreglos
-        Double numero[] = new Double[5];
-        DefaultTableModel df = new DefaultTableModel(null, titulos);
-
-        EditorialsDao es = new EditorialsDao();
         ArrayList<Editorial> listar = es.BusquedaEditorial(txtBusqueda.getText());
 
         Iterator iterador = listar.iterator();
@@ -106,6 +69,8 @@ public class JpEditorial extends javax.swing.JPanel {
         
         TblEditorial.setDefaultRenderer(Object.class, new GestionColumnas());
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -421,7 +386,7 @@ public class JpEditorial extends javax.swing.JPanel {
     }//GEN-LAST:event_btmBorrarMouseReleased
 
     private void txtBusquedaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyPressed
-        carga2();
+        carga();
     }//GEN-LAST:event_txtBusquedaKeyPressed
 //public boolean isSelect = false;
 

@@ -37,45 +37,6 @@ public class JpClientes extends javax.swing.JPanel {
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
         ClientesDao es = new ClientesDao();
-        ArrayList<clientes> listar = es.ListaClientes();
-
-        Iterator iterador = listar.iterator();
-        Object fila[] = new Object[7];
-
-        while (iterador.hasNext()) {
-            //CASTEAR
-            clientes estBucle = (clientes) iterador.next();
-            fila[0] = estBucle.getId_cliente();
-            fila[1] = estBucle.getDocumento_cliente();
-            fila[2] = estBucle.getNombre_cliente();
-            fila[3] = estBucle.getApellido_cliente();
-            fila[4] = estBucle.getEdad_cliente();
-            fila[5] = estBucle.getDireccion_cliente();
-            fila[6] = estBucle.getTelefono_cliente();
-            df.addRow(fila);
-        }
-        TblClientes.setModel(df);
-
-        TblClientes.getTableHeader().setReorderingAllowed(false);
-        TblClientes.setRowHeight(30);
-        TblClientes.setGridColor(new java.awt.Color(0, 0, 0));
-
-        //PERSONALIZAR ENCABEZADO
-        JTableHeader jtableHeader = TblClientes.getTableHeader();
-        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
-        TblClientes.setTableHeader(jtableHeader);
-
-        TblClientes.setDefaultRenderer(Object.class, new GestionColumnas());
-    }
-
-    public void cargaBusqueda() {
-
-        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
-        //Ejemplosdearreglos
-        Double numero[] = new Double[7];
-        DefaultTableModel df = new DefaultTableModel(null, titulos);
-
-        ClientesDao es = new ClientesDao();
         ArrayList<clientes> listar = es.BusquedaClientes(txtBusq.getText());
 
         Iterator iterador = listar.iterator();
@@ -106,6 +67,8 @@ public class JpClientes extends javax.swing.JPanel {
 
         TblClientes.setDefaultRenderer(Object.class, new GestionColumnas());
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -360,7 +323,7 @@ public class JpClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
-        cargaBusqueda();
+        carga();
     }//GEN-LAST:event_btnBusquedaActionPerformed
 
     private void btnBusquedaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseEntered
@@ -432,7 +395,7 @@ public class JpClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBusqMousePressed
 
     private void txtBusqKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyPressed
-cargaBusqueda();        // TODO add your handling code here:
+carga();        // TODO add your handling code here:
     }//GEN-LAST:event_txtBusqKeyPressed
 
 
