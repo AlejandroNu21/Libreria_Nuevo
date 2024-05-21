@@ -285,7 +285,7 @@ public class JfrmPrestamoCrud extends javax.swing.JFrame {
         if (CmbFL.getSelectedIndex() == -1
                 || CmbFLib.getSelectedIndex() == -1
                 || cmbDevuelto.getSelectedIndex() == -1) {
-            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            JOptionPane.showMessageDialog(null, "Llene todos los campos ");
         } else {
             if (txtIdPrestamo.getText().equals("")) {
                 pr.setIdLector(IdLector[CmbFL.getSelectedIndex()]);

@@ -279,7 +279,7 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
             
         if (txtCodigoEditorial.getText().equals("") || txtNombreEditorial.getText().equals("")
             || txtDireccionEditorial.getText().equals("") || txtTelefonoEditorial.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            JOptionPane.showMessageDialog(null, "LLene todos los campos");
             txtCodigoEditorial.requestFocus();
         } else { 
             if(txtIdEditorial1.getText().equals("")){

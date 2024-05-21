@@ -5,9 +5,9 @@
 package com.alejandro.library_systemnuevo;
 
 import DAO.ClientesDao;
-import DAO.LibrosDAO;
+import DAO.EditorialsDao;
+import Entidades.Editorial;
 import Entidades.clientes;
-import ViewModel.LibroVM;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,56 +21,92 @@ import utilidades.GestionEncabezadoTabla;
  *
  * @author kaido
  */
-public class JfrmAgLibro extends javax.swing.JFrame {
+public class JfrmAgEditorial extends javax.swing.JFrame {
 
     /**
      * Creates new form JfrmAgCliente
      */
-    public JfrmAgLibro() {
+    public JfrmAgEditorial() {
         initComponents();
         setBackground(new Color(0,0,0,0) );
         setLocationRelativeTo(null);
         //tblAgCliente.setEditable(false);
         carga();
     }
-    
-public void carga() {
- String titulos[] = {"Id", "Codigo", "Editorial", "Titulo", "Escritor","Inventario","Precio"};
-        Double numero[] = new Double[12];
+    public void carga() {
+        String titulos[] = {"Id", "Codigo", "Nombre", "Direccion", "Telefono"};
+        //Ejemplosdearreglos
+        Double numero[] = new Double[5];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 
-        LibrosDAO es = new LibrosDAO();
-        ArrayList<LibroVM> listar = es.busquedaLibros(txtBusq.getText());
+        EditorialsDao es = new EditorialsDao();
+        ArrayList<Editorial> listar = es.BusquedaEditorial(txtBusq.getText());
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[7];
+        Object fila[] = new Object[5];
 
         while (iterador.hasNext()) {
             //CASTEAR
-            LibroVM estBucle = (LibroVM) iterador.next();
-            fila[0] = estBucle.getIdLibro();
-            fila[1] = estBucle.getCodigo_Libro();
+            Editorial estBucle = (Editorial) iterador.next();
+            fila[0] = estBucle.getIdEditorial();
+            fila[1] = estBucle.getCodigoEditorial();
             fila[2] = estBucle.getNombre_Editorial();
-            fila[3] = estBucle.getTitulo();
-            fila[4] = estBucle.getNombre_Escritor();
-            fila[5] = estBucle.getCantidad();
-            fila[6] = estBucle.getPrecio();
-            
+            fila[3] = estBucle.getDireccion_Editorial();
+            fila[4] = estBucle.getTelefono_Editorial();
             df.addRow(fila);
         }
-        tblAgLibro.setModel(df);
-
-        tblAgLibro.getTableHeader().setReorderingAllowed(false);
-        tblAgLibro.setRowHeight(30);
-        tblAgLibro.setGridColor(new java.awt.Color(0, 0, 0));
-
+        tblAgCliente.setModel(df);
+        
+        
+        tblAgCliente.getTableHeader().setReorderingAllowed(false);
+        tblAgCliente.setRowHeight(30);
+        tblAgCliente.setGridColor(new java.awt.Color(0, 0, 0));
+        
         //PERSONALIZAR ENCABEZADO
-        JTableHeader jtableHeader = tblAgLibro.getTableHeader();
+        JTableHeader jtableHeader = tblAgCliente.getTableHeader();
         jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
-        tblAgLibro.setTableHeader(jtableHeader);
-
-        tblAgLibro.setDefaultRenderer(Object.class, new GestionColumnas());
+        tblAgCliente.setTableHeader(jtableHeader);
+        
+        tblAgCliente.setDefaultRenderer(Object.class, new GestionColumnas());
     }
+//public void carga() {
+////DefaultTableModel model = (DefaultTableModel) tblAgCliente.getModel();
+////tblAgCliente.setEditable(false); // Establece la tabla como no editable
+//
+//        String titulos[] = {"Id", "DUI", "Nombre", "Apellido"};
+//        //Ejemplosdearreglos
+//        //Double numero[] = new Double[7];
+//        DefaultTableModel df = new DefaultTableModel(null, titulos);
+//
+//        ClientesDao es = new ClientesDao();
+//        ArrayList<clientes> listar = es.BusquedaClientes(txtBusq.getText());
+//
+//        Iterator iterador = listar.iterator();
+//        Object fila[] = new Object[4];
+//
+//        while (iterador.hasNext()) {
+//            //CASTEAR
+//            clientes estBucle = (clientes) iterador.next();
+//            fila[0] = estBucle.getId_cliente();
+//            fila[1] = estBucle.getDocumento_cliente();
+//            fila[2] = estBucle.getNombre_cliente();
+//            fila[3] = estBucle.getApellido_cliente();
+//            
+//            df.addRow(fila);
+//        }
+//        tblAgCliente.setModel(df);
+//
+//        tblAgCliente.getTableHeader().setReorderingAllowed(false);
+//        tblAgCliente.setRowHeight(30);
+//        tblAgCliente.setGridColor(new java.awt.Color(0, 0, 0));
+//
+//        //PERSONALIZAR ENCABEZADO
+//        JTableHeader jtableHeader = tblAgCliente.getTableHeader();
+//        jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
+//        tblAgCliente.setTableHeader(jtableHeader);
+//
+//        tblAgCliente.setDefaultRenderer(Object.class, new GestionColumnas());
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,7 +122,7 @@ public void carga() {
         lblInCl = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblAgLibro = new javax.swing.JTable();
+        tblAgCliente = new javax.swing.JTable();
         txtBusq = new javax.swing.JTextField();
         btnBusqueda = new javax.swing.JButton();
 
@@ -123,7 +159,7 @@ public void carga() {
         lblInCl.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         lblInCl.setForeground(new java.awt.Color(255, 255, 255));
         lblInCl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblInCl.setText("Agregar Libro");
+        lblInCl.setText("Agregar Cliente");
 
         javax.swing.GroupLayout pnlHeaderClLayout = new javax.swing.GroupLayout(pnlHeaderCl);
         pnlHeaderCl.setLayout(pnlHeaderClLayout);
@@ -153,7 +189,7 @@ public void carga() {
 
         getContentPane().add(pnlHeaderCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 80));
 
-        tblAgLibro.setModel(new javax.swing.table.DefaultTableModel(
+        tblAgCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -164,21 +200,16 @@ public void carga() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblAgLibro.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblAgCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblAgLibroMouseClicked(evt);
+                tblAgClienteMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tblAgLibro);
+        jScrollPane2.setViewportView(tblAgCliente);
 
         txtBusq.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtBusqMousePressed(evt);
-            }
-        });
-        txtBusq.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBusqActionPerformed(evt);
             }
         });
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -289,17 +320,14 @@ int y;
     private void btnBusquedaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseReleased
         btnBusqueda.setBackground(new Color(41, 50, 65));
     }//GEN-LAST:event_btnBusquedaMouseReleased
-public void seleccionarleibro(){
-if (tblAgLibro.getSelectedRowCount() > 0) {
+public void seleccionarEdit(){
+if (tblAgCliente.getSelectedRowCount() > 0) {
             
             
-            int selectedRow = tblAgLibro.getSelectedRow();
-            jpVent.txtclib.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 1)));
-            jpVent.txtLibro.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 3)));
-            jpVent.txtPrecio.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 6)));
-            jpVent.txtStock.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 5)));
-            
-            jpVent.idlb = (int) tblAgLibro.getValueAt(tblAgLibro.getSelectedRow(), 0);
+            int selectedRow = tblAgCliente.getSelectedRow();
+            jpComprs.txtCodigoEdit.setText(String.valueOf(tblAgCliente.getValueAt(selectedRow, 1)));
+            jpComprs.txtEdit1.setText(String.valueOf(tblAgCliente.getValueAt(selectedRow, 2)));
+            jpComprs.ided = (int) tblAgCliente.getValueAt(tblAgCliente.getSelectedRow(), 0);
              
             this.setVisible(false);
         } else {
@@ -308,20 +336,16 @@ if (tblAgLibro.getSelectedRowCount() > 0) {
 
 }
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
-        seleccionarleibro();
+        seleccionarEdit();
     }//GEN-LAST:event_btnBusquedaActionPerformed
 
-    private void tblAgLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAgLibroMouseClicked
+    private void tblAgClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAgClienteMouseClicked
          if (evt.getClickCount() == 1) {
-         seleccionarleibro();
+         seleccionarEdit();
          }
-    }//GEN-LAST:event_tblAgLibroMouseClicked
+    }//GEN-LAST:event_tblAgClienteMouseClicked
 
-    private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBusqActionPerformed
-public JpCompra jpCompr;
-    public JpVentas jpVent;
+    public JpCompra jpComprs;
     /**
      * @param args the command line arguments
      */
@@ -339,13 +363,13 @@ public JpCompra jpCompr;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmAgEditorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmAgEditorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmAgEditorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmAgEditorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -353,7 +377,7 @@ public JpCompra jpCompr;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JfrmAgLibro().setVisible(true);
+                new JfrmAgEditorial().setVisible(true);
             }
         });
     }
@@ -366,7 +390,7 @@ public JpCompra jpCompr;
     public javax.swing.JLabel lblInCl;
     private java.awt.Panel panel1;
     public javax.swing.JPanel pnlHeaderCl;
-    public javax.swing.JTable tblAgLibro;
+    public javax.swing.JTable tblAgCliente;
     private javax.swing.JTextField txtBusq;
     // End of variables declaration//GEN-END:variables
 }

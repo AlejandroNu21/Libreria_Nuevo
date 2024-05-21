@@ -296,7 +296,7 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
         if (txtCodigoLector.getText().equals("") || txtNombreLector.getText().equals("")
                 || txtApellidoLector.getText().equals("") || txtEdadLector.getText().equals("")
                 || txtDireccionLector.getText().equals("") || txtTelefonoLector.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            JOptionPane.showMessageDialog(null, "LLene todos los campos");
             txtCodigoLector.requestFocus();
         } else {
             if (txtIdLector.getText().equals("")) {

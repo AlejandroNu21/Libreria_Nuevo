@@ -21,12 +21,12 @@ import utilidades.GestionEncabezadoTabla;
  *
  * @author kaido
  */
-public class JfrmAgLibro extends javax.swing.JFrame {
+public class JfrmAgLibro1 extends javax.swing.JFrame {
 
     /**
      * Creates new form JfrmAgCliente
      */
-    public JfrmAgLibro() {
+    public JfrmAgLibro1() {
         initComponents();
         setBackground(new Color(0,0,0,0) );
         setLocationRelativeTo(null);
@@ -294,12 +294,12 @@ if (tblAgLibro.getSelectedRowCount() > 0) {
             
             
             int selectedRow = tblAgLibro.getSelectedRow();
-            jpVent.txtclib.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 1)));
-            jpVent.txtLibro.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 3)));
-            jpVent.txtPrecio.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 6)));
-            jpVent.txtStock.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 5)));
-            
-            jpVent.idlb = (int) tblAgLibro.getValueAt(tblAgLibro.getSelectedRow(), 0);
+            jpCompr.txtclib.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 1)));
+            jpCompr.txtLibro.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 3)));
+//            jpVent.txtPrecio.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 6)));
+//            jpVent.txtStock.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 5)));
+//            
+            jpCompr.idlb = (int) tblAgLibro.getValueAt(tblAgLibro.getSelectedRow(), 0);
              
             this.setVisible(false);
         } else {
@@ -321,7 +321,7 @@ if (tblAgLibro.getSelectedRowCount() > 0) {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBusqActionPerformed
 public JpCompra jpCompr;
-    public JpVentas jpVent;
+    
     /**
      * @param args the command line arguments
      */
@@ -339,21 +339,23 @@ public JpCompra jpCompr;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmAgLibro1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmAgLibro1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmAgLibro1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmAgLibro1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JfrmAgLibro().setVisible(true);
+                new JfrmAgLibro1().setVisible(true);
             }
         });
     }

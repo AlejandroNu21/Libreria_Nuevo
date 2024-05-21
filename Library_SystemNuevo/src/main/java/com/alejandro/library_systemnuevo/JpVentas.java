@@ -77,9 +77,9 @@ public class JpVentas extends javax.swing.JPanel {
         txtStock.setText("");
         txtImpuesto.setText("");
         txtTotal.setText("");
-        //cmbDui.setSelectedIndex(-1);
         txtClinte.setText("");
-        //cmbLibro.setSelectedIndex(-1);
+        txtClinte.setText("");
+        txtLibro.setText("");
         txtclib.setText("");
         txtLibro.setText("");
 
@@ -676,14 +676,15 @@ public class JpVentas extends javax.swing.JPanel {
     }//GEN-LAST:event_BtnBorrarActionPerformed
 
     private void btnMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMCActionPerformed
-        //FiltroCliente(cmbDui.getSelectedItem().toString());
         JfrmAgCliente formulario = new JfrmAgCliente();
-        formulario.setVisible(true);
+            formulario.jpVent = this;
+            formulario.setVisible(true);
     }//GEN-LAST:event_btnMCActionPerformed
 
     private void btnMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMLActionPerformed
         JfrmAgLibro formulario = new JfrmAgLibro();
-        formulario.setVisible(true);
+            formulario.jpVent = this;
+            formulario.setVisible(true);
     }//GEN-LAST:event_btnMLActionPerformed
 
 

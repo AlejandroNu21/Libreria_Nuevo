@@ -353,7 +353,7 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
         if (txtCodigoCliente.getText().equals("") || txtNombreCliente.getText().equals("")
                 || txtApellidoCliente.getText().equals("") || txtEdadCliente.getText().equals("")
                 || txtDireccionCliente.getText().equals("") || txtTelefonoCliente.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            JOptionPane.showMessageDialog(null, "LLene todos los campos");
 
         } else {
            if (txtIdCliente.getText().equals("")) {

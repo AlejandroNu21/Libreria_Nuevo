@@ -91,7 +91,7 @@ public class JfrmInformacion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel3.setText("LibrarySystem2022");
+        jLabel3.setText("LibrarySystem2024");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ayuda.png"))); // NOI18N
 
@@ -115,7 +115,7 @@ public class JfrmInformacion extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel11.setText("groupp32022@gmail.com");
 
-        jLabel9.setText("LibrarySystem2022 es una aplicacion de escritorio orientada a facilitar");
+        jLabel9.setText("LibrarySystem2024 es una aplicacion de escritorio orientada a facilitar");
 
         jLabel12.setText("el control de compras, inventarios y ventas de una entidad dedicada");
 

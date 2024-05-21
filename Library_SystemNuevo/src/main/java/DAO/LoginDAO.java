@@ -44,7 +44,7 @@ public class LoginDAO {
              valid = true;
              break;
              
-             case 0 : JOptionPane.showMessageDialog(null, "Lo sentimos, no se ha encontrado el Usuario");
+             case 0 : JOptionPane.showMessageDialog(null, "No se ha encontrado el usuario");
              break;
          }
          

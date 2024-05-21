@@ -248,8 +248,10 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         jLabel13.setText("Descripcion");
 
         txtCant.setText("0");
+        txtCant.setEnabled(false);
 
         txtprecio.setText("0.00");
+        txtprecio.setEnabled(false);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel14.setText("Precio");
@@ -542,7 +544,7 @@ void CargaCmb() {
         if (txtCodigoLibro.getText().equals("") || CmbEdi.getSelectedIndex() == -1
                 || txtTitulo.getText().equals("") || CmbEsc.getSelectedIndex() == -1
                 || txtClasificacion.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
         } else {
             if (txtIdLibro.getText().equals("")) {
 

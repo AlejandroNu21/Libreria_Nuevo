@@ -446,7 +446,7 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
 
         if (txtCodigoEscritor.getText().equals("") || txtNombreEscritor.getText().equals("")
                 || txtApellidoEscritor.getText().equals("") || txtPaisEscritor.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "HAY CAMPOS VACIOS");
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
             txtCodigoEscritor.requestFocus();
         } else {
             if (txtIdEscritor1.getText().equals("")) {
