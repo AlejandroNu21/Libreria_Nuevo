@@ -176,25 +176,6 @@ return count;
         }
         return id;
         }
-        
-        
-    
-        
-         /*public void DeleteDL(venttas vts) {
-
-        try {
-            //System.out.println("Id=" +edi.getIdEditorial());
-            CallableStatement cb = conexion.prepareCall("delete from ventas as a where a.id_venta = ?;");
-            cb.setInt(1, vts.getId_ventas());
-            cb.execute();
-
-            JOptionPane.showMessageDialog(null, "VentasDAO eliminadas correctamente");
-            
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "error" + ex);
-        }
-    }*/
-        
+                
     
 }
