@@ -91,7 +91,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel17.setText("Seleccionar Avatar");
+        jLabel17.setText("Seleccionar Portada");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Categoria");
@@ -133,7 +133,8 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("Escritor");
 
-        btnSeleccionarAvatarLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-program-48.png"))); // NOI18N
+        btnSeleccionarAvatarLibro.setBackground(new java.awt.Color(0, 0, 51));
+        btnSeleccionarAvatarLibro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen.png"))); // NOI18N
         btnSeleccionarAvatarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeleccionarAvatarLibroActionPerformed(evt);
@@ -232,7 +233,8 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton2.setText("Cargar");
+        jButton2.setBackground(new java.awt.Color(0, 0, 51));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ojo.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -406,7 +408,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtdesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -464,10 +466,7 @@ public class JfrmLibroCrud extends javax.swing.JFrame {
    
    
    }
-    
-    
-    private void btnSeleccionarAvatarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarAvatarLibroActionPerformed
-JFileChooser fc = new JFileChooser();
+    void seleccionarimg(){JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         fc.setFileFilter(filtro);
@@ -505,8 +504,12 @@ JFileChooser fc = new JFileChooser();
             lblImagen.setIcon(mIcono);
         }
 
+}
+    
+    
+    private void btnSeleccionarAvatarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarAvatarLibroActionPerformed
 
-
+seleccionarimg();
         
     }//GEN-LAST:event_btnSeleccionarAvatarLibroActionPerformed
 

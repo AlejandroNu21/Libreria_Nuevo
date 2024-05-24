@@ -120,9 +120,11 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
         jLabel62.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel62.setText("Id");
 
-        jLabel66.setText("Seleccionar Avatar");
+        jLabel66.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel66.setText("Seleccionar Foto");
 
-        btnSeleccionarAvatarEscritor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-program-48.png"))); // NOI18N
+        btnSeleccionarAvatarEscritor.setBackground(new java.awt.Color(0, 0, 51));
+        btnSeleccionarAvatarEscritor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imagen.png"))); // NOI18N
         btnSeleccionarAvatarEscritor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeleccionarAvatarEscritorActionPerformed(evt);
@@ -131,6 +133,7 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
 
         lblImagen1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Perfil");
 
         btnGuardar.setBackground(new java.awt.Color(61, 90, 128));
@@ -209,7 +212,8 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                     .addContainerGap(18, Short.MAX_VALUE)))
         );
 
-        jButton1.setText("Cargar");
+        jButton1.setBackground(new java.awt.Color(0, 0, 51));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ojo.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -254,20 +258,20 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                         .addComponent(jLabel65)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jdcFN, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(47, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 46, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel66)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnSeleccionarAvatarEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(22, 22, 22))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -318,10 +322,12 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
                     .addComponent(btnSeleccionarAvatarEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel66)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel67)
-                                .addComponent(txtBiog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtBiog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel66)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -363,43 +369,77 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
     public int Id = 0;
     public byte[] AvatarE = null;
 
+//    public void mostrarImagen() {
+//        Escritor escritorEnt = new Escritor();
+//
+//        PreparedStatement ps;
+//        ResultSet rs;
+//
+//        try {
+//
+//            ConexionAMYSQL con = new ConexionAMYSQL();
+//            Connection conexion = con.getConecction();
+//            ps = conexion.prepareStatement("SELECT foto_escritor FROM escritores WHERE id_escritor = ?");
+//            ps.setInt(1, Id);
+//            rs = ps.executeQuery();
+//
+//            BufferedImage buffing = null;
+//            byte[] image = null;
+//            while (rs.next()) {
+//                image = rs.getBytes("foto_escritor");
+//                InputStream img = rs.getBinaryStream(1);
+//                try {
+//                    buffing = ImageIO.read(img);
+//                } catch (IOException ex) {
+//                    Logger.getLogger(JfrmEscritorCrud.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//                Imagenes imagen = new Imagenes(lblImagen1.getHeight(), lblImagen1.getWidth(), buffing);
+//                lblImagen1.add(imagen);
+//                lblImagen1.repaint();
+//            }
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+//        }
+//
+//    }
+    
     public void mostrarImagen() {
-        Escritor escritorEnt = new Escritor();
+    Escritor escritorEnt = new Escritor();
 
-        PreparedStatement ps;
-        ResultSet rs;
+    PreparedStatement ps;
+    ResultSet rs;
 
-        try {
+    try {
+        ConexionAMYSQL con = new ConexionAMYSQL();
+        Connection conexion = con.getConecction();
+        ps = conexion.prepareStatement("SELECT foto_escritor FROM escritores WHERE id_escritor = ?");
+        ps.setInt(1, Id);
+        rs = ps.executeQuery();
 
-            ConexionAMYSQL con = new ConexionAMYSQL();
-            Connection conexion = con.getConecction();
-            ps = conexion.prepareStatement("SELECT foto_escritor FROM escritores WHERE id_escritor = ?");
-            ps.setInt(1, Id);
-            rs = ps.executeQuery();
-
-            BufferedImage buffing = null;
-            byte[] image = null;
-            while (rs.next()) {
-                image = rs.getBytes("foto_escritor");
-                InputStream img = rs.getBinaryStream(1);
-                try {
-                    buffing = ImageIO.read(img);
-                } catch (IOException ex) {
-                    Logger.getLogger(JfrmEscritorCrud.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                Imagenes imagen = new Imagenes(lblImagen1.getHeight(), lblImagen1.getWidth(), buffing);
-                lblImagen1.add(imagen);
-                lblImagen1.repaint();
+        BufferedImage buffing = null;
+        byte[] image = null;
+        while (rs.next()) {
+            image = rs.getBytes("foto_escritor");
+            InputStream img = rs.getBinaryStream(1);
+            try {
+                buffing = ImageIO.read(img);
+            } catch (IOException ex) {
+                Logger.getLogger(JfrmEscritorCrud.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+            if (buffing == null) {
+                JOptionPane.showMessageDialog(null, "No se pudo cargar la imagen", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            Imagenes imagen = new Imagenes(lblImagen1.getHeight(), lblImagen1.getWidth(), buffing);
+            lblImagen1.add(imagen);
+            lblImagen1.repaint();
         }
-
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
     }
-
-
-    private void btnSeleccionarAvatarEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarAvatarEscritorActionPerformed
-        JFileChooser fc = new JFileChooser();
+}
+void seleccionaresc(){
+ JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         fc.setFileFilter(filtro);
@@ -436,7 +476,10 @@ public class JfrmEscritorCrud extends javax.swing.JFrame {
             Image mImagen = new ImageIcon(url).getImage();
             ImageIcon mIcono = new ImageIcon(mImagen.getScaledInstance(lblImagen1.getWidth(), lblImagen1.getHeight(), Image.SCALE_SMOOTH));
             lblImagen1.setIcon(mIcono);
-        }
+        }}
+
+    private void btnSeleccionarAvatarEscritorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarAvatarEscritorActionPerformed
+       seleccionaresc();
     }//GEN-LAST:event_btnSeleccionarAvatarEscritorActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed

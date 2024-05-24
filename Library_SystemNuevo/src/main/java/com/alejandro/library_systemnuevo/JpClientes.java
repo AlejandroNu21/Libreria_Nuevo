@@ -31,7 +31,7 @@ public class JpClientes extends javax.swing.JPanel {
 
     public void carga() {
 
-        String titulos[] = {"Id", "Codigo", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
+        String titulos[] = {"Id", "DUI Cliente", "Nombre", "Apellido", "Edad", "Direccion", "Telefono"};
         //Ejemplosdearreglos
         Double numero[] = new Double[7];
         DefaultTableModel df = new DefaultTableModel(null, titulos);

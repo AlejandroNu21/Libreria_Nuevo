@@ -85,37 +85,6 @@ public class JpVentas extends javax.swing.JPanel {
 
     }
 
-//    private void FiltroLibro(String Busqueda) {
-//        cmbLibro.removeAllItems();
-//        LibrosDAO libFiltro = new LibrosDAO();
-//        IdLibro = new int[libFiltro.FiltroLibro(Busqueda).size()];
-//
-//        int Indice = 0;
-//        for (var libro : libFiltro.FiltroLibro(Busqueda)) {
-//            cmbLibro.addItem(libro.getCodigo_Libro());
-//            txtLibro.setText(libro.getTitulo());
-//            IdLibro[Indice] = libro.getIdLibro();
-//            txtStock.setText(String.valueOf(libro.getCantidad()));
-//            txtPrecio.setText(String.valueOf(libro.getPrecio()));
-//            librofk = libro.getIdLibro();
-//            Indice++;
-//        }
-//
-//    }
-    //BuscarClientes
-//    private void FiltroCliente(String Busqueda) {
-//        cmbDui.removeAllItems();
-//        ClientesDao clFiltro = new ClientesDao();
-//        IdCliente = new int[clFiltro.FiltroClientes(Busqueda).size()];
-//
-//        int Indice = 0;
-//        for (var cliente : clFiltro.FiltroClientes(Busqueda)) {
-//            cmbDui.addItem(cliente.getNombre_cliente());
-//            txtCliente.setText(cliente.getDocumento_cliente());
-//            IdCliente[Indice] = cliente.getId_cliente();
-//            Indice++;
-//        }
-//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -256,10 +225,11 @@ public class JpVentas extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIDVENTA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtIDVENTA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -794,7 +764,7 @@ public class JpVentas extends javax.swing.JPanel {
                         int cantidad = Integer.parseInt(txtCant.getText());
                         double precio = Double.parseDouble(txtPrecio.getText());
                         double totallb = cantidad * precio;
-                        rowData[4] = String.valueOf(redondear(totallb * 0.13));
+                        rowData[4] = String.valueOf(redondear(totallb * 0));
                         rowData[5] = String.valueOf(redondear(totallb));
 
                         model.addRow(rowData);
