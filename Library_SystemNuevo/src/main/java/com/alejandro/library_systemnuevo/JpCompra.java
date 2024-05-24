@@ -343,7 +343,6 @@ public class JpCompra extends javax.swing.JPanel {
         btnLibro1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnLibro1.setForeground(new java.awt.Color(255, 255, 255));
         btnLibro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reporte-de-negocios (2).png"))); // NOI18N
-        btnLibro1.setText("Informe");
         btnLibro1.setBorder(null);
         btnLibro1.setBorderPainted(false);
         btnLibro1.setContentAreaFilled(false);
@@ -376,9 +375,6 @@ public class JpCompra extends javax.swing.JPanel {
                 .addContainerGap(326, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(163, 163, 163))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -386,7 +382,10 @@ public class JpCompra extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNumeroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtIDCOMPRA, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(526, 526, 526))))
+                        .addGap(526, 526, 526))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnLibro1)
+                        .addGap(163, 163, 163))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

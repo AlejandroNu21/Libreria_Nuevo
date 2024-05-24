@@ -205,7 +205,6 @@ public class JpVentas extends javax.swing.JPanel {
         btnLibro1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnLibro1.setForeground(new java.awt.Color(255, 255, 255));
         btnLibro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reporte-de-negocios (2).png"))); // NOI18N
-        btnLibro1.setText("Informe");
         btnLibro1.setBorder(null);
         btnLibro1.setBorderPainted(false);
         btnLibro1.setContentAreaFilled(false);
@@ -243,8 +242,8 @@ public class JpVentas extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtIDVENTA, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))))
+                        .addComponent(btnLibro1)
+                        .addGap(37, 37, 37))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -60,26 +60,26 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel52.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel52.setText("Id");
+        jLabel52.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel52.setText("Lector");
 
         txtIdLector.setEditable(false);
         txtIdLector.setEnabled(false);
 
-        jLabel49.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel49.setText("Codigo Lector ");
 
         txtNombreLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
-        jLabel53.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel53.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel53.setText("Nombre ");
 
-        jLabel47.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel47.setText("Apellido");
 
         txtApellidoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
-        jLabel48.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel48.setText("Edad");
 
         txtEdadLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -91,10 +91,10 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
 
         txtDireccionLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
-        jLabel50.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel50.setText("Direccion");
 
-        jLabel51.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel51.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel51.setText("Telefono");
 
         txtTelefonoLector.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -167,7 +167,7 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
                 .addGap(47, 47, 47)
-                .addComponent(lblLect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblLect, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addGap(47, 47, 47)
                 .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -206,10 +206,10 @@ public class JfrmLectorCrud extends javax.swing.JFrame {
                     .addComponent(txtNombreLector)
                     .addComponent(txtTelefonoLector, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCodigoLector)
-                    .addComponent(txtIdLector, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                    .addComponent(txtEdadLector, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEdadLector, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdLector, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -65,7 +65,7 @@ public class JfrmClienteCrud extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel33.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel33.setText("Codigo Cliente ");
+        jLabel33.setText("DUI Cliente");
 
         txtCodigoCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtCodigoCliente.setMaximumSize(new java.awt.Dimension(500, 0));

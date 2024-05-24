@@ -149,7 +149,7 @@ public class JfrmEditorialCrud extends javax.swing.JFrame {
         lblInCl.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         lblInCl.setForeground(new java.awt.Color(255, 255, 255));
         lblInCl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblInCl.setText("Insertar Editorial");
+        lblInCl.setText("Agregar Editorial");
 
         javax.swing.GroupLayout pnlEditorialLayout = new javax.swing.GroupLayout(pnlEditorial);
         pnlEditorial.setLayout(pnlEditorialLayout);
