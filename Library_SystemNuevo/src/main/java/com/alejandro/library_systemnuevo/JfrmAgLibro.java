@@ -294,8 +294,8 @@ if (tblAgLibro.getSelectedRowCount() > 0) {
             
             
             int selectedRow = tblAgLibro.getSelectedRow();
-            jpVent.txtclib.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 1)));
-            jpVent.txtLibro.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 3)));
+            jpVent.txtclib.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 3)));
+            jpVent.txtLibro.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 1)));
             jpVent.txtPrecio.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 6)));
             jpVent.txtStock.setText(String.valueOf(tblAgLibro.getValueAt(selectedRow, 5)));
             

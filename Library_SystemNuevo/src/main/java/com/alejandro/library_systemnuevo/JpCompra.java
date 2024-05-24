@@ -342,7 +342,7 @@ public class JpCompra extends javax.swing.JPanel {
         btnLibro1.setBackground(new java.awt.Color(153, 153, 153));
         btnLibro1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnLibro1.setForeground(new java.awt.Color(255, 255, 255));
-        btnLibro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/open-book.png"))); // NOI18N
+        btnLibro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reporte-de-negocios (2).png"))); // NOI18N
         btnLibro1.setText("Informe");
         btnLibro1.setBorder(null);
         btnLibro1.setBorderPainted(false);

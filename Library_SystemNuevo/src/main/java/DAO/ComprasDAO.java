@@ -135,7 +135,7 @@ return count;
         
         
         //ComprasOrdenadas
-        public ArrayList<ComprasVM> ListadetalleCompras() {
+        public ArrayList<ComprasVM> ListadetalleCompras(String Busqueda) {
         ArrayList<ComprasVM> lista = null;
         CallableStatement cb = null;
         ResultSet resultado = null;
@@ -143,7 +143,8 @@ return count;
             conexion = con.getConecction();
             lista = new ArrayList<ComprasVM>();
 
-            cb = conexion.prepareCall("{call sp_ij_compras}");
+            cb = conexion.prepareCall("{call sp_ij_compras(?)}");
+            cb.setString(1, Busqueda);
             resultado = cb.executeQuery();
 
             while (resultado.next()) {
@@ -163,7 +164,7 @@ return count;
             }
 
         } catch (Exception e) {
-            System.out.println("Error al mostrar los datos de las ventas" + e);
+            System.out.println("Error al mostrar los datos de las compras" + e);
 
         } finally {
             try {

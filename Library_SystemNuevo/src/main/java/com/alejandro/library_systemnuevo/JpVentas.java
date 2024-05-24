@@ -136,6 +136,7 @@ public class JpVentas extends javax.swing.JPanel {
         txtNumeroDoc = new javax.swing.JTextField();
         txtIDVENTA = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        btnLibro1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txtCCliente = new javax.swing.JLabel();
         btnMC = new javax.swing.JButton();
@@ -200,6 +201,27 @@ public class JpVentas extends javax.swing.JPanel {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Factura No.");
 
+        btnLibro1.setBackground(new java.awt.Color(153, 153, 153));
+        btnLibro1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        btnLibro1.setForeground(new java.awt.Color(255, 255, 255));
+        btnLibro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reporte-de-negocios (2).png"))); // NOI18N
+        btnLibro1.setText("Informe");
+        btnLibro1.setBorder(null);
+        btnLibro1.setBorderPainted(false);
+        btnLibro1.setContentAreaFilled(false);
+        btnLibro1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLibro1.setFocusPainted(false);
+        btnLibro1.setFocusable(false);
+        btnLibro1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLibro1.setOpaque(true);
+        btnLibro1.setRequestFocusEnabled(false);
+        btnLibro1.setRolloverEnabled(false);
+        btnLibro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLibro1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -215,9 +237,14 @@ public class JpVentas extends javax.swing.JPanel {
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtIDVENTA, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumeroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(408, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtNumeroDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(408, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtIDVENTA, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +259,8 @@ public class JpVentas extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtIDVENTA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -282,7 +310,7 @@ public class JpVentas extends javax.swing.JPanel {
         });
 
         txtCCliente2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        txtCCliente2.setText("CODIGO LIBRO");
+        txtCCliente2.setText("LIBRO:");
 
         btnML.setBackground(new java.awt.Color(41, 50, 65));
         btnML.setForeground(new java.awt.Color(255, 255, 255));
@@ -311,7 +339,7 @@ public class JpVentas extends javax.swing.JPanel {
         });
 
         txtCCliente3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        txtCCliente3.setText("LIBRO:");
+        txtCCliente3.setText("CODIGO LIBRO:");
 
         txtLibro.setEditable(false);
 
@@ -991,12 +1019,19 @@ public class JpVentas extends javax.swing.JPanel {
 
     }//GEN-LAST:event_txtIDVENTAKeyTyped
 
+    private void btnLibro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibro1ActionPerformed
+        JfrmInfVentas formulario = new JfrmInfVentas();
+       formulario.jpinfv = this;
+        formulario.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btnLibro1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnBorrar;
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JButton btnADD;
     private javax.swing.JButton btnAgregarVenta;
+    private javax.swing.JButton btnLibro1;
     private javax.swing.JButton btnMC;
     private javax.swing.JButton btnML;
     private javax.swing.ButtonGroup buttonGroup1;

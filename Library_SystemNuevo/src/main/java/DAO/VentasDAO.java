@@ -9,6 +9,7 @@ import Entidades.Libro;
 import Entidades.clientes;
 import Entidades.detalleVentas;
 import Entidades.venttas;
+import ViewModel.VentasVM;
 import com.Library.BD.ConexionAMYSQL;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -177,5 +178,50 @@ return count;
         return id;
         }
                 
-    
+      //VentasOrdenadas
+          //ComprasOrdenadas
+        public ArrayList<VentasVM> ListadetalleVentas(String Busqueda) {
+        ArrayList<VentasVM> lista = null;
+        CallableStatement cb = null;
+        ResultSet resultado = null;
+        try {
+            conexion = con.getConecction();
+            lista = new ArrayList<VentasVM>();
+
+            cb = conexion.prepareCall("{call sp_ij_ventas(?)}");
+            cb.setString(1, Busqueda);
+            resultado = cb.executeQuery();
+
+
+            while (resultado.next()) {
+                //LibroVM li = new LibroVM();
+                lista.add(new VentasVM(
+                        resultado.getInt("id_venta"),
+                        resultado.getDate("fecha_venta"),
+                        resultado.getString("documento_cliente"),
+                        resultado.getString("nombre_cliente"),
+                        resultado.getString("codigo_libro"),
+                        resultado.getString("titulo_libro"),
+                        resultado.getInt("cantidad_venta"),
+                        resultado.getDouble("precio_venta")));
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al mostrar los datos de las ventas" + e);
+
+        } finally {
+            try {
+                resultado.close();
+                cb.close();
+                conexion.close();
+            } catch (Exception e) {
+                System.out.println("Error, no se han cerrado las conexiones correctamenbte" + e);
+            }
+
+        }
+
+        return lista;
+
+    }
 }

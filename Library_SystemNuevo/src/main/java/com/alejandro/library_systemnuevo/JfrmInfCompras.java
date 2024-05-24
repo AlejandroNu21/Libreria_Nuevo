@@ -36,29 +36,29 @@ public class JfrmInfCompras extends javax.swing.JFrame {
         carga();
     }
     public void carga() {
-        String titulos[] = { "Fecha", "Cod_Libro", "Titulo", "Precio", "Cod_Editorial", "Editorial", "cantidad", "PrecioCompra"};
-        Double numero[] = new Double[8];
+        String titulos[] = {"No. Factura", "Fecha", "Cod_Libro", "Titulo", "Precio", "Cod_Editorial", "Editorial", "cantidad", "PrecioCompra"};
+        Double numero[] = new Double[9];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
 //"Id_Compra",
         ComprasDAO es = new ComprasDAO();
-        ArrayList<ComprasVM> listar = es.ListadetalleCompras();
-       // ArrayList<PrestamoVM> listar = es.ListaPrestamo();
+        ArrayList<ComprasVM> listar = es.ListadetalleCompras(txtBusq.getText());
+       
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[8];
+        Object fila[] = new Object[9];
 
         while (iterador.hasNext()) {
             //CASTEAR
             ComprasVM estBucle = (ComprasVM) iterador.next();
-            //fila[0] = estBucle.getIdCompra();
-            fila[0] = estBucle.getFechaCompra();
-            fila[1] = estBucle.getCodigoLibro();
-            fila[2] = estBucle.getTituloLibro();
-            fila[3] = estBucle.getPrecioLibro();
-            fila[4] = estBucle.getCodigoEditorial();
-            fila[5] = estBucle.getNombreEditorial();
-            fila[6] = estBucle.getCantidadCompra();
-            fila[7] = estBucle.getPrecioCompra();
+            fila[0] = estBucle.getIdCompra();
+            fila[1] = estBucle.getFechaCompra();
+            fila[2] = estBucle.getCodigoLibro();
+            fila[3] = estBucle.getTituloLibro();
+            fila[4] = estBucle.getPrecioLibro();
+            fila[5] = estBucle.getCodigoEditorial();
+            fila[6] = estBucle.getNombreEditorial();
+            fila[7] = estBucle.getCantidadCompra();
+            fila[8] = estBucle.getPrecioCompra();
             df.addRow(fila);
         }
         tblInfo.setModel(df);
@@ -91,6 +91,8 @@ public class JfrmInfCompras extends javax.swing.JFrame {
         panel1 = new java.awt.Panel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblInfo = new javax.swing.JTable();
+        txtBusq = new javax.swing.JTextField();
+        btnBusqueda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -175,6 +177,35 @@ public class JfrmInfCompras extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblInfo);
 
+        txtBusq.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtBusqMousePressed(evt);
+            }
+        });
+        txtBusq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusqActionPerformed(evt);
+            }
+        });
+        txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBusqKeyPressed(evt);
+            }
+        });
+
+        btnBusqueda.setBackground(new java.awt.Color(41, 50, 65));
+        btnBusqueda.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search.png"))); // NOI18N
+        btnBusqueda.setText("Buscar");
+        btnBusqueda.setContentAreaFilled(false);
+        btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBusqueda.setOpaque(true);
+        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -183,13 +214,23 @@ public class JfrmInfCompras extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBusqueda)
+                .addGap(238, 238, 238))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusqueda))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 910, 460));
@@ -237,6 +278,22 @@ int y;
          }
     }//GEN-LAST:event_tblInfoMouseClicked
 
+    private void txtBusqMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBusqMousePressed
+
+    }//GEN-LAST:event_txtBusqMousePressed
+
+    private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusqActionPerformed
+
+    private void txtBusqKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusqKeyPressed
+        carga();      // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusqKeyPressed
+
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBusquedaActionPerformed
+
     JpCompra jpinf;
     /**
      * @param args the command line arguments
@@ -277,6 +334,7 @@ int y;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBusqueda;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JLabel lblCerrar;
@@ -284,5 +342,6 @@ int y;
     private java.awt.Panel panel1;
     public javax.swing.JPanel pnlHeaderCl;
     public javax.swing.JTable tblInfo;
+    private javax.swing.JTextField txtBusq;
     // End of variables declaration//GEN-END:variables
 }

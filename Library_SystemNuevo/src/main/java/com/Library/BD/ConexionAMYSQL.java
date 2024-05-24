@@ -18,14 +18,14 @@ public class ConexionAMYSQL {
     private static Connection ConnectionBD = null;
     public Connection getConecction (){
     try {
-        
+        String timeZoneQuery = "SET time_zone = '-3:00';";
         String url = "jdbc:mysql://localhost:3306/libreria_db";
         String user = "Vkaiido";
         String password ="root";
         
         ConnectionBD=DriverManager.getConnection(url,user,password);
         //System.out.println("Conexion Exitosa");
-        
+         ConnectionBD.createStatement().execute(timeZoneQuery);
     }catch (Exception e){
         JOptionPane.showMessageDialog(null, "Error"+e.toString());
         

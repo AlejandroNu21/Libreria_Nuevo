@@ -4,12 +4,14 @@
  */
 package com.alejandro.library_systemnuevo;
 
-import DAO.ClientesDao;
-import Entidades.clientes;
+
+
+import DAO.VentasDAO;
+import ViewModel.ComprasVM;
+import ViewModel.VentasVM;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import utilidades.GestionColumnas;
@@ -19,56 +21,57 @@ import utilidades.GestionEncabezadoTabla;
  *
  * @author kaido
  */
-public class JfrmAgCliente extends javax.swing.JFrame {
+public class JfrmInfVentas extends javax.swing.JFrame {
 
     /**
      * Creates new form JfrmAgCliente
      */
-    public JfrmAgCliente() {
+    public JfrmInfVentas() {
         initComponents();
         setBackground(new Color(0,0,0,0) );
         setLocationRelativeTo(null);
         //tblAgCliente.setEditable(false);
         carga();
     }
-public void carga() {
-//DefaultTableModel model = (DefaultTableModel) tblAgCliente.getModel();
-//tblAgCliente.setEditable(false); // Establece la tabla como no editable
-
-        String titulos[] = {"Id", "DUI", "Nombre", "Apellido"};
-        //Ejemplosdearreglos
-        //Double numero[] = new Double[7];
+    public void carga() {
+        String titulos[] = {"No. Factura", "Fecha","DUI","Cliente", "Cod_Libro", "Titulo", "Cantidad", "Precio"};
+        Double numero[] = new Double[8];
         DefaultTableModel df = new DefaultTableModel(null, titulos);
-
-        ClientesDao es = new ClientesDao();
-        ArrayList<clientes> listar = es.BusquedaClientes(txtBusq.getText());
+//"Id_Compra",
+        VentasDAO es = new VentasDAO();
+        ArrayList<VentasVM> listar = es.ListadetalleVentas(txtBusq.getText());
+       // ArrayList<PrestamoVM> listar = es.ListaPrestamo();
 
         Iterator iterador = listar.iterator();
-        Object fila[] = new Object[4];
+        Object fila[] = new Object[8];
 
         while (iterador.hasNext()) {
             //CASTEAR
-            clientes estBucle = (clientes) iterador.next();
-            fila[0] = estBucle.getId_cliente();
-            fila[1] = estBucle.getDocumento_cliente();
-            fila[2] = estBucle.getNombre_cliente();
-            fila[3] = estBucle.getApellido_cliente();
-            
+            VentasVM estBucle = (VentasVM) iterador.next();
+            fila[0] = estBucle.getIdVenta();
+            fila[1] = estBucle.getFechaVenta();
+            fila[2] = estBucle.getDocumentoCliente();
+            fila[3] = estBucle.getNombreCliente();
+            fila[4] = estBucle.getCodigoLibro();
+            fila[5] = estBucle.getTituloLibro();
+            fila[6] = estBucle.getCantidadVenta();
+            fila[7] = estBucle.getPrecioVenta();
             df.addRow(fila);
         }
-        tblAgCliente.setModel(df);
+        tblInfo.setModel(df);
 
-        tblAgCliente.getTableHeader().setReorderingAllowed(false);
-        tblAgCliente.setRowHeight(30);
-        tblAgCliente.setGridColor(new java.awt.Color(0, 0, 0));
+        tblInfo.getTableHeader().setReorderingAllowed(false);
+        tblInfo.setRowHeight(30);
+        tblInfo.setGridColor(new java.awt.Color(0, 0, 0));
 
         //PERSONALIZAR ENCABEZADO
-        JTableHeader jtableHeader = tblAgCliente.getTableHeader();
+        JTableHeader jtableHeader = tblInfo.getTableHeader();
         jtableHeader.setDefaultRenderer(new GestionEncabezadoTabla());
-        tblAgCliente.setTableHeader(jtableHeader);
+        tblInfo.setTableHeader(jtableHeader);
 
-        tblAgCliente.setDefaultRenderer(Object.class, new GestionColumnas());
+        tblInfo.setDefaultRenderer(Object.class, new GestionColumnas());
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,7 +87,7 @@ public void carga() {
         lblInCl = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblAgCliente = new javax.swing.JTable();
+        tblInfo = new javax.swing.JTable();
         txtBusq = new javax.swing.JTextField();
         btnBusqueda = new javax.swing.JButton();
 
@@ -121,7 +124,7 @@ public void carga() {
         lblInCl.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         lblInCl.setForeground(new java.awt.Color(255, 255, 255));
         lblInCl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblInCl.setText("Agregar Cliente");
+        lblInCl.setText("Informe de Ventas");
 
         javax.swing.GroupLayout pnlHeaderClLayout = new javax.swing.GroupLayout(pnlHeaderCl);
         pnlHeaderCl.setLayout(pnlHeaderClLayout);
@@ -130,28 +133,31 @@ public void carga() {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderClLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblInCl, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(lblInCl, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         pnlHeaderClLayout.setVerticalGroup(
             pnlHeaderClLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
             .addGroup(pnlHeaderClLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlHeaderClLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlHeaderClLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlHeaderClLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lblInCl, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderClLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(lblInCl, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
         );
 
-        getContentPane().add(pnlHeaderCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 80));
+        getContentPane().add(pnlHeaderCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 80));
 
-        tblAgCliente.setModel(new javax.swing.table.DefaultTableModel(
+        panel1.setBackground(new java.awt.Color(204, 204, 204));
+
+        tblInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -162,16 +168,21 @@ public void carga() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblAgCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblAgClienteMouseClicked(evt);
+                tblInfoMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tblAgCliente);
+        jScrollPane2.setViewportView(tblInfo);
 
         txtBusq.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtBusqMousePressed(evt);
+            }
+        });
+        txtBusq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusqActionPerformed(evt);
             }
         });
         txtBusq.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -187,20 +198,6 @@ public void carga() {
         btnBusqueda.setContentAreaFilled(false);
         btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBusqueda.setOpaque(true);
-        btnBusqueda.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBusquedaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBusquedaMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnBusquedaMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btnBusquedaMouseReleased(evt);
-            }
-        });
         btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBusquedaActionPerformed(evt);
@@ -211,30 +208,30 @@ public void carga() {
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnBusqueda)
-                .addGap(122, 122, 122))
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(276, 276, 276)
+                .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBusqueda)
+                .addContainerGap(223, Short.MAX_VALUE))
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(17, 17, 17)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                    .addComponent(txtBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusqueda))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 600, 350));
+        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 910, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -258,6 +255,26 @@ int y;
         y=evt.getY();
 
     }//GEN-LAST:event_pnlHeaderClMousePressed
+//public void seleccionarEdit(){
+//if (tblInfo.getSelectedRowCount() > 0) {
+//            
+//            
+//            int selectedRow = tblInfo.getSelectedRow();
+//            jpComprs.txtCodigoEdit.setText(String.valueOf(tblInfo.getValueAt(selectedRow, 1)));
+//            jpComprs.txtEdit1.setText(String.valueOf(tblInfo.getValueAt(selectedRow, 2)));
+//            jpComprs.ided = (int) tblInfo.getValueAt(tblInfo.getSelectedRow(), 0);
+//             
+//            this.setVisible(false);
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
+//        }}
+
+
+    private void tblInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblInfoMouseClicked
+         if (evt.getClickCount() == 1) {
+         //seleccionarEdit();
+         }
+    }//GEN-LAST:event_tblInfoMouseClicked
 
     private void txtBusqMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBusqMousePressed
 
@@ -267,47 +284,15 @@ int y;
         carga();      // TODO add your handling code here:
     }//GEN-LAST:event_txtBusqKeyPressed
 
-    private void btnBusquedaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseEntered
-        btnBusqueda.setBackground(new Color(75, 163, 252));
-    }//GEN-LAST:event_btnBusquedaMouseEntered
-
-    private void btnBusquedaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseExited
-        btnBusqueda.setBackground(new Color(41, 50, 65));
-    }//GEN-LAST:event_btnBusquedaMouseExited
-
-    private void btnBusquedaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMousePressed
-        btnBusqueda.setBackground(new Color(75, 163, 252));
-    }//GEN-LAST:event_btnBusquedaMousePressed
-
-    private void btnBusquedaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBusquedaMouseReleased
-        btnBusqueda.setBackground(new Color(41, 50, 65));
-    }//GEN-LAST:event_btnBusquedaMouseReleased
-public void seleccionarCleiente(){
-if (tblAgCliente.getSelectedRowCount() > 0) {
-            
-            
-            int selectedRow = tblAgCliente.getSelectedRow();
-            jpVent.txtClinte.setText(String.valueOf(tblAgCliente.getValueAt(selectedRow, 2)));
-            jpVent.txtCliente.setText(String.valueOf(tblAgCliente.getValueAt(selectedRow, 1)));
-            jpVent.idc = (int) tblAgCliente.getValueAt(tblAgCliente.getSelectedRow(), 0);
-             
-            this.setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccione una fila", "Aviso", 1);
-        }
-
-}
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
-        //seleccionarCleiente();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnBusquedaActionPerformed
 
-    private void tblAgClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAgClienteMouseClicked
-         if (evt.getClickCount() == 1) {
-         seleccionarCleiente();
-         }
-    }//GEN-LAST:event_tblAgClienteMouseClicked
+    private void txtBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusqActionPerformed
 
-    public JpVentas jpVent;
+    JpVentas jpinfv;
     /**
      * @param args the command line arguments
      */
@@ -325,20 +310,27 @@ if (tblAgCliente.getSelectedRowCount() > 0) {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmInfVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmInfVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmInfVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JfrmAgCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JfrmInfVentas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JfrmAgCliente().setVisible(true);
+                new JfrmInfVentas().setVisible(true);
             }
         });
     }
@@ -351,7 +343,7 @@ if (tblAgCliente.getSelectedRowCount() > 0) {
     public javax.swing.JLabel lblInCl;
     private java.awt.Panel panel1;
     public javax.swing.JPanel pnlHeaderCl;
-    public javax.swing.JTable tblAgCliente;
+    public javax.swing.JTable tblInfo;
     private javax.swing.JTextField txtBusq;
     // End of variables declaration//GEN-END:variables
 }
