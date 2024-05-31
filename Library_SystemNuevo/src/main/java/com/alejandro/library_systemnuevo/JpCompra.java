@@ -685,13 +685,16 @@ public class JpCompra extends javax.swing.JPanel {
     private void btnAgregarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCompraActionPerformed
 
         if (ided != 0 && idlb != 0) {
-
+if (tblCompra.getRowCount() == 0) {
+        
+        JOptionPane.showMessageDialog(null, "No ha ingresado ningún libro", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        return; 
+    }else{
             guardarCompra();
             guardarDetalle();
-            //JOptionPane.showMessageDialog(null, "Detalle de compras agregadas");
             limpiar();
             clearTable();
-        } else {
+        } }else {
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
 

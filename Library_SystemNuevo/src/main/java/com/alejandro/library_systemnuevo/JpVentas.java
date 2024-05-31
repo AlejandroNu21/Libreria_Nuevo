@@ -824,6 +824,8 @@ public class JpVentas extends javax.swing.JPanel {
     }
 
     private void guardarDetalle() {
+        
+        
         detalleVentas dtv = new detalleVentas();
         VentasDAO ventasDao = new VentasDAO();
 
@@ -848,15 +850,20 @@ public class JpVentas extends javax.swing.JPanel {
 
 
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed
-
+ 
         if (idc != 0 && idlb != 0) {
+            if (tblVenta.getRowCount() == 0) {
+        
+        JOptionPane.showMessageDialog(null, "No ha ingresado ningún libro", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        return; 
+    }else{
             guardarVenta();
             guardarDetalle();
             //JOptionPane.showMessageDialog(null, "Detalle de ventas agregadas");
             limpiar();
-            clearTable();
+            clearTable();}
         } else {
-            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+            JOptionPane.showMessageDialog(null, "Llene todos los campos","Advertencia", JOptionPane.WARNING_MESSAGE);
         }
 
     }//GEN-LAST:event_btnAgregarVentaActionPerformed
